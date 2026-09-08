@@ -1,0 +1,29 @@
+# GitHub Pages configuration for AI on IBM Z
+# https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll
+
+# Site identity
+title: AI on IBM Z
+description: >
+  A technical reference site for AI on IBM Z and LinuxONE — covering hardware
+  acceleration, the AI lifecycle, products & tools, and solution blueprints.
+
+# Disable Jekyll processing so GitHub Pages serves the raw HTML/CSS/JS files
+# without Jekyll trying to interpret them.
+# This is the correct setting for a plain static site with no Liquid templates.
+plugins: []
+
+# Tell Jekyll to pass through all file types without processing
+include:
+  - "*.html"
+  - "*.css"
+  - "*.js"
+
+# Exclude files that should not be published
+exclude:
+  - "*.DS_Store"
+  - "README.md"
+  - "*.docx"
+  - "*.pdf"
+  - "*.txt"
+  - "node_modules/"
+  - ".bob/"

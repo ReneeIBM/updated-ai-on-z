@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Hardware Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── TELUM ─────────────────────────────────────────────────── -->
+        <section class="section" id="telum">
+          <h1>IBM Integrated Accelerator for AI (Telum)</h1>
+
+          <h2>What is the IBM Integrated Accelerator for AI?</h2>
+          <p>The IBM Integrated Accelerator for AI is an on-chip AI accelerator available on the IBM Telum chip — part of IBM z16, LinuxONE 4, and now IBM z17 (Telum II) servers. It is designed to enable high throughput, low latency inference for deep learning and machine learning.</p>
+          <p>You can build and train your models on any platform, including IBM Z. When you are ready to deploy, your models receive transparent acceleration and optimization on-chip, leveraging the best available acceleration for the model type.</p>
+          <p>The IBM Integrated Accelerator for AI is more than just a matrix multiply accelerator — it provides optimization and acceleration for a wide set of complex functions commonly found in deep learning and machine learning models, enabling a broader set of operations to run on-chip.</p>
+
+          <h2>Why the Integrated Accelerator?</h2>
+          <ul>
+            <li><strong>On-chip, no GPU required</strong> — AI inference runs directly on the Telum processor alongside your business transactions, with no external hardware needed.</li>
+            <li><strong>High throughput, low latency</strong> — Designed for real-time scoring at enterprise scale, enabling AI decisions within transaction flows.</li>
+            <li><strong>Transparent acceleration</strong> — Supported frameworks automatically offload eligible operations to the accelerator — no model rewriting required.</li>
+            <li><strong>Security and compliance</strong> — Data never leaves the IBM Z platform, preserving the security and governance properties of your enterprise environment.</li>
+          </ul>
+
+          <h2>Example Use Cases</h2>
+          <div class="card-grid">
+            <div class="card"><h4>Fraud Detection</h4><p>Identify potentially fraudulent transactions as they occur, helping reduce losses and improve customer experience.</p></div>
+            <div class="card"><h4>Credit Risk Assessment</h4><p>Evaluate risk in real time to support faster lending and approval decisions.</p></div>
+            <div class="card"><h4>Payment Authorization</h4><p>Enhance payment processing with intelligent scoring and anomaly detection.</p></div>
+            <div class="card"><h4>Anti-Money Laundering</h4><p>Detect suspicious activity and support compliance initiatives through AI-powered analysis.</p></div>
+          </div>
+
+          <h2>Supported Operations by Machine Generation</h2>
+          <p>The following operations are supported on the accelerator by machine generation. Telum II (IBM z17) adds significant new capabilities including INT8 quantization, Layer Normalization, Gelu, and more:</p>
+          <details class="expand-card">
+            <summary>
+              <span class="expand-card-title">View supported operations table</span>
+              <span class="expand-card-caret">▾</span>
+            </summary>
+            <div class="expand-card-body">
+              <table class="ops-table">
+                <thead>
+                  <tr><th>Operation</th><th>z16 / LinuxONE 4 (Telum I)</th><th>z17 (Telum II)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="cap-label">LSTM Activation</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">GRU Activation</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Fused Matrix Multiply, Bias op</td><td>✓</td><td>+ transpose, INT8 quantization</td></tr>
+                  <tr><td class="cap-label">Fused Matrix Multiply (w/ broadcast)</td><td>✓</td><td>+ transpose, INT8 quantization</td></tr>
+                  <tr><td class="cap-label">Batch Normalization</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Fused Convolution, Bias Add, Relu</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">L2 Norm</td><td>—</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Layer Normalization</td><td>—</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Max Pool 2D</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Average Pool 2D</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Softmax</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Relu</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Leaky Relu</td><td>—</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Gelu</td><td>—</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Tanh</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Sigmoid</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Add / Subtract / Multiply / Divide</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Min / Max / Log</td><td>✓</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Square root</td><td>—</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Transform (Tensor)</td><td>—</td><td>✓</td></tr>
+                  <tr><td class="cap-label">Reduce</td><td>—</td><td>✓</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <h2>Using the Integrated Accelerator for AI</h2>
+          <p>Depending on your model type, there are a few essential approaches to leveraging the Integrated Accelerator for AI. These capabilities are available in IBM product offerings as well as through no-cost channels (such as the IBM Z Container Image Registry).</p>
+          <p><strong>For deep learning models</strong> (PyTorch, TensorFlow):</p>
+          <ul>
+            <li><a href="../products-tools/ai-frameworks.html#onnx-zdlc">ONNX models compiled with the IBM Z Deep Learning Compiler (zDLC)</a></li>
+            <li><a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow</a> — transparent zDNN offload</li>
+            <li><a href="../products-tools/ai-frameworks.html#pytorch">IBM Z Accelerated for PyTorch</a> — Telum I and II acceleration</li>
+          </ul>
+          <p><strong>For traditional ML models</strong> (scikit-learn, XGBoost, LightGBM):</p>
+          <ul>
+            <li><a href="../products-tools/ai-frameworks.html#snapml">IBM Snap ML</a> — optimized training and inference with Telum acceleration for Random Forest, Extra Trees, and Gradient Boosting</li>
+          </ul>
+          <p><strong>For framework and compiler developers</strong>:</p>
+          <ul>
+            <li><a href="https://github.com/IBM/zDNN" target="_blank" rel="noopener">IBM zDNN</a> — the low-level C library exposing Telum AI accelerator operations. Available in z/OS in all in-service releases, and for RHEL, Ubuntu, and SUSE.</li>
+          </ul>
+          <a href="https://www.ibm.com/blog/ibm-telum-processor-the-next-gen-microprocessor-for-ibm-z-and-ibm-linuxone/" class="learn-more" target="_blank" rel="noopener">IBM Telum processor announcement &#8594;</a>
+        </section>
+
+        <!-- ── SPYRE ──────────────────────────────────────────────────── -->
+        <section class="section" id="spyre">
+          <h1>IBM Spyre Accelerator</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../deploy-models/deploy-models.html">Deploy Models</a> · <a href="../serve-model/serve-model.html">Serve Model</a></p>
+
+          <p>The IBM Spyre Accelerator is a system-on-a-chip PCIe card purpose-built to bring generative AI and large language model inferencing to IBM Z. Compatible with IBM z17, it slots directly into the IBM Z system alongside the existing Telum processor, adding dedicated AI compute optimized for the matrix and vector operations that dominate LLM and foundation model workloads. Spyre evolved from IBM Research's AIU prototype — expanding from the single on-chip accelerator core in Telum to 32 individual accelerator cores per card, with cards clusterable for up to 256 cores per system. It is designed for organizations running IBM Z who need to deploy generative AI — LLMs, RAG applications, intelligent assistants — entirely within their existing on-premises infrastructure, without shipping data to an external cloud or GPU cluster. The problem it solves is real: roughly 70% of the world's transactions by value run through IBM mainframes, and until Spyre, running LLM-class AI on that data meant moving it somewhere else. Spyre changes that.</p>
+
+          <h2>Key Capabilities</h2>
+          <ul>
+            <li>32 AI accelerator cores per PCIe card; cluster up to 8 cards for 256 cores on a single IBM Z system</li>
+            <li>25.6 billion transistors on 5 nm node process — purpose-built for AI compute patterns, not general-purpose CPU</li>
+            <li>Supports FP16 (default), INT8, and INT4 precision; GPTQ quantization (W4A16) for reduced memory footprint</li>
+            <li>Tensor-parallel inference across multiple cards for large model support</li>
+            <li>Online serving (OpenAI-compatible API) and offline batch inference via vLLM and the <code>vllm-spyre</code> plugin</li>
+            <li>Supports IBM Granite, Llama, Mixtral, and other decoder-only transformer and encoder/embedding model architectures</li>
+            <li>Accessed through software platforms — no direct programming required after firmware configuration</li>
+          </ul>
+
+          <h2>On IBM Z</h2>
+          <p>Spyre covers the <strong>Deploy Models</strong> and <strong>Serve Model</strong> stages — specifically for generative AI and LLM workloads on IBM z17. It complements the Telum integrated accelerator, which handles real-time transactional AI (fraud detection, credit scoring) at transaction speed. Spyre handles a different class of workload: large foundation model inference, RAG, code modernization, and enterprise assistants — use cases that require sustained compute over larger models, not millisecond in-transaction scoring. Organizations in regulated industries where data cannot leave IBM Z, but who still need LLM-class AI capabilities, should evaluate Spyre as the hardware foundation for their generative AI strategy on the mainframe. After firmware configuration, workloads run through compatible software platforms:</p>
+          <ul>
+            <li><a href="../products-tools/ai-platforms.html#watsonx-ai">IBM watsonx.ai</a></li>
+            <li><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></li>
+            <li><a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> (via <code>vllm-spyre</code> plugin)</li>
+            <li>IBM Z Database Assistant · IBM watsonx Assistant for Z</li>
+          </ul>
+
+          <h2>Spyre Capabilities Reference</h2>
+          <details class="expand-card">
+            <summary>
+              <span class="expand-card-title">View technical capabilities</span>
+              <span class="expand-card-caret">▾</span>
+            </summary>
+            <div class="expand-card-body">
+              <table class="ops-table">
+                <thead><tr><th>Capability</th><th>Details</th></tr></thead>
+                <tbody>
+                  <tr><td class="cap-label">Compatible Systems</td><td>IBM z17</td></tr>
+                  <tr><td class="cap-label">Accelerator Cores</td><td>32 cores per PCIe card; up to 256 cores per 8-card cluster</td></tr>
+                  <tr><td class="cap-label">Process Technology</td><td>5 nm node</td></tr>
+                  <tr><td class="cap-label">Model Architectures</td><td>Decoder-only transformer LLMs; encoder / embedding models</td></tr>
+                  <tr><td class="cap-label">Representative Models</td><td>IBM Granite, Llama, Mixtral</td></tr>
+                  <tr><td class="cap-label">Runtime Precision</td><td>FP16 (default); INT4, INT8 supported</td></tr>
+                  <tr><td class="cap-label">Quantization</td><td>GPTQ (W4A16 — INT4 weights, FP16 activations)</td></tr>
+                  <tr><td class="cap-label">Serving Frameworks</td><td>vLLM (via <code>vllm-spyre</code> plugin), Triton Inference Server</td></tr>
+                  <tr><td class="cap-label">Parallelism</td><td>Tensor parallel inference (multi-card)</td></tr>
+                  <tr><td class="cap-label">Inference Modes</td><td>Offline batch; online serving (OpenAI-compatible API)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <p style="font-size:12px;color:var(--ibm-text-helper);margin-top:4px;">
+            Source: <a href="https://github.com/IBM/vllm-spyre" target="_blank" rel="noopener">IBM/vllm-spyre</a> &middot; <a href="https://www.ibm.com/support/z-content-solutions/spyre-accelerator-z-and-linuxone/" target="_blank" rel="noopener">IBM Spyre Accelerator content solution</a>
+          </p>
+
+          <h2>Telum vs. Spyre — Which to Use?</h2>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h4>Telum Integrated Accelerator</h4>
+              <ul>
+                <li>Real-time transactional AI</li>
+                <li>Fraud detection at transaction speed</li>
+                <li>Risk and credit scoring</li>
+                <li>Payment authorization</li>
+                <li>Ultra-low latency, on-chip inference</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h4>Spyre Accelerator</h4>
+              <ul>
+                <li>Generative AI and LLMs</li>
+                <li>RAG and enterprise assistants</li>
+                <li>Code modernization</li>
+                <li>Large-scale batch inference</li>
+                <li>Model fine-tuning (on roadmap)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Getting Started</h2>
+          <a href="https://www.ibm.com/support/z-content-solutions/spyre-accelerator-z-and-linuxone/" class="learn-more" target="_blank" rel="noopener">IBM Spyre Accelerator content solution hub &#8594;</a>
+          <a href="https://github.com/IBM/vllm-spyre" class="learn-more" target="_blank" rel="noopener">vllm-spyre plugin on GitHub &#8594;</a>
+          <a href="../products-tools/inference-serving.html#rh-inference" class="learn-more">Red Hat AI Inference Server (Spyre serving runtime) &#8594;</a>
+          <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI &#8594;</a>
+          <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'products',
+      activeSub: 'hardware-solutions',
+      pageNavItems: [
+        { id: 'telum', label: 'Integrated Accelerator for AI (Telum)' },
+        { id: 'spyre', label: 'IBM Spyre Accelerator' },
+      ]
+    });
+  </script>
+</body>
+</html>

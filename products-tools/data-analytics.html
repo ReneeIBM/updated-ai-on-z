@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Products &amp; Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── APACHE SPARK ──────────────────────────────────────────── -->
+        <section class="section" id="apache-spark">
+          <h1>IBM Z Platform for Apache Spark</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../train-model/train-model.html">Train Model</a></p>
+
+          <h2>What is Apache Spark?</h2>
+          <p>Apache Spark is a lightning-fast, open-source data-processing engine for machine learning and AI applications, backed by the largest open-source community in big data. It easily handles large-scale data sets and is a fast, general-purpose clustering system well-suited for PySpark. It is designed to deliver the computational speed, scalability, and programmability required for big data — specifically for streaming data, graph data, analytics, machine learning, large-scale data processing, and AI applications.</p>
+          <p>Spark's analytics engine processes data 10 to 100 times faster than alternatives like Hadoop for smaller workloads. It scales by distributing processing workflows across large clusters of computers with built-in parallelism and fault tolerance. It includes APIs for Scala, Java, Python, and R — languages popular among data analysts and data scientists.</p>
+          <p>Spark was developed in 2009 at UC Berkeley's AMPLab. Today it is maintained by the Apache Software Foundation and boasts the largest open-source community in big data, with over 1,000 contributors.</p>
+
+          <h2>IBM Z Platform for Apache Spark</h2>
+          <p>IBM Z Platform for Apache Spark packages Spark to run natively on z/OS — bringing large-scale data processing, feature engineering, and ML pipelines directly to the platform where your enterprise data lives. Instead of extracting data to an external cluster, Spark jobs run on z/OS alongside Db2, IMS, and transactional systems. This reduces data movement, simplifies architecture, and keeps sensitive data within z/OS's security boundary.</p>
+
+          <h2>How Apache Spark Works</h2>
+          <p>Spark has a hierarchical primary/secondary architecture. The <strong>Spark Driver</strong> is the primary node that controls the cluster manager, which manages secondary nodes and delivers results to the application client. Based on application code, the Spark Driver generates the <strong>SparkContext</strong>, which works with the cluster manager to distribute and monitor execution across nodes.</p>
+
+          <h3>Resilient Distributed Datasets (RDD)</h3>
+          <p>RDDs are fault-tolerant collections of elements distributed across cluster nodes and worked on in parallel. Once data is loaded into an RDD, Spark performs transformations and actions in memory — the key to its speed. Each dataset in an RDD is divided into logical partitions computed on different nodes. Users perform two types of operations: <strong>transformations</strong> (creating a new RDD) and <strong>actions</strong> (computing a result and returning it to the driver).</p>
+
+          <h3>Directed Acyclic Graph (DAG)</h3>
+          <p>Rather than the two-stage execution process in MapReduce, Spark creates a Directed Acyclic Graph (DAG) to schedule tasks and orchestrate worker nodes. The DAG scheduler facilitates efficiency and makes fault tolerance possible by reapplying recorded operations from a previous state.</p>
+
+          <h3>DataFrames and Datasets</h3>
+          <p>DataFrames are the most common structured API, representing tabular data with rows and columns. They are now the primary API for Spark's MLlib, providing uniformity across Scala, Java, Python, and R. Datasets are an extension of DataFrames that provide a type-safe, object-oriented interface — by default, a collection of strongly typed JVM objects.</p>
+
+          <h2>Advantages of Apache Spark</h2>
+          <ul>
+            <li><strong>Process faster</strong> — Up to 100x faster than Hadoop for smaller workloads due to advanced in-memory computing</li>
+            <li><strong>Accelerate app development</strong> — Spark Streaming and SQL programming models backed by MLlib and GraphX make it easier to build ML-powered applications</li>
+            <li><strong>Manage with ease</strong> — A unified engine supports SQL queries, streaming data, ML, and graph processing in one platform</li>
+            <li><strong>Broad language support</strong> — APIs for Python, Scala, Java, and R make Spark accessible to data engineers, data scientists, and developers alike</li>
+            <li><strong>Innovate faster</strong> — APIs provide ease of use for manipulating semi-structured data and transforming datasets</li>
+          </ul>
+
+          <h2>Apache Spark and Machine Learning</h2>
+          <p>Spark extends naturally into machine learning and AI through several built-in libraries:</p>
+          <ul>
+            <li><strong>Spark MLlib</strong> — Provides classification, regression, collaborative filtering, clustering, distributed linear algebra, decision trees, random forests, gradient-boosted trees, frequent pattern mining, and evaluation metrics at scale</li>
+            <li><strong>Spark GraphX</strong> — A graph abstraction extending RDDs for graph-parallel computation, useful for entity resolution and network analysis problems</li>
+            <li><strong>Spark Streaming</strong> — Enables scalable, fault-tolerant processing of live data streams, delivering data to file systems, databases, and dashboards in real time</li>
+          </ul>
+
+          <h2>On IBM Z: Key Capabilities</h2>
+          <table class="ops-table">
+            <thead><tr><th>Capability</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">Supported Languages</td><td>Python (PySpark), Scala, Java, R</td></tr>
+              <tr><td class="cap-label">Core Components</td><td>Spark SQL, Spark Streaming, MLlib, GraphX</td></tr>
+              <tr><td class="cap-label">Current Version</td><td>Apache Spark 3.5 with Java 17</td></tr>
+              <tr><td class="cap-label">Data Sources</td><td>Db2 for z/OS, IMS, VSAM, flat files, JDBC/ODBC</td></tr>
+              <tr><td class="cap-label">Security</td><td>Runs within z/OS security boundary; RACF integration; Secure All Ports</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Getting Started</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/support/z-content-solutions/journey-to-open-data-analytics/" target="_blank" rel="noopener">IBM Z open data analytics content solution</a></li>
+            <li><a href="https://www.ibm.com/docs/en/z-platform-apache-spark" target="_blank" rel="noopener">IBM Z Platform for Apache Spark documentation</a></li>
+            <li><a href="https://spark.apache.org/docs/latest/" target="_blank" rel="noopener">Apache Spark official documentation</a></li>
+            <li><a href="https://github.com/IBM/spark-on-z-samples" target="_blank" rel="noopener">IBM Spark on Z samples (GitHub)</a></li>
+          </ul>
+        </section>
+
+        <!-- ── SQL DATA INSIGHTS PRO ─────────────────────────────────── -->
+        <section class="section" id="sql-data-insights">
+          <h1>IBM SQL Data Insights Pro</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../deploy-models/deploy-models.html">Deploy &amp; Serve</a></p>
+
+          <h2>What is SQL Data Insights Pro?</h2>
+          <p>IBM SQL Data Insights Pro adds AI-powered semantic understanding directly inside Db2 for z/OS. It lets you query your data by <em>meaning</em> — finding similarities, patterns, and relationships that traditional SQL can't easily surface — using standard SQL syntax you already know. All processing happens on-chip via Telum AI acceleration, with no data leaving Db2 and no external infrastructure required.</p>
+
+          <h2>Why Use It on IBM Z</h2>
+          <ul>
+            <li><strong>Zero data movement</strong> — Embedding models and inference run entirely inside Db2 on z/OS. Sensitive enterprise data never leaves the platform.</li>
+            <li><strong>No new infrastructure</strong> — Runs on existing IBM Z hardware using Telum on-chip AI acceleration. No GPU, no separate ML cluster.</li>
+            <li><strong>SQL you already know</strong> — Query by similarity and meaning using standard SQL syntax. No Python, no vector database, no new query language.</li>
+            <li><strong>Works on structured and unstructured data</strong> — Analyze relational columns and free-text fields like comments, descriptions, and logs within the same query.</li>
+            <li><strong>Faster time to insight</strong> — Bypass the typical extract → move → process → return pipeline. Answers come from data where it already sits.</li>
+          </ul>
+
+          <h2>Key Capabilities</h2>
+          <table class="ops-table">
+            <thead><tr><th>Capability</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">Query Interface</td><td>Standard SQL — no new language or SDK required</td></tr>
+              <tr><td class="cap-label">AI Acceleration</td><td>Telum on-chip inference (IBM z16, z17, LinuxONE 4 and 5)</td></tr>
+              <tr><td class="cap-label">Data Types</td><td>Structured relational data; unstructured text (comments, logs, descriptions)</td></tr>
+              <tr><td class="cap-label">AI Capabilities</td><td>Semantic similarity search, embedding queries, pattern discovery, incremental retraining</td></tr>
+              <tr><td class="cap-label">Data Residency</td><td>All processing on z/OS — no data egress, no external model calls</td></tr>
+              <tr><td class="cap-label">Initial Dataset Support</td><td>Db2 for z/OS (IMS and VSAM on roadmap)</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Getting Started</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/products/db2/sql-data-insights" target="_blank" rel="noopener">IBM SQL Data Insights Pro product page</a></li>
+            <li><a href="https://www.ibm.com/docs/en/db2-for-zos/13?topic=features-data-insights" target="_blank" rel="noopener">IBM Documentation — Db2 SQL Data Insights</a></li>
+          </ul>
+        </section>
+
+        <!-- ── PYTHON AI TOOLKIT ─────────────────────────────────────── -->
+        <section class="section" id="python-ai-toolkit">
+          <h1>Python AI Toolkit for z/OS</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../train-model/train-model.html">Train Model</a> · <a href="../optimize-model/optimize-model.html">Optimize Model</a></p>
+
+          <h2>What is the Python AI Toolkit for z/OS?</h2>
+          <p>The Python AI Toolkit for z/OS is IBM's curated collection of ~235 Python packages that run natively on z/OS. It includes the core data science stack — pandas, NumPy, scikit-learn, XGBoost, SQLAlchemy, Matplotlib, and more — giving data scientists and engineers a familiar Python environment directly on the mainframe. Code runs on z/OS itself, accessing Db2, IMS, and VSAM data in place with no data movement required.</p>
+          <p>This toolkit is the foundation of the Python AI stack on z/OS and the most accessible entry point for teams already working in Python — the same notebooks and scripts that work on Linux work here.</p>
+
+          <h2>Why Use It on IBM Z</h2>
+          <ul>
+            <li><strong>Lowest barrier to entry</strong> — If your team knows Python, this is the fastest way to start working with z/OS data for AI. No new language or framework.</li>
+            <li><strong>Data stays on z/OS</strong> — Code runs on the mainframe so sensitive enterprise data never has to leave the platform.</li>
+            <li><strong>Full data access</strong> — Connect directly to Db2, IMS, and VSAM via SQLAlchemy, JDBC/ODBC, or z/OS-native connectors from Python.</li>
+            <li><strong>End-to-end Python workflow</strong> — Explore, prepare, train, and export — all in Python, all on z/OS.</li>
+            <li><strong>Foundation of the z/OS AI stack</strong> — Many IBM Z AI tools (including Machine Learning for z/OS) are built on top of this toolkit.</li>
+          </ul>
+
+          <h2>Key Packages</h2>
+          <table class="ops-table">
+            <thead><tr><th>Package</th><th>Used for</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">pandas</td><td>Data manipulation, cleaning, and exploration</td></tr>
+              <tr><td class="cap-label">NumPy</td><td>Numerical computing and array operations</td></tr>
+              <tr><td class="cap-label">scikit-learn</td><td>Traditional ML algorithms, pipelines, and preprocessing</td></tr>
+              <tr><td class="cap-label">XGBoost</td><td>Gradient boosted tree models for tabular data</td></tr>
+              <tr><td class="cap-label">SQLAlchemy</td><td>Database connectivity to Db2, IMS, and other z/OS sources</td></tr>
+              <tr><td class="cap-label">Matplotlib / Seaborn</td><td>Data visualization for exploratory analysis</td></tr>
+              <tr><td class="cap-label">ONNX / skl2onnx</td><td>Export scikit-learn and XGBoost models to ONNX for deployment</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Getting Started</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/docs/en/python-zos" target="_blank" rel="noopener">Python AI Toolkit for z/OS documentation</a></li>
+            <li><a href="https://github.com/IBM/ai-on-z-samples" target="_blank" rel="noopener">IBM AI on Z samples (GitHub)</a></li>
+            <li><a href="https://ibm.github.io/ai-on-z-101/" target="_blank" rel="noopener">AI on Z 101 GitHub page</a> — Tool compatibility reference</li>
+          </ul>
+        </section>
+
+        <!-- ── SYNTHETIC DATA SETS ───────────────────────────────────── -->
+        <section class="section" id="synthetic-data-sets">
+          <h1>IBM Synthetic Data Sets</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../train-model/train-model.html">Train Model</a> · <a href="../ai-governance/ai-governance.html">AI Governance</a></p>
+
+          <h2>What are IBM Synthetic Data Sets?</h2>
+          <p>IBM Synthetic Data Sets are enterprise-grade, artificially generated datasets designed for AI model development in financial services. They look and behave like real transaction data — with no real customer information — making them safe to use for building, testing, and demonstrating AI models without requiring access to production data.</p>
+          <p>One of the most common blockers in early-stage AI projects on IBM Z is data access. Getting approved access to production data takes time, and in regulated industries it may have restrictions that make it difficult to use freely for development. Synthetic Data Sets remove that blocker, letting teams move from idea to working model without waiting on data approvals.</p>
+
+          <h2>Why Use It</h2>
+          <ul>
+            <li><strong>Removes the data access blocker</strong> — No need to request, anonymize, or wait for production data. Start building immediately.</li>
+            <li><strong>Realistic financial services data</strong> — Datasets reflect the statistical properties and patterns of real financial transactions, not random noise.</li>
+            <li><strong>No seed data required</strong> — IBM generates the data entirely. Clients don't need to provide any real data to get started.</li>
+            <li><strong>Privacy and compliance safe</strong> — No real customer data means no GDPR, PCI-DSS, or privacy concerns during development and demos.</li>
+            <li><strong>Covers three lifecycle stages</strong> — Use the same datasets to build a model, validate it, and demonstrate results.</li>
+          </ul>
+
+          <h2>Available Datasets</h2>
+          <table class="ops-table">
+            <thead><tr><th>Dataset</th><th>Domain</th><th>Typical Use Case</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">Payment Cards</td><td>Banking &amp; Payments</td><td>Credit card fraud detection model training and validation</td></tr>
+              <tr><td class="cap-label">Core Banking &amp; Money Laundering</td><td>Banking</td><td>Anti-money laundering (AML) model development</td></tr>
+              <tr><td class="cap-label">Homeowners Insurance</td><td>Insurance</td><td>Insurance claims fraud detection</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Getting Started</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/products/synthetic-data-sets" target="_blank" rel="noopener">IBM Synthetic Data Sets product page</a></li>
+            <li><a href="https://www.ibm.com/docs/en/synthetic-data-sets" target="_blank" rel="noopener">IBM Synthetic Data Sets documentation</a></li>
+            <li><a href="https://github.com/IBM/ai-on-z-samples" target="_blank" rel="noopener">IBM AI on Z samples (GitHub)</a> — End-to-end examples using synthetic datasets</li>
+          </ul>
+        </section>
+
+        <!-- ── AI FRAMEWORKS & DEV TOOLS ────────────────────────────── -->
+        <section class="section" id="ai-frameworks">
+          <h1>AI Frameworks &amp; Development Tools</h1>
+          <p>IBM Z supports industry-standard AI and machine learning frameworks, allowing data scientists to build models using familiar tools and deploy them on the platform.</p>
+
+          <h2>TensorFlow on IBM Z</h2>
+          <p>IBM provides an optimized distribution of TensorFlow for Linux on IBM Z. It includes the IBM Z Deep Learning Compiler for hardware-accelerated neural network inference, and is integrated with zDNN for Telum AI acceleration.</p>
+          <ul>
+            <li>IBM-optimized TensorFlow distribution for s390x</li>
+            <li>Integration with zDNN for Telum hardware offload</li>
+            <li>Support for training and inference workloads</li>
+            <li>Compatible with standard TensorFlow model formats</li>
+          </ul>
+          <a href="https://github.com/IBM/optimized-ai-on-z" class="learn-more" target="_blank">Learn more about TensorFlow on IBM Z &#8594;</a>
+
+          <h2>PyTorch on IBM Z</h2>
+          <p>PyTorch is supported on Linux on IBM Z. IBM provides guidance and support for running PyTorch-based models, including integration pathways for optimizing and deploying models trained in PyTorch for production inference on Z.</p>
+          <ul>
+            <li>Standard PyTorch for model development on s390x</li>
+            <li>ONNX export pipeline for cross-framework portability</li>
+            <li>Pathway for optimized inference via ONNX Runtime on Z</li>
+          </ul>
+          <a href="https://pytorch.org/" class="learn-more" target="_blank">Learn more about PyTorch &#8594;</a>
+
+          <h2>Scikit-learn &amp; XGBoost</h2>
+          <p>Traditional machine learning libraries such as scikit-learn and XGBoost are fully supported on Linux on IBM Z. They are the primary tools for building classification, regression, and ensemble models in the IBM Z AI ecosystem.</p>
+          <ul>
+            <li>Full support for scikit-learn estimators, pipelines, and transformers</li>
+            <li>XGBoost gradient boosting for tabular data</li>
+            <li>Model export via PMML, ONNX, or pickle for downstream deployment</li>
+          </ul>
+
+          <h2>Snap Machine Learning (Snap ML)</h2>
+          <p>Snap ML is an IBM library for training machine learning models at high speed. It is specifically optimized for IBM Z hardware and provides GPU-class acceleration for traditional ML algorithms on CPU-based systems.</p>
+          <ul>
+            <li>Accelerated training for linear models, trees, and SVMs</li>
+            <li>Drop-in scikit-learn compatible API</li>
+            <li>Optimized for s390x SIMD instructions on IBM Z</li>
+            <li>Significant speedups on large tabular datasets</li>
+          </ul>
+          <a href="https://snapml.readthedocs.io/" class="learn-more" target="_blank">Learn more about Snap ML &#8594;</a>
+
+          <h2>Jupyter Notebooks on IBM Z</h2>
+          <p>JupyterLab and Jupyter Notebooks run on Linux on IBM Z, providing an interactive development environment for data exploration, model prototyping, and experimentation. They integrate naturally with Python-based AI stacks on Z.</p>
+        </section>
+
+        <!-- ── MODEL RUNTIME & OPTIMIZATION ─────────────────────────── -->
+        <section class="section" id="model-runtime">
+          <h1>Model Runtime &amp; Optimization</h1>
+          <p>IBM Z provides hardware-accelerated runtime libraries and compiler tooling to maximize AI inference performance on Telum and Spyre processors.</p>
+
+          <h2>IBM Z Deep Neural Network Library (zDNN)</h2>
+          <p>zDNN is a low-level C library that exposes the Telum AI accelerator to software. It provides implementations of common neural network operations offloaded to the Telum on-chip AI engine.</p>
+          <ul>
+            <li>Tensor operations for feedforward and recurrent networks</li>
+            <li>Telum I support: LSTM, GRU, Conv2D, Pooling, Activation functions, Matmul, Softmax, BatchNorm, and more</li>
+            <li>Telum II additions: LSTM, Subtract, Quantized Matmul, Moments, Mean Reduce, Exp, Inverse Square Root</li>
+            <li>C API usable directly or via higher-level framework integrations</li>
+          </ul>
+          <a href="https://github.com/IBM/zDNN" class="learn-more" target="_blank">Learn more about zDNN on GitHub &#8594;</a>
+
+          <h2>IBM Z Deep Learning Compiler (IBM zDLC)</h2>
+          <p>The IBM Z Deep Learning Compiler automatically compiles ONNX models for execution on Telum, inserting zDNN calls where applicable. It replaces manual operator-by-operator integration and enables end-to-end optimized inference from a standard model format.</p>
+          <ul>
+            <li>ONNX model input → optimized s390x binary output</li>
+            <li>Automatic zDNN dispatch for acceleratable operators</li>
+            <li>Fallback to CPU for unsupported operators</li>
+            <li>No manual zDNN integration required by developers</li>
+          </ul>
+
+          <h2>IBM AI Optimizer for IBM Z</h2>
+          <p>IBM AI Optimizer helps data scientists and engineers optimize models for IBM Z deployment. It supports quantization and pruning techniques to reduce model size and improve inference throughput without significant accuracy loss.</p>
+          <ul>
+            <li>Post-training quantization (INT8, FP16)</li>
+            <li>Model pruning for size reduction</li>
+            <li>Performance benchmarking tools for Z targets</li>
+            <li>Integration with standard ONNX and TensorFlow model formats</li>
+          </ul>
+
+          <h2>ONNX Runtime on IBM Z</h2>
+          <p>ONNX Runtime is an open-source inference engine for ONNX models. On IBM Z, it is used as the execution backend for compiled models, with zDNN-based acceleration available for supported operations.</p>
+          <ul>
+            <li>Runs ONNX models natively on Linux on IBM Z (s390x)</li>
+            <li>Works with IBM zDLC-compiled models</li>
+            <li>Broad framework coverage: TensorFlow, PyTorch, scikit-learn (via ONNX export)</li>
+          </ul>
+          <a href="https://onnxruntime.ai/" class="learn-more" target="_blank">Learn more about ONNX Runtime &#8594;</a>
+        </section>
+
+        <!-- ── INFERENCE & SERVING ───────────────────────────────────── -->
+        <section class="section" id="inference-serving">
+          <h1>Inference &amp; Serving Technologies</h1>
+          <p>IBM Z provides enterprise-grade model serving tools for both traditional AI and generative AI workloads, supporting REST APIs, containerized serving, and LLM inference at scale.</p>
+
+          <h2>IBM vLLM for Spyre (vllm-spyre)</h2>
+          <p>IBM maintains a fork of the vLLM inference engine with a custom execution backend for IBM Spyre accelerators. It enables high-throughput generative AI inference with LLMs on IBM Z using Spyre FP16 and GPTQ quantized models.</p>
+          <ul>
+            <li>LLM inference with IBM Spyre acceleration</li>
+            <li>FP16 and GPTQ (W4A16) quantization support</li>
+            <li>Decoder-only and encoder/embedding model support</li>
+            <li>OpenAI-compatible REST API</li>
+            <li>Tensor parallelism for multi-card deployments</li>
+          </ul>
+          <a href="https://github.com/IBM/vllm-spyre" class="learn-more" target="_blank">Learn more about vLLM for Spyre on GitHub &#8594;</a>
+
+          <h2>IBM Z Accelerated for Triton Inference Server</h2>
+          <p>NVIDIA Triton Inference Server, optimized for IBM Z, provides a flexible multi-framework model serving solution. It supports models from TensorFlow, ONNX, and other formats under a unified serving interface.</p>
+          <ul>
+            <li>Multi-framework model serving (TF, ONNX, custom backends)</li>
+            <li>HTTP and gRPC inference endpoints</li>
+            <li>Dynamic batching for throughput optimization</li>
+            <li>Model repository management</li>
+          </ul>
+
+          <h2>IBM Z Accelerated Serving for TensorFlow (TF Serving)</h2>
+          <p>IBM Z Accelerated Serving for TensorFlow provides production-grade model serving for TensorFlow SavedModel format, optimized for Z hardware acceleration.</p>
+          <ul>
+            <li>Serve TensorFlow SavedModels via gRPC or HTTP/REST</li>
+            <li>Telum-accelerated inference via TensorFlow + zDNN integration</li>
+            <li>Version management and hot model reload</li>
+          </ul>
+
+          <h2>Red Hat AI Inference Server</h2>
+          <p>Red Hat AI Inference Server is an enterprise-grade serving platform built on top of vLLM, optimized for OpenShift deployments. On IBM Z, it provides a standardized serving layer for foundation models and LLMs within Red Hat OpenShift AI.</p>
+          <ul>
+            <li>OpenAI-compatible API surface</li>
+            <li>Integration with Red Hat OpenShift AI model serving pipelines</li>
+            <li>Scalable inference across OpenShift on IBM Z</li>
+          </ul>
+        </section>
+
+        <!-- ── AI PLATFORMS ──────────────────────────────────────────── -->
+        <section class="section" id="ai-platforms">
+          <h1>AI Platforms</h1>
+          <p>IBM Z integrates with enterprise AI platforms that provide end-to-end lifecycle management — from data preparation and model development through deployment, monitoring, and governance.</p>
+
+          <h2>Machine Learning for IBM z/OS (MLz)</h2>
+          <p>MLz is IBM's integrated AI platform for the z/OS operating system. It provides a unified environment for building, deploying, scoring, and governing AI models on z/OS, with deep integration into the z/OS data and application ecosystem.</p>
+          <ul>
+            <li>Model build, deploy, and scoring on z/OS</li>
+            <li>Integration with Db2, IMS, VSAM, and MQ data sources</li>
+            <li>REST-based model scoring services</li>
+            <li>Built-in model governance and drift monitoring</li>
+            <li>PMML, ONNX, and Python model import/export</li>
+          </ul>
+          <a href="https://www.ibm.com/products/machine-learning-for-zos" class="learn-more" target="_blank">Learn more about Machine Learning for IBM z/OS &#8594;</a>
+
+          <h2>Red Hat OpenShift AI (RHOAI)</h2>
+          <p>Red Hat OpenShift AI is a Kubernetes-native AI/ML platform that runs on OpenShift. On IBM Z and LinuxONE, RHOAI provides the full AI lifecycle — data science workbenches, pipeline orchestration, model serving, and governance — within an enterprise-hardened container environment.</p>
+          <ul>
+            <li>JupyterHub-based data science workbenches</li>
+            <li>Kubeflow Pipelines for ML workflow automation</li>
+            <li>Model serving with Triton and KServe</li>
+            <li>Model registry and versioning</li>
+            <li>Bias detection and model monitoring</li>
+          </ul>
+          <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai" class="learn-more" target="_blank">Learn more about Red Hat OpenShift AI &#8594;</a>
+
+          <h2>IBM watsonx.ai</h2>
+          <p>IBM watsonx.ai is IBM's AI studio for enterprise AI development, combining traditional ML, AutoML, and foundation model capabilities. It supports hybrid deployment patterns where models trained or fine-tuned in watsonx.ai can be deployed for inference on IBM Z.</p>
+          <ul>
+            <li>Foundation model access (Granite and partner models)</li>
+            <li>AutoML and model training notebooks</li>
+            <li>Prompt engineering and tuning studio</li>
+            <li>Model export for deployment on IBM Z environments</li>
+          </ul>
+          <a href="https://www.ibm.com/products/watsonx-ai" class="learn-more" target="_blank">Learn more about IBM watsonx.ai &#8594;</a>
+
+          <h2>IBM watsonx.governance</h2>
+          <p>IBM watsonx.governance provides AI risk and compliance management. It connects with models deployed on IBM Z — including through MLz and RHOAI — to provide bias monitoring, model explainability, and lifecycle tracking.</p>
+          <ul>
+            <li>Automated bias and fairness detection</li>
+            <li>Model explainability (SHAP-based and built-in)</li>
+            <li>AI factsheets for model documentation</li>
+            <li>Integration with MLz and RHOAI governance workflows</li>
+          </ul>
+          <a href="https://www.ibm.com/products/watsonx-governance" class="learn-more" target="_blank">Learn more about IBM watsonx.governance &#8594;</a>
+        </section>
+
+        <!-- ── DEVELOPER RESOURCES ───────────────────────────────────── -->
+        <section class="section" id="developer-resources">
+          <h1>Developer Resources</h1>
+          <p>IBM and the open-source community provide a range of resources to help developers get started with AI on IBM Z — from code samples and SDKs to tutorials and community forums.</p>
+
+          <h2>IBM Developer — IBM Z &amp; LinuxONE</h2>
+          <p>IBM Developer is the primary hub for technical content on IBM Z, including tutorials, code patterns, articles, and reference architectures for AI and data workloads.</p>
+          <a href="https://developer.ibm.com/components/zos/" class="learn-more" target="_blank">Explore IBM Developer for Z &#8594;</a>
+
+          <h2>IBM Open Source at GitHub</h2>
+          <p>IBM maintains several open-source repositories relevant to AI on IBM Z, including zDNN, vllm-spyre, and the IBM Z optimized AI packages.</p>
+          <ul>
+            <li><a href="https://github.com/IBM/zDNN" target="_blank">IBM/zDNN</a> — Deep Neural Network Library for Telum</li>
+            <li><a href="https://github.com/IBM/vllm-spyre" target="_blank">IBM/vllm-spyre</a> — vLLM backend for IBM Spyre</li>
+            <li><a href="https://github.com/IBM/optimized-ai-on-z" target="_blank">IBM/optimized-ai-on-z</a> — Optimized AI packages for IBM Z</li>
+          </ul>
+
+          <h2>IBM Z Xplore Learning Platform</h2>
+          <p>IBM Z Xplore is a free, self-paced learning platform for IBM Z skills. It includes challenges and badges covering z/OS, Linux on Z, data, and AI topics for beginners and experienced practitioners alike.</p>
+          <a href="https://www.ibm.com/z/resources/zxplore" class="learn-more" target="_blank">Learn more about IBM Z Xplore &#8594;</a>
+
+          <h2>IBM Z Community</h2>
+          <p>The IBM Z Community includes forums, user groups (SHARE, IBM Champion network), and Slack communities where practitioners can ask questions, share experiences, and collaborate on AI on Z projects.</p>
+          <a href="https://community.ibm.com/community/user/ibmz-and-linuxone/home" class="learn-more" target="_blank">Join the IBM Z Community &#8594;</a>
+
+          <h2>IBM Z TechDocs &amp; Product Documentation</h2>
+          <p>IBM publishes comprehensive technical documentation for all Z products, including MLz, Db2 for z/OS, and AI tooling, available through the IBM Documentation portal.</p>
+          <a href="https://www.ibm.com/docs/en" class="learn-more" target="_blank">Browse IBM Documentation &#8594;</a>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'products',
+      activeSub: 'data-analytics',
+      pageNavItems: [
+        { id: 'apache-spark',        label: 'Apache Spark on IBM Z' },
+        { id: 'sql-data-insights',   label: 'SQL Data Insights Pro' },
+        { id: 'python-ai-toolkit',   label: 'Python AI Toolkit for z/OS' },
+        { id: 'synthetic-data-sets', label: 'IBM Synthetic Data Sets' },
+      ]
+    });
+  </script>
+</body>
+</html>

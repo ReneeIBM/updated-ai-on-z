@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on IBM Z</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Homepage hero ──────────────────────────────────────── */
+    .home-hero {
+      background: var(--ibm-blue);
+      color: #fff;
+      padding: 72px 52px 64px;
+    }
+    .home-hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+    }
+    .home-hero h1 {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    .home-hero p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      max-width: 640px;
+      margin-bottom: 36px;
+    }
+    .home-hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .home-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .home-cta:hover { opacity: 0.88; }
+    .home-cta--primary  { background: #fff; color: var(--ibm-blue); }
+    .home-cta--secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+
+    /* ── Quick-start grid ───────────────────────────────────── */
+    .home-body {
+      max-width: 1100px;
+      padding: 56px 52px 96px;
+    }
+    .home-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--ibm-gray-50);
+      margin-bottom: 20px;
+    }
+    .home-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .home-card {
+      background: #fff;
+      border: 1px solid var(--ibm-border);
+      border-top: 3px solid var(--ibm-blue);
+      border-radius: 6px;
+      padding: 22px 20px 18px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .home-card:hover {
+      box-shadow: 0 4px 14px rgba(15,98,254,0.12);
+      transform: translateY(-1px);
+    }
+    .home-card-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--ibm-gray-50);
+      margin-bottom: 8px;
+    }
+    .home-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .home-card p {
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      line-height: 1.6;
+      flex: 1;
+      margin: 0 0 14px;
+      max-width: none;
+    }
+    .home-card-arrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ibm-blue);
+      align-self: flex-start;
+    }
+
+    /* ── Lifecycle row ──────────────────────────────────────── */
+    .home-lifecycle-row {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      margin-bottom: 56px;
+      border: 1px solid var(--ibm-border);
+      border-radius: 6px;
+    }
+    .home-lifecycle-step {
+      flex: 1;
+      min-width: 120px;
+      padding: 18px 16px 16px;
+      text-decoration: none;
+      color: inherit;
+      border-right: 1px solid var(--ibm-border);
+      transition: background 0.15s;
+    }
+    .home-lifecycle-step:last-child { border-right: none; }
+    .home-lifecycle-step:hover { background: var(--ibm-blue-10); }
+    .home-lifecycle-step-num {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--ibm-blue);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .home-lifecycle-step-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      line-height: 1.35;
+    }
+    .home-lifecycle-step-desc {
+      font-size: 12px;
+      color: var(--ibm-text-helper);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body class="no-lifecycle">
+  <header class="topbar">
+    <a href="index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell" style="flex-direction:column;min-height:calc(100vh - 64px);">
+    <div class="main-content" style="width:100%;">
+
+      <!-- Hero -->
+      <div class="home-hero">
+        <div class="home-hero-eyebrow">IBM Z &amp; LinuxONE</div>
+        <h1>AI on IBM Z</h1>
+        <p>Enterprise AI built for the data that matters most. IBM Z combines hardware acceleration, open-source AI frameworks, and a complete software stack to run AI workloads co-located with the world's most critical business data.</p>
+        <div class="home-hero-ctas">
+          <a href="overview/overview.html" class="home-cta home-cta--primary">Get started &#8594;</a>
+          <a href="use-cases/ai-solution-template.html" class="home-cta home-cta--secondary">View solution blueprints</a>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="home-body">
+
+        <!-- AI Lifecycle -->
+        <div class="home-section-label">AI Lifecycle on IBM Z</div>
+        <div class="home-lifecycle-row">
+          <a href="prepare-data/prepare-data.html" class="home-lifecycle-step">
+            <div class="home-lifecycle-step-num">01</div>
+            <div class="home-lifecycle-step-label">Prepare Data</div>
+            <div class="home-lifecycle-step-desc">Synthetic data, feature engineering, Apache Spark</div>
+          </a>
+          <a href="train-model/train-model.html" class="home-lifecycle-step">
+            <div class="home-lifecycle-step-num">02</div>
+            <div class="home-lifecycle-step-label">Train Model</div>
+            <div class="home-lifecycle-step-desc">Traditional ML, deep learning, Telum acceleration</div>
+          </a>
+          <a href="optimize-model/optimize-model.html" class="home-lifecycle-step">
+            <div class="home-lifecycle-step-num">03</div>
+            <div class="home-lifecycle-step-label">Optimize Model</div>
+            <div class="home-lifecycle-step-desc">ONNX, PMML, quantization, zDLC</div>
+          </a>
+          <a href="deploy-models/deploy-models.html" class="home-lifecycle-step">
+            <div class="home-lifecycle-step-num">04</div>
+            <div class="home-lifecycle-step-label">Deploy Models</div>
+            <div class="home-lifecycle-step-desc">z/OS, OpenShift, watsonx.ai</div>
+          </a>
+          <a href="serve-model/serve-model.html" class="home-lifecycle-step">
+            <div class="home-lifecycle-step-num">05</div>
+            <div class="home-lifecycle-step-label">Serve Models</div>
+            <div class="home-lifecycle-step-desc">Triton, TensorFlow Serving, MLz, Spyre</div>
+          </a>
+          <a href="ai-governance/ai-governance.html" class="home-lifecycle-step">
+            <div class="home-lifecycle-step-num">06</div>
+            <div class="home-lifecycle-step-label">AI Governance</div>
+            <div class="home-lifecycle-step-desc">Monitoring, explainability, watsonx.governance</div>
+          </a>
+        </div>
+
+        <!-- Explore -->
+        <div class="home-section-label">Explore</div>
+        <div class="home-card-grid">
+
+          <a href="overview/overview.html" class="home-card">
+            <div class="home-card-eyebrow">Overview</div>
+            <h3>What is AI on IBM Z?</h3>
+            <p>Understand the IBM Z AI platform, hardware acceleration, and why enterprises run AI where their data lives.</p>
+            <span class="home-card-arrow">Read overview &#8594;</span>
+          </a>
+
+          <a href="products-tools/hardware-solutions.html" class="home-card">
+            <div class="home-card-eyebrow">Hardware</div>
+            <h3>Telum &amp; Spyre Accelerators</h3>
+            <p>The Telum on-chip AI accelerator for transactional AI and the IBM Spyre Accelerator for generative AI on IBM z17.</p>
+            <span class="home-card-arrow">Explore hardware &#8594;</span>
+          </a>
+
+          <a href="products-tools/ai-platforms.html" class="home-card">
+            <div class="home-card-eyebrow">AI Platforms</div>
+            <h3>MLz, RHOAI, watsonx</h3>
+            <p>Machine Learning for z/OS, Red Hat OpenShift AI, watsonx.ai, and watsonx.governance — the full software stack.</p>
+            <span class="home-card-arrow">View platforms &#8594;</span>
+          </a>
+
+          <a href="products-tools/inference-serving.html" class="home-card">
+            <div class="home-card-eyebrow">Inference &amp; Serving</div>
+            <h3>TensorFlow Serving, Triton, RH AI Inference</h3>
+            <p>Production model serving on IBM Z — from TensorFlow SavedModels to LLMs via the Red Hat AI Inference Server.</p>
+            <span class="home-card-arrow">View serving tools &#8594;</span>
+          </a>
+
+          <a href="products-tools/ai-frameworks.html" class="home-card">
+            <div class="home-card-eyebrow">Frameworks &amp; Tools</div>
+            <h3>AI Toolkit for IBM Z</h3>
+            <p>Snap ML, TensorFlow, PyTorch, ONNX, zDLC, and the Python AI Toolkit — optimized for s390x.</p>
+            <span class="home-card-arrow">View frameworks &#8594;</span>
+          </a>
+
+          <a href="use-cases/ai-solution-template.html" class="home-card">
+            <div class="home-card-eyebrow">Solution Blueprints</div>
+            <h3>AI Solution Templates</h3>
+            <p>End-to-end runnable blueprints: fraud detection, credit risk, AML, and more — with code, architecture diagrams, and deployment guides.</p>
+            <span class="home-card-arrow">View blueprints &#8594;</span>
+          </a>
+
+          <a href="getting-help/terminology.html" class="home-card">
+            <div class="home-card-eyebrow">Getting Help</div>
+            <h3>Terminology &amp; Resources</h3>
+            <p>Key terms, links to documentation, community contacts, and how to get in touch with the AI on Z team.</p>
+            <span class="home-card-arrow">Get help &#8594;</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <footer class="footer"><p>&copy; 2025 AI on Z &nbsp;·&nbsp; <a href="mailto:aionz@us.ibm.com" style="color:inherit;">aionz@us.ibm.com</a></p></footer>
+    </div>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    renderNav({
+      root: '',
+      activeTop: 'overview',
+      activeSub: null,
+      pageNavItems: []
+    });
+  </script>
+</body>
+</html>

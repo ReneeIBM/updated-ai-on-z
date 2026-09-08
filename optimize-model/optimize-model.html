@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Optimize Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
+        <section class="section" id="overview">
+          <h1>Optimize Model</h1>
+          <p>Once a model has been trained, it often needs to be converted and prepared before it can be deployed efficiently on IBM Z. This stage is about making your model portable, hardware-aware, and ready for production — converting it into the right format, compiling it for Telum AI acceleration, and tuning for the throughput and latency targets your workload demands.</p>
+          <p>For many teams this stage is short — convert to ONNX or PMML and move to deploy. For others working on deep learning models or LLMs, compilation with the IBM Z Deep Learning Compiler and quantization with AI Optimizer can significantly improve performance on Telum I and Telum II hardware.</p>
+
+          <h2>What happens at this stage?</h2>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Convert to a portable format</h4>
+              <p>Export your trained model to ONNX (deep learning) or PMML (traditional ML) — standard interchange formats that work across Z operating systems and deployment tools.</p>
+            </div>
+            <div class="card">
+              <h4>Compile for Telum acceleration</h4>
+              <p>Use the IBM Z Deep Learning Compiler to compile ONNX models into optimized s390x binaries that automatically offload eligible operations to the Telum AI accelerator.</p>
+            </div>
+            <div class="card">
+              <h4>Quantize for performance</h4>
+              <p>Apply INT8 quantization to reduce model size and inference latency. Telum II on IBM z17 natively supports INT8, delivering up to 2x the speed and memory efficiency of FP16.</p>
+            </div>
+            <div class="card">
+              <h4>Validate before deployment</h4>
+              <p>Check that operation targets are correct — which ops run on the AI accelerator vs. CPU — and profile model performance before moving to production.</p>
+            </div>
+          </div>
+
+          <h2>Who is this stage for?</h2>
+          <p>Optimization is primarily owned by <strong>Data Scientists</strong> and <strong>ML Engineers</strong> working together. The Data Scientist knows the model and acceptable accuracy trade-offs; the ML Engineer handles the compilation pipeline and deployment tooling. IT Architects are stakeholders when hardware acceleration and infrastructure decisions are involved.</p>
+        </section>
+
+        <!-- ── WHERE TO START ────────────────────────────────────────── -->
+        <section class="section" id="where-to-start">
+          <h1>Where to Start</h1>
+          <p>Your path through this stage depends on your model type and target deployment environment. Use this to find your path:</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">Traditional ML model — scikit-learn, XGBoost, LightGBM</div>
+              <div class="decision-card-body">
+                <p>You trained a random forest, gradient boosting, or linear model and need to get it into a deployable format for IBM Z.</p>
+                <p><strong>→ Convert to PMML</strong> using sklearn2pmml. Machine Learning for z/OS and IBM Snap ML both support PMML natively. SnapML-trained tree models (Random Forest, Extra Trees, GBM) can be exported to PMML directly since v1.9.1.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Deep learning model — TensorFlow, PyTorch</div>
+              <div class="decision-card-body">
+                <p>You trained a neural network and want to deploy it on IBM Z with Telum AI acceleration.</p>
+                <p><strong>→ Export to ONNX</strong>, then compile with the IBM Z Deep Learning Compiler (zDLC). The compiler produces an optimized s390x binary that automatically offloads eligible operations to the Integrated Accelerator for AI.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Improving performance for production</div>
+              <div class="decision-card-body">
+                <p>Your model is already deployed or compiling, but you need to hit tighter latency or throughput SLAs in production.</p>
+                <p><strong>→ Use AI Optimizer for IBM Z and LinuxONE.</strong> It provides quantization (INT8/FP16), model routing, and an all-in-one inferencing stack with real-time observability — designed to maximize Telum II and Spyre acceleration.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">LLMs and encoder models for Spyre</div>
+              <div class="decision-card-body">
+                <p>You're deploying a large language model or encoder LLM for generative AI use cases on IBM z17 with Spyre acceleration.</p>
+                <p><strong>→ The IBM Z Deep Learning Compiler</strong> now supports encoder LLMs and a set of small decoder LLMs (up to 2B parameters). Combine with AI Optimizer for a pre-validated inferencing stack on Spyre.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ── ONNX CONVERSION ────────────────────────────────────────── -->
+        <section class="section" id="onnx-conversion">
+          <h1>ONNX: The Model Interchange Format</h1>
+          <p>ONNX (Open Neural Network Exchange) is the standard portable format for representing deep learning and machine learning models. It allows you to build and train using the framework of your choice — TensorFlow, PyTorch, or others — then deploy the model anywhere, including IBM Z.</p>
+
+          <h2>Why ONNX matters for IBM Z</h2>
+          <ul>
+            <li><strong>Framework portability</strong> — Build and train on any platform or framework, deploy on IBM Z without being locked to that framework at runtime.</li>
+            <li><strong>Cross-OS compatibility</strong> — An ONNX model can be deployed on z/OS (via MLz or zCX), Linux on Z, and LinuxONE from the same artifact.</li>
+            <li><strong>Hardware acceleration</strong> — The IBM Z Deep Learning Compiler compiles ONNX models to exploit the IBM Integrated Accelerator for AI on Telum I and Telum II.</li>
+            <li><strong>Ecosystem interoperability</strong> — ONNX models can be explored with tools like <a href="https://netron.app/" target="_blank" rel="noopener">Netron</a> and served via Triton Inference Server.</li>
+          </ul>
+
+          <h2>How to convert your model to ONNX</h2>
+          <table class="ops-table">
+            <thead><tr><th>Source Framework</th><th>Conversion Method</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">PyTorch</td><td>Built-in <code>torch.onnx.export()</code> API</td><td>Native support; straightforward for most model types</td></tr>
+              <tr><td class="cap-label">TensorFlow / Keras</td><td><a href="https://github.com/onnx/tensorflow-onnx" target="_blank" rel="noopener">tensorflow-onnx</a> package</td><td>Run on the training platform before transferring to Z</td></tr>
+              <tr><td class="cap-label">scikit-learn / XGBoost</td><td><a href="https://github.com/onnx/sklearn-onnx" target="_blank" rel="noopener">skl2onnx</a> package</td><td>Also consider PMML for traditional ML models</td></tr>
+              <tr><td class="cap-label">Other frameworks</td><td><a href="https://onnx.ai/get-started.html" target="_blank" rel="noopener">ONNX community tools</a></td><td>Many frameworks support direct export</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Best practice:</strong> Convert to ONNX on the platform where the model was trained to avoid endian issues — convert on x86 before transferring to IBM Z or LinuxONE.</p>
+          <a href="../products-tools/ai-frameworks.html#onnx-zdlc" class="learn-more">ONNX &amp; IBM Z Deep Learning Compiler deep dive &#8594;</a>
+        </section>
+
+        <!-- ── PMML CONVERSION ────────────────────────────────────────── -->
+        <section class="section" id="pmml-conversion">
+          <h1>PMML: Portable Traditional ML Models</h1>
+          <p>PMML (Predictive Model Markup Language) is the standard portable format for traditional machine learning models — linear models, decision trees, random forests, gradient boosting machines, and SVMs. It is the primary deployment format for traditional ML models on IBM Z, supported natively by both Machine Learning for z/OS and IBM Snap ML.</p>
+
+          <h2>Why PMML on IBM Z</h2>
+          <ul>
+            <li>Machine Learning for z/OS deploys PMML models directly with full scoring integration into CICS, IMS, and Java applications</li>
+            <li>IBM Snap ML can exploit the IBM Integrated Accelerator for AI for PMML-formatted tree-based models (Random Forest, Extra Trees, GBM)</li>
+            <li>Decouples the training environment from the deployment environment — train in Python, deploy on z/OS</li>
+          </ul>
+
+          <h2>How to convert to PMML</h2>
+          <p>The recommended approach is the <a href="https://github.com/jpmml/sklearn2pmml" target="_blank" rel="noopener">sklearn2pmml</a> library, which wraps scikit-learn, XGBoost, and LightGBM models in a <code>PMMLPipeline</code> for export:</p>
+          <pre style="background:var(--ibm-surface);padding:10px 14px;border-radius:4px;font-size:13px;overflow-x:auto;"><code>from sklearn2pmml import PMMLPipeline, sklearn2pmml
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=200, max_depth=6)
+pipeline = PMMLPipeline([("model", model)]).fit(X_train, y_train)
+sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
+          <p>SnapML-trained models can also be exported directly to PMML since v1.9.1, removing the sklearn2pmml dependency for those model types.</p>
+          <a href="../products-tools/ai-frameworks.html#onnx-zdlc" class="learn-more">PMML conversion details and samples &#8594;</a>
+        </section>
+
+        <!-- ── IBM Z DEEP LEARNING COMPILER ──────────────────────────── -->
+        <section class="section" id="zdlc">
+          <h1>IBM Z Deep Learning Compiler (zDLC)</h1>
+          <p>The IBM Z Deep Learning Compiler (zDLC) compiles ONNX models into optimized s390x binaries that exploit the IBM Integrated Accelerator for AI on Telum I and Telum II processors. It is based on the open-source ONNX-MLIR project, with IBM Research enhancements to target the Telum AI accelerator — contributions that have been upstreamed to ONNX-MLIR.</p>
+
+          <h2>What zDLC does</h2>
+          <ul>
+            <li>Takes an ONNX model as input and produces a lightweight <code>.so</code> shared library with no framework dependencies</li>
+            <li>Automatically identifies and offloads eligible operations to the Telum on-chip AI accelerator via zDNN — no manual mapping required</li>
+            <li>Falls back to CPU for operators not yet supported on the accelerator</li>
+            <li>The compiled library can be embedded in applications or served via Triton Inference Server</li>
+            <li>Supports C++, Java, and Python APIs for application integration</li>
+          </ul>
+
+          <h2>Extended support in 2025</h2>
+          <ul>
+            <li>Compiles encoder LLMs for Telum II acceleration</li>
+            <li>Supports a set of small decoder LLMs (up to 2B parameters) for deployment on IBM z17 and LinuxONE 5</li>
+            <li>Updated ONNX-MLIR support for Telum II (IBM z17) new operations: INT8 quantization, Layer Normalization, Gelu, and more</li>
+          </ul>
+
+          <h2>Checking operation targets</h2>
+          <p>When compiling, you can inspect which model operations will run on the Telum accelerator vs. CPU — critical information for understanding model performance:</p>
+          <ul>
+            <li><a href="https://github.com/ibm/zdlc#view-operation-targets-at-compile-time" target="_blank" rel="noopener">View operation targets at compile time</a></li>
+            <li><a href="https://github.com/ibm/zdlc#obtaining-ibm-z-deep-learning-compiler-debug-instrumentation-" target="_blank" rel="noopener">Enable runtime instrumentation</a></li>
+            <li><a href="https://github.com/ibm/zdlc#performance-tips-for-ibm-z-integrated-accelerator-for-ai-" target="_blank" rel="noopener">Performance tips for the IBM Z Integrated Accelerator for AI</a></li>
+          </ul>
+          <a href="https://ibm.github.io/zDLC/" class="learn-more" target="_blank" rel="noopener">IBM Z Deep Learning Compiler official page &#8594;</a>
+          <a href="https://github.com/IBM/zDLC" class="learn-more" target="_blank" rel="noopener">zDLC documentation and samples on GitHub &#8594;</a>
+        </section>
+
+        <!-- ── AI OPTIMIZER ───────────────────────────────────────────── -->
+        <section class="section" id="ai-optimizer">
+          <h1>AI Optimizer for IBM Z and LinuxONE</h1>
+          <p>AI Optimizer for IBM Z and LinuxONE is an all-in-one inferencing software appliance that brings a fully optimized, pre-validated AI stack directly to IBM Z — deployable in under 2 hours as a single LPAR image. It is designed to maximize the performance of both the Telum II Integrated Accelerator for AI and the IBM Spyre Accelerator, with enterprise-grade observability and model governance built in.</p>
+
+          <h2>Core capabilities</h2>
+          <table class="ops-table">
+            <thead><tr><th>Capability</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">All-in-One Inferencing Stack</td><td>Single LPAR image including OS, curated AI models, container runtime, observability, and management UI — no manual assembly</td></tr>
+              <tr><td class="cap-label">Pre-configured AI Environment</td><td>Pre-validated system configurations and optimized models designed specifically for IBM Z architecture</td></tr>
+              <tr><td class="cap-label">Single Installer Deployment</td><td>Unified installation that provisions and configures the complete environment automatically — ready in under 2 hours</td></tr>
+              <tr><td class="cap-label">Real-Time Monitoring &amp; Observability</td><td>Enterprise-grade tracking via Prometheus &amp; Grafana UI — surfaces metrics for accelerator utilization, latency, and SLAs</td></tr>
+              <tr><td class="cap-label">Tagging and Model Grouping</td><td>Policy-driven routing of inference requests to optimal endpoints based on workload specialization and cost optimization</td></tr>
+              <tr><td class="cap-label">External LLM Registration</td><td>Register and manage external LLMs alongside on-platform models for consistent optimization across hybrid environments</td></tr>
+            </tbody>
+          </table>
+
+          <h2>INT8 quantization on Telum II</h2>
+          <p>The IBM z17 Telum II processor natively supports INT8 quantization, designed to reduce inference latency compared to non-quantized models. INT8 quantization reduces and stores weights and activations from 32-bit floating point to 8-bit integers — enabling faster computation at lower memory usage.</p>
+          <ul>
+            <li>INT8 is up to <strong>2x more efficient</strong> than FP16 in speed and memory usage</li>
+            <li>IBM z17 can process up to <strong>450 billion inference operations per day</strong> with 1ms response time using a credit card fraud detection deep learning model</li>
+            <li>83% energy reduction for AI inferencing on IBM z17 versus comparable x86 with GPU</li>
+          </ul>
+          <a href="../products-tools/ai-platforms.html#ai-optimizer" class="learn-more">AI Optimizer for IBM Z and LinuxONE deep dive &#8594;</a>
+        </section>
+
+        <!-- ── NEXT STEPS ─────────────────────────────────────────────── -->
+        <section class="section" id="next-steps">
+          <h1>Next Steps</h1>
+          <p>Once your model is converted, compiled, and performance-validated, it's ready to move into a production deployment environment.</p>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Deploy Models</h4>
+              <p>Move your optimized model to a production environment — MLz for z/OS, AI Toolkit containers for Linux on Z, or Red Hat OpenShift AI for hybrid cloud.</p>
+              <a href="../deploy-models/deploy-models.html" class="learn-more" style="font-size:13px;">Go to Deploy Models &#8594;</a>
+            </div>
+            <div class="card">
+              <h4>Serve Model</h4>
+              <p>Expose your deployed model as a REST or gRPC endpoint using TensorFlow Serving, Triton Inference Server, or the Red Hat AI Inference Server.</p>
+              <a href="../serve-model/serve-model.html" class="learn-more" style="font-size:13px;">Go to Serve Model &#8594;</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'lifecycle',
+      activeSub: 'optimize-model',
+      pageNavItems: [
+        { id: 'overview',        label: 'Overview' },
+        { id: 'where-to-start',  label: 'Where to Start' },
+        { id: 'onnx-conversion', label: 'ONNX Conversion' },
+        { id: 'pmml-conversion', label: 'PMML Conversion' },
+        { id: 'zdlc',            label: 'IBM Z Deep Learning Compiler' },
+        { id: 'ai-optimizer',    label: 'AI Optimizer for IBM Z' },
+        { id: 'next-steps',      label: 'Next Steps' },
+      ]
+    });
+  </script>
+</body>
+</html>

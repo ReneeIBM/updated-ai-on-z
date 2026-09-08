@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | AI Frameworks &amp; Dev Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── AI TOOLKIT ──────────────────────────────────────────────── -->
+        <section class="section" id="ai-toolkit">
+          <h1>AI Toolkit for IBM Z and LinuxONE</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../train-model/train-model.html">Train Model</a> · <a href="../optimize-model/optimize-model.html">Optimize Model</a> · <a href="../serve-model/serve-model.html">Serve Model</a></p>
+          <p>The AI Toolkit for IBM Z® and LinuxONE is a family of popular open-source AI frameworks with IBM Elite Support, adapted and optimized for IBM Z and LinuxONE hardware. Each component is vetted through IBM's Secure Engineering process, scanned for vulnerabilities, and packaged as ready-to-use container images available in the <a href="https://ibm.github.io/ibm-z-oss-hub/main/main.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry</a>.</p>
+          <p>These images run in Linux on Z environments (including z/OS Container Extensions) and are optimized to leverage the IBM Integrated Accelerator for AI on Telum I and Telum II processors.</p>
+
+          <h2>Components (as of 2025)</h2>
+          <table class="ops-table">
+            <thead><tr><th>Component</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">IBM Z Deep Learning Compiler</td><td>ONNX-MLIR based compiler targeting Telum AI accelerator</td></tr>
+              <tr><td class="cap-label">IBM Snap ML</td><td>High-performance ML training and inference for traditional models</td></tr>
+              <tr><td class="cap-label">PyTorch</td><td>Deep learning framework with Telum II acceleration support</td></tr>
+              <tr><td class="cap-label">TensorFlow</td><td>Optimized TensorFlow distribution with zDNN integration</td></tr>
+              <tr><td class="cap-label">TensorFlow Serving</td><td>Production model server for TF SavedModels</td></tr>
+              <tr><td class="cap-label">Triton Inference Server</td><td>Multi-framework model serving with SnapML and DLC backends</td></tr>
+            </tbody>
+          </table>
+          <a href="https://www.ibm.com/products/ai-toolkit-for-z-and-linuxone" class="learn-more" target="_blank" rel="noopener">AI Toolkit for IBM Z and LinuxONE product page &#8594;</a>
+          <a href="https://ibm.github.io/ibm-z-oss-hub/main/main.html" class="learn-more" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry &#8594;</a>
+        </section>
+
+        <!-- ── SNAP ML ─────────────────────────────────────────────────── -->
+        <section class="section" id="snapml">
+          <h1>IBM Z Accelerated SnapML</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../train-model/train-model.html">Train Model</a></p>
+          <p>Snap ML is an IBM library developed and maintained by IBM Research that provides high-speed training and inference of popular machine learning models. It is fully compatible with the scikit-learn Python API and addresses the core ML needs of data scientists: speed, resource efficiency, accuracy, and scalability to TB-scale datasets.</p>
+
+          <h2>What Snap ML Supports</h2>
+          <ul>
+            <li>Generalized Linear Models, Tree-based Models, and Gradient Boosting Machines</li>
+            <li>Accelerated scoring of scikit-learn, XGBoost, and LightGBM trained models when exported to PMML, JSON, or ONNX</li>
+            <li>Drop-in scikit-learn compatible API — no code changes required</li>
+            <li>Scalable to TB-scale datasets</li>
+          </ul>
+
+          <h2>IBM Telum Integrated Accelerator for AI</h2>
+          <p>Starting with Snap ML version 1.9.0, Snap ML can utilize the IBM Integrated Accelerator for AI. Accelerator exploitation can be enabled at model import time for:</p>
+          <ul>
+            <li>Random Forest</li>
+            <li>Extra Trees</li>
+            <li>Gradient Boosting Machines</li>
+          </ul>
+          <p>Starting with Snap ML 1.9.1, SnapML-trained tree-based models (RF, ET, and GB) can be exported to PMML.</p>
+
+          <h2>Getting Started</h2>
+          <p>IBM Snap ML is available as part of <a href="https://www.ibm.com/products/machine-learning-for-zos" target="_blank" rel="noopener">Machine Learning for z/OS</a>, as well as for IBM LinuxONE and Linux on Z (including z/OS Container Extensions). Container images are available in the <a href="https://github.com/IBM/ibmz-accelerated-for-snapml" target="_blank" rel="noopener">IBM Z and LinuxONE Container Image Registry</a> under <code>ibmz-accelerated-for-snapml</code>. Snap ML can also be installed directly via PyPI:</p>
+          <pre style="background:var(--ibm-surface);padding:10px 14px;border-radius:4px;font-size:13px;overflow-x:auto;"><code>pip install snapml</code></pre>
+          <a href="https://snapml.readthedocs.io/en/latest/" class="learn-more" target="_blank" rel="noopener">Snap ML documentation &#8594;</a>
+          <a href="https://github.com/IBM/snapml-examples" class="learn-more" target="_blank" rel="noopener">Snap ML examples on GitHub &#8594;</a>
+          <a href="https://github.com/IBM/ai-on-z-triton-is-examples" class="learn-more" target="_blank" rel="noopener">Snap ML with Triton Inference Server examples &#8594;</a>
+        </section>
+
+        <!-- ── TENSORFLOW ──────────────────────────────────────────────── -->
+        <section class="section" id="tensorflow">
+          <h1>IBM Z Accelerated for TensorFlow</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../train-model/train-model.html">Train Model</a> · <a href="../deploy-models/deploy-models.html">Deploy Models</a></p>
+          <p><a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a> is an open source machine learning framework with a comprehensive set of tools that enable model development, training, and inference — including a rich and robust ecosystem. IBM Z Accelerated for TensorFlow runs on Linux on IBM Z and LinuxONE, including z/OS Container Extensions.</p>
+
+          <h2>IBM Telum Integrated Accelerator for AI</h2>
+          <p>On IBM z16, LinuxONE 4, and later machines (including z/OS Container Extensions), TensorFlow core Graph Execution leverages inference acceleration that transparently targets the IBM Integrated Accelerator for AI through the IBM Z Deep Neural Network (zDNN) library. This support extends to the Telum II processor on IBM z17. <strong>No changes to the original model are needed</strong> to take advantage of this acceleration.</p>
+
+          <h2>TensorFlow Serving</h2>
+          <p>With TensorFlow Serving, you can expose REST and gRPC endpoints for model inference requests, supporting high-throughput, low-latency inference serving on IBM Z and LinuxONE.</p>
+
+          <h2>Getting Started</h2>
+          <p>The recommended way to obtain TensorFlow and TensorFlow Serving is to download prebuilt container images from the AI Toolkit for IBM Z and LinuxONE:</p>
+          <a href="https://github.com/IBM/ibmz-accelerated-for-tensorflow" class="learn-more" target="_blank" rel="noopener">IBM Z Accelerated for TensorFlow on GitHub &#8594;</a>
+          <a href="https://github.com/IBM/ibmz-accelerated-serving-for-tensorflow" class="learn-more" target="_blank" rel="noopener">IBM Z Accelerated Serving for TensorFlow on GitHub &#8594;</a>
+        </section>
+
+        <!-- ── PYTORCH ─────────────────────────────────────────────────── -->
+        <section class="section" id="pytorch">
+          <h1>IBM Z Accelerated for PyTorch</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../train-model/train-model.html">Train Model</a> · <a href="../deploy-models/deploy-models.html">Deploy Models</a></p>
+          <p><a href="https://pytorch.org/" target="_blank" rel="noopener">PyTorch</a> is an open source machine learning framework that provides a flexible platform for building deep learning models. Released by Facebook's AI Research lab in 2016, PyTorch allows developers to create and modify models easily through its dynamic structure, which offers immediate feedback. This adaptability makes it particularly appealing for researchers and developers who want to experiment with new ideas.</p>
+          <p>PyTorch can be used on IBM zSystems and LinuxONE on Linux environments (including z/OS Container Extensions).</p>
+          <p>IBM Z Accelerated for PyTorch can be leveraged for various use cases, including applications such as language processing and computer vision. It is optimized to exploit the acceleration of IBM Z Integrated Accelerator for AI on IBM z16 and LinuxONE 4, which improves inference performance for a wide range of PyTorch models.</p>
+
+          <h2>Getting started with the AI Toolkit for IBM Z and LinuxONE</h2>
+          <p>The AI Toolkit for IBM Z and IBM® LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE.</p>
+          <p>The AI Toolkit components are available in the <a href="https://ibm.github.io/ibm-z-oss-hub/main/main.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Image Registry (ICR)</a>. This registry includes open-source software in container images that are often used as the foundation for new composite workloads. It provides a secure and trustworthy content source. These components of AI Toolkit for IBM Z and LinuxONE are freely available.</p>
+          <a href="https://github.com/IBM/ibmz-accelerated-for-pytorch?tab=readme-ov-file" class="learn-more" target="_blank" rel="noopener">AI Toolkit page for IBM Z Accelerated for PyTorch &#8594;</a>
+          <a href="https://www.ibm.com/products/blog/the-rise-of-pytorch" class="learn-more" target="_blank" rel="noopener">Accelerating PyTorch Inference on IBM Z and LinuxONE &#8594;</a>
+        </section>
+
+        <!-- ── PYTHON AI TOOLKIT ───────────────────────────────────────── -->
+        <section class="section" id="python-ai-toolkit">
+          <h1>Python AI Toolkit for IBM z/OS</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../train-model/train-model.html">Train Model</a> · <a href="../optimize-model/optimize-model.html">Optimize Model</a></p>
+          <p>The Python AI Toolkit for IBM z/OS is a library of relevant open-source software to support AI and machine learning workloads on z/OS. It is a collection of Python packages that can be installed and managed using pip — the standard Python package manager — from an IBM-hosted PyPI-style repository with supply-chain security, making software management consistent across Python environments.</p>
+          <p>IBM support is available for this product through IBM Shopz.</p>
+
+          <h2>Why Use It on IBM Z</h2>
+          <ul>
+            <li><strong>Lowest barrier to entry</strong> — If your team knows Python, this is the fastest way to start working with z/OS data for AI. No new language or framework.</li>
+            <li><strong>Data stays on z/OS</strong> — Code runs natively on the mainframe so sensitive enterprise data never has to leave the platform.</li>
+            <li><strong>Full data access</strong> — Connect directly to Db2, IMS, and VSAM via SQLAlchemy, JDBC/ODBC, or z/OS-native connectors.</li>
+            <li><strong>End-to-end Python workflow</strong> — Explore, prepare, train, and export — all in Python, all on z/OS.</li>
+          </ul>
+
+          <h2>Getting Started</h2>
+          <p>Visit the getting started tab on the <a href="https://ibm-z-oss-oda.github.io/python_ai_toolkit_zos/" target="_blank" rel="noopener">Python AI Toolkit for IBM z/OS product page</a> for the latest documentation on installing and using the product.</p>
+          <a href="https://ibm-z-oss-oda.github.io/python_ai_toolkit_zos/" class="learn-more" target="_blank" rel="noopener">Python AI Toolkit for z/OS product page &#8594;</a>
+          <a href="https://ibm.biz/zPAIT_overview" class="learn-more" target="_blank" rel="noopener">Overview video &#8594;</a>
+          <a href="https://ibm.biz/zPAIT_demo" class="learn-more" target="_blank" rel="noopener">Getting Started video &#8594;</a>
+          <a href="https://ibm.biz/zPAIT_redbook" class="learn-more" target="_blank" rel="noopener">Redpaper Solution Guide &#8594;</a>
+        </section>
+
+        <!-- ── ONNX & DLC ──────────────────────────────────────────────── -->
+        <section class="section" id="onnx-zdlc">
+          <h1>ONNX &amp; IBM Z Deep Learning Compiler</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../optimize-model/optimize-model.html">Optimize Model</a> · <a href="../deploy-models/deploy-models.html">Deploy Models</a></p>
+          <p>ONNX (Open Neural Network Exchange) establishes a streamlined path from playground to production. You can start a project using frameworks like PyTorch or TensorFlow, train on any platform, then export to ONNX and deploy anywhere. On IBM Z, the <strong>IBM Z Deep Learning Compiler (zDLC)</strong> — based on ONNX-MLIR — compiles ONNX models to optimized s390x binaries, automatically offloading eligible operations to the IBM Integrated Accelerator for AI.</p>
+          <p>IBM Research enhanced zDLC to target the Telum Integrated Accelerator for AI for a variety of ONNX primitives. This support has been contributed upstream to ONNX-MLIR, which has been updated to support the Telum II processor in IBM z17.</p>
+
+          <h2>Getting Started — by Platform</h2>
+          <p><strong>z/OS users</strong> can use an MLz-based approach or Linux on Z options via z/OS Container Extensions:</p>
+          <ul>
+            <li><strong>Machine Learning for z/OS (MLz)</strong> — Upload your ONNX model and compile and deploy at the push of a button. Supports server-side mini-batching for ONNX/DLC model serving and native CICS, IMS, and Java scoring services.</li>
+          </ul>
+          <p><strong>Linux on Z, zCX, and LinuxONE users</strong> can use zDLC directly to create model programs for serving environments or applications:</p>
+          <ul>
+            <li>Available through the <a href="https://ibm.github.io/ibm-z-oss-hub/containers/zdlc.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry</a> (listed as <strong>zDLC</strong>)</li>
+            <li>Command-line compiler producing a <code>.so</code> library with optional Java and Python wrappers</li>
+            <li>Model libraries can be used directly or via Triton Inference Server</li>
+          </ul>
+
+          <h2>Converting Models to ONNX</h2>
+          <p>Converting or exporting trained deep learning models to ONNX is a requirement for using zDLC:</p>
+          <ul>
+            <li><strong>TensorFlow</strong> — Use the open-source <a href="https://github.com/onnx/tensorflow-onnx" target="_blank" rel="noopener">tensorflow-onnx</a> package</li>
+            <li><strong>PyTorch</strong> — Export directly using <a href="https://pytorch.org/docs/master/onnx.html" target="_blank" rel="noopener">PyTorch's built-in ONNX export APIs</a></li>
+            <li><strong>Other frameworks</strong> — See the <a href="https://onnx.ai/get-started.html" target="_blank" rel="noopener">ONNX community page</a></li>
+          </ul>
+          <p><strong>Best practice:</strong> Convert models to ONNX on the platform on which they were trained to avoid endian issues (e.g., convert on x86 before transferring to IBM Z).</p>
+
+          <h2>Converting Models to PMML</h2>
+          <p>PMML (Predictive Model Markup Language) is used for traditional ML models. Machine learning models in PMML format can be leveraged by IBM Snap ML — tree-based models can utilize the IBM Integrated Accelerator for AI. Machine Learning for z/OS also supports PMML model deployment.</p>
+          <p>The recommended approach is <a href="https://github.com/jpmml/sklearn2pmml" target="_blank" rel="noopener">sklearn2pmml</a>, which allows creating a <code>PMMLPipeline</code> object containing scikit-learn, XGBoost, or LightGBM models:</p>
+          <pre style="background:var(--ibm-surface);padding:10px 14px;border-radius:4px;font-size:13px;overflow-x:auto;"><code>from sklearn2pmml import PMMLPipeline, sklearn2pmml
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=200, max_depth=6)
+pipeline = PMMLPipeline([("model", model)]).fit(X_train, y_train)
+sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
+          <a href="https://ibm.github.io/zDLC/" class="learn-more" target="_blank" rel="noopener">IBM Z Deep Learning Compiler official page &#8594;</a>
+          <a href="https://github.com/IBM/zDLC" class="learn-more" target="_blank" rel="noopener">IBM zDLC documentation and samples on GitHub &#8594;</a>
+          <a href="https://github.com/IBM/onnxmlir-triton-backend" class="learn-more" target="_blank" rel="noopener">Using DLC with Triton Inference Server &#8594;</a>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'products',
+      activeSub: 'ai-frameworks',
+      pageNavItems: [
+        { id: 'ai-toolkit',       label: 'AI Toolkit for IBM Z' },
+        { id: 'snapml',           label: 'IBM Z Accelerated SnapML' },
+        { id: 'tensorflow',       label: 'IBM Z Accelerated for TensorFlow' },
+        { id: 'pytorch',          label: 'IBM Z Accelerated for PyTorch' },
+        { id: 'python-ai-toolkit',label: 'Python AI Toolkit for z/OS' },
+        { id: 'onnx-zdlc',        label: 'ONNX & IBM Z Deep Learning Compiler' },
+      ]
+    });
+  </script>
+</body>
+</html>

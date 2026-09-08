@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Serve Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
+        <section class="section" id="overview">
+          <h1>Serve Model</h1>
+          <p>Serving is the stage where a deployed model becomes accessible to applications and users — exposing predictions via a REST API, a gRPC endpoint, or a native z/OS scoring interface that an application calls in real time. On IBM Z, inference serving is where the performance story becomes concrete: co-locating the serving layer with your transactions and data eliminates network latency and makes in-transaction AI at enterprise scale possible.</p>
+          <p>IBM Z provides a range of serving options to match the model type, workload pattern, and application environment — from native CICS and IMS scoring inside z/OS to containerized multi-framework servers on Linux on Z to enterprise LLM inference for generative AI workloads.</p>
+
+          <h2>What happens at this stage?</h2>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Expose a scoring endpoint</h4>
+              <p>Make the deployed model accessible via a REST API, gRPC interface, or native z/OS scoring call that applications can invoke for real-time predictions.</p>
+            </div>
+            <div class="card">
+              <h4>Handle production traffic</h4>
+              <p>Configure dynamic batching, concurrency, and throughput settings to serve inference requests at production volume while meeting SLA requirements.</p>
+            </div>
+            <div class="card">
+              <h4>Manage model versions</h4>
+              <p>Support hot model reload and versioned endpoints so you can update or roll back models without downtime.</p>
+            </div>
+            <div class="card">
+              <h4>Infuse AI into applications</h4>
+              <p>Integrate the serving endpoint directly into business applications — CICS transactions, IMS workflows, microservices, or REST-based integrations.</p>
+            </div>
+          </div>
+
+          <h2>IBM Z inference performance</h2>
+          <p>Co-locating your serving layer with applications and data on IBM Z eliminates the round-trip to a remote inference server. IBM internal benchmarks on z16 showed <strong>20x lower response time</strong> and <strong>19x higher throughput</strong> versus a compared x86 server with 60ms network latency — and <strong>41x less energy</strong> per inference operation versus an NVIDIA GPU. On IBM z17, Telum II can process up to <strong>450 billion inference operations per day</strong> with 1ms response time.</p>
+
+          <h2>Who is this stage for?</h2>
+          <p>Serving is primarily owned by <strong>ML Engineers</strong> and <strong>Application Architects</strong>, with Data Scientists as stakeholders validating that the serving layer produces correct outputs. Line of Business and IT Architects set the SLA and throughput requirements the serving layer must meet.</p>
+        </section>
+
+        <!-- ── WHERE TO START ────────────────────────────────────────── -->
+        <section class="section" id="where-to-start">
+          <h1>Where to Start</h1>
+          <p>Your serving choice depends on the model type, where you deployed, and how your application will consume predictions. Use this to find your path:</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">Serving TensorFlow models on Linux on Z</div>
+              <div class="decision-card-body">
+                <p>Your model is a TensorFlow SavedModel and you need a production-grade REST or gRPC endpoint with version management and Telum acceleration.</p>
+                <p><strong>→ Use IBM Z Accelerated Serving for TensorFlow.</strong> A flexible, high-performing serving system for TensorFlow models, served via HTTP REST or gRPC, with Telum II acceleration on z17.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Serving multiple frameworks or model types</div>
+              <div class="decision-card-body">
+                <p>You have a mix of model types — ONNX, SnapML, PyTorch — or need a unified serving platform that handles ensembles and concurrent models.</p>
+                <p><strong>→ Use IBM Z Accelerated for Triton Inference Server.</strong> A multi-framework, high-performance inference server supporting SnapML, ONNX/DLC, and PyTorch backends — with dynamic batching and model ensemble support on Linux on Z.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Serving LLMs and foundation models</div>
+              <div class="decision-card-body">
+                <p>You're serving a large language model — Granite, Llama, Mixtral, or similar — for generative AI use cases on IBM z17 with Spyre or Telum II acceleration.</p>
+                <p><strong>→ Use Red Hat AI Inference Server</strong> (vLLM-based) for an OpenAI-compatible API with optimized distributed LLM serving, or <strong>AI Optimizer for IBM Z</strong> for an all-in-one pre-configured inferencing stack deployable in under 2 hours.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Serving inside z/OS applications</div>
+              <div class="decision-card-body">
+                <p>Your application runs in CICS, IMS, or batch on z/OS and you need the model score to be part of the transaction — not a round-trip to an external server.</p>
+                <p><strong>→ Use Machine Learning for IBM z/OS (MLz).</strong> Native CICS, IMS, and Java scoring services embedded in z/OS transactions, with near-zero latency and Telum acceleration.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ── TF SERVING ─────────────────────────────────────────────── -->
+        <section class="section" id="tf-serving">
+          <h1>IBM Z Accelerated Serving for TensorFlow</h1>
+          <p>IBM Z Accelerated Serving for TensorFlow is a flexible, high-performing serving system for TensorFlow machine learning models, designed for production environments on Linux on IBM Z and LinuxONE. It exposes models as HTTP REST or gRPC endpoints and leverages Telum II on IBM z17 for high-speed inferencing.</p>
+
+          <h2>Key capabilities</h2>
+          <ul>
+            <li>Serve TensorFlow SavedModels via HTTP REST or gRPC interfaces</li>
+            <li>Leverages Telum II on IBM z17 for high-speed, low-latency inferencing</li>
+            <li>Version management — serve multiple model versions simultaneously; hot reload without downtime</li>
+            <li>Supports batching for throughput optimization</li>
+            <li>Available via the IBM Z and LinuxONE Container Registry as part of the AI Toolkit for IBM Z and LinuxONE</li>
+          </ul>
+          <a href="../products-tools/inference-serving.html#tf-serving" class="learn-more">IBM Z Accelerated Serving for TensorFlow deep dive &#8594;</a>
+        </section>
+
+        <!-- ── TRITON ──────────────────────────────────────────────────── -->
+        <section class="section" id="triton">
+          <h1>IBM Z Accelerated for Triton Inference Server</h1>
+          <p>Triton Inference Server — open-sourced by NVIDIA and optimized by IBM for IBM Z — is the most flexible serving platform for Linux on Z environments. It supports multiple AI frameworks simultaneously under a unified REST/gRPC interface, with dynamic batching, model ensemble support, and concurrent model execution. Data pre-processing and inference together in optimized C++ reduces overall time to inference — a key factor for meeting strict SLAs.</p>
+
+          <h2>What Triton supports on IBM Z</h2>
+          <table class="ops-table">
+            <thead><tr><th>Backend</th><th>Model Types</th><th>Use Cases</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">IBM Snap ML</td><td>PMML, ONNX, JSON (Random Forest, GBM, linear models)</td><td>Traditional ML inference — fraud, risk, claims</td></tr>
+              <tr><td class="cap-label">IBM Z Deep Learning Compiler</td><td>ONNX models compiled with zDLC</td><td>Deep learning inference with Telum AI acceleration</td></tr>
+              <tr><td class="cap-label">PyTorch (Telum II)</td><td>PyTorch models</td><td>Multi-model AI use cases on Telum II — encoders, transformers</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Why it matters: performance benchmark</h2>
+          <p>Running customer transaction predictions co-located with the Snap ML library on IBM LinuxONE Emperor 4 delivers <strong>3.5x faster inference</strong> (2.4ms vs 8.5ms) at 53,000 transactions per second compared to running remotely using the NVIDIA Forest Inference Library on a compared x86 server — while using the same throughput on 6 IFLs instead of 6 cores.</p>
+
+          <h2>Key features</h2>
+          <ul>
+            <li>Dynamic batching (server-side micro-batching) for throughput optimization</li>
+            <li>Concurrent model execution — serve multiple models simultaneously</li>
+            <li>Model ensemble support — chain pre-processing, inference, and post-processing steps</li>
+            <li>Model version control and monitoring/metrics integration</li>
+            <li>Available via the IBM Z and LinuxONE Container Registry as part of the AI Toolkit</li>
+          </ul>
+          <a href="../products-tools/inference-serving.html#triton" class="learn-more">IBM Z Accelerated for Triton deep dive &#8594;</a>
+          <a href="https://github.com/IBM/ai-on-z-triton-is-examples" class="learn-more" target="_blank" rel="noopener">Triton examples on GitHub &#8594;</a>
+        </section>
+
+        <!-- ── RED HAT AI INFERENCE SERVER ───────────────────────────── -->
+        <section class="section" id="rh-inference">
+          <h1>Red Hat AI Inference Server</h1>
+          <p>Red Hat AI Inference Server is an enterprise-grade LLM inference platform built on vLLM — designed to serve large language models and foundation models in a hybrid cloud context. It provides optimized distributed model serving with an OpenAI-compatible API, connecting model creators to accelerated hardware providers across any environment. It is available as a standalone product and is included in Red Hat OpenShift AI and Red Hat Enterprise Linux AI (RHEL AI).</p>
+
+          <h2>Supported models</h2>
+          <p>Red Hat AI Inference Server on IBM Z and LinuxONE supports a broad range of models:</p>
+          <div class="card-grid">
+            <div class="card"><h4>IBM Granite</h4><p>IBM's open-source foundation models for enterprise AI use cases, including code, language, and domain-specific tasks.</p></div>
+            <div class="card"><h4>Llama, Mixtral, Qwen</h4><p>Popular open-source LLMs from Meta, Mistral AI, and Alibaba, available for fine-tuned enterprise deployment.</p></div>
+            <div class="card"><h4>DeepSeek, Gemma, Phi</h4><p>Additional open-source models supported for diverse generative AI use cases on IBM Z.</p></div>
+            <div class="card"><h4>Encoder models</h4><p>Embedding and encoder models for semantic search, RAG pipelines, and classification tasks.</p></div>
+          </div>
+
+          <h2>Supported accelerators on IBM Z</h2>
+          <ul>
+            <li><strong>IBM Spyre Accelerator</strong> — PCIe-based AI accelerator on IBM z17, designed for generative AI and LLM workloads at scale</li>
+            <li><strong>IBM Telum II</strong> — On-chip AI accelerator on IBM z17 with INT8 quantization support for high-throughput predictive AI</li>
+          </ul>
+
+          <h2>Key capabilities</h2>
+          <ul>
+            <li>OpenAI-compatible REST API — plug in to existing applications without code changes</li>
+            <li>Optimized distributed model serving for LLMs (vLLM engine)</li>
+            <li>Portability across hybrid cloud — same serving layer across IBM Z, LinuxONE, and cloud</li>
+            <li>Fast, optimized, and cost-effective LLM inference</li>
+          </ul>
+          <a href="../products-tools/inference-serving.html#rh-inference" class="learn-more">Red Hat AI Inference Server deep dive &#8594;</a>
+        </section>
+
+        <!-- ── AI OPTIMIZER ───────────────────────────────────────────── -->
+        <section class="section" id="ai-optimizer">
+          <h1>AI Optimizer for IBM Z and LinuxONE</h1>
+          <p>AI Optimizer for IBM Z and LinuxONE is an all-in-one inferencing software appliance — a fully optimized, pre-validated AI stack delivered as a single LPAR image, deployable in under 2 hours. It is the fastest path to a production-ready inferencing environment on IBM z17 with Spyre and Telum II acceleration, including enterprise-grade observability and model routing built in.</p>
+
+          <h2>When to use AI Optimizer vs. individual serving tools</h2>
+          <table class="ops-table">
+            <thead><tr><th>Scenario</th><th>Recommended approach</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">Need to serve LLMs on Spyre quickly</td><td>AI Optimizer — pre-configured stack, ready in under 2 hours, no manual assembly</td></tr>
+              <tr><td class="cap-label">Need flexible multi-framework serving</td><td>Triton Inference Server — more control over backend configuration</td></tr>
+              <tr><td class="cap-label">Serving TensorFlow models only</td><td>IBM Z Accelerated Serving for TensorFlow — purpose-built for TF</td></tr>
+              <tr><td class="cap-label">Need hybrid LLM management (on-platform + external)</td><td>AI Optimizer — supports external LLM registration alongside on-platform models</td></tr>
+              <tr><td class="cap-label">Need real-time observability and SLA tracking</td><td>AI Optimizer — includes Prometheus &amp; Grafana UI out of the box</td></tr>
+            </tbody>
+          </table>
+          <a href="../products-tools/ai-platforms.html#ai-optimizer" class="learn-more">AI Optimizer for IBM Z deep dive &#8594;</a>
+        </section>
+
+        <!-- ── MLz INFERENCE ──────────────────────────────────────────── -->
+        <section class="section" id="mlz-serve">
+          <h1>Machine Learning for IBM z/OS — Native Scoring</h1>
+          <p>For applications running on z/OS, Machine Learning for IBM z/OS provides native in-transaction scoring that doesn't require a separate serving layer. Models score directly inside CICS transactions, IMS workflows, and batch jobs — on the same system as the application and data, with near-zero latency. This is the serving pattern that enables 100% AI scoring of transactions in real time without SLA impact.</p>
+
+          <h2>Native scoring interfaces</h2>
+          <ul>
+            <li><strong>CICS native scoring</strong> — Score models directly inside CICS transactions; AI result available within the same transaction context</li>
+            <li><strong>IMS native scoring</strong> — Integrate model scoring into IMS message processing workflows</li>
+            <li><strong>Batch scoring</strong> — Large-scale batch inference for offline processing and overnight scoring jobs</li>
+            <li><strong>REST API</strong> — Standard HTTP REST endpoint for applications that prefer a service-oriented integration pattern</li>
+            <li><strong>WOLA (WebSphere Optimized Local Adapter)</strong> — Low-latency Java integration for JVM-based z/OS applications</li>
+          </ul>
+
+          <h2>Explainability at serve time</h2>
+          <p>MLz provides continuous monitoring and explainability for scored transactions — supporting LIME and SHAP algorithms at the individual transaction level. Drift detection monitors both output drift and feature drift, enabling data scientists to identify when model behavior diverges from training.</p>
+          <a href="../products-tools/ai-platforms.html#mlz" class="learn-more">Machine Learning for IBM z/OS deep dive &#8594;</a>
+        </section>
+
+        <!-- ── NEXT STEPS ─────────────────────────────────────────────── -->
+        <section class="section" id="next-steps">
+          <h1>Next Steps</h1>
+          <p>With your model serving in production, the final stage is to monitor it over time — tracking accuracy, detecting drift, and ensuring fair and compliant outcomes.</p>
+          <div class="card-grid">
+            <div class="card">
+              <h4>AI Governance</h4>
+              <p>Monitor your production model for bias, drift, and fairness. Use watsonx.governance, TrustyAI, and MLz's built-in explainability to meet regulatory requirements.</p>
+              <a href="../ai-governance/ai-governance.html" class="learn-more" style="font-size:13px;">Go to AI Governance &#8594;</a>
+            </div>
+            <div class="card">
+              <h4>Use Cases &amp; Solution Templates</h4>
+              <p>See end-to-end examples of complete AI on Z use cases — including fraud detection, credit risk, AML, and more — with code and deployment patterns.</p>
+              <a href="../use-cases/use-cases.html" class="learn-more" style="font-size:13px;">Explore Use Cases &#8594;</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'lifecycle',
+      activeSub: 'serve-model',
+      pageNavItems: [
+        { id: 'overview',      label: 'Overview' },
+        { id: 'where-to-start',label: 'Where to Start' },
+        { id: 'tf-serving',    label: 'TensorFlow Serving' },
+        { id: 'triton',        label: 'Triton Inference Server' },
+        { id: 'rh-inference',  label: 'Red Hat AI Inference Server' },
+        { id: 'ai-optimizer',  label: 'AI Optimizer for IBM Z' },
+        { id: 'mlz-serve',     label: 'MLz Native Scoring (z/OS)' },
+        { id: 'next-steps',    label: 'Next Steps' },
+      ]
+    });
+  </script>
+</body>
+</html>

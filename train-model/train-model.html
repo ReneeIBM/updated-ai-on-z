@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Train Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
+        <section class="section" id="overview">
+          <h1>Train Model</h1>
+          <p>Training is where your prepared data is used to create a model — iterating through algorithms, tuning parameters, and evaluating results until the model produces accurate, meaningful outputs for your business problem. On IBM Z, you can train using the tools and frameworks you already know, whether that's Python-based ML libraries, deep learning frameworks, or IBM Z's own enterprise tooling.</p>
+          <p>You don't need to train on IBM Z to deploy on IBM Z. Many teams train in hybrid cloud and bring the model to Z for inference. But IBM Z is a fully capable training platform — and training locally means your data never has to leave.</p>
+
+          <h2>What happens at this stage?</h2>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Choose your model type</h4>
+              <p>Select the right algorithm for your problem — classification, regression, clustering, or a neural network — based on your data and business goal.</p>
+            </div>
+            <div class="card">
+              <h4>Develop &amp; iterate</h4>
+              <p>Train with your prepared data, evaluate model performance, adjust hyperparameters, and compare models until you reach the accuracy you need.</p>
+            </div>
+            <div class="card">
+              <h4>Fine-tune or use pre-built</h4>
+              <p>For LLMs and foundation models, fine-tune a pre-built model with your own enterprise data rather than training from scratch.</p>
+            </div>
+            <div class="card">
+              <h4>Export for deployment</h4>
+              <p>Save your trained model in a portable format — PMML, ONNX, or a framework-native format — ready to move to the deploy and serve stages.</p>
+            </div>
+          </div>
+
+          <h2>Who is this stage for?</h2>
+          <p>Model training is primarily owned by <strong>Data Scientists</strong>, with <strong>ML Engineers</strong> involved in operationalizing training pipelines. IT Architects and Application Architects are stakeholders, particularly when choosing tools and platforms. Line of Business stakeholders influence what success looks like — which metrics matter and what accuracy threshold is acceptable.</p>
+        </section>
+
+        <!-- ── WHERE TO START ────────────────────────────────────────── -->
+        <section class="section" id="where-to-start">
+          <h1>Where to Start</h1>
+          <p>The right training approach depends on your model type, your data, and how much control you need over the training process. Use this to find your path:</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">Structured / tabular data — fraud, risk, claims</div>
+              <div class="decision-card-body">
+                <p>You're building a traditional ML model on structured transaction data. Speed and compatibility with scikit-learn matter.</p>
+                <p><strong>→ Start with IBM Z Accelerated SnapML.</strong> It's a drop-in replacement for scikit-learn that trains linear models, random forests, and gradient boosting faster — and exports to PMML or ONNX for deployment.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Deep learning — NLP, image, voice, LLMs</div>
+              <div class="decision-card-body">
+                <p>You need to train or fine-tune a neural network. You're using TensorFlow or PyTorch already, or need to get started.</p>
+                <p><strong>→ Use IBM Z Accelerated for TensorFlow or PyTorch</strong> (available in the AI Toolkit for IBM Z). Train on IBM Z or hybrid cloud, then deploy to IBM Z for Telum-accelerated inference.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Training on z/OS with Python</div>
+              <div class="decision-card-body">
+                <p>Your data lives on z/OS and you want to train directly on the platform using Python, scikit-learn, XGBoost, or similar tools.</p>
+                <p><strong>→ Use the Python AI Toolkit for IBM z/OS.</strong> A curated set of Python packages — including pandas, NumPy, scikit-learn, and XGBoost — running natively on z/OS without data movement.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Using a pre-built or external model</div>
+              <div class="decision-card-body">
+                <p>You want to lift and shift a model trained elsewhere onto IBM Z, or fine-tune a foundation model with your own data.</p>
+                <p><strong>→ Convert to ONNX or PMML</strong> for portable deployment, or use <strong>watsonx.ai</strong> to fine-tune foundation models and export for IBM Z inferencing.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ── TRADITIONAL ML ─────────────────────────────────────────── -->
+        <section class="section" id="traditional-ml">
+          <h1>Traditional Machine Learning</h1>
+          <p>Traditional machine learning models — linear models, decision trees, random forests, gradient boosting — are the workhorses of IBM Z AI use cases. Most production deployments in financial services, insurance, and retail scoring run on these model types. They train fast, are explainable, and map naturally to the structured tabular data that enterprises have in abundance on Z.</p>
+
+          <h2>IBM Z Accelerated SnapML</h2>
+          <p>Snap ML is an open-source library developed and maintained by IBM Research that provides high-performance training and inference for popular machine learning models. It is fully compatible with the scikit-learn API — so if your team already uses scikit-learn, XGBoost, or LightGBM, you can switch with minimal code changes.</p>
+
+          <h2>What SnapML is good for</h2>
+          <table class="ops-table">
+            <thead><tr><th>Model Type</th><th>Examples</th><th>Use Cases</th></tr></thead>
+            <tbody>
+              <tr><td class="cap-label">Generalized Linear Models</td><td>Logistic Regression, Linear Regression</td><td>Credit scoring, churn prediction</td></tr>
+              <tr><td class="cap-label">Tree-Based Models</td><td>Random Forest, Extra Trees, Decision Trees</td><td>Fraud detection, risk classification</td></tr>
+              <tr><td class="cap-label">Gradient Boosting Machines</td><td>Gradient Boosting, XGBoost (scoring)</td><td>Insurance claims, payment authorization</td></tr>
+              <tr><td class="cap-label">Support Vector Machines</td><td>SVM</td><td>Binary classification, anomaly detection</td></tr>
+            </tbody>
+          </table>
+
+          <h2>4 pillars of enterprise-grade preprocessing in Snap ML</h2>
+          <ul>
+            <li><strong>Mathematical Alignment</strong> — Cleans, normalizes, and encodes data to guarantee optimal mathematical stability during model training.</li>
+            <li><strong>Low-Latency Inference</strong> — Eliminates Python overhead by executing scikit-learn pipeline transformations natively in optimized C++.</li>
+            <li><strong>Multi-Modal Feature Support</strong> — Handles numerical transformations, categorical encodings, and graph-based features for large enterprise workloads.</li>
+            <li><strong>Zero-Skew Pipeline Alignment</strong> — Exports unified preprocessing pipelines as deployable JSON manifests to ensure training-to-serving consistency.</li>
+          </ul>
+
+          <h2>Telum acceleration</h2>
+          <p>Starting with Snap ML v1.9.0, Random Forest, Extra Trees, and Gradient Boosting Machines can leverage the IBM Integrated Accelerator for AI on Telum I and Telum II processors at inference time. Starting with v1.9.1, SnapML-trained tree models can be exported directly to PMML.</p>
+
+          <h2>Machine Learning for IBM z/OS (MLz)</h2>
+          <p>If you're training on z/OS or need a managed environment for the full ML lifecycle, Machine Learning for IBM z/OS (MLz) provides a unified platform for building, deploying, and scoring models directly on z/OS — with SnapML built in.</p>
+          <a href="../products-tools/ai-frameworks.html#snapml" class="learn-more">Snap ML deep dive &#8594;</a>
+          <a href="../products-tools/ai-platforms.html#mlz" class="learn-more">Machine Learning for IBM z/OS &#8594;</a>
+        </section>
+
+        <!-- ── DEEP LEARNING ──────────────────────────────────────────── -->
+        <section class="section" id="deep-learning">
+          <h1>Deep Learning</h1>
+          <p>Deep learning enables more complex AI use cases — natural language processing, image and voice recognition, transformer-based models, and generative AI. IBM Z supports the two dominant frameworks — TensorFlow and PyTorch — both optimized to leverage the IBM Integrated Accelerator for AI on Telum I and Telum II processors.</p>
+          <p>You can train on any platform you choose, including hybrid cloud. When you bring the model to IBM Z for inferencing, Telum acceleration applies transparently — no model changes required.</p>
+
+          <h2>IBM Z Accelerated for TensorFlow</h2>
+          <p>TensorFlow on IBM Z provides a leading open-source deep learning framework for data scientists running Linux on IBM Z or LinuxONE (including z/OS Container Extensions). It supports a wide range of use cases including NLP, image recognition, voice search, and mission-critical workloads like fraud detection. On IBM z16 and later, TensorFlow inference transparently leverages the IBM Integrated Accelerator for AI through the zDNN library.</p>
+          <a href="../products-tools/ai-frameworks.html#tensorflow" class="learn-more">TensorFlow deep dive &#8594;</a>
+
+          <h2>IBM Z Accelerated for PyTorch</h2>
+          <p>PyTorch is IBM Z's preferred platform for building deep learning models and LLMs. It is a fully featured framework for model development, research, and production — and is the foundation for most Transformer and encoder-based architectures in use today. IBM Z Accelerated for PyTorch exploits the IBM Integrated Accelerator for AI on IBM z17 and LinuxONE 5, supporting both traditional AI and foundation model stacks including the deployment of Transformer models, encoder-based models, and ensemble AI models.</p>
+          <a href="../products-tools/ai-frameworks.html#pytorch" class="learn-more">PyTorch deep dive &#8594;</a>
+
+          <h2>Red Hat OpenShift AI</h2>
+          <p>Red Hat OpenShift AI provides a Kubernetes-native platform for AI model development and training at scale. Teams can use JupyterHub-based workbenches, Kubeflow Pipelines for orchestration, and collaborative model registries within an enterprise OpenShift environment on IBM Z.</p>
+          <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI deep dive &#8594;</a>
+        </section>
+
+        <!-- ── TRAINING ON z/OS ────────────────────────────────────────── -->
+        <section class="section" id="train-on-zos">
+          <h1>Training Directly on z/OS</h1>
+          <p>For teams whose data lives on z/OS and who want to keep it there, IBM provides tools to train models natively on the platform — without extracting data to a Linux or cloud environment first.</p>
+
+          <h2>Python AI Toolkit for IBM z/OS</h2>
+          <p>The Python AI Toolkit for IBM z/OS is a curated library of open-source AI and ML packages — including pandas, NumPy, scikit-learn, XGBoost, and SQLAlchemy — that run natively on z/OS. It is the foundation of the Python AI stack on z/OS and the most accessible entry point for teams building models with enterprise data in place.</p>
+          <ul>
+            <li>Build models with the same Python packages you use elsewhere — scikit-learn, XGBoost, LightGBM</li>
+            <li>Access Db2, IMS, and VSAM data directly via SQLAlchemy or JDBC — no data movement</li>
+            <li>Export trained models to PMML, ONNX, or pickle for downstream deployment via MLz or AI Toolkit</li>
+          </ul>
+          <a href="../products-tools/ai-frameworks.html#python-ai-toolkit" class="learn-more">Python AI Toolkit for z/OS deep dive &#8594;</a>
+
+          <h2>IBM Z Platform for Apache Spark (MLlib)</h2>
+          <p>Apache Spark's MLlib library brings distributed machine learning to z/OS — useful when training at scale on large datasets. Spark MLlib supports classification, regression, collaborative filtering, clustering, and gradient-boosted trees in Scala, Python, and Java, co-located with Db2 and IMS data.</p>
+          <a href="../products-tools/data-analytics.html#apache-spark" class="learn-more">Apache Spark on IBM Z deep dive &#8594;</a>
+        </section>
+
+        <!-- ── USING PRE-BUILT MODELS ─────────────────────────────────── -->
+        <section class="section" id="pre-built-models">
+          <h1>Using Pre-Built and Foundation Models</h1>
+          <p>Not every project starts from scratch. IBM Z supports two additional entry points beyond building your own model:</p>
+
+          <div class="decision-cards">
+            <div class="decision-card">
+              <div class="decision-card-label">Select a model from IBM or a vendor</div>
+              <div class="decision-card-body">
+                <p>Use a model from IBM, an open-source model hub (e.g., Hugging Face), or an ISV — then convert it to ONNX or PMML and lift-and-shift to IBM Z for accelerated inference. No training required.</p>
+                <p><strong>→</strong> Convert to ONNX using the IBM Z Deep Learning Compiler, or to PMML using sklearn2pmml, then deploy via MLz or AI Toolkit.</p>
+              </div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-card-label">Fine-tune a foundation model</div>
+              <div class="decision-card-body">
+                <p>Start from a large pre-trained model — IBM Granite, Llama, or Mixtral — and fine-tune it with your own enterprise data to adapt it to your use case.</p>
+                <p><strong>→</strong> Use <strong>watsonx.ai</strong> or <strong>InstructLab</strong> to fine-tune, then deploy to IBM Z via the Red Hat AI Inference Server or Red Hat OpenShift AI with Spyre acceleration.</p>
+              </div>
+            </div>
+          </div>
+          <a href="../products-tools/ai-frameworks.html#onnx-zdlc" class="learn-more">ONNX &amp; IBM Z Deep Learning Compiler &#8594;</a>
+          <a href="../products-tools/ai-platforms.html#watsonx-ai" class="learn-more">watsonx.ai on IBM Z &#8594;</a>
+        </section>
+
+        <!-- ── NEXT STEPS ─────────────────────────────────────────────── -->
+        <section class="section" id="next-steps">
+          <h1>Next Steps</h1>
+          <p>Once your model is trained and validated, the next stage is to make it available in a production environment.</p>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Optimize Model</h4>
+              <p>Before deploying, consider compiling with the IBM Z Deep Learning Compiler or applying quantization with AI Optimizer to improve inference performance on Telum.</p>
+              <a href="../optimize-model/optimize-model.html" class="learn-more" style="font-size:13px;">Go to Optimize Model &#8594;</a>
+            </div>
+            <div class="card">
+              <h4>Deploy Models</h4>
+              <p>Move your trained model to a production environment — MLz for z/OS, AI Toolkit containers for Linux on Z, or Red Hat OpenShift AI for hybrid cloud.</p>
+              <a href="../deploy-models/deploy-models.html" class="learn-more" style="font-size:13px;">Go to Deploy Models &#8594;</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'lifecycle',
+      activeSub: 'train-model',
+      pageNavItems: [
+        { id: 'overview',        label: 'Overview' },
+        { id: 'where-to-start',  label: 'Where to Start' },
+        { id: 'traditional-ml',  label: 'Traditional Machine Learning' },
+        { id: 'deep-learning',   label: 'Deep Learning' },
+        { id: 'train-on-zos',    label: 'Training on z/OS' },
+        { id: 'pre-built-models',label: 'Pre-Built & Foundation Models' },
+        { id: 'next-steps',      label: 'Next Steps' },
+      ]
+    });
+  </script>
+</body>
+</html>

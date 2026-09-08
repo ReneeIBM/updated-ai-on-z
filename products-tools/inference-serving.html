@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Inference &amp; Serving</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="has-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+      <div class="page-body">
+
+        <!-- ── IBM Z Accelerated Serving for TensorFlow ─────────────── -->
+        <section class="section" id="tf-serving">
+          <h1>IBM Z Accelerated Serving for TensorFlow</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
+
+          <p>IBM Z Accelerated Serving for TensorFlow is a production-grade model serving runtime for TensorFlow SavedModels, built for IBM Z and Linux on IBM Z. It extends the standard TensorFlow Serving runtime with direct integration into the IBM Z hardware stack — eligible model operations are automatically offloaded to the Telum on-chip AI accelerator through the zDNN layer, with no changes required to the model itself. It is designed for platform engineers and application developers who have trained TensorFlow models (on any platform) and need to deploy them into a production inference environment on s390x. The core problem it solves is efficiency: running TensorFlow inference on general-purpose CPU is resource-intensive and latency-sensitive, and IBM Z Accelerated Serving routes that compute to dedicated AI hardware, freeing CPU for the transactional workloads running alongside it.</p>
+
+          <h2>Key Capabilities</h2>
+          <ul>
+            <li>Automatic Telum AI accelerator offload via zDNN — no model rewriting required</li>
+            <li>gRPC and HTTP/REST endpoints compatible with standard TensorFlow Serving APIs</li>
+            <li>Hot model reload and simultaneous multi-version serving without service interruption</li>
+            <li>Containerized image distributed through the IBM Z and LinuxONE Container Image Registry</li>
+            <li>Included as part of the <a href="../products-tools/ai-frameworks.html#ai-toolkit">AI Toolkit for IBM Z and LinuxONE</a> — no separate procurement</li>
+          </ul>
+
+          <h2>On IBM Z</h2>
+          <p>IBM Z Accelerated Serving for TensorFlow sits at the end of the AI lifecycle — it is a <strong>Serve Model</strong> tool. Once a model is trained and exported as a TensorFlow SavedModel, this product handles everything from that point forward: loading, versioning, endpoint exposure, and hardware-accelerated inference. Because it runs directly on IBM Z, inference is co-located with enterprise transaction data — no network round-trips, no data leaving the platform. Teams that run IBM Z as their primary transactional environment and want to score TensorFlow models in-place, without offloading to a separate serving cluster, should reach for this product.</p>
+
+          <h2>Getting Started</h2>
+          <a href="https://github.com/IBM/ibmz-accelerated-serving-for-tensorflow" class="learn-more" target="_blank" rel="noopener">GitHub — IBM Z Accelerated Serving for TensorFlow &#8594;</a>
+          <a href="https://ibm.github.io/ibmz-accelerated-for-tensorflow/" class="learn-more" target="_blank" rel="noopener">IBM Z Accelerated for TensorFlow documentation &#8594;</a>
+          <a href="../products-tools/ai-frameworks.html#ai-toolkit" class="learn-more">AI Toolkit for IBM Z and LinuxONE &#8594;</a>
+          <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
+        </section>
+
+        <!-- ── IBM Z Accelerated for Triton ──────────────────────────── -->
+        <section class="section" id="triton">
+          <h1>IBM Z Accelerated for Triton Inference Server</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
+          <p>Triton Inference Server is a model server open-sourced by NVIDIA. Triton supports model inference on both CPU and GPU devices and is commonly used across a wide variety of platforms and architectures, including s390x (Linux on Z). On Linux on Z, Triton can leverage AI frameworks that take advantage of both the SIMD architecture and the IBM Integrated Accelerator for AI.</p>
+          <p>Triton Inference Server is a component of the <a href="../products-tools/ai-frameworks.html#ai-toolkit">AI Toolkit for IBM Z and LinuxONE</a>, with container images available in the IBM Z and LinuxONE Container Image Registry.</p>
+
+          <h2>Key Features</h2>
+          <ul>
+            <li>Server-side micro-batching (Dynamic Batching) for throughput optimization</li>
+            <li>Support for multiple frameworks and model backends</li>
+            <li>Model version control and concurrent model execution</li>
+            <li>Metrics/Monitoring integration</li>
+            <li>Supports customization: new frameworks, rule integrations</li>
+          </ul>
+
+          <h2>Supported Model Paths on IBM Z</h2>
+          <p>In IBM Z environments, Triton supports two primary paths that enable models to leverage the Integrated Accelerator for AI on Telum I and Telum II processors:</p>
+          <ul>
+            <li><strong>Traditional ML models</strong> in PMML, ONNX, or JSON format, run using an IBM Snap ML C++ runtime</li>
+            <li><strong>Deep learning models</strong> in ONNX format compiled with the IBM Z Deep Learning Compiler (zDLC)</li>
+            <li><strong>PyTorch backend with Telum II support</strong> — enables real-world multi-model AI use cases on Telum II</li>
+          </ul>
+
+          <h2>Getting Started</h2>
+          <a href="https://github.com/IBM/ibmz-accelerated-for-nvidia-triton-inference-server" class="learn-more" target="_blank" rel="noopener">IBM Z Accelerated for Triton on GitHub (Container Registry) &#8594;</a>
+          <a href="https://github.com/IBM/ai-on-z-triton-is-examples/tree/main/snapml-examples" class="learn-more" target="_blank" rel="noopener">Snap ML + Triton examples &#8594;</a>
+          <a href="https://github.com/IBM/onnxmlir-triton-backend" class="learn-more" target="_blank" rel="noopener">ONNX Deep Learning Compiler + Triton backend &#8594;</a>
+        </section>
+
+        <!-- ── Red Hat AI Inference Server ──────────────────────────── -->
+        <section class="section" id="rh-inference">
+          <h1>Red Hat AI Inference Server</h1>
+          <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
+
+          <p>Red Hat AI Inference Server is Red Hat's enterprise-supported model serving platform for large language models and foundation models, built on vLLM and designed to run on Red Hat OpenShift. It exposes an OpenAI-compatible API, making it a drop-in serving layer for applications already built against OpenAI's interfaces. It is aimed at platform teams and ML engineers who need to run LLM inference in production on OpenShift — with enterprise support, a defined release lifecycle, and operational tooling — rather than managing a raw vLLM deployment themselves. On IBM Z and LinuxONE, Red Hat AI Inference Server brings production GenAI serving to mission-critical on-premises infrastructure, including Spyre-accelerated workloads on IBM z17.</p>
+
+          <h2>Key Capabilities</h2>
+          <ul>
+            <li>OpenAI-compatible Chat Completions and Completions API — no client-side re-engineering required</li>
+            <li>Enterprise support, CVE patching, and defined release lifecycle from Red Hat</li>
+            <li>Deploys through the Red Hat OpenShift AI operator with built-in health probes, scaling, and service mesh integration</li>
+            <li>Spyre Accelerator support on IBM z17 for hardware-accelerated LLM inference on the mainframe</li>
+            <li>Supports IBM Granite, Llama, Mistral, and other open-weight models compatible with vLLM</li>
+            <li>Consistent runtime across on-premises OpenShift on IBM Z and cloud OpenShift environments</li>
+          </ul>
+
+          <h2>On IBM Z</h2>
+          <p>Red Hat AI Inference Server is a <strong>Serve Model</strong> tool. Within the Red Hat OpenShift AI stack on IBM Z and LinuxONE, it is the default serving runtime for LLM and foundation model workloads — the component that actually handles inference requests once a model is deployed. Organizations building generative AI capabilities on IBM Z should consider it when they need a production-grade, operator-managed LLM serving layer that integrates with OpenShift's existing observability, scaling, and security tooling. For traditional ML model serving on OpenShift on Z alongside LLM workloads, pair it with <a href="./inference-serving.html#triton">IBM Z Accelerated for Triton</a>.</p>
+
+          <h2>Getting Started</h2>
+          <a href="https://www.redhat.com/en/products/ai/inference" class="learn-more" target="_blank" rel="noopener">Red Hat AI Inference Server product page &#8594;</a>
+          <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/" class="learn-more" target="_blank" rel="noopener">Red Hat OpenShift AI documentation &#8594;</a>
+          <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI on AI on Z &#8594;</a>
+          <a href="../products-tools/hardware-solutions.html#spyre" class="learn-more">IBM Spyre Accelerator &#8594;</a>
+          <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'products',
+      activeSub: 'inference-serving',
+      pageNavItems: [
+        { id: 'tf-serving',   label: 'IBM Z Accel. Serving for TensorFlow' },
+        { id: 'triton',       label: 'IBM Z Accelerated for Triton' },
+        { id: 'rh-inference', label: 'Red Hat AI Inference Server' },
+      ]
+    });
+  </script>
+</body>
+</html>

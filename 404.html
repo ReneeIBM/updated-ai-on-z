@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page not found | AI on IBM Z</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .not-found-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 64px);
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .not-found-code {
+      font-size: 80px;
+      font-weight: 600;
+      color: var(--ibm-blue);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -2px;
+    }
+    .not-found-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      margin-bottom: 10px;
+    }
+    .not-found-body {
+      font-size: 15px;
+      color: var(--ibm-text-secondary);
+      max-width: 420px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .not-found-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .not-found-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--ibm-blue);
+      color: var(--ibm-blue);
+      transition: background 0.15s;
+    }
+    .not-found-link:hover { background: var(--ibm-blue-10); }
+    .not-found-link--primary { background: var(--ibm-blue); color: #fff; }
+    .not-found-link--primary:hover { background: var(--ibm-blue-hover); }
+  </style>
+</head>
+<body class="no-lifecycle">
+  <header class="topbar">
+    <a href="/index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
+  </header>
+
+  <div class="not-found-wrap">
+    <div class="not-found-code">404</div>
+    <div class="not-found-title">Page not found</div>
+    <p class="not-found-body">The page you're looking for doesn't exist or may have moved. Use the links below to get back on track.</p>
+    <div class="not-found-links">
+      <a href="/index.html" class="not-found-link not-found-link--primary">Home</a>
+      <a href="/overview/overview.html" class="not-found-link">Overview</a>
+      <a href="/use-cases/ai-solution-template.html" class="not-found-link">Solution Blueprints</a>
+      <a href="/getting-help/terminology.html" class="not-found-link">Getting Help</a>
+    </div>
+  </div>
+</body>
+</html>
