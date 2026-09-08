@@ -212,6 +212,30 @@ function renderNav(opts) {
         ${item.dropdown || ''}
       </div>`;
     }).join('');
+
+    /* ── Inject search bar after the nav items ── */
+    const searchWrapper = document.createElement('div');
+    searchWrapper.className = 'topbar-search';
+    searchWrapper.innerHTML = `
+      <span class="topbar-search-icon">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="10.35" y1="10.35" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <input
+        type="text"
+        class="topbar-search-input"
+        placeholder="Search AI on Z…"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search AI on Z"
+      />
+      <button class="topbar-search-clear" aria-label="Clear search">&#x2715;</button>
+      <div class="topbar-search-results" role="listbox" aria-label="Search results"></div>
+    `;
+    topbarEl.appendChild(searchWrapper);
+    initSearch(searchWrapper, p);
   }
 
   /* ── 2. Sub-nav bar (lifecycle OR products) ──────────────── */
@@ -274,3 +298,201 @@ function renderNav(opts) {
 /* Legacy shim */
 function renderSidebar() {}
 function initScrollSpy() {}
+
+/* ─────────────────────────────────────────────────────────────
+   Search — static index + live dropdown
+   ───────────────────────────────────────────────────────────── */
+function initSearch(wrapper, root) {
+  /* ── Static index: { title, section, snippet, href } ── */
+  const INDEX = [
+    /* Overview */
+    { title: 'What is AI on IBM Z?', section: 'Overview', snippet: 'IBM Z combines hardware acceleration, open-source AI frameworks, and a complete software stack to run AI workloads co-located with critical business data.', href: root + 'overview/overview.html' },
+    { title: 'Why Run AI on IBM Z?', section: 'Overview', snippet: 'Co-location with data eliminates latency, reduces risk, and enables real-time AI scoring within existing transaction systems.', href: root + 'overview/overview.html#why-z' },
+    { title: 'AI on Z Entry Points', section: 'Overview', snippet: 'Three entry points: z/OS with MLz, Linux on Z with open-source frameworks, and Red Hat OpenShift AI on IBM Z.', href: root + 'overview/overview.html#entry-points' },
+    { title: 'AI Lifecycle on IBM Z', section: 'Overview', snippet: 'Prepare data, train, optimize, deploy, serve, and govern AI models — all on IBM Z infrastructure.', href: root + 'overview/overview.html#ai-lifecycle' },
+
+    /* Prepare Data */
+    { title: 'Prepare Data', section: 'AI Lifecycle', snippet: 'Synthetic data generation, feature engineering, and Apache Spark on IBM Z for data preparation.', href: root + 'prepare-data/prepare-data.html' },
+    { title: 'IBM Synthetic Data Sets', section: 'Prepare Data', snippet: 'Generate realistic, privacy-safe labeled datasets for training AI models on IBM Z.', href: root + 'products-tools/data-analytics.html#synthetic-data-sets' },
+    { title: 'IBM Z Platform for Apache Spark', section: 'Prepare Data', snippet: 'Run Apache Spark workloads natively on IBM Z for scalable data processing and feature engineering.', href: root + 'products-tools/data-analytics.html#apache-spark' },
+    { title: 'Python AI Toolkit for z/OS', section: 'Prepare Data', snippet: 'A curated set of Python AI/ML packages — NumPy, Pandas, Scikit-learn — optimized for z/OS.', href: root + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
+
+    /* Train Model */
+    { title: 'Train Model', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and hardware-accelerated training on IBM Z using SnapML, TensorFlow, PyTorch.', href: root + 'train-model/train-model.html' },
+    { title: 'IBM Z Accelerated SnapML', section: 'Train Model', snippet: 'Accelerated Snap ML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
+    { title: 'IBM Z Accelerated for TensorFlow', section: 'Train Model', snippet: 'TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
+    { title: 'IBM Z Accelerated for PyTorch', section: 'Train Model', snippet: 'PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
+    { title: 'Machine Learning for IBM z/OS (MLz)', section: 'Train Model', snippet: 'IBM MLz provides a full lifecycle platform for building, deploying, and scoring AI models on z/OS.', href: root + 'products-tools/ai-platforms.html#mlz' },
+    { title: 'Red Hat OpenShift AI', section: 'Train Model', snippet: 'MLOps platform on Red Hat OpenShift running on IBM Z and LinuxONE for containerized AI workloads.', href: root + 'products-tools/ai-platforms.html#rhoai' },
+
+    /* Optimize Model */
+    { title: 'Optimize Model', section: 'AI Lifecycle', snippet: 'ONNX, PMML, quantization, and the IBM Z Deep Learning Compiler (zDLC) for model optimization.', href: root + 'optimize-model/optimize-model.html' },
+    { title: 'ONNX & IBM Z Deep Learning Compiler', section: 'Optimize Model', snippet: 'Convert and compile models to ONNX format; use zDLC to optimize neural networks for IBM Z hardware.', href: root + 'products-tools/ai-frameworks.html#onnx-zdlc' },
+    { title: 'AI Optimizer for IBM Z and LinuxONE', section: 'Optimize Model', snippet: 'Quantize and compress AI models to improve inference throughput on IBM Z hardware.', href: root + 'products-tools/ai-platforms.html#ai-optimizer' },
+
+    /* Deploy Models */
+    { title: 'Deploy Models', section: 'AI Lifecycle', snippet: 'Deploy AI models on z/OS with MLz, on OpenShift with RHOAI, or to watsonx.ai on IBM Z.', href: root + 'deploy-models/deploy-models.html' },
+    { title: 'watsonx.ai on IBM Z', section: 'Deploy Models', snippet: 'Run IBM watsonx.ai workloads on IBM Z infrastructure for enterprise-grade AI deployment.', href: root + 'products-tools/ai-platforms.html#watsonx-ai' },
+
+    /* Serve Model */
+    { title: 'Serve Models', section: 'AI Lifecycle', snippet: 'Triton Inference Server, TensorFlow Serving, MLz, and Red Hat AI Inference Server on IBM Z.', href: root + 'serve-model/serve-model.html' },
+    { title: 'IBM Z Accelerated Serving for TensorFlow', section: 'Serve Model', snippet: 'High-performance TensorFlow Model Serving accelerated by IBM Z hardware for production inference.', href: root + 'products-tools/inference-serving.html#tf-serving' },
+    { title: 'IBM Z Accelerated for Triton', section: 'Serve Model', snippet: 'NVIDIA Triton Inference Server optimized for IBM Z and LinuxONE for containerized model serving.', href: root + 'products-tools/inference-serving.html#triton' },
+    { title: 'Red Hat AI Inference Server', section: 'Serve Model', snippet: 'Serve large language models and GenAI workloads on IBM Z using the Red Hat AI Inference Server with vLLM.', href: root + 'products-tools/inference-serving.html#rh-inference' },
+
+    /* AI Governance */
+    { title: 'AI Governance', section: 'AI Lifecycle', snippet: 'Monitor, explain, and govern AI models with watsonx.governance and MLz on IBM Z.', href: root + 'ai-governance/ai-governance.html' },
+    { title: 'watsonx.governance', section: 'AI Governance', snippet: 'Track model risk, detect drift, and ensure regulatory compliance with IBM watsonx.governance on Z.', href: root + 'products-tools/ai-platforms.html#watsonx-governance' },
+
+    /* Hardware */
+    { title: 'Hardware Solutions', section: 'Products & Tools', snippet: 'IBM Z hardware for AI: Telum on-chip accelerator and IBM Spyre Accelerator for generative AI.', href: root + 'products-tools/hardware-solutions.html' },
+    { title: 'IBM Integrated Accelerator for AI (Telum)', section: 'Hardware', snippet: 'Telum is an on-chip AI accelerator built into IBM z16 and z17 processors for low-latency transactional AI inference.', href: root + 'products-tools/hardware-solutions.html#telum' },
+    { title: 'IBM Spyre Accelerator', section: 'Hardware', snippet: 'The IBM Spyre Accelerator on IBM z17 enables high-throughput generative AI and large model inference.', href: root + 'products-tools/hardware-solutions.html#spyre' },
+
+    /* AI Frameworks */
+    { title: 'AI Toolkit for IBM Z and LinuxONE', section: 'Products & Tools', snippet: 'A collection of open-source AI frameworks — TensorFlow, PyTorch, SnapML, ONNX — optimized for s390x.', href: root + 'products-tools/ai-frameworks.html#ai-toolkit' },
+
+    /* Use Cases */
+    { title: 'AI Solution Patterns', section: 'Use Cases', snippet: 'Common AI solution patterns on IBM Z including real-time scoring, batch inference, and hybrid cloud.', href: root + 'use-cases/use-cases.html#ai-solution-patterns' },
+    { title: 'AI Solution Templates', section: 'Use Cases', snippet: 'Pre-built blueprints that walk you through the full AI lifecycle on IBM Z with working code.', href: root + 'use-cases/ai-solution-template.html' },
+    { title: 'Advanced Credit Card Fraud Detection', section: 'Solution Templates', snippet: 'Multi-model ensemble AI on IBM z17 — XGBoost + BERT deployed with MLz for real-time fraud scoring.', href: root + 'use-cases/ai-solution-template.html#fraud-detection-tis' },
+    { title: 'Fraud Detection on IBM Z', section: 'Solution Templates', snippet: 'Deploy an AI fraud detection model using open-source frameworks and Machine Learning for IBM z/OS.', href: root + 'use-cases/ai-solution-template.html#fraud-detection' },
+    { title: 'Document Intelligence with Spyre', section: 'Solution Templates · Generative AI', snippet: 'IBM Granite LLM inference on Red Hat AI Inference Server, leveraging the IBM Spyre Accelerator on IBM Z.', href: root + 'use-cases/ai-solution-template.html#generative-ai' },
+    { title: 'Credit Risk Assessment on IBM Z', section: 'Solution Templates', snippet: 'Build and deploy a credit risk scoring model using open-source frameworks and MLz with real-time scoring.', href: root + 'use-cases/ai-solution-template.html#credit-risk' },
+    { title: 'Health Insurance Claims on IBM Z', section: 'Solution Templates', snippet: 'AI model for health insurance claims processing using MLz, deployed for real-time scoring on z/OS.', href: root + 'use-cases/ai-solution-template.html#health-insurance' },
+    { title: 'Data Preprocessing on IBM Z', section: 'Solution Templates', snippet: 'Build an AI solution with a preprocessing pipeline using open-source frameworks and MLz on IBM Z.', href: root + 'use-cases/ai-solution-template.html#data-preprocessing' },
+    { title: 'Anti-Money Laundering on IBM Z', section: 'Solution Templates', snippet: 'AML detection model using open-source frameworks and MLz for real-time transaction monitoring.', href: root + 'use-cases/ai-solution-template.html#anti-money-laundering' },
+
+    /* Getting Help */
+    { title: 'Terminology & Glossary', section: 'Getting Help', snippet: 'Key terms and definitions for AI on IBM Z: MLz, PMML, ONNX, Telum, Spyre, zDLC, and more.', href: root + 'getting-help/terminology.html#terminology' },
+    { title: 'Resources & Contacts', section: 'Getting Help', snippet: 'Links to documentation, GitHub repos, community contacts, and how to reach the AI on Z team.', href: root + 'getting-help/terminology.html#resources-contacts' },
+
+    /* XGBoost / BERT / MLz specific terms */
+    { title: 'XGBoost on IBM Z', section: 'AI Frameworks', snippet: 'XGBoost is supported via the Python AI Toolkit and MLz — export models as PMML for z/OS deployment.', href: root + 'products-tools/ai-frameworks.html' },
+    { title: 'BERT / Transformer Models on IBM Z', section: 'AI Frameworks', snippet: 'Fine-tune BERT-base with PyTorch on IBM Z, export as ONNX, and deploy via MLz scoring endpoints.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
+    { title: 'PMML Deployment with MLz', section: 'Deploy Models', snippet: 'Export scikit-learn or XGBoost models as PMML and deploy to Machine Learning for IBM z/OS.', href: root + 'deploy-models/deploy-models.html' },
+    { title: 'CICS Scoring Endpoint', section: 'Deploy Models', snippet: 'Expose MLz-deployed models as CICS or REST scoring endpoints for z/OS transaction applications.', href: root + 'deploy-models/deploy-models.html' },
+    { title: 'IBM z17', section: 'Hardware', snippet: 'IBM z17 is the latest IBM Z mainframe featuring Telum II AI accelerator and IBM Spyre Accelerator support.', href: root + 'products-tools/hardware-solutions.html' },
+    { title: 'Telum II AI Accelerator', section: 'Hardware', snippet: 'Telum II is the second-generation on-chip AI accelerator in IBM z17, with improved inference throughput.', href: root + 'products-tools/hardware-solutions.html#telum' },
+    { title: 'Ensemble AI on IBM Z', section: 'Solution Templates', snippet: 'Combine XGBoost and BERT in an ensemble pipeline — fast model screens first, deep model refines uncertain predictions.', href: root + 'use-cases/ai-solution-template.html#fraud-detection-tis' },
+    { title: 'Real-Time AI Inference on z/OS', section: 'AI Lifecycle', snippet: 'Run AI inference co-located with transactional data on z/OS using MLz CICS or REST scoring.', href: root + 'serve-model/serve-model.html' },
+  ];
+
+  const input   = wrapper.querySelector('.topbar-search-input');
+  const results = wrapper.querySelector('.topbar-search-results');
+  const clearBtn = wrapper.querySelector('.topbar-search-clear');
+
+  let focusIdx = -1;
+  let currentItems = [];
+
+  function highlight(text, query) {
+    if (!query) return escHtml(text);
+    const re = new RegExp('(' + escRe(query) + ')', 'gi');
+    return escHtml(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function escRe(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function search(query) {
+    query = query.trim();
+    if (query.length < 2) return [];
+    const terms = query.toLowerCase().split(/\s+/);
+    const scored = [];
+    INDEX.forEach(entry => {
+      const haystack = (entry.title + ' ' + entry.section + ' ' + entry.snippet).toLowerCase();
+      let score = 0;
+      let allMatch = true;
+      terms.forEach(term => {
+        if (!haystack.includes(term)) { allMatch = false; return; }
+        if (entry.title.toLowerCase().includes(term)) score += 10;
+        if (entry.section.toLowerCase().includes(term)) score += 4;
+        if (entry.snippet.toLowerCase().includes(term)) score += 2;
+        if (entry.title.toLowerCase().startsWith(term)) score += 6;
+      });
+      if (allMatch) scored.push({ entry, score });
+    });
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, 8).map(s => s.entry);
+  }
+
+  function render(matches, query) {
+    focusIdx = -1;
+    currentItems = matches;
+    if (!query || query.trim().length < 2) {
+      results.style.display = 'none';
+      return;
+    }
+    results.style.display = 'block';
+    if (matches.length === 0) {
+      results.innerHTML = `<div class="search-no-results">No results for "<strong>${escHtml(query.trim())}</strong>"</div>`;
+      return;
+    }
+    const q = query.trim();
+    results.innerHTML =
+      `<div class="search-results-header">${matches.length} result${matches.length > 1 ? 's' : ''}</div>` +
+      matches.map((m, i) => `
+        <a class="search-result-item" href="${m.href}" data-idx="${i}">
+          <div class="search-result-title">${highlight(m.title, q)}</div>
+          <div class="search-result-section">${escHtml(m.section)}</div>
+          <div class="search-result-snippet">${highlight(m.snippet, q)}</div>
+        </a>
+      `).join('');
+  }
+
+  function moveFocus(dir) {
+    const items = results.querySelectorAll('.search-result-item');
+    if (!items.length) return;
+    items[focusIdx]?.classList.remove('focused');
+    focusIdx = (focusIdx + dir + items.length) % items.length;
+    const el = items[focusIdx];
+    el.classList.add('focused');
+    el.scrollIntoView({ block: 'nearest' });
+  }
+
+  function clearSearch() {
+    input.value = '';
+    results.style.display = 'none';
+    clearBtn.style.display = 'none';
+    focusIdx = -1;
+    currentItems = [];
+  }
+
+  input.addEventListener('input', () => {
+    const q = input.value;
+    clearBtn.style.display = q ? 'flex' : 'none';
+    render(search(q), q);
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveFocus(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); moveFocus(-1); }
+    else if (e.key === 'Enter') {
+      const focused = results.querySelector('.search-result-item.focused');
+      if (focused) { window.location.href = focused.href; }
+      else if (currentItems.length) { window.location.href = currentItems[0].href; }
+    }
+    else if (e.key === 'Escape') { clearSearch(); input.blur(); }
+  });
+
+  clearBtn.addEventListener('click', () => { clearSearch(); input.focus(); });
+
+  /* Close dropdown when clicking outside */
+  document.addEventListener('click', e => {
+    if (!wrapper.contains(e.target)) {
+      results.style.display = 'none';
+    }
+  });
+
+  /* Re-open if input is focused and has value */
+  input.addEventListener('focus', () => {
+    if (input.value.trim().length >= 2) {
+      render(search(input.value), input.value);
+    }
+  });
+}
