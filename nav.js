@@ -25,56 +25,49 @@ function renderNav(opts) {
       id: 'prepare-data', label: 'Prepare Data',
       href: p + 'prepare-data/prepare-data.html',
       tools: [
-        { label: 'IBM Synthetic Data Sets',         href: p + 'prepare-data/prepare-data.html#synthetic-data-sets' },
-        { label: 'IBM Z Platform for Apache Spark', href: p + 'prepare-data/prepare-data.html#apache-spark' },
-        { label: 'Python AI Toolkit for z/OS',      href: p + 'prepare-data/prepare-data.html#python-ai-toolkit' },
+        { label: 'Data Engineering', href: p + 'prepare-data/prepare-data.html#data-engineering' },
+        { label: 'Synthetic Data',   href: p + 'prepare-data/prepare-data.html#synthetic-data' },
       ]
     },
     {
       id: 'train-model', label: 'Train Model',
       href: p + 'train-model/train-model.html',
       tools: [
-        { label: 'IBM Z Accelerated SnapML',         href: p + 'train-model/train-model.html#snapml' },
-        { label: 'IBM Z Accelerated for TensorFlow', href: p + 'train-model/train-model.html#tensorflow' },
-        { label: 'IBM Z Accelerated for PyTorch',    href: p + 'train-model/train-model.html#pytorch' },
-        { label: 'Machine Learning for IBM z/OS',    href: p + 'train-model/train-model.html#mlz' },
-        { label: 'Red Hat OpenShift AI',             href: p + 'train-model/train-model.html#rhoai' },
+        { label: 'Traditional Machine Learning', href: p + 'train-model/train-model.html#traditional-ml' },
+        { label: 'Deep Learning',                href: p + 'train-model/train-model.html#deep-learning' },
+        { label: 'AI Development on z/OS',       href: p + 'train-model/train-model.html#ai-dev-zos' },
       ]
     },
     {
       id: 'optimize-model', label: 'Optimize Model',
       href: p + 'optimize-model/optimize-model.html',
       tools: [
-        { label: 'ONNX & IBM Z Deep Learning Compiler', href: p + 'optimize-model/optimize-model.html#onnx-conversion' },
-        { label: 'AI Optimizer for IBM Z and LinuxONE', href: p + 'optimize-model/optimize-model.html#ai-optimizer' },
+        { label: 'Model Conversion',        href: p + 'optimize-model/optimize-model.html#model-conversion' },
+        { label: 'Performance Optimization',href: p + 'optimize-model/optimize-model.html#performance-optimization' },
       ]
     },
     {
       id: 'deploy-models', label: 'Deploy Models',
       href: p + 'deploy-models/deploy-models.html',
       tools: [
-        { label: 'Machine Learning for IBM z/OS', href: p + 'deploy-models/deploy-models.html#mlz' },
-        { label: 'Red Hat OpenShift AI',          href: p + 'deploy-models/deploy-models.html#openshift-ai' },
-        { label: 'watsonx.ai',                    href: p + 'deploy-models/deploy-models.html#watsonx-ai' },
+        { label: 'Deploy to z/OS',       href: p + 'deploy-models/deploy-models.html#deploy-zos' },
+        { label: 'Deploy to OpenShift',  href: p + 'deploy-models/deploy-models.html#deploy-openshift' },
+        { label: 'Deploy with Python',   href: p + 'deploy-models/deploy-models.html#deploy-python' },
       ]
     },
     {
       id: 'serve-model', label: 'Serve Model',
       href: p + 'serve-model/serve-model.html',
       tools: [
-        { label: 'IBM Z Accelerated Serving for TensorFlow', href: p + 'serve-model/serve-model.html#tf-serving' },
-        { label: 'IBM Z Accelerated for Triton',             href: p + 'serve-model/serve-model.html#triton' },
-        { label: 'Red Hat AI Inference Server',              href: p + 'serve-model/serve-model.html#rh-inference' },
-        { label: 'AI Optimizer for IBM Z and LinuxONE',      href: p + 'serve-model/serve-model.html#ai-optimizer' },
+        { label: 'Enterprise AI Inference',   href: p + 'serve-model/serve-model.html#enterprise-ai-inference' },
+        { label: 'Model Serving Platforms',   href: p + 'serve-model/serve-model.html#model-serving-platforms' },
       ]
     },
     {
       id: 'ai-governance', label: 'AI Governance',
       href: p + 'ai-governance/ai-governance.html',
       tools: [
-        { label: 'watsonx.governance',            href: p + 'ai-governance/ai-governance.html#watsonx-governance' },
-        { label: 'Machine Learning for IBM z/OS', href: p + 'ai-governance/ai-governance.html#mlz-governance' },
-        { label: 'Red Hat OpenShift AI',          href: p + 'ai-governance/ai-governance.html#trustyai' },
+        { label: 'Model Governance', href: p + 'ai-governance/ai-governance.html#model-governance' },
       ]
     },
   ];

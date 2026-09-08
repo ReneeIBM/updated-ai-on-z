@@ -112,6 +112,12 @@
           </div>
         </section>
 
+        <!-- ── MODEL GOVERNANCE ─────────────────────────────────────── -->
+        <section class="section" id="model-governance">
+          <h1>Model Governance</h1>
+          <p>Tools for monitoring, explaining, and governing AI models on IBM Z — from individual transaction-level explainability in z/OS to enterprise-scale compliance and audit across all environments.</p>
+        </section>
+
         <!-- ── MLz TRUSTWORTHY AI ─────────────────────────────────────── -->
         <section class="section" id="mlz-governance">
           <h1>Trustworthy AI in Machine Learning for IBM z/OS</h1>
@@ -168,52 +174,14 @@
         <!-- ── WATSONX.GOVERNANCE ──────────────────────────────────────── -->
         <section class="section" id="watsonx-governance">
           <h1>watsonx.governance on IBM Z</h1>
-          <p>IBM watsonx.governance is now supported on Linux on IBM Z and LinuxONE with IBM Software Hub 5.4.0. Organizations in banking, insurance, healthcare, and the public sector can monitor, track, and govern AI models directly on the platform where their mission-critical data resides — without moving data off-platform.</p>
-
-          <h2>Why watsonx.governance matters on IBM Z</h2>
-          <div class="card-grid">
-            <div class="card">
-              <h4>Govern AI where data lives</h4>
-              <p>Avoid unnecessary data movement and reduce latency — governance runs on the same platform as the models and the data they score.</p>
-            </div>
-            <div class="card">
-              <h4>Data sovereignty</h4>
-              <p>Keep sensitive information within organizational boundaries — no data leaves IBM Z for monitoring, audit, or compliance reporting.</p>
-            </div>
-            <div class="card">
-              <h4>Compliance readiness</h4>
-              <p>Regulatory expectations around fairness, explainability, accountability, and auditability are growing. watsonx.governance addresses these requirements on-platform for highly regulated industries.</p>
-            </div>
-            <div class="card">
-              <h4>Reduced complexity</h4>
-              <p>Govern AI alongside existing workloads — no separate governance platform, no additional infrastructure, no data pipelines to manage.</p>
-            </div>
-          </div>
-
-          <h2>Three core capabilities (IBM Software Hub 5.4.0)</h2>
-          <table class="ops-table">
-            <thead><tr><th>Capability</th><th>What it does</th></tr></thead>
-            <tbody>
-              <tr>
-                <td class="cap-label">AI Factsheets</td>
-                <td>
-                  Automatic capture of model metadata and governance information; end-to-end lineage tracking from development through deployment; centralized documentation for audit and compliance; improved transparency into model ownership and approvals; simplified reporting for regulatory and internal reviews
-                </td>
-              </tr>
-              <tr>
-                <td class="cap-label">OpenScale Monitoring</td>
-                <td>
-                  Continuous monitoring of model quality and performance; fairness monitoring to identify potential bias in outcomes; drift detection for incoming data or model behavior changes; explainability insights to improve AI decision transparency; automated governance workflows and alerts for operations
-                </td>
-              </tr>
-              <tr>
-                <td class="cap-label">Watson Machine Learning governance</td>
-                <td>
-                  Model deployment and lifecycle management for ML workloads; integration with governance and monitoring capabilities; support for external model governance outside WML; centralized monitoring across multiple deployment environments; consistent governance for hybrid AI deployments
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <p>IBM watsonx.governance is now supported on Linux on IBM Z and LinuxONE with IBM Software Hub 5.4.0 — enabling organizations to monitor, track, and govern AI models on-platform, without moving data off IBM Z. Designed for banking, insurance, healthcare, and public sector clients with strict regulatory requirements.</p>
+          <p><strong>Best for:</strong> Enterprises that need a unified governance platform with audit trails, fairness monitoring, and compliance reporting — all co-located with models and data on IBM Z.</p>
+          <ul>
+            <li>AI Factsheets — automatic metadata capture, end-to-end lineage tracking, and centralized audit documentation</li>
+            <li>OpenScale Monitoring — continuous monitoring for model quality, fairness, drift, and explainability</li>
+            <li>Watson Machine Learning governance — lifecycle management, hybrid deployment monitoring, and external model governance</li>
+            <li>No data movement — governance runs on the same platform as the models and the data they score</li>
+          </ul>
           <a href="../products-tools/ai-platforms.html#watsonx-governance" class="learn-more">watsonx.governance deep dive &#8594;</a>
         </section>
 
@@ -249,9 +217,10 @@
         { id: 'overview',              label: 'Overview' },
         { id: 'governance-lifecycle',  label: 'Governance Lifecycle on IBM Z' },
         { id: 'where-to-start',        label: 'Where to Start' },
-        { id: 'mlz-governance',        label: 'Trustworthy AI in MLz' },
-        { id: 'trustyai',              label: 'TrustyAI in OpenShift AI' },
-        { id: 'watsonx-governance',    label: 'watsonx.governance' },
+        { id: 'model-governance',      label: 'Model Governance' },
+        { id: 'mlz-governance',        label: '· Trustworthy AI in MLz' },
+        { id: 'trustyai',              label: '· TrustyAI in OpenShift AI' },
+        { id: 'watsonx-governance',    label: '· watsonx.governance' },
         { id: 'next-steps',            label: 'Where to Go from Here' },
       ]
     });

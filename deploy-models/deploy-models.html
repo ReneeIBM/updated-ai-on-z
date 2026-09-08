@@ -91,86 +91,75 @@
           </div>
         </section>
 
+        <!-- ── DEPLOY TO z/OS ────────────────────────────────────────── -->
+        <section class="section" id="deploy-zos">
+          <h1>Deploy to z/OS</h1>
+          <p>Deploy models directly on z/OS, co-located with your enterprise applications and transaction data for in-transaction AI scoring at near-zero latency.</p>
+        </section>
+
         <!-- ── MLz ────────────────────────────────────────────────────── -->
         <section class="section" id="mlz">
           <h1>Machine Learning for IBM z/OS (MLz)</h1>
-          <p>Machine Learning for IBM z/OS is the full-featured machine learning platform on z/OS, designed to infuse AI into mission-critical IBM Z enterprise applications. It deploys models trained anywhere — or on IBM Z itself — directly on z/OS, co-located with enterprise applications, transaction data, and business logic. The result is high-throughput, extremely low latency AI scoring that modernizes z/OS applications without disrupting SLAs.</p>
-
-          <h2>Key capabilities</h2>
-          <table class="ops-table">
-            <thead><tr><th>Capability</th><th>Details</th></tr></thead>
-            <tbody>
-              <tr><td class="cap-label">In-transaction scoring</td><td>Score models natively in CICS, IMS, and batch applications — no network hop, no data egress, near-zero latency</td></tr>
-              <tr><td class="cap-label">Telum &amp; Telum II exploitation</td><td>Leverages Telum on-chip AI accelerator and zIIPs for high-throughput inferencing at scale on z/OS</td></tr>
-              <tr><td class="cap-label">End-to-end lifecycle management</td><td>GUI and script-driven features for the full AI model lifecycle — import, deploy, score, monitor, retrain</td></tr>
-              <tr><td class="cap-label">Multi-model architecture</td><td>Deploy and manage multiple models simultaneously, with automated routing and version control</td></tr>
-              <tr><td class="cap-label">Easy import and deploy</td><td>Import predictive models and encoder LLMs trained anywhere — or with watsonx.ai — and deploy with MLz at the push of a button</td></tr>
-              <tr><td class="cap-label">Trust and explainability</td><td>Built-in explainability and drift detection; integrates with watsonx.governance for enterprise AI governance</td></tr>
-              <tr><td class="cap-label">Supported model formats</td><td>PMML, ONNX (via IBM Z Deep Learning Compiler), Python (scikit-learn, XGBoost), and encoder LLMs</td></tr>
-            </tbody>
-          </table>
-
-          <h2>Why deploy with MLz</h2>
-          <p>The defining advantage of MLz is data and application co-location. Your model runs on the same system as your transactions — no round-trip to an external inference server, no data movement off-platform. This is what makes sub-millisecond, in-transaction scoring at billions of operations per day possible on IBM Z.</p>
+          <p>MLz is the full-featured machine learning platform on z/OS — deploying models trained anywhere directly on z/OS, co-located with enterprise applications and transaction data. Models score natively inside CICS, IMS, and batch workflows with near-zero latency and Telum acceleration.</p>
+          <p><strong>Best for:</strong> z/OS teams who need in-transaction AI scoring without data movement, with integrated lifecycle management and governance.</p>
+          <ul>
+            <li>Supports PMML, ONNX (via zDLC), Python (scikit-learn, XGBoost), and encoder LLMs</li>
+            <li>Deploy and manage multiple models simultaneously with versioning and automated routing</li>
+            <li>Built-in explainability and drift detection; integrates with watsonx.governance</li>
+            <li>Import models from watsonx.ai or any training environment at the push of a button</li>
+          </ul>
           <a href="../products-tools/ai-platforms.html#mlz" class="learn-more">Machine Learning for IBM z/OS deep dive &#8594;</a>
         </section>
 
-        <!-- ── AI TOOLKIT / LINUX ON Z ────────────────────────────────── -->
-        <section class="section" id="ai-toolkit-deploy">
-          <h1>AI Toolkit for IBM Z — Linux on Z &amp; LinuxONE</h1>
-          <p>For teams deploying on Linux on IBM Z or LinuxONE — including z/OS Container Extensions (zCX) — the AI Toolkit for IBM Z and LinuxONE provides pre-built, IBM-vetted container images for the most popular AI frameworks. Each image is optimized to exploit the IBM Integrated Accelerator for AI on Telum I and Telum II processors.</p>
-
-          <h2>Deployment options via AI Toolkit</h2>
-          <table class="ops-table">
-            <thead><tr><th>Toolkit Component</th><th>Use For</th><th>Available Via</th></tr></thead>
-            <tbody>
-              <tr><td class="cap-label">IBM Z Accelerated for TensorFlow</td><td>Deploy TensorFlow models with transparent Telum acceleration</td><td>IBM Z &amp; LinuxONE Container Registry</td></tr>
-              <tr><td class="cap-label">IBM Z Accelerated for PyTorch</td><td>Deploy PyTorch / LLM models with Telum II acceleration</td><td>IBM Z &amp; LinuxONE Container Registry</td></tr>
-              <tr><td class="cap-label">IBM Z Accelerated SnapML</td><td>Deploy traditional ML models (RF, GBM, linear) with Telum acceleration</td><td>IBM Z &amp; LinuxONE Container Registry / PyPI</td></tr>
-              <tr><td class="cap-label">IBM Z Deep Learning Compiler</td><td>Deploy compiled ONNX models optimized for the AIU</td><td>IBM Z &amp; LinuxONE Container Registry</td></tr>
-              <tr><td class="cap-label">TF Serving / Triton</td><td>Expose deployed models as REST or gRPC endpoints</td><td>IBM Z &amp; LinuxONE Container Registry</td></tr>
-            </tbody>
-          </table>
-          <p>These components are also deployable via z/OS Container Extensions (zCX), which allows Linux container workloads to run within z/OS LPARs — making AI Toolkit components available to z/OS environments that don't have a separate Linux partition.</p>
-          <a href="../products-tools/ai-frameworks.html#ai-toolkit" class="learn-more">AI Toolkit for IBM Z and LinuxONE deep dive &#8594;</a>
+        <!-- ── DEPLOY TO OPENSHIFT ───────────────────────────────────── -->
+        <section class="section" id="deploy-openshift">
+          <h1>Deploy to OpenShift</h1>
+          <p>Deploy containerized AI workloads to Red Hat OpenShift on IBM Z and LinuxONE for cloud-native MLOps, scalable model serving, and hybrid cloud AI.</p>
         </section>
 
         <!-- ── RED HAT OPENSHIFT AI ───────────────────────────────────── -->
         <section class="section" id="openshift-ai">
           <h1>Red Hat OpenShift AI</h1>
-          <p>Red Hat OpenShift AI (RHOAI) is a Kubernetes-native AI/ML platform that brings end-to-end MLOps to IBM Z and LinuxONE. It runs alongside traditional z/OS applications and VMs on the same IBM Z system, deploying containerized AI workloads with enterprise-grade infrastructure support — including IBM Telum processors and IBM Spyre PCIe accelerator cards.</p>
-
-          <h2>What RHOAI gives you on IBM Z</h2>
+          <p>A Kubernetes-native AI/ML platform that brings end-to-end MLOps to IBM Z and LinuxONE. RHOAI runs containerized AI workloads alongside traditional z/OS applications on the same system, with built-in support for Telum processors and IBM Spyre accelerator cards.</p>
+          <p><strong>Best for:</strong> Teams deploying containerized predictive or generative AI on IBM Z who need a full MLOps platform with model serving, monitoring, and hybrid cloud portability.</p>
           <ul>
-            <li><strong>Unified deployment platform</strong> — Deploy models across any OpenShift footprint: on-premises IBM Z, LinuxONE, hybrid cloud, and virtual machines — all from one platform</li>
-            <li><strong>Built-in MLOps</strong> — Model development, deployment, monitoring, and lifecycle management in one environment; expand DevOps practices to AI/ML</li>
-            <li><strong>Model serving at scale</strong> — Integrated with KServe, Triton Inference Server, and vLLM for flexible serving of both predictive and generative AI models</li>
-            <li><strong>Telum and Spyre acceleration</strong> — Run containerized AI workloads alongside traditional applications and leverage IBM Z hardware accelerators for high-volume inferencing</li>
-            <li><strong>TrustyAI built in</strong> — Continuous monitoring for bias, drift, and fairness; LLM evaluation and guardrails for generative AI deployments</li>
-            <li><strong>Enterprise performance</strong> — 10.3x more throughput for AI-infused OLTP workloads on IBM z17 RHOAI versus comparable x86</li>
+            <li>Integrated with KServe, Triton, and vLLM for flexible serving of both predictive and generative AI models</li>
+            <li>TrustyAI built in — continuous monitoring for bias, drift, fairness, and LLM guardrails</li>
+            <li>10.3x more throughput for AI-infused OLTP workloads on IBM z17 RHOAI vs. comparable x86</li>
+            <li>Supports fraud detection, agentic AI, generative AI with Spyre, and hybrid cloud AI use cases</li>
           </ul>
-
-          <h2>Key use cases on IBM Z</h2>
-          <div class="card-grid">
-            <div class="card"><h4>Real-time fraud detection</h4><p>Deploy predictive models for high-volume transaction scoring with sub-millisecond latency alongside core banking systems.</p></div>
-            <div class="card"><h4>Agentic AI</h4><p>Deploy AI agents and assistants that operate with IBM Z system context and data, reducing context-switching and enabling automated workflows.</p></div>
-            <div class="card"><h4>Generative AI with Spyre</h4><p>Deploy LLMs and foundation models on IBM z17 with Spyre acceleration for RAG, summarization, and enterprise assistant workloads.</p></div>
-            <div class="card"><h4>Hybrid cloud AI</h4><p>Standardize model deployment tooling across on-premises IBM Z and cloud environments for consistent, portable AI operations.</p></div>
-          </div>
           <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI deep dive &#8594;</a>
         </section>
+
+        <!-- ── DEPLOY WITH PYTHON ─────────────────────────────────────── -->
+        <section class="section" id="deploy-python">
+          <h1>Deploy with Python</h1>
+          <p>Deploy models on Linux on IBM Z or LinuxONE using IBM-vetted container images from the AI Toolkit — optimized for Telum acceleration, no framework lock-in.</p>
+        </section>
+
+        <!-- ── AI TOOLKIT / LINUX ON Z ────────────────────────────────── -->
+        <section class="section" id="ai-toolkit-deploy">
+          <h1>AI Toolkit for IBM Z — Linux on Z &amp; LinuxONE</h1>
+          <p>Pre-built, IBM-vetted container images for the most popular AI frameworks on Linux on IBM Z and LinuxONE. Each image is optimized for Telum I and Telum II acceleration and available via the IBM Z &amp; LinuxONE Container Registry.</p>
+          <p><strong>Best for:</strong> Teams deploying containerized AI workloads on Linux on Z, zCX, or LinuxONE who want IBM-validated, Telum-accelerated framework images.</p>
+          <ul>
+            <li>Covers TensorFlow, PyTorch, SnapML, IBM Z Deep Learning Compiler, TF Serving, and Triton</li>
+            <li>Also deployable via z/OS Container Extensions (zCX) — Linux containers running within z/OS LPARs</li>
+            <li>No framework lock-in — mix and match components for your serving architecture</li>
+          </ul>
+          <a href="../products-tools/ai-frameworks.html#ai-toolkit" class="learn-more">AI Toolkit for IBM Z and LinuxONE deep dive &#8594;</a>
+        </section>
+
 
         <!-- ── WATSONX.AI ──────────────────────────────────────────────── -->
         <section class="section" id="watsonx-ai">
           <h1>watsonx.ai on IBM Z</h1>
-          <p>IBM watsonx.ai is IBM's AI studio for building, training, fine-tuning, and deploying AI applications — from traditional ML to generative AI. On IBM Z, watsonx.ai acts as the model development and deployment hub, particularly for encoder LLMs and foundation models that are then deployed on-platform via Machine Learning for z/OS or Red Hat OpenShift AI.</p>
-
-          <h2>What watsonx.ai brings to IBM Z deployment</h2>
+          <p>IBM's AI studio for building, training, fine-tuning, and deploying AI — from traditional ML to generative AI. On IBM Z, watsonx.ai serves as the model development hub for encoder LLMs and foundation models, which are then deployed on-platform via MLz or Red Hat OpenShift AI.</p>
+          <p><strong>Best for:</strong> Teams fine-tuning foundation models or managing the full AI development lifecycle with integrated governance and hybrid deployment.</p>
           <ul>
-            <li><strong>End-to-end AI development</strong> — Build and fine-tune models in watsonx.ai, then deploy directly to z/OS or LinuxONE using MLz or RHOAI</li>
-            <li><strong>Foundation model access</strong> — Access IBM Granite and partner foundation models; fine-tune them with enterprise data for Z-specific use cases</li>
-            <li><strong>MLOps integration</strong> — Integrated with watsonx.governance for model monitoring, factsheets, and lifecycle tracking across hybrid environments</li>
-            <li><strong>LLM portability</strong> — Train or fine-tune models in watsonx.ai and import directly into MLz for z/OS deployment</li>
+            <li>Access IBM Granite and partner foundation models; fine-tune with enterprise data for Z-specific use cases</li>
+            <li>Deploy directly to z/OS or LinuxONE using MLz or RHOAI from a single development environment</li>
+            <li>Integrated with watsonx.governance for factsheets, monitoring, and lifecycle tracking</li>
           </ul>
           <a href="../products-tools/ai-platforms.html#watsonx-ai" class="learn-more">watsonx.ai on IBM Z deep dive &#8594;</a>
         </section>
@@ -206,9 +195,12 @@
       pageNavItems: [
         { id: 'overview',          label: 'Overview' },
         { id: 'where-to-start',    label: 'Where to Start' },
-        { id: 'mlz',               label: 'Machine Learning for IBM z/OS' },
-        { id: 'ai-toolkit-deploy', label: 'AI Toolkit — Linux on Z' },
-        { id: 'openshift-ai',      label: 'Red Hat OpenShift AI' },
+        { id: 'deploy-zos',        label: 'Deploy to z/OS' },
+        { id: 'mlz',               label: '· Machine Learning for IBM z/OS' },
+        { id: 'deploy-openshift',  label: 'Deploy to OpenShift' },
+        { id: 'openshift-ai',      label: '· Red Hat OpenShift AI' },
+        { id: 'deploy-python',     label: 'Deploy with Python' },
+        { id: 'ai-toolkit-deploy', label: '· AI Toolkit — Linux on Z' },
         { id: 'watsonx-ai',        label: 'watsonx.ai' },
         { id: 'next-steps',        label: 'Next Steps' },
       ]

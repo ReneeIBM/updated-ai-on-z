@@ -94,6 +94,12 @@
           </div>
         </section>
 
+        <!-- ── MODEL SERVING PLATFORMS ──────────────────────────────── -->
+        <section class="section" id="model-serving-platforms">
+          <h1>Model Serving Platforms</h1>
+          <p>Production-grade model serving on Linux on IBM Z — from TensorFlow SavedModels to multi-framework ensembles to LLMs on Spyre.</p>
+        </section>
+
         <!-- ── TF SERVING ─────────────────────────────────────────────── -->
         <section class="section" id="tf-serving">
           <h1>IBM Z Accelerated Serving for TensorFlow</h1>
@@ -113,61 +119,35 @@
         <!-- ── TRITON ──────────────────────────────────────────────────── -->
         <section class="section" id="triton">
           <h1>IBM Z Accelerated for Triton Inference Server</h1>
-          <p>Triton Inference Server — open-sourced by NVIDIA and optimized by IBM for IBM Z — is the most flexible serving platform for Linux on Z environments. It supports multiple AI frameworks simultaneously under a unified REST/gRPC interface, with dynamic batching, model ensemble support, and concurrent model execution. Data pre-processing and inference together in optimized C++ reduces overall time to inference — a key factor for meeting strict SLAs.</p>
-
-          <h2>What Triton supports on IBM Z</h2>
-          <table class="ops-table">
-            <thead><tr><th>Backend</th><th>Model Types</th><th>Use Cases</th></tr></thead>
-            <tbody>
-              <tr><td class="cap-label">IBM Snap ML</td><td>PMML, ONNX, JSON (Random Forest, GBM, linear models)</td><td>Traditional ML inference — fraud, risk, claims</td></tr>
-              <tr><td class="cap-label">IBM Z Deep Learning Compiler</td><td>ONNX models compiled with zDLC</td><td>Deep learning inference with Telum AI acceleration</td></tr>
-              <tr><td class="cap-label">PyTorch (Telum II)</td><td>PyTorch models</td><td>Multi-model AI use cases on Telum II — encoders, transformers</td></tr>
-            </tbody>
-          </table>
-
-          <h2>Why it matters: performance benchmark</h2>
-          <p>Running customer transaction predictions co-located with the Snap ML library on IBM LinuxONE Emperor 4 delivers <strong>3.5x faster inference</strong> (2.4ms vs 8.5ms) at 53,000 transactions per second compared to running remotely using the NVIDIA Forest Inference Library on a compared x86 server — while using the same throughput on 6 IFLs instead of 6 cores.</p>
-
-          <h2>Key features</h2>
+          <p>Triton Inference Server — optimized by IBM for IBM Z — is the most flexible serving platform for Linux on Z. It supports multiple AI frameworks simultaneously under a unified REST/gRPC interface, with dynamic batching, model ensemble support, and concurrent model execution.</p>
+          <p><strong>Best for:</strong> Teams serving a mix of model types (SnapML, ONNX, PyTorch) on Linux on Z, or needing ensemble pipelines and high-throughput batching.</p>
           <ul>
-            <li>Dynamic batching (server-side micro-batching) for throughput optimization</li>
-            <li>Concurrent model execution — serve multiple models simultaneously</li>
-            <li>Model ensemble support — chain pre-processing, inference, and post-processing steps</li>
-            <li>Model version control and monitoring/metrics integration</li>
-            <li>Available via the IBM Z and LinuxONE Container Registry as part of the AI Toolkit</li>
+            <li>Backends: IBM Snap ML (PMML/ONNX/JSON), IBM Z Deep Learning Compiler (zDLC-compiled ONNX), and PyTorch (Telum II)</li>
+            <li>3.5x faster inference on LinuxONE vs. remote x86 NVIDIA FIL at 53,000 transactions/sec</li>
+            <li>Dynamic batching, concurrent model execution, and model ensemble support</li>
+            <li>Available via the IBM Z &amp; LinuxONE Container Registry as part of the AI Toolkit</li>
           </ul>
           <a href="../products-tools/inference-serving.html#triton" class="learn-more">IBM Z Accelerated for Triton deep dive &#8594;</a>
-          <a href="https://github.com/IBM/ai-on-z-triton-is-examples" class="learn-more" target="_blank" rel="noopener">Triton examples on GitHub &#8594;</a>
         </section>
 
         <!-- ── RED HAT AI INFERENCE SERVER ───────────────────────────── -->
         <section class="section" id="rh-inference">
           <h1>Red Hat AI Inference Server</h1>
-          <p>Red Hat AI Inference Server is an enterprise-grade LLM inference platform built on vLLM — designed to serve large language models and foundation models in a hybrid cloud context. It provides optimized distributed model serving with an OpenAI-compatible API, connecting model creators to accelerated hardware providers across any environment. It is available as a standalone product and is included in Red Hat OpenShift AI and Red Hat Enterprise Linux AI (RHEL AI).</p>
-
-          <h2>Supported models</h2>
-          <p>Red Hat AI Inference Server on IBM Z and LinuxONE supports a broad range of models:</p>
-          <div class="card-grid">
-            <div class="card"><h4>IBM Granite</h4><p>IBM's open-source foundation models for enterprise AI use cases, including code, language, and domain-specific tasks.</p></div>
-            <div class="card"><h4>Llama, Mixtral, Qwen</h4><p>Popular open-source LLMs from Meta, Mistral AI, and Alibaba, available for fine-tuned enterprise deployment.</p></div>
-            <div class="card"><h4>DeepSeek, Gemma, Phi</h4><p>Additional open-source models supported for diverse generative AI use cases on IBM Z.</p></div>
-            <div class="card"><h4>Encoder models</h4><p>Embedding and encoder models for semantic search, RAG pipelines, and classification tasks.</p></div>
-          </div>
-
-          <h2>Supported accelerators on IBM Z</h2>
+          <p>An enterprise-grade LLM inference platform built on vLLM, providing optimized distributed model serving with an OpenAI-compatible API. Available standalone and included in Red Hat OpenShift AI and RHEL AI — with IBM Spyre and Telum II acceleration on IBM z17.</p>
+          <p><strong>Best for:</strong> Teams serving LLMs and foundation models (Granite, Llama, Mixtral, and others) on IBM Z with Spyre acceleration and a portable, OpenAI-compatible API.</p>
           <ul>
-            <li><strong>IBM Spyre Accelerator</strong> — PCIe-based AI accelerator on IBM z17, designed for generative AI and LLM workloads at scale</li>
-            <li><strong>IBM Telum II</strong> — On-chip AI accelerator on IBM z17 with INT8 quantization support for high-throughput predictive AI</li>
-          </ul>
-
-          <h2>Key capabilities</h2>
-          <ul>
+            <li>Supports IBM Granite, Llama, Mixtral, Qwen, DeepSeek, Gemma, Phi, and encoder models</li>
             <li>OpenAI-compatible REST API — plug in to existing applications without code changes</li>
-            <li>Optimized distributed model serving for LLMs (vLLM engine)</li>
-            <li>Portability across hybrid cloud — same serving layer across IBM Z, LinuxONE, and cloud</li>
-            <li>Fast, optimized, and cost-effective LLM inference</li>
+            <li>Accelerated by IBM Spyre (generative AI at scale) and Telum II (INT8, predictive AI)</li>
+            <li>Portable across hybrid cloud — same serving layer on IBM Z, LinuxONE, and cloud</li>
           </ul>
           <a href="../products-tools/inference-serving.html#rh-inference" class="learn-more">Red Hat AI Inference Server deep dive &#8594;</a>
+        </section>
+
+        <!-- ── ENTERPRISE AI INFERENCE ───────────────────────────────── -->
+        <section class="section" id="enterprise-ai-inference">
+          <h1>Enterprise AI Inference</h1>
+          <p>Native z/OS inference serving — model scoring embedded directly inside CICS, IMS, and batch transactions with near-zero latency and Telum acceleration.</p>
         </section>
 
         <!-- ── AI OPTIMIZER ───────────────────────────────────────────── -->
@@ -237,14 +217,16 @@
       activeTop: 'lifecycle',
       activeSub: 'serve-model',
       pageNavItems: [
-        { id: 'overview',      label: 'Overview' },
-        { id: 'where-to-start',label: 'Where to Start' },
-        { id: 'tf-serving',    label: 'TensorFlow Serving' },
-        { id: 'triton',        label: 'Triton Inference Server' },
-        { id: 'rh-inference',  label: 'Red Hat AI Inference Server' },
-        { id: 'ai-optimizer',  label: 'AI Optimizer for IBM Z' },
-        { id: 'mlz-serve',     label: 'MLz Native Scoring (z/OS)' },
-        { id: 'next-steps',    label: 'Next Steps' },
+        { id: 'overview',                label: 'Overview' },
+        { id: 'where-to-start',          label: 'Where to Start' },
+        { id: 'model-serving-platforms', label: 'Model Serving Platforms' },
+        { id: 'tf-serving',              label: '· TensorFlow Serving' },
+        { id: 'triton',                  label: '· Triton Inference Server' },
+        { id: 'rh-inference',            label: '· Red Hat AI Inference Server' },
+        { id: 'ai-optimizer',            label: '· AI Optimizer for IBM Z' },
+        { id: 'enterprise-ai-inference', label: 'Enterprise AI Inference' },
+        { id: 'mlz-serve',               label: '· MLz Native Scoring (z/OS)' },
+        { id: 'next-steps',              label: 'Next Steps' },
       ]
     });
   </script>

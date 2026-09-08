@@ -95,6 +95,13 @@
         <section class="section" id="tools">
           <h1>Tools for Data Preparation</h1>
 
+        </section>
+
+        <!-- ── DATA ENGINEERING ─────────────────────────────────────── -->
+        <section class="section" id="data-engineering">
+          <h1>Data Engineering</h1>
+          <p>Tools for building production data pipelines, transforming data at scale, and preparing features co-located with your enterprise data on IBM Z.</p>
+
           <h2 id="apache-spark">IBM Z Platform for Apache Spark</h2>
           <p>Apache Spark is the go-to engine for large-scale data processing and feature engineering. The IBM Z Platform for Apache Spark runs Spark natively on z/OS — meaning your pipelines run directly alongside the data, without shipping it elsewhere.</p>
           <p><strong>Best for:</strong> Production data pipelines, large-volume transformations, feature engineering at scale, teams using Python, Scala, or Java.</p>
@@ -105,6 +112,13 @@
             <li>Current version supports Apache Spark 3.5 with Java 17</li>
           </ul>
           <a href="../products-tools/data-analytics.html#apache-spark" class="learn-more">Learn more about Apache Spark on IBM Z &#8594;</a>
+
+        </section>
+
+        <!-- ── SYNTHETIC DATA ────────────────────────────────────────── -->
+        <section class="section" id="synthetic-data">
+          <h1>Synthetic Data</h1>
+          <p>Enterprise-grade artificially generated datasets for AI model training — no production data access required.</p>
 
           <h2>IBM SQL Data Insights Pro</h2>
           <p>SQL Data Insights Pro adds AI-powered semantic understanding directly inside Db2 for z/OS. Instead of writing complex queries to find patterns, you can ask meaning-based questions about your data using familiar SQL — and the model runs on-chip, with no data leaving IBM Z.</p>
@@ -117,16 +131,6 @@
           </ul>
           <a href="../products-tools/data-analytics.html#sql-data-insights" class="learn-more">Learn more about SQL Data Insights Pro &#8594;</a>
 
-          <h2 id="python-ai-toolkit">Python AI Toolkit for z/OS</h2>
-          <p>The Python AI Toolkit gives data scientists access to ~235 Python packages running natively on z/OS — including pandas, NumPy, scikit-learn, XGBoost, SQLAlchemy, and more. This is the foundation of the Python AI stack on z/OS and the most accessible entry point for teams already working in Python.</p>
-          <p><strong>Best for:</strong> Data scientists and engineers who work in Python notebooks or scripts and want to access and process z/OS data without leaving the platform.</p>
-          <ul>
-            <li>Works directly with Db2, IMS, and VSAM data via SQLAlchemy and JDBC connectors</li>
-            <li>No data movement — code runs on z/OS alongside the data</li>
-            <li>Supports data preparation workflows that feed directly into model training</li>
-          </ul>
-          <a href="../products-tools/data-analytics.html#python-ai-toolkit" class="learn-more">Learn more about Python AI Toolkit for z/OS &#8594;</a>
-
           <h2 id="synthetic-data-sets">IBM Synthetic Data Sets</h2>
           <p>IBM Synthetic Data Sets are enterprise-grade, artificially generated datasets designed for AI model training in financial services. They're built to look and behave like real transaction data — with no real customer information — making them ideal for early-stage development, demos, and POCs where production data access isn't available yet.</p>
           <p><strong>Best for:</strong> Teams building a first model, running a POC, or demonstrating a use case without access to production data.</p>
@@ -137,6 +141,7 @@
             <li>Can also be used to validate and augment existing models</li>
           </ul>
           <a href="../products-tools/data-analytics.html#synthetic-data-sets" class="learn-more">Learn more about IBM Synthetic Data Sets &#8594;</a>
+
         </section>
 
         <!-- ── COMMON PATTERNS ───────────────────────────────────────── -->
@@ -239,7 +244,8 @@
       pageNavItems: [
         { id: 'overview',         label: 'Overview' },
         { id: 'where-to-start',   label: 'Where to Start' },
-        { id: 'tools',            label: 'Tools' },
+        { id: 'data-engineering', label: 'Data Engineering' },
+        { id: 'synthetic-data',   label: 'Synthetic Data' },
         { id: 'common-patterns',  label: 'Common Patterns' },
         { id: 'next-step',        label: 'Next: Train Model' },
       ]
