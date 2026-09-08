@@ -96,7 +96,7 @@
           <h1>Traditional Machine Learning</h1>
           <p>Traditional machine learning models — linear models, decision trees, random forests, gradient boosting — are the workhorses of IBM Z AI use cases. Most production deployments in financial services, insurance, and retail scoring run on these model types. They train fast, are explainable, and map naturally to the structured tabular data that enterprises have in abundance on Z.</p>
 
-          <h2>IBM Z Accelerated SnapML</h2>
+          <h2 id="snapml">IBM Z Accelerated SnapML</h2>
           <p>Snap ML is an open-source library developed and maintained by IBM Research that provides high-performance training and inference for popular machine learning models. It is fully compatible with the scikit-learn API — so if your team already uses scikit-learn, XGBoost, or LightGBM, you can switch with minimal code changes.</p>
 
           <h2>What SnapML is good for</h2>
@@ -121,7 +121,7 @@
           <h2>Telum acceleration</h2>
           <p>Starting with Snap ML v1.9.0, Random Forest, Extra Trees, and Gradient Boosting Machines can leverage the IBM Integrated Accelerator for AI on Telum I and Telum II processors at inference time. Starting with v1.9.1, SnapML-trained tree models can be exported directly to PMML.</p>
 
-          <h2>Machine Learning for IBM z/OS (MLz)</h2>
+          <h2 id="mlz">Machine Learning for IBM z/OS (MLz)</h2>
           <p>If you're training on z/OS or need a managed environment for the full ML lifecycle, Machine Learning for IBM z/OS (MLz) provides a unified platform for building, deploying, and scoring models directly on z/OS — with SnapML built in.</p>
           <a href="../products-tools/ai-frameworks.html#snapml" class="learn-more">Snap ML deep dive &#8594;</a>
           <a href="../products-tools/ai-platforms.html#mlz" class="learn-more">Machine Learning for IBM z/OS &#8594;</a>
@@ -133,15 +133,15 @@
           <p>Deep learning enables more complex AI use cases — natural language processing, image and voice recognition, transformer-based models, and generative AI. IBM Z supports the two dominant frameworks — TensorFlow and PyTorch — both optimized to leverage the IBM Integrated Accelerator for AI on Telum I and Telum II processors.</p>
           <p>You can train on any platform you choose, including hybrid cloud. When you bring the model to IBM Z for inferencing, Telum acceleration applies transparently — no model changes required.</p>
 
-          <h2>IBM Z Accelerated for TensorFlow</h2>
+          <h2 id="tensorflow">IBM Z Accelerated for TensorFlow</h2>
           <p>TensorFlow on IBM Z provides a leading open-source deep learning framework for data scientists running Linux on IBM Z or LinuxONE (including z/OS Container Extensions). It supports a wide range of use cases including NLP, image recognition, voice search, and mission-critical workloads like fraud detection. On IBM z16 and later, TensorFlow inference transparently leverages the IBM Integrated Accelerator for AI through the zDNN library.</p>
           <a href="../products-tools/ai-frameworks.html#tensorflow" class="learn-more">TensorFlow deep dive &#8594;</a>
 
-          <h2>IBM Z Accelerated for PyTorch</h2>
+          <h2 id="pytorch">IBM Z Accelerated for PyTorch</h2>
           <p>PyTorch is IBM Z's preferred platform for building deep learning models and LLMs. It is a fully featured framework for model development, research, and production — and is the foundation for most Transformer and encoder-based architectures in use today. IBM Z Accelerated for PyTorch exploits the IBM Integrated Accelerator for AI on IBM z17 and LinuxONE 5, supporting both traditional AI and foundation model stacks including the deployment of Transformer models, encoder-based models, and ensemble AI models.</p>
           <a href="../products-tools/ai-frameworks.html#pytorch" class="learn-more">PyTorch deep dive &#8594;</a>
 
-          <h2>Red Hat OpenShift AI</h2>
+          <h2 id="rhoai">Red Hat OpenShift AI</h2>
           <p>Red Hat OpenShift AI provides a Kubernetes-native platform for AI model development and training at scale. Teams can use JupyterHub-based workbenches, Kubeflow Pipelines for orchestration, and collaborative model registries within an enterprise OpenShift environment on IBM Z.</p>
           <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI deep dive &#8594;</a>
         </section>
