@@ -82,83 +82,6 @@
           </ul>
         </section>
 
-        <!-- ── SQL DATA INSIGHTS PRO ─────────────────────────────────── -->
-        <section class="section" id="sql-data-insights">
-          <h1>IBM SQL Data Insights Pro</h1>
-          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../deploy-models/deploy-models.html">Deploy &amp; Serve</a></p>
-
-          <h2>What is SQL Data Insights Pro?</h2>
-          <p>IBM SQL Data Insights Pro adds AI-powered semantic understanding directly inside Db2 for z/OS. It lets you query your data by <em>meaning</em> — finding similarities, patterns, and relationships that traditional SQL can't easily surface — using standard SQL syntax you already know. All processing happens on-chip via Telum AI acceleration, with no data leaving Db2 and no external infrastructure required.</p>
-
-          <h2>Why Use It on IBM Z</h2>
-          <ul>
-            <li><strong>Zero data movement</strong> — Embedding models and inference run entirely inside Db2 on z/OS. Sensitive enterprise data never leaves the platform.</li>
-            <li><strong>No new infrastructure</strong> — Runs on existing IBM Z hardware using Telum on-chip AI acceleration. No GPU, no separate ML cluster.</li>
-            <li><strong>SQL you already know</strong> — Query by similarity and meaning using standard SQL syntax. No Python, no vector database, no new query language.</li>
-            <li><strong>Works on structured and unstructured data</strong> — Analyze relational columns and free-text fields like comments, descriptions, and logs within the same query.</li>
-            <li><strong>Faster time to insight</strong> — Bypass the typical extract → move → process → return pipeline. Answers come from data where it already sits.</li>
-          </ul>
-
-          <h2>Key Capabilities</h2>
-          <table class="ops-table">
-            <thead><tr><th>Capability</th><th>Details</th></tr></thead>
-            <tbody>
-              <tr><td class="cap-label">Query Interface</td><td>Standard SQL — no new language or SDK required</td></tr>
-              <tr><td class="cap-label">AI Acceleration</td><td>Telum on-chip inference (IBM z16, z17, LinuxONE 4 and 5)</td></tr>
-              <tr><td class="cap-label">Data Types</td><td>Structured relational data; unstructured text (comments, logs, descriptions)</td></tr>
-              <tr><td class="cap-label">AI Capabilities</td><td>Semantic similarity search, embedding queries, pattern discovery, incremental retraining</td></tr>
-              <tr><td class="cap-label">Data Residency</td><td>All processing on z/OS — no data egress, no external model calls</td></tr>
-              <tr><td class="cap-label">Initial Dataset Support</td><td>Db2 for z/OS (IMS and VSAM on roadmap)</td></tr>
-            </tbody>
-          </table>
-
-          <h2>Getting Started</h2>
-          <ul>
-            <li><a href="https://www.ibm.com/products/db2/sql-data-insights" target="_blank" rel="noopener">IBM SQL Data Insights Pro product page</a></li>
-            <li><a href="https://www.ibm.com/docs/en/db2-for-zos/13?topic=features-data-insights" target="_blank" rel="noopener">IBM Documentation — Db2 SQL Data Insights</a></li>
-          </ul>
-        </section>
-
-        <!-- ── PYTHON AI TOOLKIT ─────────────────────────────────────── -->
-        <section class="section" id="python-ai-toolkit">
-          <h1>Python AI Toolkit for z/OS</h1>
-          <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../train-model/train-model.html">Train Model</a> · <a href="../optimize-model/optimize-model.html">Optimize Model</a></p>
-
-          <h2>What is the Python AI Toolkit for z/OS?</h2>
-          <p>The Python AI Toolkit for z/OS is IBM's curated collection of ~235 Python packages that run natively on z/OS. It includes the core data science stack — pandas, NumPy, scikit-learn, XGBoost, SQLAlchemy, Matplotlib, and more — giving data scientists and engineers a familiar Python environment directly on the mainframe. Code runs on z/OS itself, accessing Db2, IMS, and VSAM data in place with no data movement required.</p>
-          <p>This toolkit is the foundation of the Python AI stack on z/OS and the most accessible entry point for teams already working in Python — the same notebooks and scripts that work on Linux work here.</p>
-
-          <h2>Why Use It on IBM Z</h2>
-          <ul>
-            <li><strong>Lowest barrier to entry</strong> — If your team knows Python, this is the fastest way to start working with z/OS data for AI. No new language or framework.</li>
-            <li><strong>Data stays on z/OS</strong> — Code runs on the mainframe so sensitive enterprise data never has to leave the platform.</li>
-            <li><strong>Full data access</strong> — Connect directly to Db2, IMS, and VSAM via SQLAlchemy, JDBC/ODBC, or z/OS-native connectors from Python.</li>
-            <li><strong>End-to-end Python workflow</strong> — Explore, prepare, train, and export — all in Python, all on z/OS.</li>
-            <li><strong>Foundation of the z/OS AI stack</strong> — Many IBM Z AI tools (including Machine Learning for z/OS) are built on top of this toolkit.</li>
-          </ul>
-
-          <h2>Key Packages</h2>
-          <table class="ops-table">
-            <thead><tr><th>Package</th><th>Used for</th></tr></thead>
-            <tbody>
-              <tr><td class="cap-label">pandas</td><td>Data manipulation, cleaning, and exploration</td></tr>
-              <tr><td class="cap-label">NumPy</td><td>Numerical computing and array operations</td></tr>
-              <tr><td class="cap-label">scikit-learn</td><td>Traditional ML algorithms, pipelines, and preprocessing</td></tr>
-              <tr><td class="cap-label">XGBoost</td><td>Gradient boosted tree models for tabular data</td></tr>
-              <tr><td class="cap-label">SQLAlchemy</td><td>Database connectivity to Db2, IMS, and other z/OS sources</td></tr>
-              <tr><td class="cap-label">Matplotlib / Seaborn</td><td>Data visualization for exploratory analysis</td></tr>
-              <tr><td class="cap-label">ONNX / skl2onnx</td><td>Export scikit-learn and XGBoost models to ONNX for deployment</td></tr>
-            </tbody>
-          </table>
-
-          <h2>Getting Started</h2>
-          <ul>
-            <li><a href="https://www.ibm.com/docs/en/python-zos" target="_blank" rel="noopener">Python AI Toolkit for z/OS documentation</a></li>
-            <li><a href="https://github.com/IBM/ai-on-z-samples" target="_blank" rel="noopener">IBM AI on Z samples (GitHub)</a></li>
-            <li><a href="https://ibm.github.io/ai-on-z-101/" target="_blank" rel="noopener">AI on Z 101 GitHub page</a> — Tool compatibility reference</li>
-          </ul>
-        </section>
-
         <!-- ── SYNTHETIC DATA SETS ───────────────────────────────────── -->
         <section class="section" id="synthetic-data-sets">
           <h1>IBM Synthetic Data Sets</h1>
@@ -416,8 +339,6 @@
       activeSub: 'data-analytics',
       pageNavItems: [
         { id: 'apache-spark',        label: 'Apache Spark on IBM Z' },
-        { id: 'sql-data-insights',   label: 'SQL Data Insights Pro' },
-        { id: 'python-ai-toolkit',   label: 'Python AI Toolkit for z/OS' },
         { id: 'synthetic-data-sets', label: 'IBM Synthetic Data Sets' },
       ]
     });

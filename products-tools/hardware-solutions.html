@@ -129,34 +129,6 @@
             <li>IBM Z Database Assistant · IBM watsonx Assistant for Z</li>
           </ul>
 
-          <h2>Spyre Capabilities Reference</h2>
-          <details class="expand-card">
-            <summary>
-              <span class="expand-card-title">View technical capabilities</span>
-              <span class="expand-card-caret">▾</span>
-            </summary>
-            <div class="expand-card-body">
-              <table class="ops-table">
-                <thead><tr><th>Capability</th><th>Details</th></tr></thead>
-                <tbody>
-                  <tr><td class="cap-label">Compatible Systems</td><td>IBM z17</td></tr>
-                  <tr><td class="cap-label">Accelerator Cores</td><td>32 cores per PCIe card; up to 256 cores per 8-card cluster</td></tr>
-                  <tr><td class="cap-label">Process Technology</td><td>5 nm node</td></tr>
-                  <tr><td class="cap-label">Model Architectures</td><td>Decoder-only transformer LLMs; encoder / embedding models</td></tr>
-                  <tr><td class="cap-label">Representative Models</td><td>IBM Granite, Llama, Mixtral</td></tr>
-                  <tr><td class="cap-label">Runtime Precision</td><td>FP16 (default); INT4, INT8 supported</td></tr>
-                  <tr><td class="cap-label">Quantization</td><td>GPTQ (W4A16 — INT4 weights, FP16 activations)</td></tr>
-                  <tr><td class="cap-label">Serving Frameworks</td><td>vLLM (via <code>vllm-spyre</code> plugin), Triton Inference Server</td></tr>
-                  <tr><td class="cap-label">Parallelism</td><td>Tensor parallel inference (multi-card)</td></tr>
-                  <tr><td class="cap-label">Inference Modes</td><td>Offline batch; online serving (OpenAI-compatible API)</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          <p style="font-size:12px;color:var(--ibm-text-helper);margin-top:4px;">
-            Source: <a href="https://github.com/IBM/vllm-spyre" target="_blank" rel="noopener">IBM/vllm-spyre</a> &middot; <a href="https://www.ibm.com/support/z-content-solutions/spyre-accelerator-z-and-linuxone/" target="_blank" rel="noopener">IBM Spyre Accelerator content solution</a>
-          </p>
-
           <h2>Telum vs. Spyre — Which to Use?</h2>
           <div class="compare-grid">
             <div class="compare-card">

@@ -84,6 +84,13 @@ function renderNav(opts) {
       ]
     },
     {
+      id: 'sql-data-insights', label: 'SQL Data Insights Pro',
+      href: p + 'products-tools/sql-data-insights.html',
+      tools: [
+        { label: 'IBM SQL Data Insights Pro', href: p + 'products-tools/sql-data-insights.html#sql-data-insights' },
+      ]
+    },
+    {
       id: 'ai-frameworks', label: 'AI Frameworks & Dev Tools',
       href: p + 'products-tools/ai-frameworks.html',
       tools: [
@@ -315,6 +322,7 @@ function initSearch(wrapper, root) {
 
     /* Prepare Data */
     { title: 'Prepare Data', section: 'AI Lifecycle', snippet: 'Synthetic data generation, feature engineering, and Apache Spark on IBM Z for data preparation.', href: root + 'prepare-data/prepare-data.html' },
+    { title: 'IBM SQL Data Insights Pro', section: 'Products & Tools', snippet: 'AI-powered semantic search and similarity queries inside Db2 for z/OS using standard SQL and Telum on-chip inference — no data movement required.', href: root + 'products-tools/sql-data-insights.html' },
     { title: 'IBM Synthetic Data Sets', section: 'Prepare Data', snippet: 'Generate realistic, privacy-safe labeled datasets for training AI models on IBM Z.', href: root + 'products-tools/data-analytics.html#synthetic-data-sets' },
     { title: 'IBM Z Platform for Apache Spark', section: 'Prepare Data', snippet: 'Run Apache Spark workloads natively on IBM Z for scalable data processing and feature engineering.', href: root + 'products-tools/data-analytics.html#apache-spark' },
     { title: 'Python AI Toolkit for z/OS', section: 'Prepare Data', snippet: 'A curated set of Python AI/ML packages — NumPy, Pandas, Scikit-learn — optimized for z/OS.', href: root + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
