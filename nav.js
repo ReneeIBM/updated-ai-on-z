@@ -92,7 +92,15 @@ function renderNav(opts) {
         { label: 'IBM Z Accelerated for TensorFlow',    href: p + 'products-tools/ai-frameworks.html#tensorflow' },
         { label: 'IBM Z Accelerated for PyTorch',       href: p + 'products-tools/ai-frameworks.html#pytorch' },
         { label: 'Python AI Toolkit for z/OS',          href: p + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
-        { label: 'ONNX & IBM Z Deep Learning Compiler', href: p + 'products-tools/ai-frameworks.html#onnx-zdlc' },
+      ]
+    },
+    {
+      id: 'model-formats', label: 'Model Formats & Compilers',
+      href: p + 'products-tools/model-formats.html',
+      tools: [
+        { label: 'ONNX Model Format',                    href: p + 'products-tools/model-formats.html#onnx' },
+        { label: 'PMML Model Format',                    href: p + 'products-tools/model-formats.html#pmml' },
+        { label: 'IBM Z Deep Learning Compiler (zDLC)',  href: p + 'products-tools/model-formats.html#zdlc' },
       ]
     },
     {
@@ -321,8 +329,14 @@ function initSearch(wrapper, root) {
 
     /* Optimize Model */
     { title: 'Optimize Model', section: 'AI Lifecycle', snippet: 'ONNX, PMML, quantization, and the IBM Z Deep Learning Compiler (zDLC) for model optimization.', href: root + 'optimize-model/optimize-model.html' },
-    { title: 'ONNX & IBM Z Deep Learning Compiler', section: 'Optimize Model', snippet: 'Convert and compile models to ONNX format; use zDLC to optimize neural networks for IBM Z hardware.', href: root + 'products-tools/ai-frameworks.html#onnx-zdlc' },
+    { title: 'ONNX & IBM Z Deep Learning Compiler', section: 'Optimize Model', snippet: 'Convert and compile models to ONNX format; use zDLC to optimize neural networks for IBM Z hardware.', href: root + 'products-tools/model-formats.html#zdlc' },
     { title: 'AI Optimizer for IBM Z and LinuxONE', section: 'Optimize Model', snippet: 'Quantize and compress AI models to improve inference throughput on IBM Z hardware.', href: root + 'products-tools/ai-platforms.html#ai-optimizer' },
+
+    /* Model Formats & Compilers */
+    { title: 'Model Formats & Compilers', section: 'Products & Tools', snippet: 'ONNX and PMML model interchange formats plus the IBM Z Deep Learning Compiler for Telum-accelerated inference.', href: root + 'products-tools/model-formats.html' },
+    { title: 'ONNX Model Format', section: 'Model Formats & Compilers', snippet: 'Export TensorFlow, PyTorch, or scikit-learn models to ONNX for portable deployment on IBM Z and LinuxONE.', href: root + 'products-tools/model-formats.html#onnx' },
+    { title: 'PMML Model Format', section: 'Model Formats & Compilers', snippet: 'Convert scikit-learn, XGBoost, or LightGBM models to PMML for deployment via MLz and IBM Snap ML on IBM Z.', href: root + 'products-tools/model-formats.html#pmml' },
+    { title: 'IBM Z Deep Learning Compiler (zDLC)', section: 'Model Formats & Compilers', snippet: 'Compile ONNX models to optimized s390x binaries with automatic Telum AI accelerator offloading via zDNN.', href: root + 'products-tools/model-formats.html#zdlc' },
 
     /* Deploy Models */
     { title: 'Deploy Models', section: 'AI Lifecycle', snippet: 'Deploy AI models on z/OS with MLz, on OpenShift with RHOAI, or to watsonx.ai on IBM Z.', href: root + 'deploy-models/deploy-models.html' },
