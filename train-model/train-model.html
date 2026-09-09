@@ -97,7 +97,7 @@
           <p>Traditional machine learning models — linear models, decision trees, random forests, gradient boosting — are the workhorses of IBM Z AI use cases. Most production deployments in financial services, insurance, and retail scoring run on these model types. They train fast, are explainable, and map naturally to the structured tabular data that enterprises have in abundance on Z.</p>
 
           <h2 id="snapml">IBM Z Accelerated SnapML</h2>
-          <p>Snap ML is an open-source library developed and maintained by IBM Research that provides high-performance training and inference for popular machine learning models. It is fully compatible with the scikit-learn API — so if your team already uses scikit-learn, XGBoost, or LightGBM, you can switch with minimal code changes.</p>
+          <p>Snap ML is an open-source library developed and maintained by IBM Research that provides high-performance training and inference for popular machine learning models. It is fully compatible with the scikit-learn API, making it easy for teams already using scikit-learn, XGBoost, or LightGBM to accelerate model development with minimal code changes.</p>
 
           <h2>What SnapML is good for</h2>
           <table class="ops-table">
@@ -110,19 +110,11 @@
             </tbody>
           </table>
 
-          <h2>4 pillars of enterprise-grade preprocessing in Snap ML</h2>
-          <ul>
-            <li><strong>Mathematical Alignment</strong> — Cleans, normalizes, and encodes data to guarantee optimal mathematical stability during model training.</li>
-            <li><strong>Low-Latency Inference</strong> — Eliminates Python overhead by executing scikit-learn pipeline transformations natively in optimized C++.</li>
-            <li><strong>Multi-Modal Feature Support</strong> — Handles numerical transformations, categorical encodings, and graph-based features for large enterprise workloads.</li>
-            <li><strong>Zero-Skew Pipeline Alignment</strong> — Exports unified preprocessing pipelines as deployable JSON manifests to ensure training-to-serving consistency.</li>
-          </ul>
-
           <h2>Telum acceleration</h2>
           <p>Starting with Snap ML v1.9.0, Random Forest, Extra Trees, and Gradient Boosting Machines can leverage the IBM Integrated Accelerator for AI on Telum I and Telum II processors at inference time. Starting with v1.9.1, SnapML-trained tree models can be exported directly to PMML.</p>
 
           <h2 id="mlz">Machine Learning for IBM z/OS (MLz)</h2>
-          <p>If you're training on z/OS or need a managed environment for the full ML lifecycle, Machine Learning for IBM z/OS (MLz) provides a unified platform for building, deploying, and scoring models directly on z/OS — with SnapML built in.</p>
+          <p>If you're training on z/OS or need a managed environment for the full ML lifecycle, Machine Learning for IBM z/OS (MLz) provides a unified platform for building, deploying, and scoring models directly on z/OS, with SnapML built in.</p>
           <a href="../products-tools/ai-frameworks.html#snapml" class="learn-more">Snap ML deep dive &#8594;</a>
           <a href="../products-tools/ai-platforms.html#mlz" class="learn-more">Machine Learning for IBM z/OS &#8594;</a>
         </section>

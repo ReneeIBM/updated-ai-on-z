@@ -79,7 +79,7 @@
               <div class="decision-card-label">Serving LLMs and foundation models</div>
               <div class="decision-card-body">
                 <p>You're serving a large language model — Granite, Llama, Mixtral, or similar — for generative AI use cases on IBM z17 with Spyre or Telum II acceleration.</p>
-                <p><strong>→ Use Red Hat AI Inference Server</strong> (vLLM-based) for an OpenAI-compatible API with optimized distributed LLM serving, or <strong>AI Optimizer for IBM Z</strong> for an all-in-one pre-configured inferencing stack deployable in under 2 hours.</p>
+                <p><strong>→ Build or fine-tune models in watsonx.ai</strong>, then serve them using <strong>Red Hat AI Inference Server</strong> (vLLM-based), <strong>Red Hat OpenShift AI</strong>, or <strong>AI Optimizer for IBM Z and LinuxONE</strong> depending on your deployment architecture.</p>
               </div>
             </div>
 
@@ -128,6 +128,20 @@
             <li>Available via the IBM Z &amp; LinuxONE Container Registry as part of the AI Toolkit</li>
           </ul>
           <a href="../products-tools/inference-serving.html#triton" class="learn-more">IBM Z Accelerated for Triton deep dive &#8594;</a>
+        </section>
+
+        <!-- ── RED HAT OPENSHIFT AI ──────────────────────────────────── -->
+        <section class="section" id="rhoai-serving">
+          <h1>Red Hat OpenShift AI</h1>
+          <p>Red Hat OpenShift AI provides a Kubernetes-native platform for deploying, managing, and serving AI models across IBM Z, LinuxONE, and hybrid cloud environments. It integrates with serving frameworks such as KServe, Triton Inference Server, and Red Hat AI Inference Server, enabling a consistent serving experience for predictive AI, generative AI, and foundation models.</p>
+          <p><strong>Best for:</strong> Teams that need enterprise-scale model serving, monitoring, governance, and MLOps capabilities across multiple environments.</p>
+          <ul>
+            <li>Deploy predictive and generative AI models through a unified platform</li>
+            <li>Supports KServe, Triton, and Red Hat AI Inference Server serving runtimes</li>
+            <li>Built-in model monitoring, lifecycle management, and governance</li>
+            <li>Portable across IBM Z, LinuxONE, and hybrid cloud OpenShift environments</li>
+          </ul>
+          <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI deep dive &#8594;</a>
         </section>
 
         <!-- ── RED HAT AI INFERENCE SERVER ───────────────────────────── -->
@@ -222,6 +236,7 @@
         { id: 'model-serving-platforms', label: 'Model Serving Platforms' },
         { id: 'tf-serving',              label: '· TensorFlow Serving' },
         { id: 'triton',                  label: '· Triton Inference Server' },
+        { id: 'rhoai-serving',           label: '· Red Hat OpenShift AI' },
         { id: 'rh-inference',            label: '· Red Hat AI Inference Server' },
         { id: 'ai-optimizer',            label: '· AI Optimizer for IBM Z' },
         { id: 'enterprise-ai-inference', label: 'Enterprise AI Inference' },

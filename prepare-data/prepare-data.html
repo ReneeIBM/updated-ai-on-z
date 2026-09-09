@@ -88,6 +88,14 @@
               </div>
             </div>
 
+            <div class="decision-card">
+              <div class="decision-card-label">Building a production AI and MLOps platform</div>
+              <div class="decision-card-body">
+                <p>You need a collaborative environment for data preparation, model training, pipelines, deployment, and governance across teams.</p>
+                <p><strong>→ Use Red Hat OpenShift AI.</strong> Provides data science workbenches, Kubeflow pipelines, model serving, and MLOps capabilities on a unified platform.</p>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -144,6 +152,23 @@
 
         </section>
 
+        <!-- ── AI PLATFORMS & MLOps ──────────────────────────────────── -->
+        <section class="section" id="openshift-ai">
+          <h1>AI Platforms &amp; MLOps</h1>
+          <p>Unified platforms for collaborative AI development, automated pipelines, and end-to-end MLOps on IBM Z and LinuxONE.</p>
+
+          <h2>Red Hat OpenShift AI</h2>
+          <p>Red Hat OpenShift AI provides a unified platform for data scientists, ML engineers, and application developers to prepare data, build models, automate pipelines, and deploy AI solutions. Data preparation workflows can be developed in Jupyter-based workbenches and automated through MLOps pipelines, making it easier to move from experimentation to production.</p>
+          <p><strong>Best for:</strong> Enterprise AI platforms, collaborative data science teams, automated ML pipelines, and organizations standardizing on Kubernetes and OpenShift.</p>
+          <ul>
+            <li>Provides Jupyter-based workbenches for data exploration and preparation</li>
+            <li>Supports Kubeflow-based pipelines for repeatable data and ML workflows</li>
+            <li>Enables collaboration between data scientists, ML engineers, and developers</li>
+            <li>Integrates data preparation, training, deployment, and model management in a single platform</li>
+          </ul>
+          <a href="https://www.redhat.com/en/products/ai/openshift-ai" class="learn-more" target="_blank" rel="noopener">Learn more about Red Hat OpenShift AI &#8594;</a>
+        </section>
+
         <!-- ── COMMON PATTERNS ───────────────────────────────────────── -->
         <section class="section" id="common-patterns">
           <h1>Common Patterns</h1>
@@ -173,6 +198,11 @@
                 <td class="cap-label">Synthetic data for POC</td>
                 <td>No production data available; need realistic data to build and demonstrate a model</td>
                 <td>IBM Synthetic Data Sets</td>
+              </tr>
+              <tr>
+                <td class="cap-label">MLOps platform</td>
+                <td>Multiple teams need shared workbenches, automated pipelines, governance, and deployment</td>
+                <td>Red Hat OpenShift AI</td>
               </tr>
               <tr>
                 <td class="cap-label">Hybrid: prepare off-Z, deploy on Z</td>
@@ -246,6 +276,7 @@
         { id: 'where-to-start',   label: 'Where to Start' },
         { id: 'data-engineering', label: 'Data Engineering' },
         { id: 'synthetic-data',   label: 'Synthetic Data' },
+        { id: 'openshift-ai',     label: 'AI Platforms & MLOps' },
         { id: 'common-patterns',  label: 'Common Patterns' },
         { id: 'next-step',        label: 'Next: Train Model' },
       ]

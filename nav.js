@@ -25,8 +25,9 @@ function renderNav(opts) {
       id: 'prepare-data', label: 'Prepare Data',
       href: p + 'prepare-data/prepare-data.html',
       tools: [
-        { label: 'Data Engineering', href: p + 'prepare-data/prepare-data.html#data-engineering' },
-        { label: 'Synthetic Data',   href: p + 'prepare-data/prepare-data.html#synthetic-data' },
+        { label: 'Data Engineering',    href: p + 'prepare-data/prepare-data.html#data-engineering' },
+        { label: 'Synthetic Data',      href: p + 'prepare-data/prepare-data.html#synthetic-data' },
+        { label: 'AI Platforms & MLOps',href: p + 'prepare-data/prepare-data.html#openshift-ai' },
       ]
     },
     {
@@ -52,7 +53,7 @@ function renderNav(opts) {
       tools: [
         { label: 'Deploy to z/OS',       href: p + 'deploy-models/deploy-models.html#deploy-zos' },
         { label: 'Deploy to OpenShift',  href: p + 'deploy-models/deploy-models.html#deploy-openshift' },
-        { label: 'Deploy with Python',   href: p + 'deploy-models/deploy-models.html#deploy-python' },
+        { label: 'Deploy on Linux on Z & LinuxONE', href: p + 'deploy-models/deploy-models.html#deploy-python' },
       ]
     },
     {
