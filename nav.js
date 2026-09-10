@@ -79,15 +79,9 @@ function renderNav(opts) {
       id: 'data-analytics', label: 'Data & Analytics',
       href: p + 'products-tools/data-analytics.html',
       tools: [
-        { label: 'IBM Synthetic Data Sets',         href: p + 'products-tools/data-analytics.html#synthetic-data-sets' },
         { label: 'IBM Z Platform for Apache Spark', href: p + 'products-tools/data-analytics.html#apache-spark' },
-      ]
-    },
-    {
-      id: 'sql-data-insights', label: 'SQL Data Insights Pro',
-      href: p + 'products-tools/sql-data-insights.html',
-      tools: [
-        { label: 'IBM SQL Data Insights Pro', href: p + 'products-tools/sql-data-insights.html#sql-data-insights' },
+        { label: 'IBM SQL Data Insights Pro',        href: p + 'products-tools/data-analytics.html#sql-data-insights' },
+        { label: 'IBM Synthetic Data Sets',          href: p + 'products-tools/data-analytics.html#synthetic-data-sets' },
       ]
     },
     {
