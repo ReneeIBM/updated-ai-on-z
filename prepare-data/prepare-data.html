@@ -99,76 +99,6 @@
           </div>
         </section>
 
-        <!-- ── TOOLS ─────────────────────────────────────────────────── -->
-        <section class="section" id="tools">
-          <h1>Tools for Data Preparation</h1>
-
-        </section>
-
-        <!-- ── DATA ENGINEERING ─────────────────────────────────────── -->
-        <section class="section" id="data-engineering">
-          <h1>Data Engineering</h1>
-          <p>Tools for building production data pipelines, transforming data at scale, and preparing features co-located with your enterprise data on IBM Z.</p>
-
-          <h2 id="apache-spark">IBM Z Platform for Apache Spark</h2>
-          <p>Apache Spark is the go-to engine for large-scale data processing and feature engineering. The IBM Z Platform for Apache Spark runs Spark natively on z/OS — meaning your pipelines run directly alongside the data, without shipping it elsewhere.</p>
-          <p><strong>Best for:</strong> Production data pipelines, large-volume transformations, feature engineering at scale, teams using Python, Scala, or Java.</p>
-          <ul>
-            <li>Supports Python, Java, and Scala</li>
-            <li>Includes Spark SQL, Spark Streaming, and MLlib for in-pipeline ML</li>
-            <li>Integrates with z/OS security and data governance</li>
-            <li>Current version supports Apache Spark 3.5 with Java 17</li>
-          </ul>
-          <a href="../products-tools/data-analytics.html#apache-spark" class="learn-more">Learn more about Apache Spark on IBM Z &#8594;</a>
-
-        </section>
-
-        <!-- ── SYNTHETIC DATA ────────────────────────────────────────── -->
-        <section class="section" id="synthetic-data">
-          <h1>Synthetic Data</h1>
-          <p>Enterprise-grade artificially generated datasets for AI model training — no production data access required.</p>
-
-          <h2>IBM SQL Data Insights Pro</h2>
-          <p>SQL Data Insights Pro adds AI-powered semantic understanding directly inside Db2 for z/OS. Instead of writing complex queries to find patterns, you can ask meaning-based questions about your data using familiar SQL — and the model runs on-chip, with no data leaving IBM Z.</p>
-          <p><strong>Best for:</strong> Data exploration on Db2, finding patterns and relationships before building a full model, teams without dedicated data science expertise.</p>
-          <ul>
-            <li>Runs on Telum on-chip AI acceleration — no external infrastructure required</li>
-            <li>Supports both structured data and unstructured text (comments, logs, descriptions)</li>
-            <li>No data movement — all processing stays within the z/OS security boundary</li>
-            <li>Enables semantic search and similarity queries using standard SQL</li>
-          </ul>
-          <a href="../products-tools/data-analytics.html#sql-data-insights" class="learn-more">Learn more about SQL Data Insights Pro &#8594;</a>
-
-          <h2 id="synthetic-data-sets">IBM Synthetic Data Sets</h2>
-          <p>IBM Synthetic Data Sets are enterprise-grade, artificially generated datasets designed for AI model training in financial services. They're built to look and behave like real transaction data — with no real customer information — making them ideal for early-stage development, demos, and POCs where production data access isn't available yet.</p>
-          <p><strong>Best for:</strong> Teams building a first model, running a POC, or demonstrating a use case without access to production data.</p>
-          <ul>
-            <li>Available datasets: Payment Cards (Credit Card Fraud), Core Banking &amp; AML, Homeowners Insurance</li>
-            <li>No seed data required from clients</li>
-            <li>Designed for use with MLz, Cloud Pak for Data on Z, and AI Toolkit for IBM Z</li>
-            <li>Can also be used to validate and augment existing models</li>
-          </ul>
-          <a href="../products-tools/data-analytics.html#synthetic-data-sets" class="learn-more">Learn more about IBM Synthetic Data Sets &#8594;</a>
-
-        </section>
-
-        <!-- ── AI PLATFORMS & MLOps ──────────────────────────────────── -->
-        <section class="section" id="openshift-ai">
-          <h1>AI Platforms &amp; MLOps</h1>
-          <p>Unified platforms for collaborative AI development, automated pipelines, and end-to-end MLOps on IBM Z and LinuxONE.</p>
-
-          <h2>Red Hat OpenShift AI</h2>
-          <p>Red Hat OpenShift AI provides a unified platform for data scientists, ML engineers, and application developers to prepare data, build models, automate pipelines, and deploy AI solutions. Data preparation workflows can be developed in Jupyter-based workbenches and automated through MLOps pipelines, making it easier to move from experimentation to production.</p>
-          <p><strong>Best for:</strong> Enterprise AI platforms, collaborative data science teams, automated ML pipelines, and organizations standardizing on Kubernetes and OpenShift.</p>
-          <ul>
-            <li>Provides Jupyter-based workbenches for data exploration and preparation</li>
-            <li>Supports Kubeflow-based pipelines for repeatable data and ML workflows</li>
-            <li>Enables collaboration between data scientists, ML engineers, and developers</li>
-            <li>Integrates data preparation, training, deployment, and model management in a single platform</li>
-          </ul>
-          <a href="https://www.redhat.com/en/products/ai/openshift-ai" class="learn-more" target="_blank" rel="noopener">Learn more about Red Hat OpenShift AI &#8594;</a>
-        </section>
-
         <!-- ── COMMON PATTERNS ───────────────────────────────────────── -->
         <section class="section" id="common-patterns">
           <h1>Common Patterns</h1>
@@ -272,13 +202,10 @@
       activeTop: 'lifecycle',
       activeSub: 'prepare-data',
       pageNavItems: [
-        { id: 'overview',         label: 'Overview' },
-        { id: 'where-to-start',   label: 'Where to Start' },
-        { id: 'data-engineering', label: 'Data Engineering' },
-        { id: 'synthetic-data',   label: 'Synthetic Data' },
-        { id: 'openshift-ai',     label: 'AI Platforms & MLOps' },
-        { id: 'common-patterns',  label: 'Common Patterns' },
-        { id: 'next-step',        label: 'Next: Train Model' },
+        { id: 'overview',        label: 'Overview' },
+        { id: 'where-to-start',  label: 'Where to Start' },
+        { id: 'common-patterns', label: 'Common Patterns' },
+        { id: 'next-step',       label: 'Next: Train Model' },
       ]
     });
   </script>

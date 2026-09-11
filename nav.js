@@ -21,56 +21,12 @@ function renderNav(opts) {
 
   /* ── Lifecycle stages with their tool sub-items ─────────────── */
   const lifecycleItems = [
-    {
-      id: 'prepare-data', label: 'Prepare Data',
-      href: p + 'prepare-data/prepare-data.html',
-      tools: [
-        { label: 'Data Engineering',    href: p + 'prepare-data/prepare-data.html#data-engineering' },
-        { label: 'Synthetic Data',      href: p + 'prepare-data/prepare-data.html#synthetic-data' },
-        { label: 'AI Platforms & MLOps',href: p + 'prepare-data/prepare-data.html#openshift-ai' },
-      ]
-    },
-    {
-      id: 'train-model', label: 'Train Model',
-      href: p + 'train-model/train-model.html',
-      tools: [
-        { label: 'Traditional Machine Learning', href: p + 'train-model/train-model.html#traditional-ml' },
-        { label: 'Deep Learning',                href: p + 'train-model/train-model.html#deep-learning' },
-        { label: 'AI Development on z/OS',       href: p + 'train-model/train-model.html#ai-dev-zos' },
-      ]
-    },
-    {
-      id: 'optimize-model', label: 'Optimize Model',
-      href: p + 'optimize-model/optimize-model.html',
-      tools: [
-        { label: 'Model Conversion',        href: p + 'optimize-model/optimize-model.html#model-conversion' },
-        { label: 'Performance Optimization',href: p + 'optimize-model/optimize-model.html#performance-optimization' },
-      ]
-    },
-    {
-      id: 'deploy-models', label: 'Deploy Models',
-      href: p + 'deploy-models/deploy-models.html',
-      tools: [
-        { label: 'Deploy to z/OS',       href: p + 'deploy-models/deploy-models.html#deploy-zos' },
-        { label: 'Deploy to OpenShift',  href: p + 'deploy-models/deploy-models.html#deploy-openshift' },
-        { label: 'Deploy on Linux on Z & LinuxONE', href: p + 'deploy-models/deploy-models.html#deploy-python' },
-      ]
-    },
-    {
-      id: 'serve-model', label: 'Serve Model',
-      href: p + 'serve-model/serve-model.html',
-      tools: [
-        { label: 'Enterprise AI Inference',   href: p + 'serve-model/serve-model.html#enterprise-ai-inference' },
-        { label: 'Model Serving Platforms',   href: p + 'serve-model/serve-model.html#model-serving-platforms' },
-      ]
-    },
-    {
-      id: 'ai-governance', label: 'AI Governance',
-      href: p + 'ai-governance/ai-governance.html',
-      tools: [
-        { label: 'Model Governance', href: p + 'ai-governance/ai-governance.html#model-governance' },
-      ]
-    },
+    { id: 'prepare-data',   label: 'Prepare Data',   href: p + 'prepare-data/prepare-data.html',       tools: [] },
+    { id: 'train-model',    label: 'Train Model',    href: p + 'train-model/train-model.html',         tools: [] },
+    { id: 'optimize-model', label: 'Optimize Model', href: p + 'optimize-model/optimize-model.html',   tools: [] },
+    { id: 'deploy-models',  label: 'Deploy Models',  href: p + 'deploy-models/deploy-models.html',     tools: [] },
+    { id: 'serve-model',    label: 'Serve Model',    href: p + 'serve-model/serve-model.html',         tools: [] },
+    { id: 'ai-governance',  label: 'AI Governance',  href: p + 'ai-governance/ai-governance.html',     tools: [] },
   ];
 
   /* ── Product categories with their tool sub-items ───────────── */

@@ -112,79 +112,6 @@
           </div>
         </section>
 
-        <!-- ── MODEL GOVERNANCE ─────────────────────────────────────── -->
-        <section class="section" id="model-governance">
-          <h1>Model Governance</h1>
-          <p>Tools for monitoring, explaining, and governing AI models on IBM Z — from individual transaction-level explainability in z/OS to enterprise-scale compliance and audit across all environments.</p>
-        </section>
-
-        <!-- ── MLz TRUSTWORTHY AI ─────────────────────────────────────── -->
-        <section class="section" id="mlz-governance">
-          <h1>Trustworthy AI in Machine Learning for IBM z/OS</h1>
-          <p>Machine Learning for IBM z/OS includes built-in trustworthy AI capabilities that provide explainability and drift detection for models running natively on z/OS — operating at the individual transaction level without requiring any separate governance platform.</p>
-
-          <h2>Explainability</h2>
-          <p>MLz provides continuous monitoring of z/OS transactions scored by AI models, and generates explanations for each model prediction at the individual transaction level:</p>
-          <ul>
-            <li>Explains <em>why</em> a model made a specific prediction — supporting customer transparency, disputes, and regulatory requirements</li>
-            <li>Supports multiple scoring interfaces: REST, CICS, and WOLA (including IMS transactions and batch jobs)</li>
-            <li>Supports LIME (Local Interpretable Model-agnostic Explanations) and SHAP (SHapley Additive exPlanations) — the most widely used explain algorithms</li>
-          </ul>
-
-          <h2>Drift Detection</h2>
-          <p>MLz monitors both dimensions of model drift in production:</p>
-          <ul>
-            <li><strong>Output drift</strong> — detects when model predictions start shifting from their baseline distribution, signaling the model may need retraining</li>
-            <li><strong>Feature drift</strong> — detects when the input data patterns change, which can cause model behavior to degrade even if the model itself hasn't changed</li>
-            <li>Drill-down capabilities allow data scientists to identify the specific features contributing to drift and take prompt corrective action</li>
-          </ul>
-          <p>These capabilities integrate with watsonx.governance for enterprise-scale governance and compliance workflows.</p>
-          <a href="../products-tools/ai-platforms.html#mlz" class="learn-more">Machine Learning for IBM z/OS deep dive &#8594;</a>
-        </section>
-
-        <!-- ── TRUSTYAI ────────────────────────────────────────────────── -->
-        <section class="section" id="trustyai">
-          <h1>TrustyAI in Red Hat OpenShift AI</h1>
-          <p>TrustyAI is the model monitoring and governance component built into Red Hat OpenShift AI. It provides continuous monitoring of deployed models — detecting bias, drift, and unreliable predictions — and extends to LLM evaluation and guardrails for generative AI workloads.</p>
-
-          <h2>Model monitoring capabilities</h2>
-          <ul>
-            <li><strong>Continuous monitoring</strong> — Detects bias, drift, and unreliable predictions across all models deployed in RHOAI</li>
-            <li><strong>Bias and fairness detection</strong> — Early detection of bias and drift; ensures transparent, fair, and reliable ML models</li>
-            <li><strong>Explainability insights</strong> — Improves AI decision transparency with interpretable outputs</li>
-            <li><strong>Trust and governance</strong> — Enhances trustworthiness and accountability in AI systems; supports safer and compliant AI deployments</li>
-            <li><strong>Reduced model risk</strong> — Identifies problems in production before they affect business outcomes or compliance standing</li>
-          </ul>
-
-          <h2>LLM evaluation and guardrails</h2>
-          <p>TrustyAI extends governance to generative AI and LLM workloads with two specific assessment services:</p>
-          <div class="card-grid">
-            <div class="card">
-              <h4>LLM Evaluation</h4>
-              <p>Evaluates Large Language Models using multiple quality metrics — ensures output accuracy, consistency, and relevance for production generative AI workloads.</p>
-            </div>
-            <div class="card">
-              <h4>Guardrails</h4>
-              <p>Protects LLM inputs and outputs via a Guardrails Orchestrator that manages flow between user, model, and detector services — flagging sensitive data, harmful content, and toxic outputs before they reach users.</p>
-            </div>
-          </div>
-          <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI deep dive &#8594;</a>
-        </section>
-
-        <!-- ── WATSONX.GOVERNANCE ──────────────────────────────────────── -->
-        <section class="section" id="watsonx-governance">
-          <h1>watsonx.governance on IBM Z</h1>
-          <p>IBM watsonx.governance is now supported on Linux on IBM Z and LinuxONE with IBM Software Hub 5.4.0 — enabling organizations to monitor, track, and govern AI models on-platform, without moving data off IBM Z. Designed for banking, insurance, healthcare, and public sector clients with strict regulatory requirements.</p>
-          <p><strong>Best for:</strong> Enterprises that need a unified governance platform with audit trails, fairness monitoring, and compliance reporting — all co-located with models and data on IBM Z.</p>
-          <ul>
-            <li>AI Factsheets — automatic metadata capture, end-to-end lineage tracking, and centralized audit documentation</li>
-            <li>OpenScale Monitoring — continuous monitoring for model quality, fairness, drift, and explainability</li>
-            <li>Watson Machine Learning governance — lifecycle management, hybrid deployment monitoring, and external model governance</li>
-            <li>No data movement — governance runs on the same platform as the models and the data they score</li>
-          </ul>
-          <a href="../products-tools/ai-platforms.html#watsonx-governance" class="learn-more">watsonx.governance deep dive &#8594;</a>
-        </section>
-
         <!-- ── NEXT STEPS ─────────────────────────────────────────────── -->
         <section class="section" id="next-steps">
           <h1>Where to Go from Here</h1>
@@ -214,14 +141,10 @@
       activeTop: 'lifecycle',
       activeSub: 'ai-governance',
       pageNavItems: [
-        { id: 'overview',              label: 'Overview' },
-        { id: 'governance-lifecycle',  label: 'Governance Lifecycle on IBM Z' },
-        { id: 'where-to-start',        label: 'Where to Start' },
-        { id: 'model-governance',      label: 'Model Governance' },
-        { id: 'mlz-governance',        label: '· Trustworthy AI in MLz' },
-        { id: 'trustyai',              label: '· TrustyAI in OpenShift AI' },
-        { id: 'watsonx-governance',    label: '· watsonx.governance' },
-        { id: 'next-steps',            label: 'Where to Go from Here' },
+        { id: 'overview',             label: 'Overview' },
+        { id: 'governance-lifecycle', label: 'Governance Lifecycle on IBM Z' },
+        { id: 'where-to-start',       label: 'Where to Start' },
+        { id: 'next-steps',           label: 'Where to Go from Here' },
       ]
     });
   </script>
