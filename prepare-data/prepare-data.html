@@ -52,95 +52,65 @@
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Your starting point depends on what data you have access to and what you're trying to build. Use this to find your path:</p>
+          <p>Your starting point depends on where your data resides, how much preparation is required, and how your team prefers to work.</p>
 
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Starting a POC or demo</div>
+              <div class="decision-card-label">Starting a POC or Demo</div>
               <div class="decision-card-body">
-                <p>You don't have access to production data yet, or you want to move fast without data privacy concerns.</p>
-                <p><strong>→ Start with IBM Synthetic Data Sets.</strong> Pre-built, realistic financial datasets let you build and validate a model without waiting on data access approvals.</p>
+                <p>You don't have access to production data yet, or you want to move quickly without data privacy concerns.</p>
+                <p><strong>→ Start with IBM Synthetic Data Sets.</strong> Pre-built, realistic datasets help you build, test, and validate models without waiting for production data access.</p>
+                <p><em>Common approach:</em> Use synthetic data to develop and validate a model, then retrain with production data when it becomes available.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Working with Db2 data on z/OS</div>
+              <div class="decision-card-label">Working with Db2 Data on z/OS</div>
               <div class="decision-card-body">
-                <p>Your data lives in Db2 for z/OS and you want to explore it, find patterns, or prepare features without writing a full pipeline.</p>
-                <p><strong>→ Use IBM SQL Data Insights Pro.</strong> Run AI-powered semantic queries directly inside Db2 — no data movement, no pipeline required.</p>
+                <p>Your data already resides in Db2 for z/OS and you want to explore patterns, relationships, or features without building a separate data pipeline.</p>
+                <p><strong>→ Use IBM SQL Data Insights Pro.</strong> Run AI-powered semantic analysis directly against Db2 data while keeping data in place.</p>
+                <p><em>Common approach:</em> Perform in-database exploration and feature discovery, then pass selected features into a training workflow.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building a production data pipeline</div>
+              <div class="decision-card-label">Building a Production Data Pipeline</div>
               <div class="decision-card-body">
-                <p>You need to process large volumes of enterprise data, automate feature engineering, or build repeatable pipelines for model training.</p>
-                <p><strong>→ Use IBM Z Platform for Apache Spark.</strong> Run Spark natively on z/OS to transform and prepare data at scale, co-located with your enterprise systems.</p>
+                <p>You need to process large volumes of enterprise data, perform complex transformations, or create repeatable feature engineering workflows.</p>
+                <p><strong>→ Use IBM Z Platform for Apache Spark.</strong> Spark runs natively on z/OS and supports large-scale data preparation close to enterprise data sources.</p>
+                <p><em>Common approach:</em> Build Spark pipelines that cleanse, transform, and enrich data before supplying it to model training frameworks.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Using Python-based tools</div>
+              <div class="decision-card-label">Using Python-Based Data Science Tools</div>
               <div class="decision-card-body">
-                <p>Your team works in Python and you want to use familiar libraries like pandas, scikit-learn, or NumPy on IBM Z data.</p>
-                <p><strong>→ Use the Python AI Toolkit for z/OS.</strong> ~235 Python packages run natively on z/OS, with access to enterprise data in place.</p>
+                <p>Your team prefers Python and wants to use familiar libraries such as pandas, NumPy, scikit-learn, and XGBoost.</p>
+                <p><strong>→ Use the Python AI Toolkit for IBM z/OS.</strong> A curated collection of Python packages runs natively on z/OS, allowing data exploration and feature engineering without moving data.</p>
+                <p><em>Common approach:</em> Use Jupyter notebooks and Python libraries for exploratory analysis, feature engineering, and model experimentation.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building a production AI and MLOps platform</div>
+              <div class="decision-card-label">Building a Production AI and MLOps Platform</div>
               <div class="decision-card-body">
-                <p>You need a collaborative environment for data preparation, model training, pipelines, deployment, and governance across teams.</p>
-                <p><strong>→ Use Red Hat OpenShift AI.</strong> Provides data science workbenches, Kubeflow pipelines, model serving, and MLOps capabilities on a unified platform.</p>
+                <p>Multiple teams need shared workspaces, automated pipelines, model management, deployment, and governance.</p>
+                <p><strong>→ Use Red Hat OpenShift AI.</strong> Provides data science workbenches, Kubeflow pipelines, model serving, monitoring, and MLOps capabilities on a unified platform.</p>
+                <p><em>Common approach:</em> Centralize data preparation, training, deployment, and governance within a shared AI platform.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Preparing Data Outside IBM Z</div>
+              <div class="decision-card-body">
+                <p>Your team already uses cloud, data lake, or x86-based tooling for data preparation but plans to deploy AI workloads on IBM Z.</p>
+                <p><strong>→ Use your existing data preparation tools</strong> and export models in portable formats such as ONNX or PMML.</p>
+                <p><em>Common approach:</em> Prepare and train externally, then deploy and serve models on IBM Z for low-latency inference alongside enterprise applications.</p>
               </div>
             </div>
 
           </div>
-        </section>
-
-        <!-- ── COMMON PATTERNS ───────────────────────────────────────── -->
-        <section class="section" id="common-patterns">
-          <h1>Common Patterns</h1>
-          <p>These are the data preparation patterns most commonly seen in IBM Z AI projects. Most production solutions use a combination of more than one.</p>
-
-          <table class="ops-table">
-            <thead>
-              <tr><th>Pattern</th><th>When to use it</th><th>Tools</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="cap-label">In-database preparation</td>
-                <td>Data lives in Db2; you want minimal movement and fast exploration</td>
-                <td>SQL Data Insights Pro, Db2 for z/OS</td>
-              </tr>
-              <tr>
-                <td class="cap-label">Spark pipeline on z/OS</td>
-                <td>High-volume data, complex transformations, production-grade pipelines</td>
-                <td>IBM Z Platform for Apache Spark</td>
-              </tr>
-              <tr>
-                <td class="cap-label">Python notebook workflow</td>
-                <td>Exploratory data analysis, iterative feature engineering, data science teams</td>
-                <td>Python AI Toolkit for z/OS, pandas, scikit-learn</td>
-              </tr>
-              <tr>
-                <td class="cap-label">Synthetic data for POC</td>
-                <td>No production data available; need realistic data to build and demonstrate a model</td>
-                <td>IBM Synthetic Data Sets</td>
-              </tr>
-              <tr>
-                <td class="cap-label">MLOps platform</td>
-                <td>Multiple teams need shared workbenches, automated pipelines, governance, and deployment</td>
-                <td>Red Hat OpenShift AI</td>
-              </tr>
-              <tr>
-                <td class="cap-label">Hybrid: prepare off-Z, deploy on Z</td>
-                <td>Team uses cloud or x86 tools for preparation; model will be deployed on IBM Z</td>
-                <td>Any ETL/pipeline tool → ONNX or PMML export → IBM Z runtime</td>
-              </tr>
-            </tbody>
-          </table>
         </section>
 
         <!-- ── NEXT STEP ─────────────────────────────────────────────── -->
@@ -202,10 +172,9 @@
       activeTop: 'lifecycle',
       activeSub: 'prepare-data',
       pageNavItems: [
-        { id: 'overview',        label: 'Overview' },
-        { id: 'where-to-start',  label: 'Where to Start' },
-        { id: 'common-patterns', label: 'Common Patterns' },
-        { id: 'next-step',       label: 'Next: Train Model' },
+        { id: 'overview',       label: 'Overview' },
+        { id: 'where-to-start', label: 'Where to Start' },
+        { id: 'next-step',      label: 'Next: Train Model' },
       ]
     });
   </script>
