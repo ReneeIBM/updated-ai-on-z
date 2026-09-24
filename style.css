@@ -47,11 +47,11 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--topbar-height);
-  background: var(--ibm-blue);
+  background: #262626;
   z-index: 1000;
   display: flex;
   align-items: stretch;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
 
 .topbar-logo {
@@ -260,16 +260,7 @@ body {
    LIFECYCLE SUBTAB BAR
    ══════════════════════════════════════════════════════════════ */
 .lifecycle-nav {
-  position: fixed;
-  top: var(--topbar-height);
-  left: 0; right: 0;
-  height: var(--lifecycle-height);
-  background: #1a1a2e;
-  z-index: 900;
-  display: flex;
-  align-items: stretch;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  overflow-x: auto;
+  display: none !important;
 }
 
 .lifecycle-nav::-webkit-scrollbar { display: none; }
@@ -315,12 +306,12 @@ body.has-lifecycle .page-shell {
   background: #fafafa;
 }
 
-/* pagenav on the right */
-.page-shell .pagenav    { order: 2; }
+/* pagenav on the LEFT */
+.page-shell .pagenav      { order: 0; }
 .page-shell .main-content { order: 1; }
 
 /* ══════════════════════════════════════════════════════════════
-   RIGHT PAGE-NAV  ("On this page")
+   LEFT PAGE-NAV  ("On this page")
    ══════════════════════════════════════════════════════════════ */
 .pagenav {
   width: var(--pagenav-width);
@@ -329,7 +320,7 @@ body.has-lifecycle .page-shell {
   padding: 40px 0 64px 0;
   position: sticky;
   align-self: flex-start;
-  border-left: 1px solid #252530;
+  border-right: 1px solid #252530;
   min-height: calc(100vh - var(--topbar-height));
 }
 
@@ -348,11 +339,11 @@ body.has-lifecycle .pagenav {
 
 .pagenav-link {
   display: block;
-  padding: 8px 16px 8px 20px;
+  padding: 8px 20px 8px 16px;
   font-size: 13px;
   color: rgba(255,255,255,0.45);
   text-decoration: none;
-  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
   line-height: 1.45;
 }
@@ -363,7 +354,7 @@ body.has-lifecycle .pagenav {
 
 .pagenav-link.active {
   color: #ffffff;
-  border-left-color: var(--ibm-blue);
+  border-right-color: var(--ibm-blue);
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -379,6 +370,79 @@ body.has-lifecycle .pagenav {
 .page-body {
   max-width: 1100px;
   padding: 56px 52px 112px;
+}
+
+/* ─── Page Hero (shared across all content pages) ────────────── */
+.page-hero {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 48px 52px 44px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15,98,254,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,98,254,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.page-hero > * { position: relative; z-index: 1; }
+.page-hero h1 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.page-hero p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.72);
+  max-width: 620px;
+  margin: 0;
+}
+
+/* ─── Clickable tile cards (Next Steps) ──────────────────────── */
+.card-tile {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--ibm-border);
+  border-radius: 6px;
+  padding: 18px 18px 16px;
+  border-top: 3px solid var(--ibm-blue);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.card-tile:hover {
+  box-shadow: 0 4px 14px rgba(15,98,254,0.16);
+  transform: translateY(-2px);
+  border-top-color: var(--ibm-blue-hover);
+}
+.card-tile h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ibm-text-primary);
+  margin-bottom: 7px;
+  line-height: 1.35;
+}
+.card-tile p {
+  font-size: 13px;
+  color: var(--ibm-text-secondary);
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.card-tile .tile-arrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ibm-blue);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -419,7 +483,7 @@ body.has-lifecycle .section {
 .section h3 {
   font-size: 11px;
   font-weight: 700;
-  color: var(--ibm-gray-50);
+  color: var(--ibm-gray-70);
   margin-top: 22px;
   margin-bottom: 8px;
   text-transform: uppercase;
@@ -908,8 +972,8 @@ body.has-lifecycle .section {
 
 .entry-flow-ep2 {
   background: #defbe6;
-  border: 1px solid #a7f0ba;
-  color: #0e6027;
+  border: 1px solid #74be8c;
+  color: #054719;
 }
 
 .entry-flow-ep3 {
@@ -1013,11 +1077,9 @@ body.has-lifecycle .section {
 }
 
 .ep-card h4 {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--ibm-text-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
   margin-bottom: 8px;
   margin-top: 4px;
 }

@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
 </head>
-<body class="has-lifecycle">
+<body class="no-lifecycle">
   <header class="topbar">
     <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
     <nav class="topnav" id="topnav"></nav>
@@ -17,13 +17,19 @@
   <div class="page-shell">
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
+      <!-- Page Hero -->
+      <div class="page-hero">
+        <h1>Serve Models</h1>
+        <p>Run AI inference at scale on IBM Z — from low-latency transactional scoring to high-throughput generative AI serving.</p>
+      </div>
+
       <div class="page-body">
 
         <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
         <section class="section" id="overview">
           <h1>Serve Model</h1>
-          <p>Serving is the stage where a deployed model becomes accessible to applications and users — exposing predictions via a REST API, a gRPC endpoint, or a native z/OS scoring interface that an application calls in real time. On IBM Z, inference serving is where the performance story becomes concrete: co-locating the serving layer with your transactions and data eliminates network latency and makes in-transaction AI at enterprise scale possible.</p>
-          <p>IBM Z provides a range of serving options to match the model type, workload pattern, and application environment — from native CICS and IMS scoring inside z/OS to containerized multi-framework servers on Linux on Z to enterprise LLM inference for generative AI workloads.</p>
+          <p>Serving is the stage where deployed models are made available for production use. This includes running inference workloads, processing incoming requests, and returning model outputs to applications, services, and business processes. On IBM Z, serving can be performed close to enterprise data and transactional workloads, reducing data movement and enabling AI to be integrated directly into operational workflows.</p>
+          <p>IBM Z provides serving options for multiple model types. Traditional machine learning and deep learning models can leverage the Telum on-chip AI accelerator for real-time inference. Foundation models and large language models can be served using either the Telum on-chip AI accelerator or the IBM Spyre Accelerator, depending on the model architecture, deployment requirements, and runtime environment.</p>
 
           <h2>What happens at this stage?</h2>
           <div class="card-grid">
@@ -37,7 +43,7 @@
             </div>
             <div class="card">
               <h4>Manage model versions</h4>
-              <p>Support hot model reload and versioned endpoints so you can update or roll back models without downtime.</p>
+              <p>Support model versioning and controlled updates, allowing new model versions to be deployed, tested, and rolled back with minimal disruption to production workloads.</p>
             </div>
             <div class="card">
               <h4>Infuse AI into applications</h4>
@@ -46,78 +52,97 @@
           </div>
 
           <h2>Who is this stage for?</h2>
-          <p>Serving is primarily owned by <strong>ML Engineers</strong> and <strong>Application Architects</strong>, with Data Scientists as stakeholders validating that the serving layer produces correct outputs. Line of Business and IT Architects set the SLA and throughput requirements the serving layer must meet.</p>
+          <p>Serving is primarily owned by <strong>ML Engineers</strong> and <strong>Application Architects</strong>, with Data Scientists as stakeholders validating that the serving layer produces correct outputs. Line of Business and IT Architects set the SLA and throughput requirements the serving layer should meet.</p>
         </section>
 
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Your starting point depends on where you want to serve the model, the model formats you need to support, and how you plan to operate inference at scale.</p>
+          <p>Your serving platform is determined by your model type and target accelerator. The three subsections below map to those two dimensions.</p>
+
+          <!-- ── SUBSECTION 1: Traditional ML ── -->
+          <h2>Serving Traditional Machine Learning Models</h2>
+          <p>Traditional ML models run on the <strong>Telum on-chip accelerator</strong> and are served through z/OS-native scoring interfaces or the AI Toolkit.</p>
 
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Serving Models Directly on z/OS</div>
+              <div class="decision-card-label">Native z/OS scoring — Machine Learning for IBM z/OS (MLz)</div>
               <div class="decision-card-body">
-                <p>You want inference integrated with transaction processing and business applications running on z/OS.</p>
-                <p><strong>→ Start with Machine Learning for IBM z/OS (MLz).</strong> MLz provides model deployment, scoring services, and REST APIs directly within the z/OS environment.</p>
-                <p><em>Common approach:</em> Register model in MLz → Expose scoring endpoint → Integrate with z/OS applications.</p>
+                <p>Your core applications run on z/OS and you need inference integrated directly with CICS transactions, IMS workflows, or REST calls — without containerization.</p>
+                <p><strong>→ Use Machine Learning for IBM z/OS (MLz).</strong> MLz is the primary serving platform for traditional ML on z/OS, exposing REST and CICS/IMS native scoring endpoints co-located with your enterprise applications and data.</p>
+                <p><em>Common approach:</em> Register PMML model in MLz → Expose scoring endpoint → Call from CICS transactions or REST-based application workflows.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── SUBSECTION 2: Deep Learning + Encoder LLMs (Telum) ── -->
+          <h2>Serving Deep Learning Models and Encoder LLMs (Telum On-Chip Accelerator)</h2>
+          <p>Deep learning models and encoder LLMs targeting the Telum on-chip accelerator are served through containerized inference runtimes on Linux on Z or Z Container Extension. Encoder LLMs may also choose the Spyre path — see the next subsection.</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">Multi-framework inference on Linux on Z — IBM Z Accelerated for Triton</div>
+              <div class="decision-card-body">
+                <p>You need a single inference server that handles ONNX, TensorFlow, PyTorch, and zDLC-compiled models, running in containers on Linux on Z or Z Container Extension.</p>
+                <p><strong>→ Use IBM Z Accelerated for Triton Inference Server.</strong> Triton provides a unified, high-performance serving runtime for deep learning and encoder LLM models on the Telum on-chip accelerator.</p>
+                <p><em>Common approach:</em> Deploy zDLC-compiled ONNX model to Triton → Expose gRPC or REST inference endpoint → Integrate with applications.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Serving Models Across Multiple Frameworks</div>
+              <div class="decision-card-label">TensorFlow direct serving — IBM Z Accelerated Serving for TensorFlow</div>
               <div class="decision-card-body">
-                <p>You need a single inference platform that supports ONNX, TensorFlow, PyTorch, and other model formats.</p>
-                <p><strong>→ Start with IBM Z Accelerated for Triton Inference Server.</strong> Triton provides a unified serving platform for multiple model types and supports high-performance production inference.</p>
-                <p><em>Common approach:</em> Export model → Deploy to Triton → Serve through APIs.</p>
+                <p>Your model is a TensorFlow SavedModel and you want a dedicated TensorFlow runtime without Triton.</p>
+                <p><strong>→ Use IBM Z Accelerated Serving for TensorFlow.</strong> Provides a production TensorFlow Serving runtime optimized for IBM Z hardware, leveraging Telum AI acceleration.</p>
+                <p><em>Common approach:</em> Export TensorFlow SavedModel → Deploy to TensorFlow Serving → Expose inference endpoint for application calls.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Serving TensorFlow Models</div>
+              <div class="decision-card-label">Managed inference with MLOps — Red Hat OpenShift AI</div>
               <div class="decision-card-body">
-                <p>Your model remains in TensorFlow format and you want a dedicated serving solution.</p>
-                <p><strong>→ Start with IBM Z Accelerated Serving for TensorFlow.</strong> TensorFlow Serving provides a production runtime optimized for serving TensorFlow models.</p>
-                <p><em>Common approach:</em> Export TensorFlow SavedModel → Deploy to TensorFlow Serving → Expose inference endpoint.</p>
+                <p>Multiple teams need shared serving infrastructure, monitoring, scaling controls, and pipeline management for deep learning workloads.</p>
+                <p><strong>→ Use Red Hat OpenShift AI.</strong> OpenShift AI manages serving infrastructure for both Telum and Spyre workloads, making it the right platform when you need coverage across multiple accelerators or model types.</p>
+                <p><em>Common approach:</em> Deploy model servers (Triton or TensorFlow Serving) through OpenShift AI → Monitor performance and scale inference workloads from a unified MLOps platform.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Managing Enterprise AI Inference</div>
+              <div class="decision-card-label">Encoder LLMs on Telum — ONNX and zDLC compilation path</div>
               <div class="decision-card-body">
-                <p>Multiple teams require deployment controls, monitoring, scaling, governance, and operational oversight.</p>
-                <p><strong>→ Start with Red Hat OpenShift AI.</strong> OpenShift AI provides the platform layer that manages model serving infrastructure, monitoring, and MLOps operations.</p>
-                <p><em>Common approach:</em> Deploy model servers → Monitor performance → Scale inference workloads.</p>
+                <p>You have an encoder LLM (e.g., BERT-style) and want to serve it on the Telum on-chip accelerator.</p>
+                <p><strong>→ Use IBM Z Accelerated for Triton Inference Server or Red Hat OpenShift AI.</strong> Encoder LLMs targeting Telum follow the ONNX → zDLC compilation path: export the model to ONNX, compile with IBM Z Deep Learning Compiler (zDLC), and serve via Triton or through OpenShift AI.</p>
+                <p><em>Common approach:</em> Export encoder LLM to ONNX → Compile with zDLC → Deploy to Triton → Serve via gRPC or REST endpoint.</p>
+                <p><em>Note: Encoder LLMs can also be served on Spyre — see the next subsection. The choice depends on your SLOs and whether you have Spyre available.</em></p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── SUBSECTION 3: LLMs on Spyre ── -->
+          <h2>Serving Large Language Models on Spyre</h2>
+          <p><strong>Decoder LLMs always use the IBM Spyre Accelerator.</strong> Encoder LLMs may also choose Spyre over Telum depending on SLOs and hardware availability. The tools in this subsection are specific to Spyre-accelerated LLM inference.</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">LLM serving with MLOps and multi-accelerator support — Red Hat OpenShift AI</div>
+              <div class="decision-card-body">
+                <p>You need MLOps pipeline management, monitoring, and model governance around your LLM serving, or a single platform that covers both Telum and Spyre workloads.</p>
+                <p><strong>→ Use Red Hat OpenShift AI.</strong> Unlike Red Hat AI Inference Server, OpenShift AI supports both Telum on-chip accelerator and Spyre workloads — making it the right platform when you need unified management across multiple model types or accelerators.</p>
+                <p><em>Common approach:</em> Manage LLM serving through OpenShift AI using the Red Hat AI Inference Server runtime for Spyre workloads, or Triton for Telum workloads — all from a single MLOps platform.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Managing AI Assets Across Serving Environments</div>
+              <div class="decision-card-label">Hybrid inference routing across platforms — AI Optimizer for Z and LinuxONE</div>
               <div class="decision-card-body">
-                <p>You need to manage AI assets, promote approved models, and coordinate deployments across multiple serving platforms.</p>
-                <p><strong>→ Start with watsonx.ai.</strong> watsonx.ai provides model cataloging, asset management, lifecycle controls, and governance integration for AI systems moving into production.</p>
-                <p><em>Common approach:</em> Register model → Track versions and approvals → Promote into serving environments such as OpenShift AI, MLz, or inference servers.</p>
-                <p>Most organizations use watsonx.ai to manage and govern AI assets rather than as the serving runtime itself.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <div class="decision-card-label">Deploying Models to an Enterprise Inference Runtime</div>
-              <div class="decision-card-body">
-                <p>You need a production inference server capable of hosting and serving AI models at scale.</p>
-                <p><strong>→ Start with Red Hat AI Inference Server.</strong> Red Hat AI Inference Server provides model hosting, inference APIs, and scalable serving infrastructure for production AI workloads.</p>
-                <p><em>Common approach:</em> Deploy model to Red Hat AI Inference Server → Expose inference endpoints → Scale and monitor workloads.</p>
-                <p>Organizations often access Red Hat AI Inference Server through broader platforms such as OpenShift AI rather than interacting with it directly.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <div class="decision-card-label">Centralizing and Optimizing Inference</div>
-              <div class="decision-card-body">
-                <p>You need a common gateway for deploying, routing, and optimizing inference workloads across multiple model types.</p>
-                <p><strong>→ Start with AI Optimizer for IBM Z and LinuxONE.</strong> AI Optimizer helps operationalize and route inference workloads while simplifying deployment architectures.</p>
-                <p><em>Common approach:</em> Register model → Configure inference routing → Deploy optimized inference services.</p>
+                <p>You have a hybrid environment spanning IBM Z and other platforms (cloud, GPU clusters) and need intelligent routing of LLM inference requests to the most optimal platform.</p>
+                <p><strong>→ Use AI Optimizer for Z and LinuxONE.</strong> AI Optimizer acts as an inference gateway that receives a prompt and routes it to the most optimal platform — IBM Z Spyre, Telum, or an external GPU — based on configured criteria. It now includes Red Hat AI Inference Server as an integrated component.</p>
+                <p><em>Common approach:</em> Deploy AI Optimizer as the inference gateway → Route LLM prompts to Spyre via the embedded Red Hat AI Inference Server, or to an external GPU platform, depending on the request and routing policy.</p>
               </div>
             </div>
 
@@ -188,7 +213,7 @@
       activeSub: 'serve-model',
       pageNavItems: [
         { id: 'overview',       label: 'Overview' },
-        { id: 'where-to-start', label: 'Where to Start' },
+        { id: 'where-to-start', label: 'Where to Start: Traditional ML' },
         { id: 'next-steps',     label: 'Next Steps' },
       ]
     });

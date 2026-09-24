@@ -23,7 +23,7 @@ function renderNav(opts) {
   const lifecycleItems = [
     { id: 'lifecycle-overview', label: 'Overview',   href: p + 'prepare-data/lifecycle-overview.html', tools: [] },
     { id: 'prepare-data',   label: 'Prepare Data',   href: p + 'prepare-data/prepare-data.html',       tools: [] },
-    { id: 'train-model',    label: 'Train Model',    href: p + 'train-model/train-model.html',         tools: [] },
+    { id: 'train-model',    label: 'Build Models',   href: p + 'train-model/train-model.html',         tools: [] },
     { id: 'deploy-models',  label: 'Deploy Models',  href: p + 'deploy-models/deploy-models.html',     tools: [] },
     { id: 'serve-model',    label: 'Serve Model',    href: p + 'serve-model/serve-model.html',         tools: [] },
     { id: 'ai-governance',  label: 'AI Governance',  href: p + 'ai-governance/ai-governance.html',     tools: [] },
@@ -41,7 +41,6 @@ function renderNav(opts) {
       href: p + 'products-tools/data-analytics.html',
       tools: [
         { label: 'IBM Z Platform for Apache Spark', href: p + 'products-tools/data-analytics.html#apache-spark' },
-        { label: 'IBM SQL Data Insights Pro',        href: p + 'products-tools/data-analytics.html#sql-data-insights' },
         { label: 'IBM Synthetic Data Sets',          href: p + 'products-tools/data-analytics.html#synthetic-data-sets' },
       ]
     },
@@ -102,6 +101,7 @@ function renderNav(opts) {
 
   const useCasesItems = [
     { id: 'use-cases-overview',    label: 'Overview',                     href: p + 'use-cases/overview.html' },
+    { id: 'business-use-cases',    label: 'Business Use Cases',           href: p + 'use-cases/business-use-cases.html' },
     { id: 'ai-solution-patterns',  label: 'Example AI Solution Pattern',  href: p + 'use-cases/use-cases.html#ai-solution-patterns' },
     { id: 'ai-solution-template',  label: 'Additional Patterns',          href: p + 'use-cases/ai-solution-template.html' },
   ];
@@ -157,16 +157,6 @@ function renderNav(opts) {
         dropdown: flyoutDropdown('Products & Tools', productsCategoryItems, sub),
       },
       {
-        id: 'generative-ai', label: 'Generative AI',
-        href: p + 'generative-ai/generative-ai.html',
-        dropdown: null,
-      },
-      {
-        id: 'agentic-ai', label: 'Agentic AI',
-        href: p + 'agentic-ai/agentic-ai.html',
-        dropdown: null,
-      },
-      {
         id: 'help', label: 'Getting Help',
         href: p + 'getting-help/terminology.html',
         dropdown: dropdown('Getting Help', helpItems, sub),
@@ -208,38 +198,19 @@ function renderNav(opts) {
     initSearch(searchWrapper, p);
   }
 
-  /* ── 2. Sub-nav bar (lifecycle OR products) ──────────────── */
+  /* ── 2. Sub-nav bar — hidden; always use no-lifecycle padding ── */
   const lifecycleEl = document.getElementById('lifecycle-nav');
   if (lifecycleEl) {
-    if (top === 'lifecycle') {
-      lifecycleEl.style.display = '';
-      lifecycleEl.innerHTML = lifecycleItems.map(l =>
-        `<a href="${l.href}" class="lifecycle-link${sub === l.id ? ' active' : ''}">${l.label}</a>`
-      ).join('');
-      document.body.classList.add('has-lifecycle');
-      document.body.classList.remove('no-lifecycle');
-    } else if (top === 'products') {
-      lifecycleEl.style.display = '';
-      lifecycleEl.innerHTML = productsCategoryItems.map(l =>
-        `<a href="${l.href}" class="lifecycle-link${sub === l.id ? ' active' : ''}">${l.label}</a>`
-      ).join('');
-      document.body.classList.add('has-lifecycle');
-      document.body.classList.remove('no-lifecycle');
-    } else {
-      lifecycleEl.style.display = 'none';
-      document.body.classList.add('no-lifecycle');
-      document.body.classList.remove('has-lifecycle');
-    }
+    lifecycleEl.style.display = 'none';
+    document.body.classList.add('no-lifecycle');
+    document.body.classList.remove('has-lifecycle');
   }
 
   /* ── 3. Right page-nav ───────────────────────────────────── */
   const navItems = opts.pageNavItems || [];
   const pagenavEl = document.getElementById('pagenav');
   if (pagenavEl && navItems.length) {
-    const hasSubnav = top === 'lifecycle' || top === 'products';
-    pagenavEl.style.top = hasSubnav
-      ? 'calc(var(--topbar-height) + var(--lifecycle-height))'
-      : 'var(--topbar-height)';
+    pagenavEl.style.top = 'var(--topbar-height)';
 
     pagenavEl.innerHTML =
       `<div class="pagenav-label">On this page</div>` +
@@ -277,13 +248,12 @@ function initSearch(wrapper, root) {
   const INDEX = [
     /* Prepare Data */
     { title: 'Prepare Data', section: 'AI Lifecycle', snippet: 'Synthetic data generation, feature engineering, and Apache Spark on IBM Z for data preparation.', href: root + 'prepare-data/prepare-data.html' },
-    { title: 'IBM SQL Data Insights Pro', section: 'Products & Tools', snippet: 'AI-powered semantic search and similarity queries inside Db2 for z/OS using standard SQL and Telum on-chip inference — no data movement required.', href: root + 'products-tools/sql-data-insights.html' },
     { title: 'IBM Synthetic Data Sets', section: 'Prepare Data', snippet: 'Generate realistic, privacy-safe labeled datasets for training AI models on IBM Z.', href: root + 'products-tools/data-analytics.html#synthetic-data-sets' },
     { title: 'IBM Z Platform for Apache Spark', section: 'Prepare Data', snippet: 'Run Apache Spark workloads natively on IBM Z for scalable data processing and feature engineering.', href: root + 'products-tools/data-analytics.html#apache-spark' },
     { title: 'Python AI Toolkit for z/OS', section: 'Prepare Data', snippet: 'A curated set of Python AI/ML packages — NumPy, Pandas, Scikit-learn — optimized for z/OS.', href: root + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
 
-    /* Train Model */
-    { title: 'Train Model', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and hardware-accelerated training on IBM Z using SnapML, TensorFlow, PyTorch.', href: root + 'train-model/train-model.html' },
+    /* Build Models */
+    { title: 'Build Models', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and LLMs on IBM Z — Snap ML, TensorFlow, PyTorch, fine-tuning, and prompt engineering.', href: root + 'train-model/train-model.html' },
     { title: 'IBM Z Accelerated SnapML', section: 'Train Model', snippet: 'Accelerated Snap ML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
     { title: 'IBM Z Accelerated for TensorFlow', section: 'Train Model', snippet: 'TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
     { title: 'IBM Z Accelerated for PyTorch', section: 'Train Model', snippet: 'PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },

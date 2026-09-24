@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI on Z | Train Model</title>
+  <title>AI on Z | Build Models</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
 </head>
-<body class="has-lifecycle">
+<body class="no-lifecycle">
   <header class="topbar">
     <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
     <nav class="topnav" id="topnav"></nav>
@@ -17,105 +17,150 @@
   <div class="page-shell">
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
+      <!-- Page Hero -->
+      <div class="page-hero">
+        <h1>Build Models</h1>
+        <p>Build traditional ML models, deep learning networks, and fine-tune LLMs on IBM Z using a broad set of open-source frameworks and IBM tools.</p>
+      </div>
+
       <div class="page-body">
 
         <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
         <section class="section" id="overview">
-          <h1>Train Model</h1>
-          <p>Training is where your prepared data is used to create a model — iterating through algorithms, tuning parameters, and evaluating results until the model produces accurate, meaningful outputs for your business problem. On IBM Z, you can train using the tools and frameworks you already know, whether that's Python-based ML libraries, deep learning frameworks, or IBM Z's own enterprise tooling.</p>
-          <p>You don't need to train on IBM Z to deploy on IBM Z. Many teams train in hybrid cloud and bring the model to Z for inference. But IBM Z is a fully capable training platform — and training locally means your data never has to leave.</p>
+          <h1>Build Models</h1>
+          <p>This stage focuses on developing the models that power AI applications. Activities may include building traditional machine learning or deep learning models, selecting a foundation model, or fine-tuning a large language model. IBM Z supports many of the tools and frameworks commonly used by AI practitioners, with hardware acceleration available through the Telum on-chip AI accelerator for supported workloads.</p>
+          <p>Model development does not need to occur on IBM Z. Many organizations develop and train models in cloud or hybrid environments before deploying them to IBM Z for production inference. IBM Z can also serve as a model development platform, allowing organizations to keep data, model development, deployment, and inference within the same environment.</p>
 
           <h2>What happens at this stage?</h2>
           <div class="card-grid">
             <div class="card">
-              <h4>Choose your model type</h4>
-              <p>Select the right algorithm for your problem — classification, regression, clustering, or a neural network — based on your data and business goal.</p>
+              <h4>Build traditional ML models</h4>
+              <p>Train classification, regression, forecasting, or recommendation models on structured enterprise data using tools like Snap ML, Spark MLlib, Python AI Toolkit, or Machine Learning for IBM z/OS.</p>
             </div>
             <div class="card">
-              <h4>Develop &amp; iterate</h4>
-              <p>Train with your prepared data, evaluate model performance, adjust hyperparameters, and compare models until you reach the accuracy you need.</p>
+              <h4>Build deep learning models</h4>
+              <p>Develop neural networks for computer vision, NLP, or other unstructured data workloads using TensorFlow or PyTorch, optimized for IBM Z hardware.</p>
             </div>
             <div class="card">
-              <h4>Fine-tune or use pre-built</h4>
-              <p>For LLMs and foundation models, fine-tune a pre-built model with your own enterprise data rather than training from scratch.</p>
+              <h4>Use and tune large language models</h4>
+              <p>Source a pre-existing LLM from a provider like Hugging Face, then use it as-is, fine-tune it with your own documents, or apply prompt engineering — without training from scratch.</p>
             </div>
             <div class="card">
               <h4>Export for deployment</h4>
-              <p>Save your trained model in a portable format — PMML, ONNX, or a framework-native format — ready to move to the deploy and serve stages.</p>
+              <p>Save your model in a portable format — Joblib or PMML for traditional ML, ONNX for deep learning — ready for the deploy and serve stages.</p>
             </div>
           </div>
 
           <h2>Who is this stage for?</h2>
-          <p>Model training is primarily owned by <strong>Data Scientists</strong>, with <strong>ML Engineers</strong> involved in operationalizing training pipelines. IT Architects and Application Architects are stakeholders, particularly when choosing tools and platforms. Line of Business stakeholders influence what success looks like — which metrics matter and what accuracy threshold is acceptable.</p>
+          <p>Model development is typically led by <strong>Data Scientists</strong>, with <strong>ML Engineers</strong> supporting training pipelines, automation, and operationalization. IT Architects and Application Architects often help evaluate platforms, frameworks, and deployment requirements. Business stakeholders provide domain expertise and help define success criteria, such as model performance goals and acceptable accuracy thresholds.</p>
         </section>
 
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Your starting point depends on the type of model you're building, your preferred development environment, and how your team works.</p>
+          <p>Your starting point depends on the type of model you're building. The three paths below reflect how IBM Z typically supports the spectrum of model types.</p>
+
+          <!-- ── SUBSECTION 1: Traditional ML ── -->
+          <h2>Building Traditional Machine Learning Models</h2>
+          <p>You are working with structured or tabular data and need models such as classification, regression, forecasting, or recommendation systems.</p>
 
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Building Traditional Machine Learning Models</div>
+              <div class="decision-card-label">High-performance training on IBM Z — Snap ML</div>
               <div class="decision-card-body">
-                <p>You are working with structured or tabular data and need models such as classification, regression, forecasting, or recommendation systems.</p>
-                <p><strong>→ Start with Snap ML.</strong> Snap ML is optimized for high-performance machine learning training on IBM Z and LinuxONE.</p>
-                <p><em>Common approach:</em> Prepare data → Train with Snap ML → Export to PMML → Deploy.</p>
+                <p>You need fast, hardware-accelerated classical ML training on IBM Z or LinuxONE.</p>
+                <p><strong>→ Use IBM Z Accelerated Snap ML.</strong> Snap ML is the primary training technology for traditional ML on IBM Z, leveraging the Telum on-chip AI accelerator for high-performance training of classification, regression, and recommendation models.</p>
+                <p><em>Common approach:</em> Prepare features → Train with Snap ML → Export to PMML → Deploy via MLz or AI Toolkit.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building Deep Learning Models</div>
+              <div class="decision-card-label">Python notebooks and scikit-learn on z/OS — Python AI Toolkit</div>
               <div class="decision-card-body">
-                <p>You need to develop neural networks, computer vision models, natural language processing models, or other deep learning workloads.</p>
-                <p><strong>→ Start with TensorFlow or PyTorch.</strong> These industry-standard frameworks provide flexibility for building and training custom AI models.</p>
-                <p><em>Common approach:</em> Prepare data → Train with TensorFlow or PyTorch → Export to ONNX → Optimize and deploy.</p>
+                <p>You prefer Python and want to train models using familiar libraries such as scikit-learn, XGBoost, pandas, and NumPy, running natively on z/OS.</p>
+                <p><strong>→ Use the Python AI Toolkit for IBM z/OS.</strong> Provides a curated Python runtime with data science libraries that run natively on z/OS, close to enterprise data sources.</p>
+                <p><em>Common approach:</em> Explore data in notebooks → Train with scikit-learn or XGBoost → Export to PMML or Joblib → Deploy.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Using Python-Based Data Science Tools</div>
-              <div class="decision-card-body">
-                <p>You prefer Python and want to train models using familiar libraries such as pandas, NumPy, scikit-learn, TensorFlow, and PyTorch.</p>
-                <p><strong>→ Start with Python AI Toolkit for IBM z/OS.</strong> The toolkit provides a Python runtime and curated data science environment that runs natively on z/OS.</p>
-                <p><em>Common approach:</em> Explore data in notebooks → Train using Python libraries → Export and deploy the resulting model.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <div class="decision-card-label">Training Models Within Spark Pipelines</div>
+              <div class="decision-card-label">ML integrated into data pipelines — Apache Spark MLlib</div>
               <div class="decision-card-body">
                 <p>Your data is already being processed in Apache Spark, and you want machine learning integrated directly into existing data engineering workflows.</p>
-                <p><strong>→ Start with Apache Spark MLlib.</strong> MLlib provides scalable machine learning capabilities that operate directly within Spark pipelines.</p>
-                <p><em>Common approach:</em> Process data in Spark → Perform feature engineering → Train with MLlib → Export and deploy trained models.</p>
+                <p><strong>→ Use Apache Spark MLlib</strong> via the IBM Z Platform for Apache Spark. MLlib provides scalable ML capabilities that operate within Spark pipelines on IBM Z.</p>
+                <p><em>Common approach:</em> Process data in Spark → Engineer features → Train with MLlib → Export and deploy the trained model.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building Models Directly on z/OS</div>
+              <div class="decision-card-label">Full lifecycle management on z/OS — Machine Learning for IBM z/OS</div>
               <div class="decision-card-body">
-                <p>You want model development, management, and operationalization integrated into the z/OS environment.</p>
-                <p><strong>→ Start with Machine Learning for IBM z/OS (MLz).</strong> MLz provides a z/OS-native environment for developing and managing machine learning solutions.</p>
-                <p><em>Common approach:</em> Develop and train models on z/OS → Manage and operationalize through MLz → Deploy.</p>
+                <p>You want model development, training, management, and scoring integrated directly into the z/OS environment without containerization.</p>
+                <p><strong>→ Use Machine Learning for IBM z/OS (MLz).</strong> MLz provides a z/OS-native environment covering the full lifecycle — from training in notebooks to deploying CICS and REST scoring endpoints.</p>
+                <p><em>Common approach:</em> Develop and train models on z/OS → Operationalize through MLz → Expose as scoring endpoints for z/OS applications.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── SUBSECTION 2: Deep Learning ── -->
+          <h2>Building Deep Learning Models</h2>
+          <p>You need to develop neural networks for computer vision, natural language processing, or other unstructured data workloads. Deep learning models are trained with TensorFlow or PyTorch and typically exported to ONNX for deployment.</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">Neural networks and computer vision — TensorFlow or PyTorch</div>
+              <div class="decision-card-body">
+                <p>You are building deep learning models using industry-standard frameworks.</p>
+                <p><strong>→ Use IBM Z Accelerated for TensorFlow or IBM Z Accelerated for PyTorch.</strong> Both frameworks are optimized for IBM Z hardware and leverage the Telum on-chip AI accelerator for training and inference.</p>
+                <p><em>Common approach:</em> Prepare data → Train with TensorFlow or PyTorch → Export to ONNX → Compile with IBM Z Deep Learning Compiler (zDLC) → Deploy via Triton Inference Server, MLz, or Red Hat OpenShift AI.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building an Enterprise AI Platform</div>
+              <div class="decision-card-label">Collaborative deep learning platform — Red Hat OpenShift AI</div>
               <div class="decision-card-body">
-                <p>Multiple teams require shared workspaces, notebooks, experiments, pipelines, and MLOps capabilities.</p>
-                <p><strong>→ Start with Red Hat OpenShift AI.</strong> OpenShift AI provides a collaborative platform for model development, training, and lifecycle management.</p>
-                <p><em>Common approach:</em> Create projects → Train using TensorFlow, PyTorch, or other frameworks → Promote models through MLOps pipelines.</p>
+                <p>Multiple teams need shared workspaces, automated pipelines, and MLOps capabilities for deep learning workloads.</p>
+                <p><strong>→ Use Red Hat OpenShift AI.</strong> Provides data science workbenches, Kubeflow pipelines, and model lifecycle management on Linux on IBM Z.</p>
+                <p><em>Common approach:</em> Create shared projects → Train TensorFlow or PyTorch models → Promote through MLOps pipelines → Deploy on IBM Z.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── SUBSECTION 3: LLMs ── -->
+          <h2>Using and Tuning Large Language Models</h2>
+          <p>Large language models can be sourced from IBM, open source communities, or commercial providers and then deployed directly or adapted for specific use cases. IBM Z supports serving foundation models, fine-tuning them with enterprise data, and shaping model behavior through techniques such as prompt engineering.</p>
+
+          <div class="decision-cards">
+
+            <div class="decision-card">
+              <div class="decision-card-label">Use an LLM as-is — no customization needed</div>
+              <div class="decision-card-body">
+                <p>Your use case is well-served by a general-purpose LLM without any customization.</p>
+                <p><strong>→ Use Red Hat AI Inference Server</strong> (for Spyre-accelerated decoder LLMs) or <strong>Red Hat OpenShift AI</strong> (for broader model management and serving on IBM Z) to serve a pre-built LLM sourced from Hugging Face or an IBM model repository. No fine-tuning or training is required.</p>
+                <p><em>Common approach:</em> Select a model from Hugging Face or an IBM repository → Serve via Red Hat AI Inference Server or Red Hat OpenShift AI on IBM Z → Integrate with your application.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building Generative AI and Foundation Model Solutions</div>
+              <div class="decision-card-label">Adapt an LLM to your domain — fine-tuning</div>
               <div class="decision-card-body">
-                <p>You want to work with foundation models, model tuning, prompt engineering, or generative AI applications.</p>
-                <p><strong>→ Start with watsonx.ai.</strong> watsonx.ai provides access to foundation models and tools for tuning, evaluation, and AI application development.</p>
-                <p><em>Common approach:</em> Select a foundation model → Tune or customize it → Deploy into business applications.</p>
+                <p>You have domain-specific documents, transaction records, or internal knowledge you want the model to learn from.</p>
+                <p><strong>→ Use Red Hat OpenShift AI</strong> to fine-tune a pre-existing LLM with your own unstructured text data. Red Hat OpenShift AI provides fine-tuning pipelines and shared workspaces for model customization on IBM Z. Fine-tuning adjusts model weights using your data without training from scratch.</p>
+                <p><em>Common approach:</em> Source a base LLM from Hugging Face or an IBM repository → Fine-tune using Red Hat OpenShift AI → Deploy the fine-tuned model via Red Hat OpenShift AI or Red Hat AI Inference Server.</p>
+                <p><em>Note: Fine-tuning for LLMs uses unstructured text and does not require the structured data preparation steps (feature engineering, train/test splits) used in traditional ML.</em></p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <div class="decision-card-label">Guide an LLM with instructions — prompt engineering</div>
+              <div class="decision-card-body">
+                <p>You want to shape how the LLM responds to specific questions or tasks without modifying model weights.</p>
+                <p><strong>→ Use watsonx.ai</strong> to design and test prompts using techniques such as few-shot prompting, chain-of-thought, or retrieval-augmented generation (RAG). The watsonx.ai prompt lab can be used in combination with models deployed on IBM Z via Red Hat OpenShift AI or Red Hat AI Inference Server.</p>
+                <p><em>Common approach:</em> Design and test prompts in the watsonx.ai prompt lab → Connect to a model deployed on IBM Z → Iterate based on output quality.</p>
               </div>
             </div>
 
@@ -125,7 +170,7 @@
         <!-- ── NEXT STEPS ─────────────────────────────────────────────── -->
         <section class="section" id="next-steps">
           <h1>Next Steps</h1>
-          <p>Once your model is trained and validated, the next stage is to make it available in a production environment.</p>
+          <p>Once your model is built and validated, the next stage is to make it available in a production environment.</p>
           <div class="card-grid">
             <div class="card">
               <h4>Deploy Models</h4>
@@ -187,7 +232,7 @@
       activeSub: 'train-model',
       pageNavItems: [
         { id: 'overview',       label: 'Overview' },
-        { id: 'where-to-start', label: 'Where to Start' },
+        { id: 'where-to-start', label: 'Where to Start: Traditional ML' },
         { id: 'next-steps',     label: 'Next Steps' },
       ]
     });

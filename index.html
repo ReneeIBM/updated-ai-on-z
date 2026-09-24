@@ -10,10 +10,24 @@
   <style>
     /* ── Hero ───────────────────────────────────────────────── */
     .home-hero {
-      background: var(--ibm-blue);
+      background: #1c1c1c;
       color: #fff;
       padding: 72px 52px 64px;
+      position: relative;
+      overflow: hidden;
     }
+    /* subtle grid pattern overlay for visual texture */
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(15,98,254,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,98,254,0.08) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .home-hero > * { position: relative; z-index: 1; }
     .home-hero h1 {
       font-size: 38px;
       font-weight: 600;
@@ -25,7 +39,7 @@
     .home-hero p {
       font-size: 16px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.75);
       max-width: 640px;
       margin-bottom: 36px;
     }
@@ -43,11 +57,12 @@
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
-      transition: opacity 0.15s;
+      transition: background 0.15s, opacity 0.15s;
     }
-    .home-cta:hover { opacity: 0.88; }
-    .home-cta--primary   { background: #fff; color: var(--ibm-blue); }
-    .home-cta--secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+    .home-cta--primary   { background: var(--ibm-blue); color: #fff; }
+    .home-cta--primary:hover { background: var(--ibm-blue-hover); }
+    .home-cta--secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.45); }
+    .home-cta--secondary:hover { background: rgba(255,255,255,0.08); }
 
     /* ── Body wrapper ───────────────────────────────────────── */
     .home-body {
@@ -103,7 +118,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.9px;
-      color: var(--ibm-gray-50);
+      color: var(--ibm-gray-70);
       margin-bottom: 20px;
     }
 
@@ -128,37 +143,32 @@
       box-shadow: 0 4px 18px rgba(15,98,254,0.13);
       transform: translateY(-2px);
     }
+    /* Icon banner — flat solid color, icon left-aligned */
     .home-vblock-banner {
-      height: 140px;
+      height: 120px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: #fff;
+      justify-content: flex-start;
+      padding: 0 28px;
     }
-    .home-vblock-banner--usecases  { background: linear-gradient(135deg, #0f62fe 0%, #002d9c 100%); }
-    .home-vblock-banner--lifecycle { background: linear-gradient(135deg, #007d79 0%, #004144 100%); }
-    .home-vblock-banner--products  { background: linear-gradient(135deg, #6929c4 0%, #31135e 100%); }
-    .home-vblock-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top left;
-    }
+    .home-vblock-banner--usecases  { background: #0f62fe; }
+    .home-vblock-banner--lifecycle { background: #007d79; }
+    .home-vblock-banner--products  { background: #6929c4; }
+    .home-vblock-banner svg { flex-shrink: 0; }
     .home-vblock-body {
       padding: 20px 22px 22px;
       flex: 1;
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
     .home-vblock-eyebrow {
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.7px;
-      color: var(--ibm-gray-50);
+      color: var(--ibm-gray-70);
       margin-bottom: 6px;
     }
     .home-vblock-body h3 {
@@ -166,6 +176,7 @@
       font-weight: 600;
       color: var(--ibm-text-primary);
       margin-bottom: 8px;
+      text-align: left;
     }
     .home-vblock-body p {
       font-size: 13px;
@@ -173,6 +184,7 @@
       line-height: 1.65;
       flex: 1;
       margin: 0 0 16px;
+      text-align: left;
     }
     .home-vblock-link {
       font-size: 13px;
@@ -223,10 +235,66 @@
       line-height: 1.5;
     }
 
+    /* ── "What AI can do" accordion ─────────────────────────── */
+    .home-accordion {
+      margin-top: 28px;
+      border: 1px solid var(--ibm-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .home-accordion-item {
+      border-bottom: 1px solid var(--ibm-border);
+    }
+    .home-accordion-item:last-child { border-bottom: none; }
+    .home-accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-align: left;
+      transition: background 0.15s;
+      gap: 12px;
+    }
+    .home-accordion-trigger:hover { background: var(--ibm-gray-10); }
+    .home-accordion-trigger h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      margin: 0;
+    }
+    .home-accordion-icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--ibm-gray-70);
+      transition: transform 0.2s;
+    }
+    .home-accordion-item.open .home-accordion-icon {
+      transform: rotate(180deg);
+    }
+    .home-accordion-body {
+      display: none;
+      padding: 0 20px 18px 20px;
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      line-height: 1.7;
+    }
+    .home-accordion-item.open .home-accordion-body { display: block; }
+
+    /* ── Section dividers ───────────────────────────────────── */
+    .home-section-divider {
+      border: none;
+      border-top: 1px solid var(--ibm-border);
+      margin: 48px 0;
+    }
+
     /* ── Contact ────────────────────────────────────────────── */
     .home-contact {
-      border-top: 1px solid var(--ibm-border);
-      padding-top: 40px;
+      padding-top: 8px;
       margin-top: 8px;
     }
     .home-contact h3 {
@@ -276,33 +344,52 @@
         <!-- What is / Why AI on IBM Z -->
         <div class="home-intro">
           <h2>What is AI on IBM Z (IBM Z AI)?</h2>
-          <div class="callout-note" style="margin-bottom:20px;">
+          <div class="callout-note" style="margin-bottom:20px;max-width:800px;padding:16px 20px;">
             <p>AI on IBM Z covers AI implementations for <strong>business use cases</strong> where data originates and lives on IBM Z and where transactions are processed on IBM Z — achieving real-time insights at the point of impact through data colocation and minimal latency. This can involve <strong>predictive AI</strong> approaches, as well as more advanced approaches using LLMs for <strong>generative AI</strong>, or the implementation of <strong>AI agents</strong>. For AI operations and IT productivity tooling (e.g. IBM Assistant for Z), see the teams that own those solutions.</p>
           </div>
           <p>AI on IBM Z features state-of-the-art hardware and software capabilities designed to optimize AI at scale alongside your enterprise's most critical workloads and data. This includes hardware accelerators such as the IBM Telum on-chip inference accelerator, a broad portfolio of IBM software, open-source projects, and an ecosystem of ISV solutions for specific enterprise use cases.</p>
           <p>This site is designed to help AI practitioners and architects get started on their journey to leveraging AI in their IBM Z environment — with guidance on the AI lifecycle, products and tools, and example use cases and solution blueprints.</p>
 
-          <h3 style="font-size:22px;font-weight:600;color:var(--ibm-text-primary);margin:36px 0 16px;letter-spacing:-0.3px;">What AI on IBM Z can do for your business</h3>
-          <div class="home-why-grid">
-            <div class="home-why-card">
-              <h4>Bring AI closer to your enterprise data</h4>
-              <p>Access and analyze data where it already resides, reducing complexity and accelerating time to insight through colocation of AI and transactions.</p>
+          <hr class="home-section-divider" style="margin:36px 0 32px;" />
+
+          <h3 style="font-size:22px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 8px;letter-spacing:-0.3px;">What AI on IBM Z can do for your business</h3>
+          <p style="font-size:14px;color:var(--ibm-text-secondary);margin:0 0 4px;">Select a benefit to learn more.</p>
+
+          <div class="home-accordion">
+            <div class="home-accordion-item open">
+              <button class="home-accordion-trigger" aria-expanded="true">
+                <h4>Bring AI closer to your enterprise data</h4>
+                <svg class="home-accordion-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="home-accordion-body">Access and analyze data where it already resides, reducing complexity and accelerating time to insight through colocation of AI and transactions.</div>
             </div>
-            <div class="home-why-card">
-              <h4>Power real-time transactional AI</h4>
-              <p>Embed AI directly into business transactions — from fraud detection and anti-money laundering to personalized offerings — to support faster, more intelligent decision making.</p>
+            <div class="home-accordion-item">
+              <button class="home-accordion-trigger" aria-expanded="false">
+                <h4>Power real-time transactional AI</h4>
+                <svg class="home-accordion-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="home-accordion-body">Embed AI directly into business transactions — from fraud detection and anti-money laundering to personalized offerings — to support faster, more intelligent decision making.</div>
             </div>
-            <div class="home-why-card">
-              <h4>Build on security and resilience</h4>
-              <p>Run AI workloads on the same trusted platform that supports many of the world's most critical business operations.</p>
+            <div class="home-accordion-item">
+              <button class="home-accordion-trigger" aria-expanded="false">
+                <h4>Build on security and resilience</h4>
+                <svg class="home-accordion-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="home-accordion-body">Run AI workloads on the same trusted platform that supports many of the world's most critical business operations.</div>
             </div>
-            <div class="home-why-card">
-              <h4>Simplify the path to production</h4>
-              <p>Reduce architectural complexity and streamline the journey from experimentation to deployment.</p>
+            <div class="home-accordion-item">
+              <button class="home-accordion-trigger" aria-expanded="false">
+                <h4>Simplify the path to production</h4>
+                <svg class="home-accordion-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="home-accordion-body">Reduce architectural complexity and streamline the journey from experimentation to deployment.</div>
             </div>
-            <div class="home-why-card">
-              <h4>Data and AI sovereignty</h4>
-              <p>Keep full control over your data, your AI models, and — for generative AI use cases — even your prompts and inference data. Running AI on-prem on IBM Z means no third-party access to your assets, helping address regulatory and governance requirements.</p>
+            <div class="home-accordion-item">
+              <button class="home-accordion-trigger" aria-expanded="false">
+                <h4>Data and AI sovereignty</h4>
+                <svg class="home-accordion-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="home-accordion-body">Keep full control over your data, your AI models, and — for generative AI use cases — even your prompts and inference data. Running AI on-prem on IBM Z means no third-party access to your assets, helping address regulatory and governance requirements.</div>
             </div>
           </div>
         </div>
@@ -332,34 +419,72 @@
           <p style="margin-top:18px;">The AI on IBM Z portfolio includes hardware accelerators, IBM software, open-source frameworks, and ISV solutions. To see how products and capabilities map across the full AI lifecycle, see the <a href="prepare-data/prepare-data.html" style="color:var(--ibm-blue);font-weight:600;">AI Lifecycle</a> and <a href="products-tools/data-analytics.html" style="color:var(--ibm-blue);font-weight:600;">Products &amp; Tools</a> sections.</p>
         </div>
 
+        <hr class="home-section-divider" />
+
         <!-- Where to start -->
         <div style="margin-bottom:20px;">
           <h2 style="font-size:22px;font-weight:600;color:var(--ibm-text-primary);letter-spacing:-0.3px;margin-bottom:4px;">Where to start</h2>
-          <p style="font-size:14px;color:var(--ibm-text-secondary);margin:0 0 28px;">Most clients follow a journey from exploration to implementation. Here's how to get started.</p>
+          <p style="font-size:14px;color:var(--ibm-text-secondary);margin:0 0 4px;">The path to get started with AI on IBM Z and IBM&#174; LinuxONE today</p>
+          <p style="font-size:13px;font-weight:600;color:var(--ibm-text-secondary);margin:0 0 28px;">IBM's investment in partnering with clients</p>
         </div>
 
-        <!-- Step 1: Expert session + Discovery workshop -->
+        <!-- Step 1: Client journey -->
         <div style="margin-bottom:36px;">
           <div class="home-section-label">Step 1 — Connect with the team</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
-            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;">
-              <h3 style="font-size:16px;font-weight:600;color:var(--ibm-text-primary);margin-bottom:8px;">Book a session with an AI on Z expert</h3>
-              <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin-bottom:20px;flex:1;">Not sure where to start? Connect directly with the IBM AI on Z team to discuss your goals, existing workloads, and potential use cases. This is the typical first step for clients exploring AI on Z.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+
+            <!-- 1. Client Briefing -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;position:relative;">
+              <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ibm-blue);color:#fff;font-size:13px;font-weight:700;margin-bottom:14px;flex-shrink:0;">1</div>
+              <h3 style="font-size:16px;font-weight:600;color:var(--ibm-text-primary);margin-bottom:8px;">Client Briefing</h3>
+              <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;flex:1;margin-bottom:16px;">Discussion and demonstration of AI on IBM Z or IBM&#174; LinuxONE strategy and capabilities. Understand where and how AI can be leveraged for impact in your business.</p>
+              <div style="display:inline-flex;align-items:center;gap:5px;margin-bottom:10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 32 32" fill="var(--ibm-gray-50)" style="flex-shrink:0;"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12z"/><path d="M16 7a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm1 6h-2v12h2z"/></svg>
+                <span style="font-size:12px;color:var(--ibm-text-secondary);">1–2 hours &middot; onsite or virtual</span>
+              </div>
+              <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;color:var(--ibm-gray-70);margin:0 0 6px;">To schedule</p>
               <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--ibm-gray-10);border-radius:6px;border:1px solid var(--ibm-border);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" fill="var(--ibm-blue)" style="flex-shrink:0;"><path d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-2.2 2L16 14.78 6.2 8zM4 24V9.34l11.43 7.58a1 1 0 0 0 1.14 0L28 9.34V24z"/></svg>
-                <span style="font-size:13px;font-weight:600;color:var(--ibm-text-primary);user-select:all;">aionz@us.ibm.com</span>
+                <a href="mailto:aionz@us.ibm.com" style="font-size:13px;font-weight:600;color:var(--ibm-blue);text-decoration:none;">aionz@us.ibm.com</a>
               </div>
             </div>
-            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;">
-              <h3 style="font-size:16px;font-weight:600;color:var(--ibm-text-primary);margin-bottom:8px;">Attend a Discovery Workshop</h3>
-              <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin-bottom:20px;flex:1;">A structured workshop with IBM AI on Z experts to identify business use cases that would bring value to your organization and are feasible to implement. Workshops result in a scoping exercise to define elements for a POC or pilot. Available for both IBM Z and IBM LinuxONE environments.</p>
+
+            <!-- 2. Discovery Workshop -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;position:relative;">
+              <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ibm-blue);color:#fff;font-size:13px;font-weight:700;margin-bottom:14px;flex-shrink:0;">2</div>
+              <h3 style="font-size:16px;font-weight:600;color:var(--ibm-text-primary);margin-bottom:8px;">Discovery Workshop</h3>
+              <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;flex:1;margin-bottom:16px;">Engage with an AI on IBM Z expert team to identify and ideate on candidate use cases, identify the value delivered by AI on IBM Z or IBM&#174; LinuxONE, and scope a project architecture.</p>
+              <div style="display:inline-flex;align-items:center;gap:5px;margin-bottom:10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 32 32" fill="var(--ibm-gray-50)" style="flex-shrink:0;"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12z"/><path d="M16 7a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm1 6h-2v12h2z"/></svg>
+                <span style="font-size:12px;color:var(--ibm-text-secondary);">&#189;–1 day &middot; onsite or virtual</span>
+              </div>
+              <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;color:var(--ibm-gray-70);margin:0 0 6px;">To schedule</p>
               <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--ibm-gray-10);border-radius:6px;border:1px solid var(--ibm-border);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" fill="var(--ibm-blue)" style="flex-shrink:0;"><path d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-2.2 2L16 14.78 6.2 8zM4 24V9.34l11.43 7.58a1 1 0 0 0 1.14 0L28 9.34V24z"/></svg>
-                <span style="font-size:13px;font-weight:600;color:var(--ibm-text-primary);user-select:all;">aionz@us.ibm.com</span>
+                <a href="mailto:aionz@us.ibm.com" style="font-size:13px;font-weight:600;color:var(--ibm-blue);text-decoration:none;">aionz@us.ibm.com</a>
               </div>
             </div>
+
+            <!-- 3. Pilot / Proof of Concept -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;position:relative;">
+              <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ibm-blue);color:#fff;font-size:13px;font-weight:700;margin-bottom:14px;flex-shrink:0;">3</div>
+              <h3 style="font-size:16px;font-weight:600;color:var(--ibm-text-primary);margin-bottom:8px;">Pilot / Proof of Concept</h3>
+              <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;flex:1;margin-bottom:16px;">Collaborate with a multi-disciplinary IBM team to jointly innovate and rapidly demonstrate AI on IBM Z or IBM&#174; LinuxONE value.</p>
+              <div style="display:inline-flex;align-items:center;gap:5px;margin-bottom:10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 32 32" fill="var(--ibm-gray-50)" style="flex-shrink:0;"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12z"/><path d="M16 7a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm1 6h-2v12h2z"/></svg>
+                <span style="font-size:12px;color:var(--ibm-text-secondary);">4–6 weeks</span>
+              </div>
+              <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;color:var(--ibm-gray-70);margin:0 0 6px;">To schedule</p>
+              <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--ibm-gray-10);border-radius:6px;border:1px solid var(--ibm-border);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" fill="var(--ibm-blue)" style="flex-shrink:0;"><path d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-2.2 2L16 14.78 6.2 8zM4 24V9.34l11.43 7.58a1 1 0 0 0 1.14 0L28 9.34V24z"/></svg>
+                <a href="mailto:aionz@us.ibm.com" style="font-size:13px;font-weight:600;color:var(--ibm-blue);text-decoration:none;">aionz@us.ibm.com</a>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <hr class="home-section-divider" />
 
         <!-- Step 2: Explore -->
         <div style="margin-bottom:20px;">
@@ -370,7 +495,10 @@
           <!-- Use Cases -->
           <a href="use-cases/use-cases.html" class="home-vblock">
             <div class="home-vblock-banner home-vblock-banner--usecases">
-              <span style="font-size:15px;font-weight:600;letter-spacing:0;padding:0 28px;text-align:center;line-height:1.4;">Use Cases &amp;<br>Solution Blueprints</span>
+              <!-- Magnifier / search pictogram -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 32 32" fill="#fff" aria-hidden="true">
+                <path d="M29 27.6L21.1 19.7a9 9 0 1 0-1.4 1.4L27.6 29zM5 13a8 8 0 1 1 8 8A8 8 0 0 1 5 13z"/>
+              </svg>
             </div>
             <div class="home-vblock-body">
               <div class="home-vblock-eyebrow">Use Cases</div>
@@ -383,7 +511,11 @@
           <!-- AI Lifecycle -->
           <a href="prepare-data/prepare-data.html" class="home-vblock">
             <div class="home-vblock-banner home-vblock-banner--lifecycle">
-              <span style="font-size:15px;font-weight:600;letter-spacing:0;padding:0 28px;text-align:center;line-height:1.4;">AI Lifecycle<br>on IBM Z</span>
+              <!-- Workflow / task list pictogram -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 32 32" fill="#fff" aria-hidden="true">
+                <path d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm0 18H4V8h24z"/>
+                <path d="M8 13h2v2H8zm0 5h2v2H8zm4-5h12v2H12zm0 5h8v2H12z"/>
+              </svg>
             </div>
             <div class="home-vblock-body">
               <div class="home-vblock-eyebrow">AI Lifecycle</div>
@@ -396,7 +528,11 @@
           <!-- Products & Tools -->
           <a href="products-tools/data-analytics.html" class="home-vblock">
             <div class="home-vblock-banner home-vblock-banner--products">
-              <span style="font-size:15px;font-weight:600;letter-spacing:0;padding:0 28px;text-align:center;line-height:1.4;">Products &amp;<br>Tools</span>
+              <!-- Package / catalog pictogram -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 32 32" fill="#fff" aria-hidden="true">
+                <path d="M26 2H6a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 26H6V4h20z"/>
+                <path d="M10 8h12v2H10zm0 5h12v2H10zm0 5h8v2H10z"/>
+              </svg>
             </div>
             <div class="home-vblock-body">
               <div class="home-vblock-eyebrow">Products &amp; Tools</div>
@@ -407,6 +543,8 @@
           </a>
 
         </div>
+
+        <hr class="home-section-divider" />
 
         <!-- Contact us -->
         <div class="home-contact">
@@ -431,6 +569,24 @@
       activeTop: 'overview',
       activeSub: null,
       pageNavItems: []
+    });
+
+    // Accordion toggle
+    document.querySelectorAll('.home-accordion-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.home-accordion-item');
+        var isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.home-accordion-item').forEach(function(i) {
+          i.classList.remove('open');
+          i.querySelector('.home-accordion-trigger').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle clicked
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
   </script>
 </body>

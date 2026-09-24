@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
 </head>
-<body class="has-lifecycle">
+<body class="no-lifecycle">
   <header class="topbar">
     <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
     <nav class="topnav" id="topnav"></nav>
@@ -17,13 +17,19 @@
   <div class="page-shell">
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
+      <!-- Page Hero -->
+      <div class="page-hero">
+        <h1>AI Governance</h1>
+        <p>Monitor, explain, and govern AI models in production on IBM Z using MLz Trustworthy AI and watsonx.governance.</p>
+      </div>
+
       <div class="page-body">
 
         <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
         <section class="section" id="overview">
           <h1>AI Governance</h1>
-          <p>AI governance is the final — and ongoing — stage of the AI lifecycle. Once a model is in production, you need to monitor it over time, detect when its behavior changes, explain its decisions, and demonstrate compliance with internal policies and external regulations. For IBM Z clients in banking, insurance, healthcare, and the public sector, where regulatory expectations around fairness, explainability, accountability, and auditability are growing, on-platform governance is not optional.</p>
-          <p>IBM Z's advantage here is the same as every other stage: governance tools run directly on the platform where your data and models live. Data never has to leave IBM Z for monitoring, explainability, or audit — reducing latency, preserving data sovereignty, and keeping everything within the z/OS security boundary.</p>
+          <p>AI governance is an ongoing stage of the AI lifecycle that focuses on monitoring, managing, and evaluating models after deployment. Common activities include tracking model performance, detecting drift, understanding model behavior, and supporting organizational governance and compliance requirements. For organizations in regulated industries such as banking, insurance, healthcare, and the public sector, governance is often an important part of operating AI in production.</p>
+          <p>IBM Z supports governance activities on the same platform where data and models reside. This can simplify monitoring, explainability, auditing, and reporting workflows while helping organizations maintain control over sensitive data and AI operations.</p>
 
           <h2>What happens at this stage?</h2>
           <div class="card-grid">
@@ -53,34 +59,46 @@
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Your starting point depends on the scope of governance you need, where your models are deployed, and what compliance requirements you need to meet.</p>
+          <p>Start with the governance capabilities available on IBM Z. watsonx.governance is also available as an additional tool for organizations that want enterprise-wide model tracking, regulatory reporting, or expanded monitoring.</p>
+
+          <!-- ── ON-PREM IBM Z TOOLS FIRST ── -->
+          <h2>On-Platform IBM Z Governance Tools</h2>
+          <p>The following tools run directly on IBM Z, within your z/OS security boundary. Data never leaves the platform for monitoring, explainability, or audit.</p>
 
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Establishing Enterprise AI Governance</div>
+              <div class="decision-card-label">Governance for models on z/OS — Machine Learning for IBM z/OS (MLz) Trustworthy AI</div>
               <div class="decision-card-body">
-                <p>You need visibility into AI models, governance workflows, risk management, compliance reporting, and responsible AI practices.</p>
-                <p><strong>→ Start with watsonx.governance.</strong> watsonx.governance provides governance workflows, model monitoring, risk management, compliance tracking, and AI lifecycle oversight.</p>
-                <p><em>Common approach:</em> Register AI assets → Define governance policies → Monitor compliance and model behavior → Generate audit reports.</p>
+                <p>Your models are deployed on z/OS and you need monitoring, explainability, fairness detection, and audit capabilities built into the same platform where models run.</p>
+                <p><strong>→ Use Machine Learning for IBM z/OS (MLz) Trustworthy AI.</strong> MLz includes built-in governance capabilities — model monitoring, drift detection, LIME/SHAP explainability, and fairness metrics — all running natively on z/OS without moving data off-platform.</p>
+                <p><em>Common approach:</em> Deploy model in MLz → Enable monitoring and explainability → Review fairness metrics and drift alerts → Generate audit reports from within z/OS.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Governing Models Running on z/OS</div>
+              <div class="decision-card-label">Governance for containerized models on Linux on Z — Trusty AI for Red Hat OpenShift AI</div>
               <div class="decision-card-body">
-                <p>You need governance and oversight for models deployed and operated within the z/OS environment.</p>
-                <p><strong>→ Start with Machine Learning for IBM z/OS (MLz).</strong> MLz integrates model lifecycle management, deployment controls, monitoring, and operational governance for AI workloads running on z/OS.</p>
-                <p><em>Common approach:</em> Deploy model → Monitor usage and performance → Manage model lifecycle and operational controls.</p>
+                <p>Your models are deployed on Red Hat OpenShift AI on Linux on Z and you need bias detection, explainability, and fairness monitoring integrated into your containerized AI platform.</p>
+                <p><strong>→ Use Trusty AI for Red Hat OpenShift AI.</strong> Trusty AI is an open-source AI explainability and fairness toolkit integrated directly into Red Hat OpenShift AI, providing on-platform governance for containerized model workloads on Linux on Z.</p>
+                <p><em>Common approach:</em> Deploy model through Red Hat OpenShift AI → Enable Trusty AI → Monitor predictions for bias and fairness → Generate explainability outputs for audit.</p>
               </div>
             </div>
 
+          </div>
+
+          <!-- ── WATSONX.GOVERNANCE ── -->
+          <h2>Off-Platform Governance with watsonx.governance</h2>
+          <p>watsonx.governance is an AI governance platform from IBM that provides model monitoring, fairness tracking, explainability, lineage documentation, and compliance reporting across the AI lifecycle.</p>
+
+          <div class="decision-cards">
+
             <div class="decision-card">
-              <div class="decision-card-label">Monitoring Production Inference Services</div>
+              <div class="decision-card-label">Enterprise-wide model tracking and compliance — watsonx.governance</div>
               <div class="decision-card-body">
-                <p>You need operational visibility into deployed models, inference endpoints, and production serving environments.</p>
-                <p><strong>→ Start with Red Hat AI Inference Server.</strong> Red Hat AI Inference Server provides the serving infrastructure where models execute and can be monitored for operational performance and reliability.</p>
-                <p><em>Common approach:</em> Deploy model → Monitor inference workloads → Track runtime performance and service health.</p>
+                <p>You want expanded governance capabilities such as enterprise-wide model inventory, regulatory compliance workflows, or centralized audit reporting across multiple environments.</p>
+                <p><strong>→ Use watsonx.governance</strong> as an additional governance layer. watsonx.governance is available directly on IBM Z (Linux on IBM Z and LinuxONE). On-platform capabilities include AI Factsheets for model lineage and audit documentation, OpenScale Monitoring for fairness, drift detection, and explainability, and Watson Machine Learning (WML) for model deployment lifecycle management and centralized monitoring across environments.</p>
+                <p><em>Common approach:</em> Establish on-platform governance with MLz Trustworthy AI and TrustyAI → Use watsonx.governance for broader model inventory, compliance reporting, or cross-environment monitoring.</p>
               </div>
             </div>
 

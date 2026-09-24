@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Business Use Cases</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="no-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z 101</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+
+      <!-- ── Page Hero ──────────────────────────────────────────── -->
+      <div class="page-hero">
+        <h1>Business Use Cases</h1>
+        <p>Real-world business scenarios where AI on IBM Z delivers measurable value by bringing AI processing directly to your enterprise data.</p>
+      </div>
+
+      <div class="page-body">
+
+        <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
+        <section class="section" id="overview">
+          <h1>Overview</h1>
+          <p>IBM Z and LinuxONE are home to the world's most critical business data — financial transactions, insurance claims, healthcare records, and more. This page highlights real-world use cases where AI on IBM Z delivers value by eliminating data movement and keeping sensitive information within the platform's security boundary.</p>
+        </section>
+
+        <!-- ── PREDICTIVE AI ─────────────────────────────────────────── -->
+        <section class="section" id="predictive-ai">
+          <h2>Predictive AI</h2>
+          <p>Predictive AI uses trained models to generate real-time insights from transactional data at the moment decisions need to be made.</p>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Fraud Detection</h4>
+              <p>Score payment transactions in real time at the point of processing to identify fraudulent activity before it completes — without moving data off-platform.</p>
+            </div>
+            <div class="card">
+              <h4>Anti-Money Laundering (AML)</h4>
+              <p>Monitor transaction flows and flag suspicious patterns consistent with money laundering, integrated directly into core banking systems on IBM Z.</p>
+            </div>
+            <div class="card">
+              <h4>Credit Risk Assessment</h4>
+              <p>Score loan applications and credit decisions in real time using models trained on historical transaction and customer data residing on IBM Z.</p>
+            </div>
+            <div class="card">
+              <h4>Anomaly Detection</h4>
+              <p>Identify unusual patterns in operational or transactional data — such as system events, customer behavior, or claim submissions — before they escalate.</p>
+            </div>
+            <div class="card">
+              <h4>Customer Segmentation</h4>
+              <p>Cluster customers by behavior, value, or risk profile using AI models that run against enterprise data on IBM Z without requiring data exports.</p>
+            </div>
+            <div class="card">
+              <h4>Personalized Product Suggestions</h4>
+              <p>Recommend relevant products or offers to customers in real time based on transaction history and behavioral signals processed on IBM Z.</p>
+            </div>
+            <div class="card">
+              <h4>Health Insurance Claims Processing</h4>
+              <p>Automate and prioritize claims adjudication using AI models that flag anomalies, predict outcomes, and surface high-risk claims for review.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── GENERATIVE AI ─────────────────────────────────────────── -->
+        <section class="section" id="generative-ai">
+          <h2>Generative AI</h2>
+          <p>Generative AI use cases on IBM Z leverage large language models — running on the IBM Spyre Accelerator or Telum on-chip accelerator — to process documents, generate summaries, and support decision-making within enterprise workflows.</p>
+          <div class="card-grid">
+            <div class="card">
+              <h4>Document Processing &amp; Intelligence</h4>
+              <p>Extract, classify, and summarize information from unstructured documents such as contracts, reports, and correspondence using LLMs deployed on IBM Z.</p>
+            </div>
+            <div class="card">
+              <h4>Suspicious Activity Report Generation</h4>
+              <p>After a fraud or AML alert is triggered, use an AI agent workflow to automatically gather transaction details and draft a suspicious activity report.</p>
+            </div>
+            <div class="card">
+              <h4>Medical Image Analysis</h4>
+              <p>Apply deep learning models to medical imaging data — X-rays, MRIs, pathology scans — for pattern recognition and clinical decision support.</p>
+            </div>
+            <div class="card">
+              <h4>Geospatial Analysis</h4>
+              <p>Process and analyze geospatial data using AI models to support logistics, risk mapping, and location-aware business decisions.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'use-cases',
+      activeSub: 'business-use-cases',
+      pageNavItems: [
+        { id: 'overview',       label: 'Overview' },
+        { id: 'predictive-ai',  label: 'Predictive AI' },
+        { id: 'generative-ai',  label: 'Generative AI' },
+      ]
+    });
+  </script>
+</body>
+</html>

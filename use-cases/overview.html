@@ -17,15 +17,21 @@
   <div class="page-shell">
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
+
+      <!-- ── Page Hero ──────────────────────────────────────────── -->
+      <div class="page-hero">
+        <h1>Use Cases &amp; AI Entry Points</h1>
+        <p>Organizations adopt AI on IBM Z and LinuxONE differently based on their business goals. Some may adopt a pre-built solution, deploy an existing model, or build their own. Understanding these entry points can help you identify the products, skills, and lifecycle stages most relevant to your AI journey.</p>
+      </div>
+
       <div class="page-body">
 
         <!-- ══════════════════════════════════════════
              SECTION 1 — Overview
         ═══════════════════════════════════════════ -->
         <section class="section" id="overview">
-          <h1>Use Cases &amp; AI Entry Points</h1>
-          <p>Organizations adopt AI on IBM Z and LinuxONE differently based on their business goals. Some may adopt a pre-built solution, deploy an existing model, or build their own. Understanding these entry points can help you identify the products, skills, and lifecycle stages that are most relevant to your AI journey.</p>
-         
+          <h1>Overview</h1>
+          <p>The sections below walk through the three AI entry points, a comparison table to help you choose, and next steps for your AI journey on IBM Z.</p>
         </section>
 
         <!-- ══════════════════════════════════════════
@@ -35,7 +41,8 @@
           <h2>The Three AI Entry Points</h2>
           <p>While AI implementations vary, many follow a similar path from identifying a business problem to delivering AI-driven outcomes. The three entry points below reflect common approaches organizations take when adopting AI on IBM Z.</p>
 
-          <!-- Flow diagram -->
+          <!-- Flow diagram — wrapped in a container box -->
+          <div style="background:var(--ibm-gray-10);border:1px solid var(--ibm-border);border-radius:6px;padding:24px 20px;margin:20px 0 24px;overflow-x:auto;">
           <div class="entry-flow">
             <div class="entry-flow-row">
               <div class="entry-flow-node entry-flow-start">
@@ -74,6 +81,7 @@
               </div>
             </div>
           </div>
+          </div><!-- /entry-flow wrapper box -->
 
           <!-- Three entry point cards -->
           <div class="ep-card-grid">
@@ -158,36 +166,26 @@
         <section class="section" id="next-steps">
           <h1>Next Steps</h1>
           <div class="card-grid">
-            <div class="card">
+            <a href="use-cases.html" class="card-tile">
               <h4>Example AI Solution Blueprint</h4>
               <p>See a full end-to-end solution blueprint — Advanced Credit Card Fraud Detection using an XGBoost and BERT ensemble on IBM z17.</p>
-              <a href="use-cases.html" class="learn-more" style="font-size:13px;">Go to Solution Blueprint &#8594;</a>
-            </div>
-            <div class="card">
+              <span class="tile-arrow">Go to Solution Blueprint &#8594;</span>
+            </a>
+            <a href="ai-solution-template.html" class="card-tile">
               <h4>Additional Patterns</h4>
               <p>Explore more AI solution patterns covering generative AI, fraud detection, credit risk, health insurance claims, data preprocessing, and anti-money laundering.</p>
-              <a href="ai-solution-template.html" class="learn-more" style="font-size:13px;">Go to Additional Patterns &#8594;</a>
-            </div>
-            <div class="card">
+              <span class="tile-arrow">Go to Additional Patterns &#8594;</span>
+            </a>
+            <a href="../prepare-data/prepare-data.html" class="card-tile">
               <h4>AI Lifecycle</h4>
               <p>Follow the end-to-end AI lifecycle on IBM Z — from preparing data and training models to deploying, serving, and governing AI in production.</p>
-              <a href="../prepare-data/prepare-data.html" class="learn-more" style="font-size:13px;">Go to AI Lifecycle &#8594;</a>
-            </div>
-            <div class="card">
+              <span class="tile-arrow">Go to AI Lifecycle &#8594;</span>
+            </a>
+            <a href="../products-tools/data-analytics.html" class="card-tile">
               <h4>Products &amp; Tools</h4>
               <p>Browse the full catalog of IBM Z AI products and tools across the lifecycle to identify what fits your use case and entry point.</p>
-              <a href="../products-tools/data-analytics.html" class="learn-more" style="font-size:13px;">Go to Products &amp; Tools &#8594;</a>
-            </div>
-            <div class="card">
-              <h4>Generative AI on IBM Z</h4>
-              <p>Explore how organizations use generative AI to unlock enterprise knowledge, improve productivity, and extend AI across business functions.</p>
-              <a href="../generative-ai/generative-ai.html" class="learn-more" style="font-size:13px;">Go to Generative AI &#8594;</a>
-            </div>
-            <div class="card">
-              <h4>Agentic AI on IBM Z</h4>
-              <p>Learn how agentic AI moves beyond generating content to automating complex workflows and executing multi-step tasks across enterprise systems.</p>
-              <a href="../agentic-ai/agentic-ai.html" class="learn-more" style="font-size:13px;">Go to Agentic AI &#8594;</a>
-            </div>
+              <span class="tile-arrow">Go to Products &amp; Tools &#8594;</span>
+            </a>
           </div>
         </section>
 

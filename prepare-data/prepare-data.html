@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
 </head>
-<body class="has-lifecycle">
+<body class="no-lifecycle">
   <header class="topbar">
     <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z</a>
     <nav class="topnav" id="topnav"></nav>
@@ -17,13 +17,19 @@
   <div class="page-shell">
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
+      <!-- Page Hero -->
+      <div class="page-hero">
+        <h1>Prepare Data</h1>
+        <p>Understand data preparation on IBM Z — connecting to enterprise sources, cleansing, transforming, and building pipelines that run where your data lives.</p>
+      </div>
+
       <div class="page-body">
 
         <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
         <section class="section" id="overview">
           <h1>Prepare Data</h1>
-          <p>Before a model can be trained, your data needs to be in the right shape — cleaned, transformed, and structured in a way the model can learn from. For IBM Z teams, this stage has a distinct advantage: your most valuable enterprise data already lives here, in Db2, IMS, VSAM, and transactional systems. You don't need to move it to prepare it.</p>
-          <p>This page helps you understand what data preparation looks like on IBM Z, which tools apply to your situation, and how to move forward whether you're building your first proof of concept or preparing a production pipeline.</p>
+          <p>Before a model can be trained, data must be cleaned, transformed, and structured for machine learning. On IBM Z, much of the enterprise data used for AI already resides in systems such as Db2, IMS, VSAM, and transactional applications.</p>
+          <p>This page helps you understand the role of data preparation in the AI lifecycle, identify the tools that support different preparation tasks, and determine which technologies fit your data sources, architecture, and AI objectives.</p>
 
           <h2>What happens at this stage?</h2>
           <div class="card-grid">
@@ -46,7 +52,7 @@
           </div>
 
           <h2>Who is this stage for?</h2>
-          <p>Data preparation is primarily owned by <strong>Data Engineers</strong> and <strong>Data Scientists</strong>, often working together. Data Owners and Line of Business stakeholders are involved in defining what data is relevant and what the expected values look like. If you're a data scientist who works end-to-end on smaller projects, this stage is still yours — the tools below work for both pipelines and notebooks.</p>
+          <p>Data preparation is typically performed by <strong>Data Engineers</strong> and <strong>Data Scientists</strong>, with input from business stakeholders who help define data requirements, quality expectations, and desired outcomes. Depending on team structure, responsibilities may range from dedicated data pipelines to end-to-end preparation within notebooks and machine learning workflows.</p>
         </section>
 
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
@@ -66,15 +72,6 @@
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Working with Db2 Data on z/OS</div>
-              <div class="decision-card-body">
-                <p>Your data already resides in Db2 for z/OS and you want to explore patterns, relationships, or features without building a separate data pipeline.</p>
-                <p><strong>→ Use IBM SQL Data Insights Pro.</strong> Run AI-powered semantic analysis directly against Db2 data while keeping data in place.</p>
-                <p><em>Common approach:</em> Perform in-database exploration and feature discovery, then pass selected features into a training workflow.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
               <div class="decision-card-label">Building a Production Data Pipeline</div>
               <div class="decision-card-body">
                 <p>You need to process large volumes of enterprise data, perform complex transformations, or create repeatable feature engineering workflows.</p>
@@ -84,29 +81,31 @@
             </div>
 
             <div class="decision-card">
+              <div class="decision-card-label">Writing Python-Based Data Preparation Scripts on IBM Z</div>
+              <div class="decision-card-body">
+                <p>Your team prefers Python-based workflows and you want to run data preparation scripts directly on z/OS, close to your enterprise data.</p>
+                <p><strong>→ Use the Python AI Toolkit for IBM Z.</strong> This toolkit provides a Python runtime and popular data science libraries (NumPy, pandas, scikit-learn, and more) optimized to run natively on z/OS.</p>
+                <p><em>Common approach:</em> Use pandas and scikit-learn pipelines to cleanse, transform, and engineer features from Db2 or VSAM data, keeping all processing on-platform without exporting data to an external environment.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
               <div class="decision-card-label">Building a Production AI and MLOps Platform</div>
               <div class="decision-card-body">
-                <p>Multiple teams need shared workspaces, automated pipelines, model management, deployment, and governance.</p>
-                <p><strong>→ Use Red Hat OpenShift AI.</strong> Provides data science workbenches, Kubeflow pipelines, model serving, monitoring, and MLOps capabilities on a unified platform.</p>
-                <p><em>Common approach:</em> Centralize data preparation, training, deployment, and governance within a shared AI platform.</p>
+                <p>Multiple teams need shared workspaces, automated pipelines, model management, deployment, and governance across the full AI lifecycle.</p>
+                <p><strong>→ Use Red Hat OpenShift AI.</strong> While Red Hat OpenShift AI supports the full lifecycle on IBM Z, its primary value on this platform is in deployment, inference, and governance — not data preparation. Clients typically prepare data and build models elsewhere, then port them to IBM Z for deployment.</p>
+                <p><em>Common approach:</em> Run a Red Hat OpenShift AI instance on x86 or cloud to prepare data and build models, then smoothly deploy to the IBM Z instance for low-latency inference close to enterprise data.</p>
+                <p><em>Note: Data preparation is possible within Red Hat OpenShift AI on IBM Z, but this is not the typical scenario. If your goal is primarily data preparation, see the IBM Z Platform for Apache Spark or Python AI Toolkit for IBM Z cards above.</em></p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Preparing Features for Traditional Machine Learning</div>
+              <div class="decision-card-label">Preparing Historical Data for Model Training (Outside IBM Z)</div>
               <div class="decision-card-body">
-                <p>You already have data but need to transform it into features suitable for machine learning models.</p>
-                <p><strong>→ Use Snap ML.</strong> Snap ML includes data preparation and feature engineering capabilities that support traditional machine learning workflows.</p>
-                <p><em>Common approach:</em> Select and transform features, then train classification, regression, or recommendation models using Snap ML.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <div class="decision-card-label">Preparing Data Outside IBM Z</div>
-              <div class="decision-card-body">
-                <p>Your team already uses cloud, data lake, or x86-based tooling for data preparation but plans to deploy AI workloads on IBM Z.</p>
-                <p><strong>→ Use your existing data preparation tools</strong> and export models in portable formats such as ONNX or PMML.</p>
-                <p><em>Common approach:</em> Prepare and train externally, then deploy and serve models on IBM Z for low-latency inference alongside enterprise applications.</p>
+                <p>Your data science team already uses cloud, data lake, or x86-based tooling to prepare historical training data, and you plan to deploy the trained model on IBM Z.</p>
+                <p><strong>→ Use your existing data preparation tools</strong> and export the trained model in a portable format such as Joblib (the standard format for traditional ML pipelines), PMML, or ONNX (for deep learning models).</p>
+                <p><em>Common approach:</em> Prepare historical data and train the model externally, then export it in a portable format and deploy it on IBM Z for low-latency inference close to your enterprise transactions.</p>
+                <p><em>Note: Preparing data and building models off-platform is a practical approach. However, IBM Z is designed to deliver the greatest value when AI workloads are deployed and served on platform, where models can run close to enterprise data, business applications, and high-volume transactions.</em></p>
               </div>
             </div>
 
@@ -118,9 +117,9 @@
           <h1>Next Steps</h1>
           <div class="card-grid">
             <div class="card">
-              <h4>Train Model</h4>
-              <p>Once your data is prepared and model-ready, the next step is selecting a training approach and building your model. IBM Z supports both traditional machine learning and deep learning, with tools that run natively on-platform.</p>
-              <a href="../train-model/train-model.html" class="learn-more" style="font-size:13px;">Go to Train Model &#8594;</a>
+              <h4>Build Models</h4>
+              <p>Once your data is prepared and model-ready, the next step is building your model. IBM Z supports traditional machine learning, deep learning, and large language model fine-tuning, with tools that run natively on-platform.</p>
+              <a href="../train-model/train-model.html" class="learn-more" style="font-size:13px;">Go to Build Models &#8594;</a>
             </div>
           </div>
         </section>
