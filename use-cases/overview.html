@@ -38,7 +38,7 @@
              SECTION 2 — Flow Diagram
         ═══════════════════════════════════════════ -->
         <section class="section" id="ai-entry-points">
-          <h2>The Three AI Entry Points</h2>
+          <h2 style="font-size:22px;letter-spacing:-0.3px;">The Three AI Entry Points</h2>
           <p>While AI implementations vary, many follow a similar path from identifying a business problem to delivering AI-driven outcomes. The three entry points below reflect common approaches organizations take when adopting AI on IBM Z.</p>
 
           <!-- Flow diagram — wrapped in a container box -->
@@ -100,6 +100,7 @@
                 <li>A proven, pre-built solution already exists for your use case</li>
                 <li>You prefer a managed or embedded AI experience</li>
               </ul>
+              <p style="margin-top:12px;"><a href="../products-tools/turnkey-solutions.html">Browse Turnkey &amp; ISV Solutions &#8594;</a></p>
             </div>
 
             <div class="ep-card ep-card--2">
@@ -157,7 +158,7 @@
               </tbody>
             </table>
           </div>
-          <p>Once you've identified your entry point, explore the <a href="../prepare-data/prepare-data.html">AI Lifecycle</a> for implementation guidance, and <a href="../products-tools/data-analytics.html">Products &amp; Tools</a> for a full catalog of available technologies.</p>
+          <p>Once you've identified your entry point, explore the <a href="../prepare-data/lifecycle-overview.html">AI Lifecycle</a> for implementation guidance, and <a href="../products-tools/overview.html">Products &amp; Tools</a> for a full catalog of available technologies.</p>
         </section>
 
         <!-- ══════════════════════════════════════════
@@ -165,26 +166,26 @@
         ═══════════════════════════════════════════ -->
         <section class="section" id="next-steps">
           <h1>Next Steps</h1>
-          <div class="card-grid">
-            <a href="use-cases.html" class="card-tile">
-              <h4>Example AI Solution Blueprint</h4>
-              <p>See a full end-to-end solution blueprint — Advanced Credit Card Fraud Detection using an XGBoost and BERT ensemble on IBM z17.</p>
-              <span class="tile-arrow">Go to Solution Blueprint &#8594;</span>
+          <div class="ns-tile-grid">
+            <a href="use-cases.html" class="ns-tile">
+              <span class="ns-tile-label">Example AI Solution Blueprint</span>
+              <span class="ns-tile-body">See a full end-to-end solution blueprint — Advanced Credit Card Fraud Detection using an XGBoost and BERT ensemble on IBM z17.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
             </a>
-            <a href="ai-solution-template.html" class="card-tile">
-              <h4>Additional Patterns</h4>
-              <p>Explore more AI solution patterns covering generative AI, fraud detection, credit risk, health insurance claims, data preprocessing, and anti-money laundering.</p>
-              <span class="tile-arrow">Go to Additional Patterns &#8594;</span>
+            <a href="ai-solution-template.html" class="ns-tile">
+              <span class="ns-tile-label">Additional Patterns</span>
+              <span class="ns-tile-body">Explore more AI solution patterns covering generative AI, fraud detection, credit risk, health insurance claims, data preprocessing, and anti-money laundering.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
             </a>
-            <a href="../prepare-data/prepare-data.html" class="card-tile">
-              <h4>AI Lifecycle</h4>
-              <p>Follow the end-to-end AI lifecycle on IBM Z — from preparing data and training models to deploying, serving, and governing AI in production.</p>
-              <span class="tile-arrow">Go to AI Lifecycle &#8594;</span>
+            <a href="../prepare-data/lifecycle-overview.html" class="ns-tile">
+              <span class="ns-tile-label">AI Lifecycle</span>
+              <span class="ns-tile-body">Follow the end-to-end AI lifecycle on IBM Z — from preparing data and training models to deploying, serving, and governing AI in production.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
             </a>
-            <a href="../products-tools/data-analytics.html" class="card-tile">
-              <h4>Products &amp; Tools</h4>
-              <p>Browse the full catalog of IBM Z AI products and tools across the lifecycle to identify what fits your use case and entry point.</p>
-              <span class="tile-arrow">Go to Products &amp; Tools &#8594;</span>
+            <a href="../products-tools/overview.html" class="ns-tile">
+              <span class="ns-tile-label">Products &amp; Tools</span>
+              <span class="ns-tile-body">Browse the full catalog of IBM Z AI products and tools across the lifecycle to identify what fits your use case and entry point.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
             </a>
           </div>
         </section>
@@ -193,6 +194,54 @@
       <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
     </div>
   </div>
+
+  <style>
+    /* ── Next Steps tiles ── */
+    .ns-tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      max-width: 900px;
+      margin-top: 8px;
+    }
+    .ns-tile {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 16px;
+      background: #fff;
+      border: 1px solid var(--ibm-border);
+      text-decoration: none;
+      color: var(--ibm-text-primary);
+      transition: background 0.15s;
+      min-height: 160px;
+    }
+    .ns-tile:hover { background: var(--ibm-gray-10); }
+    .ns-tile-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .ns-tile-body {
+      display: block;
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .ns-tile-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+    .ns-tile-arrow {
+      font-size: 18px;
+      color: var(--ibm-text-primary);
+      line-height: 1;
+    }
+  </style>
 
   <script src="../nav.js"></script>
   <script>

@@ -92,16 +92,24 @@ function renderNav(opts) {
         { label: 'IBM Spyre Accelerator',                     href: p + 'products-tools/hardware-solutions.html#spyre' },
       ]
     },
+    {
+      id: 'turnkey-solutions', label: 'Turnkey & ISV Solutions',
+      href: p + 'products-tools/turnkey-solutions.html',
+      tools: [
+        { label: 'IBM SQL Data Insights Pro for Z',    href: p + 'products-tools/turnkey-solutions.html#sql-data-insights' },
+        { label: 'Embedded AI Core Banking Solutions', href: p + 'products-tools/turnkey-solutions.html#embedded-ai-solutions' },
+        { label: 'ISV Packaged AI Solutions',          href: p + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+      ]
+    },
   ];
 
   const helpItems = [
-    { id: 'terminology',        label: 'Terminology',          href: p + 'getting-help/terminology.html#terminology' },
     { id: 'resources-contacts', label: 'Resources & Contacts', href: p + 'getting-help/terminology.html#resources-contacts' },
   ];
 
   const useCasesItems = [
     { id: 'use-cases-overview',    label: 'Overview',                     href: p + 'use-cases/overview.html' },
-    { id: 'business-use-cases',    label: 'Business Use Cases',           href: p + 'use-cases/business-use-cases.html' },
+    { id: 'business-use-cases',    label: 'Non-Business Use Cases',       href: p + 'use-cases/business-use-cases.html' },
     { id: 'ai-solution-patterns',  label: 'Example AI Solution Pattern',  href: p + 'use-cases/use-cases.html#ai-solution-patterns' },
     { id: 'ai-solution-template',  label: 'Additional Patterns',          href: p + 'use-cases/ai-solution-template.html' },
   ];
@@ -302,8 +310,19 @@ function initSearch(wrapper, root) {
     { title: 'Data Preprocessing on IBM Z', section: 'Additional Patterns', snippet: 'Build an AI solution with a preprocessing pipeline using open-source frameworks and MLz on IBM Z.', href: root + 'use-cases/ai-solution-template.html#data-preprocessing' },
     { title: 'Anti-Money Laundering on IBM Z', section: 'Additional Patterns', snippet: 'AML detection model using open-source frameworks and MLz for real-time transaction monitoring.', href: root + 'use-cases/ai-solution-template.html#anti-money-laundering' },
 
+    /* Turnkey & ISV Solutions */
+    { title: 'Turnkey & ISV Solutions', section: 'Products & Tools', snippet: 'Pre-built AI solutions from IBM and ecosystem partners — SQL Data Insights Pro, Featurespace, Quantexa, Clari5, OvationCXM, Exponential AI, ACI, DXC, Worldline.', href: root + 'products-tools/turnkey-solutions.html' },
+    { title: 'IBM SQL Data Insights Pro for Z', section: 'Turnkey Solutions', snippet: 'IBM\'s turnkey AI-powered analytics product for IBM Z — natural language querying and AI-generated insights directly against Db2 for z/OS data.', href: root + 'products-tools/turnkey-solutions.html#sql-data-insights' },
+    { title: 'Featurespace — ARIC Risk Hub', section: 'ISV Solutions', snippet: 'Real-time fraud detection and risk scoring on Linux on Z and LinuxONE. Integrates with core banking and payments solutions.', href: root + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+    { title: 'Quantexa — Decision Intelligence Platform', section: 'ISV Solutions', snippet: 'Entity resolution, fraud detection, KYC, and AML on Linux on Z and LinuxONE. Batch core banking and payments integrations.', href: root + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+    { title: 'Clari5 — Enterprise Fraud Management', section: 'ISV Solutions', snippet: 'Anti-money laundering and payments fraud detection on Linux on Z and LinuxONE.', href: root + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+    { title: 'OvationCXM — Customer Experience', section: 'ISV Solutions', snippet: 'Customer experience management and householding use case on Linux on Z and LinuxONE. Integrates with FIS Systematics and DXC Hogan.', href: root + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+    { title: 'Exponential AI — Enso Platform', section: 'ISV Solutions', snippet: 'Claims processing for healthcare and insurance on Linux on Z and LinuxONE. Real-time and batch workloads.', href: root + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+    { title: 'ACI Proactive Risk Manager', section: 'ISV Solutions', snippet: 'Fraud and risk management on Linux on Z. Integrates with ACI Base24 and other payment solutions.', href: root + 'products-tools/turnkey-solutions.html#packaged-ai-solutions' },
+    { title: 'DXC Umbrella — Embedded AI', section: 'ISV Solutions', snippet: 'Real-time fraud detection embedded in DXC Hogan / Card and Merchant System on z/OS.', href: root + 'products-tools/turnkey-solutions.html#embedded-ai-solutions' },
+    { title: 'Worldline — Embedded AI', section: 'ISV Solutions', snippet: 'Fraud detection embedded in Worldline Cardlink on z/OS.', href: root + 'products-tools/turnkey-solutions.html#embedded-ai-solutions' },
+
     /* Getting Help */
-    { title: 'Terminology & Glossary', section: 'Getting Help', snippet: 'Key terms and definitions for AI on IBM Z: MLz, PMML, ONNX, Telum, Spyre, zDLC, and more.', href: root + 'getting-help/terminology.html#terminology' },
     { title: 'Resources & Contacts', section: 'Getting Help', snippet: 'Links to documentation, GitHub repos, community contacts, and how to reach the AI on Z team.', href: root + 'getting-help/terminology.html#resources-contacts' },
 
     /* XGBoost / BERT / MLz specific terms */

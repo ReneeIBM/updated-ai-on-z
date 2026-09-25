@@ -29,32 +29,32 @@
           <h1>AI Lifecycle Overview</h1>
           <p>IBM offers a broad set of AI technologies for IBM Z. Many products support more than one stage of the AI lifecycle and often work together. Use the sections below to explore where each product is commonly used, understand how products relate to one another, and see common paths organizations take when building AI solutions.</p>
 
-          <div class="card-grid" style="margin-top:24px;">
-            <div class="card" style="display:flex;flex-direction:column;">
-              <h4>Prepare Data</h4>
-              <p>Clean, transform, and engineer features using IBM Z-native data tools and Apache Spark.</p>
-              <a href="../prepare-data/prepare-data.html" class="learn-more" style="font-size:13px;margin-top:auto;">Go to Prepare Data &#8594;</a>
-            </div>
-            <div class="card" style="display:flex;flex-direction:column;">
-              <h4>Build Models</h4>
-              <p>Build traditional ML, deep learning, or large language models on IBM Z or hybrid cloud, using Telum acceleration where applicable.</p>
-              <a href="../train-model/train-model.html" class="learn-more" style="font-size:13px;margin-top:auto;">Go to Build Models &#8594;</a>
-            </div>
-            <div class="card" style="display:flex;flex-direction:column;">
-              <h4>Deploy Models</h4>
-              <p>Convert, optimize, and deploy your model into a production environment on IBM Z.</p>
-              <a href="../deploy-models/deploy-models.html" class="learn-more" style="font-size:13px;margin-top:auto;">Go to Deploy Models &#8594;</a>
-            </div>
-            <div class="card" style="display:flex;flex-direction:column;">
-              <h4>Serve Model</h4>
-              <p>Run trained models in production inference environments where they can process requests, generate predictions, and support operational workloads.</p>
-              <a href="../serve-model/serve-model.html" class="learn-more" style="font-size:13px;margin-top:auto;">Go to Serve Model &#8594;</a>
-            </div>
-            <div class="card" style="display:flex;flex-direction:column;">
-              <h4>AI Governance</h4>
-              <p>Monitor, explain, and govern models in production for bias, drift, and regulatory compliance.</p>
-              <a href="../ai-governance/ai-governance.html" class="learn-more" style="font-size:13px;margin-top:auto;">Go to AI Governance &#8594;</a>
-            </div>
+          <div class="ns-tile-grid" style="margin-top:24px;">
+            <a href="../prepare-data/prepare-data.html" class="ns-tile">
+              <span class="ns-tile-label">Prepare Data</span>
+              <span class="ns-tile-body">Clean, transform, and engineer features using IBM Z-native data tools and Apache Spark.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
+            </a>
+            <a href="../train-model/train-model.html" class="ns-tile">
+              <span class="ns-tile-label">Build Models</span>
+              <span class="ns-tile-body">Build traditional ML, deep learning, or large language models on IBM Z or hybrid cloud, using Telum acceleration where applicable.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
+            </a>
+            <a href="../deploy-models/deploy-models.html" class="ns-tile">
+              <span class="ns-tile-label">Deploy Models</span>
+              <span class="ns-tile-body">Convert, optimize, and deploy your model into a production environment on IBM Z.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
+            </a>
+            <a href="../serve-model/serve-model.html" class="ns-tile">
+              <span class="ns-tile-label">Serve Model</span>
+              <span class="ns-tile-body">Run trained models in production inference environments where they can process requests, generate predictions, and support operational workloads.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
+            </a>
+            <a href="../ai-governance/ai-governance.html" class="ns-tile">
+              <span class="ns-tile-label">AI Governance</span>
+              <span class="ns-tile-body">Monitor, explain, and govern models in production for bias, drift, and regulatory compliance.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
+            </a>
           </div>
         </section>
 
@@ -275,6 +275,53 @@
       <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
     </div>
   </div>
+
+  <style>
+    /* ── Lifecycle tiles ── */
+    .ns-tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      max-width: 900px;
+    }
+    .ns-tile {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 16px;
+      background: #fff;
+      border: 1px solid var(--ibm-border);
+      text-decoration: none;
+      color: var(--ibm-text-primary);
+      transition: background 0.15s;
+      min-height: 160px;
+    }
+    .ns-tile:hover { background: var(--ibm-gray-10); }
+    .ns-tile-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .ns-tile-body {
+      display: block;
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .ns-tile-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+    .ns-tile-arrow {
+      font-size: 18px;
+      color: var(--ibm-text-primary);
+      line-height: 1;
+    }
+  </style>
 
   <script src="../nav.js"></script>
   <script>

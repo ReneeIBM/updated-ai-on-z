@@ -68,20 +68,36 @@
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Governance for models on z/OS — Machine Learning for IBM z/OS (MLz) Trustworthy AI</div>
-              <div class="decision-card-body">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Governance for models on z/OS — MLz Trustworthy AI</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
                 <p>Your models are deployed on z/OS and you need monitoring, explainability, fairness detection, and audit capabilities built into the same platform where models run.</p>
-                <p><strong>→ Use Machine Learning for IBM z/OS (MLz) Trustworthy AI.</strong> MLz includes built-in governance capabilities — model monitoring, drift detection, LIME/SHAP explainability, and fairness metrics — all running natively on z/OS without moving data off-platform.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a> Trustworthy AI.</strong> MLz includes built-in governance capabilities — model monitoring, drift detection, LIME/SHAP explainability, and fairness metrics — all running natively on z/OS without moving data off-platform.</p>
                 <p><em>Common approach:</em> Deploy model in MLz → Enable monitoring and explainability → Review fairness metrics and drift alerts → Generate audit reports from within z/OS.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Governance for containerized models on Linux on Z — Trusty AI for Red Hat OpenShift AI</div>
-              <div class="decision-card-body">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Governance for containerized models on Linux on Z — TrustyAI</span>
+                  <span class="dc-pill">TrustyAI · <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
                 <p>Your models are deployed on Red Hat OpenShift AI on Linux on Z and you need bias detection, explainability, and fairness monitoring integrated into your containerized AI platform.</p>
-                <p><strong>→ Use Trusty AI for Red Hat OpenShift AI.</strong> Trusty AI is an open-source AI explainability and fairness toolkit integrated directly into Red Hat OpenShift AI, providing on-platform governance for containerized model workloads on Linux on Z.</p>
-                <p><em>Common approach:</em> Deploy model through Red Hat OpenShift AI → Enable Trusty AI → Monitor predictions for bias and fairness → Generate explainability outputs for audit.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use TrustyAI for <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> TrustyAI is an open-source AI explainability and fairness toolkit integrated directly into Red Hat OpenShift AI, providing on-platform governance for containerized model workloads on Linux on Z.</p>
+                <p><em>Common approach:</em> Deploy model through Red Hat OpenShift AI → Enable TrustyAI → Monitor predictions for bias and fairness → Generate explainability outputs for audit.</p>
               </div>
             </div>
 
@@ -94,11 +110,19 @@
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Enterprise-wide model tracking and compliance — watsonx.governance</div>
-              <div class="decision-card-body">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Enterprise-wide model tracking and compliance — watsonx.governance</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#watsonx-governance">watsonx.governance</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
                 <p>You want expanded governance capabilities such as enterprise-wide model inventory, regulatory compliance workflows, or centralized audit reporting across multiple environments.</p>
-                <p><strong>→ Use watsonx.governance</strong> as an additional governance layer. watsonx.governance is available directly on IBM Z (Linux on IBM Z and LinuxONE). On-platform capabilities include AI Factsheets for model lineage and audit documentation, OpenScale Monitoring for fairness, drift detection, and explainability, and Watson Machine Learning (WML) for model deployment lifecycle management and centralized monitoring across environments.</p>
-                <p><em>Common approach:</em> Establish on-platform governance with MLz Trustworthy AI and TrustyAI → Use watsonx.governance for broader model inventory, compliance reporting, or cross-environment monitoring.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#watsonx-governance">watsonx.governance</a></strong> as an additional governance layer. watsonx.governance is available directly on IBM Z (Linux on IBM Z and LinuxONE). On-platform capabilities include AI Factsheets for model lineage and audit documentation, OpenScale Monitoring for fairness, drift detection, and explainability, and Watson Machine Learning (WML) for model deployment lifecycle management and centralized monitoring across environments.</p>
+                <p><em>Common approach:</em> Establish on-platform governance with <a href="../products-tools/ai-platforms.html#mlz">MLz</a> Trustworthy AI and TrustyAI → Use watsonx.governance for broader model inventory, compliance reporting, or cross-environment monitoring.</p>
               </div>
             </div>
 
@@ -109,17 +133,21 @@
         <section class="section" id="next-steps">
           <h1>Where to Go from Here</h1>
           <p>You've reached the end of the AI lifecycle. Governance feeds back into the beginning — monitoring results inform retraining decisions, which restart the train → optimize → deploy → serve cycle.</p>
-          <div class="card-grid">
-            <div class="card">
-              <h4>Use Cases &amp; Solution Blueprints</h4>
-              <p>See end-to-end examples of complete AI on Z use cases — fraud detection, AML, credit risk, and more — including governance integration patterns.</p>
-              <a href="../use-cases/use-cases.html" class="learn-more" style="font-size:13px;">Explore Use Cases &#8594;</a>
-            </div>
-            <div class="card">
-              <h4>Getting Started</h4>
-              <p>Ready to begin? See resources, contacts, and IBM Technology Expert Labs services to help you start your AI on IBM Z journey.</p>
-              <a href="../getting-help/terminology.html" class="learn-more" style="font-size:13px;">Getting Help &amp; Resources &#8594;</a>
-            </div>
+          <div class="ns-tile-grid">
+            <a href="../use-cases/use-cases.html" class="ns-tile">
+              <span class="ns-tile-label">Use Cases &amp; Solution Blueprints</span>
+              <span class="ns-tile-body">See end-to-end examples of complete AI on Z use cases — fraud detection, AML, credit risk, and more — including governance integration patterns.</span>
+              <span class="ns-tile-footer">
+                <span class="ns-tile-arrow">&#8594;</span>
+              </span>
+            </a>
+            <a href="../getting-help/terminology.html" class="ns-tile">
+              <span class="ns-tile-label">Getting Help &amp; Resources</span>
+              <span class="ns-tile-body">Ready to begin? See resources, contacts, and IBM Technology Expert Labs services to help you start your AI on IBM Z journey.</span>
+              <span class="ns-tile-footer">
+                <span class="ns-tile-arrow">&#8594;</span>
+              </span>
+            </a>
           </div>
         </section>
 
@@ -128,31 +156,92 @@
     </div>
   </div>
   <style>
+    /* ── Product pill tag ── */
+    .dc-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ibm-text-secondary);
+      background: var(--ibm-gray-10);
+      border: 1px solid var(--ibm-border);
+      border-radius: 3px;
+      padding: 1px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .dc-pill a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--ibm-border);
+    }
+    .dc-pill a:hover {
+      color: var(--ibm-blue-60, #0043ce);
+      text-decoration-color: currentColor;
+    }
     .decision-cards {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
       margin: 18px 0 24px;
-      max-width: 720px;
+      max-width: 760px;
     }
     .decision-card {
       border: 1px solid var(--ibm-border);
       border-radius: 6px;
       overflow: hidden;
     }
-    .decision-card-label {
-      background: var(--ibm-gray-10);
-      border-bottom: 1px solid var(--ibm-border);
-      padding: 9px 16px;
-      font-size: 12px;
+    .decision-card-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 16px;
+      background: #edf5ff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .decision-card-trigger:hover { background: #d0e2ff; }
+    .decision-card.open .decision-card-trigger { background: #d0e2ff; }
+    .dc-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+      min-width: 0;
+    }
+    .dc-trigger-title {
+      font-size: 13px;
       font-weight: 600;
-      color: var(--ibm-text-helper);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+      color: var(--ibm-text-primary);
+    }
+    .dc-chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--ibm-gray-70);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .decision-card.open .dc-chevron { transform: rotate(180deg); }
+    .dc-card-intro {
+      padding: 10px 16px 12px;
+      background: #fff;
+    }
+    .dc-card-intro p {
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      margin: 0;
+      line-height: 1.5;
     }
     .decision-card-body {
       padding: 14px 16px;
+      border-top: 1px solid var(--ibm-border);
     }
+    .decision-card-body[hidden] { display: none; }
     .decision-card-body p {
       font-size: 14px;
       color: var(--ibm-text-secondary);
@@ -164,6 +253,50 @@
     }
     .decision-card-body strong {
       color: var(--ibm-text-primary);
+    }
+
+    /* ── Next Steps tiles ── */
+    .ns-tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0;
+      max-width: 760px;
+      margin-top: 20px;
+    }
+    .ns-tile {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 16px;
+      background: #fff;
+      border: 1px solid var(--ibm-border);
+      text-decoration: none;
+      color: var(--ibm-text-primary);
+      transition: background 0.15s;
+      min-height: 160px;
+    }
+    .ns-tile:hover { background: var(--ibm-gray-10); }
+    .ns-tile-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .ns-tile-body {
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .ns-tile-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+    .ns-tile-arrow {
+      font-size: 18px;
+      color: var(--ibm-text-primary);
+      line-height: 1;
     }
   </style>
 
@@ -178,6 +311,23 @@
         { id: 'where-to-start',       label: 'Where to Start' },
         { id: 'next-steps',           label: 'Where to Go from Here' },
       ]
+    });
+
+    document.querySelectorAll('.decision-card-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var card = btn.closest('.decision-card');
+        var body = card.querySelector('.decision-card-body');
+        var isOpen = card.classList.contains('open');
+        if (isOpen) {
+          card.classList.remove('open');
+          body.hidden = true;
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          card.classList.add('open');
+          body.hidden = false;
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
   </script>
 </body>

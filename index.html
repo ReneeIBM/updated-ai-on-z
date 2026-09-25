@@ -345,7 +345,17 @@
         <div class="home-intro">
           <h2>What is AI on IBM Z (IBM Z AI)?</h2>
           <div class="callout-note" style="margin-bottom:20px;max-width:800px;padding:16px 20px;">
-            <p>AI on IBM Z covers AI implementations for <strong>business use cases</strong> where data originates and lives on IBM Z and where transactions are processed on IBM Z — achieving real-time insights at the point of impact through data colocation and minimal latency. This can involve <strong>predictive AI</strong> approaches, as well as more advanced approaches using LLMs for <strong>generative AI</strong>, or the implementation of <strong>AI agents</strong>. For AI operations and IT productivity tooling (e.g. IBM Assistant for Z), see the teams that own those solutions.</p>
+            <p>Artificial Intelligence (AI) is transforming how organizations create value by turning data into actionable insights, agentic workflows, and decision support. IBM Z, the industry's leading enterprise computing platform, provides the performance, security, resiliency, and scalability required to run mission-critical workloads while bringing AI directly to enterprise data and transactions, and also using AI to simplify operations of IBM Z. Together, AI and IBM Z enable organizations to accelerate innovation across two complementary domains: <strong>AI for Business</strong> and <strong>AI for Operations</strong>. By combining these two categories, IBM Z helps enterprises unlock the full potential of AI across both business processes and technology operations.</p>
+            <p style="margin-top:10px;">The scope of this AI on Z 101 Github page covers <strong>Transactional AI for business</strong> — example use case patterns, how AI on Z fits into the AI lifecycle, and products and tools that help with AI implementations on the platform. For more information on AI for Operations, visit the <a href="use-cases/business-use-cases.html">Non-business use cases</a> page for more details.</p>
+            <div class="callout-readmore">
+              <button class="callout-readmore-toggle" aria-expanded="false" aria-controls="scope-readmore">
+                Read more <span class="crm-caret">&#9660;</span>
+              </button>
+              <div class="callout-readmore-body" id="scope-readmore">
+                <p><strong>AI for Business</strong> focuses on driving business outcomes through capabilities such as <strong>Transactional AI</strong>, where AI is embedded into real-time business transactions to improve customer experiences, detect fraud, personalize interactions, and optimize decisions at the point of execution. These business predictions can further trigger agentic workflows in that business related process.</p>
+                <p style="margin-top:10px;"><strong>AI for Operations</strong> focuses on improving the management and efficiency of the IT environment itself, using AI to streamline operations, predict and prevent issues, enhance system performance, strengthen security, assist with DevOps, and increase operational resilience.</p>
+              </div>
+            </div>
           </div>
           <p>AI on IBM Z features state-of-the-art hardware and software capabilities designed to optimize AI at scale alongside your enterprise's most critical workloads and data. This includes hardware accelerators such as the IBM Telum on-chip inference accelerator, a broad portfolio of IBM software, open-source projects, and an ecosystem of ISV solutions for specific enterprise use cases.</p>
           <p>This site is designed to help AI practitioners and architects get started on their journey to leveraging AI in their IBM Z environment — with guidance on the AI lifecycle, products and tools, and example use cases and solution blueprints.</p>
@@ -586,6 +596,18 @@
           item.classList.add('open');
           this.setAttribute('aria-expanded', 'true');
         }
+      });
+    });
+
+    // Callout read-more toggle
+    document.querySelectorAll('.callout-readmore-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var body = document.getElementById(this.getAttribute('aria-controls'));
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        body.classList.toggle('open', !expanded);
+        this.querySelector('.crm-caret').style.transform = !expanded ? 'rotate(180deg)' : '';
+        this.childNodes[0].textContent = !expanded ? 'Read less ' : 'Read more ';
       });
     });
   </script>

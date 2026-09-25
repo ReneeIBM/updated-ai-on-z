@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI on Z | Business Use Cases</title>
+  <title>AI on Z | Non-Business Use Cases</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
@@ -20,76 +20,227 @@
 
       <!-- ── Page Hero ──────────────────────────────────────────── -->
       <div class="page-hero">
-        <h1>Business Use Cases</h1>
-        <p>Real-world business scenarios where AI on IBM Z delivers measurable value by bringing AI processing directly to your enterprise data.</p>
+        <h1>Non-Business Use Cases</h1>
+        <p>Generative AI, agentic AI, and IT operations use cases on IBM Z that extend beyond traditional transactional AI workloads.</p>
       </div>
 
       <div class="page-body">
 
-        <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
-        <section class="section" id="overview">
-          <h1>Overview</h1>
-          <p>IBM Z and LinuxONE are home to the world's most critical business data — financial transactions, insurance claims, healthcare records, and more. This page highlights real-world use cases where AI on IBM Z delivers value by eliminating data movement and keeping sensitive information within the platform's security boundary.</p>
-        </section>
+        <!-- ── AI LANDSCAPE ─────────────────────────────────────── -->
+        <section class="section" id="ai-landscape">
+          <h1>The AI Landscape on IBM Z</h1>
+          <p>AI on IBM Z can be viewed through two primary domains: <strong>AI for Business</strong> and <strong>AI for Operations</strong>.</p>
+          <p style="margin-top:12px;">The AI on Z 101 page focuses on transactional AI for Business, including the AI lifecycle and the products and tools used to build AI solutions on IBM Z.</p>
+          <p style="margin-top:12px;">This page focuses on <strong>AI for Operations</strong>, where AI is applied to improve the management, efficiency, resilience, and security of the IBM Z environment itself. Common use cases include system optimization, issue detection, operational automation, DevOps assistance, and performance management.</p>
+          <p style="margin-top:12px;">The page also highlights generative AI and agentic AI capabilities on IBM Z. These capabilities can support both business and operational use cases, extending AI beyond traditional transactional workloads.</p>
 
-        <!-- ── PREDICTIVE AI ─────────────────────────────────────────── -->
-        <section class="section" id="predictive-ai">
-          <h2>Predictive AI</h2>
-          <p>Predictive AI uses trained models to generate real-time insights from transactional data at the moment decisions need to be made.</p>
-          <div class="card-grid">
-            <div class="card">
-              <h4>Fraud Detection</h4>
-              <p>Score payment transactions in real time at the point of processing to identify fraudulent activity before it completes — without moving data off-platform.</p>
+          <table class="ops-table" style="margin-top:20px;">
+            <thead>
+              <tr>
+                <th>AI Category</th>
+                <th>Model Types</th>
+                <th>Example Use Cases</th>
+                <th>Scope Within Page</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cap-label">Transactional AI</td>
+                <td>ML and DL models</td>
+                <td>Algorithm trading, demand forecasting, dynamic pricing, cost optimization</td>
+                <td><a href="overview.html">AI on Z 101 — main scope</a></td>
+              </tr>
+              <tr>
+                <td class="cap-label">Generative &amp; Agentic AI</td>
+                <td>Large language models (LLMs), AI agents</td>
+                <td>Code generation, summarization, design tasks, client-facing chatbots</td>
+                <td>Non-Business Use Cases tab</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Multiple Model Architecture</td>
+                <td>ML/DL + LLMs</td>
+                <td>Anti-money laundering, fraud detection</td>
+                <td>Both</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Venn diagram -->
+          <div style="margin-top:28px;background:#ffffff;border:1px solid var(--ibm-border);border-radius:8px;padding:28px 24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+            <p style="font-size:13.5px;color:var(--ibm-text-secondary);margin-bottom:20px;max-width:640px;">Mission critical and transactional use cases require machine learning, deep learning and gen AI capabilities — sometimes working together in a multiple model AI architecture to achieve improved business outcomes.</p>
+            <svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;display:block;margin:0 auto;font-family:inherit;" aria-label="AI landscape Venn diagram">
+              <defs>
+                <marker id="venn-arrow" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+                  <path d="M0,0 L0,7 L7,3.5 z" fill="#8d8d8d"/>
+                </marker>
+              </defs>
+
+              <!-- Left circle — Transactional AI -->
+              <circle cx="280" cy="210" r="165" fill="rgba(15,98,254,0.07)" stroke="#0f62fe" stroke-width="1.5"/>
+              <!-- Right circle — Gen+Agentic AI -->
+              <circle cx="480" cy="210" r="165" fill="rgba(124,58,237,0.07)" stroke="#7c3aed" stroke-width="1.5"/>
+
+              <!-- Circle header labels -->
+              <text x="190" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#0f62fe">ML and DL models</text>
+              <text x="570" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#7c3aed">Large Language Models</text>
+              <text x="570" y="104" text-anchor="middle" font-size="13" font-weight="600" fill="#7c3aed">and AI Agents</text>
+
+              <!-- Multiple Model Architecture callout -->
+              <text x="380" y="28" text-anchor="middle" font-size="11.5" fill="#525252" letter-spacing="0.2">Multiple Model AI Architecture</text>
+              <line x1="380" y1="34" x2="380" y2="136" stroke="#c6c6c6" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#venn-arrow)"/>
+
+              <!-- Left bubbles — 2×2 grid -->
+              <circle cx="210" cy="190" r="34" fill="#0f62fe"/>
+              <text x="210" y="186" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Algorithm</text>
+              <text x="210" y="200" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">trading</text>
+
+              <circle cx="300" cy="168" r="34" fill="#0f62fe"/>
+              <text x="300" y="164" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Demand</text>
+              <text x="300" y="178" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">forecasting</text>
+
+              <circle cx="210" cy="268" r="34" fill="#0f62fe"/>
+              <text x="210" y="264" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Dynamic</text>
+              <text x="210" y="278" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">pricing</text>
+
+              <circle cx="300" cy="268" r="34" fill="#0f62fe"/>
+              <text x="300" y="264" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Cost</text>
+              <text x="300" y="278" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">optimization</text>
+
+              <!-- Overlap bubbles -->
+              <circle cx="380" cy="182" r="32" fill="#7c3aed" opacity="0.7"/>
+              <text x="380" y="176" text-anchor="middle" font-size="9.5" fill="white" font-weight="600">Anti-money</text>
+              <text x="380" y="189" text-anchor="middle" font-size="9.5" fill="white" font-weight="600">laundering</text>
+
+              <circle cx="380" cy="258" r="32" fill="#7c3aed" opacity="0.7"/>
+              <text x="380" y="254" text-anchor="middle" font-size="10" fill="white" font-weight="600">Fraud</text>
+              <text x="380" y="267" text-anchor="middle" font-size="10" fill="white" font-weight="600">detection</text>
+
+              <!-- Right bubbles — 2×2 grid -->
+              <circle cx="460" cy="168" r="34" fill="#7c3aed" opacity="0.85"/>
+              <text x="460" y="164" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Code</text>
+              <text x="460" y="178" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Generation</text>
+
+              <circle cx="556" cy="168" r="34" fill="#7c3aed" opacity="0.85"/>
+              <text x="556" y="161" text-anchor="middle" font-size="10" fill="white" font-weight="600">Summarization</text>
+              <text x="556" y="175" text-anchor="middle" font-size="10" fill="white" font-weight="600">tasks</text>
+
+              <circle cx="460" cy="258" r="34" fill="#7c3aed" opacity="0.85"/>
+              <text x="460" y="254" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">Design</text>
+              <text x="460" y="268" text-anchor="middle" font-size="10.5" fill="white" font-weight="600">tasks</text>
+
+              <circle cx="556" cy="258" r="34" fill="#7c3aed" opacity="0.85"/>
+              <text x="556" y="251" text-anchor="middle" font-size="10" fill="white" font-weight="600">Client facing</text>
+              <text x="556" y="265" text-anchor="middle" font-size="10" fill="white" font-weight="600">chatbots</text>
+
+              <!-- Bottom labels -->
+              <text x="222" y="400" text-anchor="middle" font-size="13" font-weight="700" fill="#0f62fe">Transactional AI</text>
+              <text x="538" y="400" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3aed">Generative and Agentic AI</text>
+            </svg>
+            <p style="text-align:center;font-size:13px;color:#0f62fe;margin-top:14px;font-style:italic;font-weight:500;">Transactional AI, Generative AI and Agentic AI are helping define and shape the modern enterprise.</p>
+            <p style="font-size:11px;color:var(--ibm-text-helper);margin-top:6px;text-align:right;">© 2026 IBM Corporation</p>
+          </div>
+
+          <!-- Model roadmap tables -->
+          <div style="margin-top:20px;background:#ffffff;border:1px solid var(--ibm-border);border-radius:8px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+            <h2 style="font-size:16px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 4px;">Key Encoder and Decoder Models on IBM z17</h2>
+            <p style="font-size:13px;color:var(--ibm-text-secondary);margin:0 0 20px;">The following use cases and associated models are on the roadmap for optimization and support on IBM z17. This list will be regularly updated.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <div>
+                <div style="background:#0f62fe;color:white;font-size:12px;font-weight:600;text-align:center;padding:7px 12px;border-radius:4px 4px 0 0;letter-spacing:0.3px;">Transactional Use Cases</div>
+                <table class="ops-table" style="border-radius:0 0 4px 4px;overflow:hidden;">
+                  <thead><tr><th>Use Case</th><th>Model</th></tr></thead>
+                  <tbody>
+                    <tr><td class="cap-label">Advanced fraud detection (Core Payments)</td><td>BERT (110m)</td></tr>
+                    <tr><td class="cap-label">Advanced fraud detection (credit cards)</td><td>BERT (110m)</td></tr>
+                    <tr><td class="cap-label">Advanced AML (online)</td><td>BERT (110m)</td></tr>
+                    <tr><td class="cap-label">Advanced AML (batch)</td><td>BERT (110m)</td></tr>
+                    <tr><td class="cap-label">Advanced Clearing and Settlement</td><td>BERT-Large (340m)</td></tr>
+                    <tr><td class="cap-label">Advanced Claims processing</td><td>DistilBERT / Distilroberta (82m)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div style="background:#7c3aed;color:white;font-size:12px;font-weight:600;text-align:center;padding:7px 12px;border-radius:4px 4px 0 0;letter-spacing:0.3px;">Non-Transactional Use Cases</div>
+                <table class="ops-table" style="border-radius:0 0 4px 4px;overflow:hidden;">
+                  <thead><tr><th>Use Case</th><th>Model</th></tr></thead>
+                  <tbody>
+                    <tr><td class="cap-label">Sensitive data tagging</td><td>Slate (153m), XLM-RoBERTa (270m)</td></tr>
+                    <tr><td class="cap-label">AI for coding (WCA4z)</td><td>Granite (20B)</td></tr>
+                    <tr><td class="cap-label">Dev &amp; IT advisor (ChatOps, WXA4Z)</td><td>Llama-2 (70B), Granite (13B), Granite (8B), Flan-ul2</td></tr>
+                    <tr><td class="cap-label">Cybersecurity</td><td>CyBERT (130m)</td></tr>
+                    <tr><td class="cap-label">Recommendation engines</td><td>DistilBERT (66m)</td></tr>
+                    <tr><td class="cap-label">AIOps — incident detection, RCA, etc.</td><td>BERT (110m)</td></tr>
+                    <tr><td class="cap-label">Sentiment analysis</td><td>Slate (153m)</td></tr>
+                    <tr><td class="cap-label">Document processing</td><td>Llama-2 (70B), Llama 3.2, FLAN (20B), Mistral/Mixtral</td></tr>
+                    <tr><td class="cap-label">Summarization</td><td>Granite, FLAN (20B), Llama</td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="card">
-              <h4>Anti-Money Laundering (AML)</h4>
-              <p>Monitor transaction flows and flag suspicious patterns consistent with money laundering, integrated directly into core banking systems on IBM Z.</p>
-            </div>
-            <div class="card">
-              <h4>Credit Risk Assessment</h4>
-              <p>Score loan applications and credit decisions in real time using models trained on historical transaction and customer data residing on IBM Z.</p>
-            </div>
-            <div class="card">
-              <h4>Anomaly Detection</h4>
-              <p>Identify unusual patterns in operational or transactional data — such as system events, customer behavior, or claim submissions — before they escalate.</p>
-            </div>
-            <div class="card">
-              <h4>Customer Segmentation</h4>
-              <p>Cluster customers by behavior, value, or risk profile using AI models that run against enterprise data on IBM Z without requiring data exports.</p>
-            </div>
-            <div class="card">
-              <h4>Personalized Product Suggestions</h4>
-              <p>Recommend relevant products or offers to customers in real time based on transaction history and behavioral signals processed on IBM Z.</p>
-            </div>
-            <div class="card">
-              <h4>Health Insurance Claims Processing</h4>
-              <p>Automate and prioritize claims adjudication using AI models that flag anomalies, predict outcomes, and surface high-risk claims for review.</p>
-            </div>
+            <p style="font-size:11px;color:var(--ibm-text-helper);margin-top:10px;text-align:right;">© 2026 IBM Corporation</p>
           </div>
         </section>
 
-        <!-- ── GENERATIVE AI ─────────────────────────────────────────── -->
+        <!-- ── GENERATIVE AI ────────────────────────────────────── -->
         <section class="section" id="generative-ai">
-          <h2>Generative AI</h2>
-          <p>Generative AI use cases on IBM Z leverage large language models — running on the IBM Spyre Accelerator or Telum on-chip accelerator — to process documents, generate summaries, and support decision-making within enterprise workflows.</p>
-          <div class="card-grid">
-            <div class="card">
-              <h4>Document Processing &amp; Intelligence</h4>
-              <p>Extract, classify, and summarize information from unstructured documents such as contracts, reports, and correspondence using LLMs deployed on IBM Z.</p>
-            </div>
-            <div class="card">
-              <h4>Suspicious Activity Report Generation</h4>
-              <p>After a fraud or AML alert is triggered, use an AI agent workflow to automatically gather transaction details and draft a suspicious activity report.</p>
-            </div>
-            <div class="card">
-              <h4>Medical Image Analysis</h4>
-              <p>Apply deep learning models to medical imaging data — X-rays, MRIs, pathology scans — for pattern recognition and clinical decision support.</p>
-            </div>
-            <div class="card">
-              <h4>Geospatial Analysis</h4>
-              <p>Process and analyze geospatial data using AI models to support logistics, risk mapping, and location-aware business decisions.</p>
-            </div>
-          </div>
+          <h1>Generative AI on IBM Z</h1>
+          <h2>Why Organizations Use Generative AI</h2>
+          <p>Generative AI helps organizations unlock value from large volumes of information by making knowledge easier to access, understand, and use. Instead of requiring users to search through documents, applications, or data sources manually, generative AI can analyze information and generate summaries, answers, recommendations, and other useful outputs.</p>
+          <p>By leveraging foundation models and large language models (LLMs), organizations can support a wide range of tasks without building a separate model for every use case.</p>
+
+        </section>
+
+        <!-- ── AGENTIC AI ────────────────────────────────────────── -->
+        <section class="section" id="agentic-ai">
+          <h1>Agentic AI on IBM Z</h1>
+          <h2>Why Organizations Use Agentic AI</h2>
+          <p>While generative AI helps users create content and obtain information, agentic AI focuses on accomplishing tasks and achieving outcomes. Agentic systems use AI agents to reason through requests, determine the steps required to complete them, interact with tools and data sources, and execute actions across business processes and IT environments.</p>
+          <p>Organizations are adopting agentic AI to move beyond AI-assisted work toward greater automation of repetitive, complex, and multi-step activities.</p>
+
+          <h2>Example Use Cases</h2>
+          <ul>
+            <li><strong>Client-facing chatbots</strong> — Conversational agents that handle customer inquiries, routing, and resolution</li>
+            <li><strong>Dev &amp; IT advisor</strong> — AI agents that assist developers and operators with ChatOps, incident response, and system queries</li>
+            <li><strong>Code generation</strong> — Agents that generate, review, and refactor code in Z environments (e.g., WCA4z)</li>
+            <li><strong>Design tasks</strong> — Agents supporting design and documentation workflows</li>
+          </ul>
+
+        </section>
+
+        <!-- ── AI FOR IT OPERATIONS ──────────────────────────────── -->
+        <section class="section" id="ai-for-ops">
+          <h1>AI for IT Operations</h1>
+          <p>AI for Operations focuses on using AI to optimize the IBM Z environment itself. Common use cases include system management, performance optimization, resource allocation, and operational automation rather than business transaction processing.</p>
+
+          <h2>Example Use Cases</h2>
+          <table class="ops-table" style="margin-top:16px;">
+            <thead>
+              <tr>
+                <th>Use Case</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cap-label">AIOps — Incident detection &amp; RCA</td>
+                <td>AI-driven detection of anomalies, root cause analysis, and automated remediation for IBM Z system events</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Cybersecurity</td>
+                <td>AI-powered threat detection and security monitoring using models such as CyBERT</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Dev &amp; IT advisor (ChatOps, WXA4Z)</td>
+                <td>Conversational AI assistants that help operators and developers manage IBM Z systems and respond to events</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Sensitive data tagging</td>
+                <td>Automated classification and tagging of sensitive data fields in enterprise datasets</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="margin-top:16px;">For the full AI for Operations story, see the teams that own those solutions (e.g., IBM Assistant for Z, IBM Z AIOps).</p>
         </section>
 
       </div>
@@ -104,9 +255,10 @@
       activeTop: 'use-cases',
       activeSub: 'business-use-cases',
       pageNavItems: [
-        { id: 'overview',       label: 'Overview' },
-        { id: 'predictive-ai',  label: 'Predictive AI' },
-        { id: 'generative-ai',  label: 'Generative AI' },
+        { id: 'ai-landscape',  label: 'AI Landscape' },
+        { id: 'generative-ai', label: 'Generative AI' },
+        { id: 'agentic-ai',    label: 'Agentic AI' },
+        { id: 'ai-for-ops',    label: 'AI for IT Operations' },
       ]
     });
   </script>

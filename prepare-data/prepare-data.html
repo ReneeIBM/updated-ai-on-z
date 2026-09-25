@@ -20,7 +20,7 @@
       <!-- Page Hero -->
       <div class="page-hero">
         <h1>Prepare Data</h1>
-        <p>Understand data preparation on IBM Z — connecting to enterprise sources, cleansing, transforming, and building pipelines that run where your data lives.</p>
+        <p>Understand your options for data preparation in the IBM Z AI lifecycle — whether you work on-platform or with your existing off-platform environment.</p>
       </div>
 
       <div class="page-body">
@@ -28,8 +28,8 @@
         <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
         <section class="section" id="overview">
           <h1>Prepare Data</h1>
-          <p>Before a model can be trained, data must be cleaned, transformed, and structured for machine learning. On IBM Z, much of the enterprise data used for AI already resides in systems such as Db2, IMS, VSAM, and transactional applications.</p>
-          <p>This page helps you understand the role of data preparation in the AI lifecycle, identify the tools that support different preparation tasks, and determine which technologies fit your data sources, architecture, and AI objectives.</p>
+
+          <p>Before a model can be trained, data must be cleaned, transformed, and structured for machine learning. IBM's AI on Z strategy is build and train anywhere, deploy on Z. Organizations may prepare data and develop models in existing environments or work directly on IBM Z, depending on their architecture, data residency, and operational requirements. This page helps you identify the tools that best fit your data sources, team, and AI objectives.</p>
 
           <h2>What happens at this stage?</h2>
           <div class="card-grid">
@@ -58,54 +58,99 @@
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Your starting point depends on where your data resides, how much preparation is required, and how your team prefers to work.</p>
+          <p>Your starting point depends on where your data resides, how much preparation is required, and how your team prefers to work. Select a scenario to expand guidance.</p>
 
           <div class="decision-cards">
 
             <div class="decision-card">
-              <div class="decision-card-label">Starting a POC or Demo</div>
-              <div class="decision-card-body">
-                <p>You don't have access to production data yet, or you want to move quickly without data privacy concerns.</p>
-                <p><strong>→ Start with IBM Synthetic Data Sets.</strong> Pre-built, realistic datasets help you build, test, and validate models without waiting for production data access.</p>
-                <p><em>Common approach:</em> Use synthetic data to develop and validate a model, then retrain with production data when it becomes available.</p>
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Preparing Historical Data for Model Training</span>
+                  <span class="dc-badge dc-badge--off">Off-Platform</span>
+                  <span class="dc-pill">Existing tools · <a href="../products-tools/model-formats.html#pmml">PMML</a> / <a href="../products-tools/model-formats.html#onnx">ONNX</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
+                <p>Your data science team already uses cloud, data lake, or x86-based tooling to prepare historical training data, and you plan to deploy the trained model on IBM Z.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use your existing data preparation tools.</strong> There is no need to change your current workflow. Export the trained model in a portable format — such as <a href="../products-tools/model-formats.html#pmml">PMML</a> (standard for traditional ML pipelines) or <a href="../products-tools/model-formats.html#onnx">ONNX</a> (for deep learning models) — and deploy it on IBM Z.</p>
+                <p><em>Common approach:</em> Prepare historical data and train the model externally using your established tools, then export it in a portable format and deploy it on IBM Z for low-latency inference close to your enterprise transactions.</p>
+                <p><em>Note: Preparing data and building models off-platform is a practical approach. IBM Z is designed to deliver the greatest AI value when models are deployed and served on-platform, where they run close to enterprise data, business applications, and high-volume transactions.</em></p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building a Production Data Pipeline</div>
-              <div class="decision-card-body">
-                <p>You need to process large volumes of enterprise data, perform complex transformations, or create repeatable feature engineering workflows.</p>
-                <p><strong>→ Use IBM Z Platform for Apache Spark.</strong> Spark runs natively on z/OS and supports large-scale data preparation close to enterprise data sources.</p>
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Starting a POC or Demo</span>
+                  <span class="dc-badge dc-badge--flex">Flexible</span>
+                  <span class="dc-pill"><a href="../products-tools/data-analytics.html#synthetic-data-sets">IBM Synthetic Data Sets</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
+                <p>You don't have access to production data yet, or you want to move quickly without data privacy concerns.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Start with <a href="../products-tools/data-analytics.html#synthetic-data-sets">IBM Synthetic Data Sets</a>.</strong> Pre-built, realistic datasets help you build, test, and validate models without waiting for production data access.</p>
+                <p><em>Common approach:</em> Use synthetic data as a standalone starting point to develop and validate a model, then retrain with production data when it becomes available. Synthetic data can also be used to augment an existing real dataset when more training examples are needed to improve model accuracy — whether you train on-platform or off-platform.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Building a Production Data Pipeline on IBM Z</span>
+                  <span class="dc-badge dc-badge--on">On-Platform</span>
+                  <span class="dc-pill"><a href="../products-tools/data-analytics.html#apache-spark">IBM Z Platform for Apache Spark</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
+                <p>You need to process large volumes of enterprise data, perform complex transformations, or create repeatable feature engineering workflows, and you want to keep all processing on-platform.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use <a href="../products-tools/data-analytics.html#apache-spark">IBM Z Platform for Apache Spark</a>.</strong> Spark runs natively on z/OS and supports large-scale data preparation close to enterprise data sources.</p>
                 <p><em>Common approach:</em> Build Spark pipelines that cleanse, transform, and enrich data before supplying it to model training frameworks.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Writing Python-Based Data Preparation Scripts on IBM Z</div>
-              <div class="decision-card-body">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Writing Python-Based Data Preparation Scripts on IBM Z</span>
+                  <span class="dc-badge dc-badge--on">On-Platform</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
                 <p>Your team prefers Python-based workflows and you want to run data preparation scripts directly on z/OS, close to your enterprise data.</p>
-                <p><strong>→ Use the Python AI Toolkit for IBM Z.</strong> This toolkit provides a Python runtime and popular data science libraries (NumPy, pandas, scikit-learn, and more) optimized to run natively on z/OS.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use the <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a>.</strong> This toolkit provides a Python runtime and popular data science libraries (NumPy, pandas, scikit-learn, and more) optimized to run natively on z/OS.</p>
                 <p><em>Common approach:</em> Use pandas and scikit-learn pipelines to cleanse, transform, and engineer features from Db2 or VSAM data, keeping all processing on-platform without exporting data to an external environment.</p>
               </div>
             </div>
 
             <div class="decision-card">
-              <div class="decision-card-label">Building a Production AI and MLOps Platform</div>
-              <div class="decision-card-body">
-                <p>Multiple teams need shared workspaces, automated pipelines, model management, deployment, and governance across the full AI lifecycle.</p>
-                <p><strong>→ Use Red Hat OpenShift AI.</strong> While Red Hat OpenShift AI supports the full lifecycle on IBM Z, its primary value on this platform is in deployment, inference, and governance — not data preparation. Clients typically prepare data and build models elsewhere, then port them to IBM Z for deployment.</p>
-                <p><em>Common approach:</em> Run a Red Hat OpenShift AI instance on x86 or cloud to prepare data and build models, then smoothly deploy to the IBM Z instance for low-latency inference close to enterprise data.</p>
-                <p><em>Note: Data preparation is possible within Red Hat OpenShift AI on IBM Z, but this is not the typical scenario. If your goal is primarily data preparation, see the IBM Z Platform for Apache Spark or Python AI Toolkit for IBM Z cards above.</em></p>
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Unified MLOps Platform</span>
+                  <span class="dc-badge dc-badge--flex">Flexible</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
+                <p>Multiple teams need shared workspaces, automated pipelines, model management, deployment, and governance across the AI lifecycle.</p>
               </div>
-            </div>
-
-            <div class="decision-card">
-              <div class="decision-card-label">Preparing Historical Data for Model Training (Outside IBM Z)</div>
-              <div class="decision-card-body">
-                <p>Your data science team already uses cloud, data lake, or x86-based tooling to prepare historical training data, and you plan to deploy the trained model on IBM Z.</p>
-                <p><strong>→ Use your existing data preparation tools</strong> and export the trained model in a portable format such as Joblib (the standard format for traditional ML pipelines), PMML, or ONNX (for deep learning models).</p>
-                <p><em>Common approach:</em> Prepare historical data and train the model externally, then export it in a portable format and deploy it on IBM Z for low-latency inference close to your enterprise transactions.</p>
-                <p><em>Note: Preparing data and building models off-platform is a practical approach. However, IBM Z is designed to deliver the greatest value when AI workloads are deployed and served on platform, where models can run close to enterprise data, business applications, and high-volume transactions.</em></p>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Red Hat OpenShift AI supports the full AI lifecycle and runs anywhere OpenShift is available, including Linux on Z and z/OS Container Extensions (zCX). On IBM Z, it is most commonly used for deployment, inference, and governance.</p>
+                <p><em>Common approach:</em> Use Red Hat OpenShift AI in an existing cloud, x86, or OpenShift environment for data preparation and model development, then deploy models to IBM Z for production inference. Teams already using OpenShift AI can extend existing workflows and tooling to IBM Z.</p>
+                <p><em>Note: Data preparation can be performed with Red Hat OpenShift AI on IBM Z. Organizations focused primarily on on-platform data preparation may also consider <a href="../products-tools/data-analytics.html#apache-spark">IBM Z Platform for Apache Spark</a> or <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a>.</em></p>
               </div>
             </div>
 
@@ -115,12 +160,12 @@
         <!-- ── NEXT STEP ─────────────────────────────────────────────── -->
         <section class="section" id="next-step">
           <h1>Next Steps</h1>
-          <div class="card-grid">
-            <div class="card">
-              <h4>Build Models</h4>
-              <p>Once your data is prepared and model-ready, the next step is building your model. IBM Z supports traditional machine learning, deep learning, and large language model fine-tuning, with tools that run natively on-platform.</p>
-              <a href="../train-model/train-model.html" class="learn-more" style="font-size:13px;">Go to Build Models &#8594;</a>
-            </div>
+          <div class="ns-tile-grid">
+            <a href="../train-model/train-model.html" class="ns-tile">
+              <span class="ns-tile-label">Build Models</span>
+              <span class="ns-tile-body">Once your data is prepared and model-ready, the next step is building your model. IBM Z supports traditional machine learning, deep learning, and large language model fine-tuning.</span>
+              <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
+            </a>
           </div>
         </section>
 
@@ -130,42 +175,171 @@
   </div>
 
   <style>
+    /* ── Decision card badges ── */
+    .dc-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .dc-badge--off  { background: #e8e8e8; color: #393939; }
+    .dc-badge--on   { background: #defbe6; color: #044317; }
+    .dc-badge--flex { background: #edf5ff; color: #002d9c; }
+
+    /* ── Product pill tag ── */
+    .dc-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ibm-text-secondary);
+      background: var(--ibm-gray-10);
+      border: 1px solid var(--ibm-border);
+      border-radius: 3px;
+      padding: 1px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .dc-pill a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--ibm-border);
+    }
+    .dc-pill a:hover {
+      color: var(--ibm-blue-60, #0043ce);
+      text-decoration-color: currentColor;
+    }
+
+    /* ── Decision cards container ── */
     .decision-cards {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
       margin: 18px 0 24px;
-      max-width: 720px;
+      max-width: 760px;
     }
     .decision-card {
       border: 1px solid var(--ibm-border);
       border-radius: 6px;
       overflow: hidden;
     }
-    .decision-card-label {
-      background: var(--ibm-gray-10);
-      border-bottom: 1px solid var(--ibm-border);
-      padding: 9px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ibm-text-helper);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+
+    /* ── Accordion trigger ── */
+    .decision-card-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 16px;
+      background: #edf5ff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
     }
+    .decision-card-trigger:hover { background: #d0e2ff; }
+    .decision-card[open] .decision-card-trigger,
+    .decision-card.open  .decision-card-trigger { background: #d0e2ff; }
+
+    .dc-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+      min-width: 0;
+    }
+    .dc-trigger-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      flex-shrink: 0;
+    }
+    .dc-card-intro {
+      padding: 10px 16px 12px;
+      background: #fff;
+    }
+    .dc-card-intro p {
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .dc-chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--ibm-gray-70);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .decision-card.open .dc-chevron { transform: rotate(180deg); }
+
+    /* ── Accordion body ── */
     .decision-card-body {
       padding: 14px 16px;
+      border-top: 1px solid var(--ibm-border);
     }
+    .decision-card-body[hidden] { display: none; }
     .decision-card-body p {
       font-size: 14px;
       color: var(--ibm-text-secondary);
       margin-bottom: 6px !important;
       line-height: 1.55;
     }
-    .decision-card-body p:last-child {
-      margin-bottom: 0 !important;
+    .decision-card-body p:last-child { margin-bottom: 0 !important; }
+    .decision-card-body strong { color: var(--ibm-text-primary); }
+
+    /* ── Next Steps tiles ── */
+    .ns-tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      max-width: 760px;
+      margin-top: 8px;
     }
-    .decision-card-body strong {
+    .ns-tile {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 16px;
+      background: #fff;
+      border: 1px solid var(--ibm-border);
+      text-decoration: none;
       color: var(--ibm-text-primary);
+      transition: background 0.15s;
+      min-height: 160px;
+    }
+    .ns-tile:hover { background: var(--ibm-gray-10); }
+    .ns-tile-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ibm-text-primary);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .ns-tile-body {
+      display: block;
+      font-size: 13px;
+      color: var(--ibm-text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .ns-tile-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+    .ns-tile-arrow {
+      font-size: 18px;
+      color: var(--ibm-text-primary);
+      line-height: 1;
     }
   </style>
 
@@ -180,6 +354,23 @@
         { id: 'where-to-start', label: 'Where to Start' },
         { id: 'next-step',      label: 'Next: Train Model' },
       ]
+    });
+
+    document.querySelectorAll('.decision-card-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var card = btn.closest('.decision-card');
+        var body = card.querySelector('.decision-card-body');
+        var isOpen = card.classList.contains('open');
+        if (isOpen) {
+          card.classList.remove('open');
+          body.hidden = true;
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          card.classList.add('open');
+          body.hidden = false;
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
   </script>
 </body>

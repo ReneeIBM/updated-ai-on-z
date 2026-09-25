@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI on Z | Turnkey Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="no-lifecycle">
+  <header class="topbar">
+    <a href="../index.html" class="topbar-logo"><span class="topbar-logo-mark"></span>AI on IBM Z 101</a>
+    <nav class="topnav" id="topnav"></nav>
+  </header>
+  <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
+
+  <div class="page-shell">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
+
+      <!-- Page Hero -->
+      <div class="page-hero">
+        <h1>Turnkey &amp; ISV Solutions</h1>
+        <p>Pre-built, packaged AI solutions from IBM and ecosystem partners — ready to install and run on IBM Z without building a model from scratch.</p>
+      </div>
+
+      <div class="page-body">
+
+        <!-- ── PATHWAY EXPLAINER ─────────────────────────────────────── -->
+        <section class="section" id="pathways">
+          <h1>Three Pathways to AI on IBM Z</h1>
+          <p>Not every organization wants to build AI models from the ground up. IBM Z supports three distinct adoption paths depending on your team's expertise, timeline, and requirements:</p>
+
+          <table class="ops-table" style="margin-top:16px;">
+            <thead>
+              <tr>
+                <th style="width:36px;">#</th>
+                <th>Pathway</th>
+                <th>Who It's For</th>
+                <th>What You Get</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cap-label">1</td>
+                <td><strong>Turnkey / ISV Solution</strong></td>
+                <td>Organizations that want a proven, ready-to-deploy solution with minimal internal AI expertise required</td>
+                <td>A fully packaged AI application from IBM or a partner ISV — install, configure, and run</td>
+              </tr>
+              <tr>
+                <td class="cap-label">2</td>
+                <td><strong>Deploy an Existing Model</strong></td>
+                <td>Teams that already have a trained model and need to operationalize it on IBM Z</td>
+                <td>IBM Z model serving infrastructure (MLz, RHOAI, TF Serving, Triton) to score models in production</td>
+              </tr>
+              <tr>
+                <td class="cap-label">3</td>
+                <td><strong>Build Your Own Model</strong></td>
+                <td>Data science teams who need full control and have proprietary data or unique requirements</td>
+                <td>The full AI lifecycle on IBM Z — prepare data, train, optimize, deploy, serve, and govern</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="margin-top:16px;">This page covers <strong>Pathway 1</strong>. For Pathways 2 and 3, see the <a href="../prepare-data/lifecycle-overview.html">AI Lifecycle</a> section.</p>
+        </section>
+
+        <!-- ── SQL DATA INSIGHTS PRO ─────────────────────────────────── -->
+        <section class="section" id="sql-data-insights">
+          <h1>IBM SQL Data Insights Pro for Z</h1>
+
+          <p>IBM SQL Data Insights Pro for Z is an AI-powered analytics solution for IBM Z that helps users explore and analyze Db2 for z/OS data using natural language. It allows business users and data analysts to query data without requiring deep knowledge of SQL or underlying database structures.</p>
+          <p>Unlike AI lifecycle tools used to prepare data, train models, and manage deployments, SQL Data Insights Pro is a packaged IBM solution that applies built-in AI capabilities directly to existing Db2 for z/OS data. No model development or training workflow is required.</p>
+
+          <h2>Key Capabilities</h2>
+          <ul>
+            <li><strong>Natural language querying</strong> — Ask questions in plain English and get SQL-backed answers against Db2 for z/OS</li>
+            <li><strong>AI-generated insights</strong> — Automated anomaly detection, trend analysis, and data profiling</li>
+            <li><strong>No data movement</strong> — Queries run directly against z/OS data, keeping sensitive enterprise data within the Z security perimeter</li>
+            <li><strong>Low barrier to entry</strong> — Business users can generate insights without SQL expertise or a data science team</li>
+            <li><strong>z/OS native</strong> — Runs on z/OS with direct integration to Db2 for z/OS</li>
+          </ul>
+
+          <h2>Getting Started</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/products/sql-data-insights" target="_blank" rel="noopener">IBM SQL Data Insights product page</a></li>
+            <li><a href="https://www.ibm.com/docs/en/sql-data-insights" target="_blank" rel="noopener">IBM SQL Data Insights documentation</a></li>
+          </ul>
+        </section>
+
+        <!-- ── ISV ECOSYSTEM ─────────────────────────────────────────── -->
+        <section class="section" id="isv-overview">
+          <h1>ISV Ecosystem — What Are ISV Solutions?</h1>
+          <p>IBM provides the underlying AI infrastructure for IBM Z, including hardware accelerators, open-source frameworks, model optimization tools, and inference runtimes. <strong>Independent Software Vendors (ISVs)</strong> build on these capabilities to deliver AI applications tailored to specific business domains such as fraud detection, anti-money laundering, and customer experience.</p>
+          <p>For organizations looking to adopt AI without building and maintaining their own models, ISV solutions can provide a direct path to production. These offerings typically include pre-built models, domain expertise, and deployment frameworks designed for specific business use cases.</p>
+        </section>
+
+        <!-- ── EMBEDDED AI / CORE BANKING ────────────────────────────── -->
+        <section class="section" id="embedded-ai-solutions">
+          <h1>Embedded AI Core Banking &amp; Payment Solutions</h1>
+          <p>These solutions integrate with core banking, payments, and transaction processing platforms such as DXC Hogan, FIS, and Worldline Cardlink. They are designed to run on z/OS and support real-time decisioning within existing business workflows.</p>
+
+          <table class="ops-table" style="margin-top:16px;">
+            <thead>
+              <tr>
+                <th>Vendor Solution</th>
+                <th>Supported Integrations</th>
+                <th>Use Case</th>
+                <th>Platform Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cap-label">DXC Umbrella</td>
+                <td>DXC Hogan / Card and Merchant System</td>
+                <td>Real-time fraud detection</td>
+                <td>z/OS</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Worldline</td>
+                <td>Worldline Cardlink</td>
+                <td>Fraud detection</td>
+                <td>z/OS</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ── PACKAGED AI SOLUTIONS ──────────────────────────────────── -->
+        <section class="section" id="packaged-ai-solutions">
+          <h1>ISV Packaged AI Solutions</h1>
+          <p>These are modular, standalone AI applications built by ecosystem partners that run on Linux on Z. They address specific enterprise use cases and integrate with common core banking and payments platforms.</p>
+
+          <table class="ops-table" style="margin-top:16px;">
+            <thead>
+              <tr>
+                <th>Vendor Solution</th>
+                <th>Supported Integrations</th>
+                <th>Use Case</th>
+                <th>Platform Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cap-label">Featurespace</td>
+                <td>Majority of core banking &amp; payments solutions</td>
+                <td>Real-time fraud detection and risk scoring</td>
+                <td>Linux on Z</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Quantexa</td>
+                <td>Non-real time (batch) — core banking &amp; payments</td>
+                <td>Entity resolution, fraud detection, KYC, AML</td>
+                <td>Linux on Z</td>
+              </tr>
+              <tr>
+                <td class="cap-label">ACI Proactive Risk Manager</td>
+                <td>ACI Base24, and other payment solutions</td>
+                <td>Fraud &amp; risk management</td>
+                <td>Linux on Z</td>
+              </tr>
+              <tr>
+                <td class="cap-label">OvationCXM</td>
+                <td>Any core, including FIS Systematics, DXC Hogan</td>
+                <td>Customer experience management — householding use case</td>
+                <td>Linux on Z</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Exponential AI</td>
+                <td>Claims/insurance workloads (real-time/batch)</td>
+                <td>Claims processing (e.g., healthcare)</td>
+                <td>Linux on Z</td>
+              </tr>
+              <tr>
+                <td class="cap-label">Clari5</td>
+                <td>Majority of core banking &amp; payments platform</td>
+                <td>Anti-money laundering &amp; payments fraud</td>
+                <td>Linux on Z</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+
+      </div>
+      <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
+    </div>
+  </div>
+
+  <script src="../nav.js"></script>
+  <script>
+    renderNav({
+      root: '../',
+      activeTop: 'products',
+      activeSub: 'turnkey-solutions',
+      pageNavItems: [
+        { id: 'pathways',               label: 'Three Pathways' },
+        { id: 'sql-data-insights',      label: 'SQL Data Insights Pro' },
+        { id: 'isv-overview',           label: 'ISV Ecosystem' },
+        { id: 'embedded-ai-solutions',  label: 'Embedded AI Solutions' },
+        { id: 'packaged-ai-solutions',  label: 'ISV Packaged Solutions' },
+      ]
+    });
+  </script>
+</body>
+</html>
