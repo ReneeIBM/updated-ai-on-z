@@ -176,12 +176,15 @@ function renderNav(opts) {
       const hasCaret = item.dropdown !== null;
       const caret = hasCaret ? `<span class="caret">▾</span>` : '';
       return `<div class="topnav-item">
-        <a href="${item.href}" class="topnav-link${isActive ? ' active' : ''}">${item.label}${caret}</a>
+        <div class="topnav-link-row">
+          <a href="${item.href}" class="topnav-link${isActive ? ' active' : ''}">${item.label}</a>
+          ${hasCaret ? `<button class="mobile-subnav-toggle" aria-label="Toggle ${item.label} submenu">${caret}</button>` : ''}
+        </div>
         ${item.dropdown || ''}
       </div>`;
     }).join('');
 
-    /* ── Inject search bar after the nav items ── */
+    /* ── Inject search bar inside topnav ── */
     const searchWrapper = document.createElement('div');
     searchWrapper.className = 'topbar-search';
     searchWrapper.innerHTML = `
@@ -204,6 +207,62 @@ function renderNav(opts) {
     `;
     topbarEl.appendChild(searchWrapper);
     initSearch(searchWrapper, p);
+
+    /* ── Mobile Hamburger Toggle ── */
+    const headerEl = topbarEl.closest('.topbar');
+    if (headerEl && !headerEl.querySelector('.mobile-menu-btn')) {
+      const menuBtn = document.createElement('button');
+      menuBtn.className = 'mobile-menu-btn';
+      menuBtn.setAttribute('aria-label', 'Toggle Navigation Menu');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = `
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      `;
+      headerEl.appendChild(menuBtn);
+
+      const navBackdrop = document.createElement('div');
+      navBackdrop.className = 'mobile-nav-backdrop';
+      document.body.appendChild(navBackdrop);
+
+      const toggleMenu = (forceState) => {
+        const isOpen = typeof forceState === 'boolean' ? forceState : !topbarEl.classList.contains('is-open');
+        topbarEl.classList.toggle('is-open', isOpen);
+        menuBtn.classList.toggle('is-open', isOpen);
+        navBackdrop.classList.toggle('is-open', isOpen);
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('mobile-menu-open', isOpen);
+      };
+
+      menuBtn.addEventListener('click', () => toggleMenu());
+      navBackdrop.addEventListener('click', () => toggleMenu(false));
+
+      // Mobile sub-item / flyout toggles
+      topbarEl.querySelectorAll('.mobile-subnav-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const item = btn.closest('.topnav-item');
+          if (item) item.classList.toggle('is-expanded');
+        });
+      });
+
+      topbarEl.querySelectorAll('.topnav-dropdown-cat').forEach(cat => {
+        cat.addEventListener('click', (e) => {
+          if (window.innerWidth <= 840) {
+            const flyoutItem = cat.closest('.topnav-flyout-item');
+            if (flyoutItem && flyoutItem.classList.contains('has-flyout')) {
+              // If clicked on caret or to expand
+              if (e.target.classList.contains('flyout-caret') || !flyoutItem.classList.contains('is-expanded')) {
+                e.preventDefault();
+                flyoutItem.classList.toggle('is-expanded');
+              }
+            }
+          }
+        });
+      });
+    }
   }
 
   /* ── 2. Sub-nav bar — hidden; always use no-lifecycle padding ── */
