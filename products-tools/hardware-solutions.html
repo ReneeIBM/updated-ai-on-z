@@ -20,14 +20,18 @@
       <!-- Page Hero -->
       <div class="page-hero">
         <h1>Hardware Accelerators</h1>
-        <p>IBM Z hardware purpose-built for AI — the Telum on-chip inference accelerator and the IBM Spyre Accelerator.</p>
+        <p>IBM Z hardware purpose-built for AI — the IBM Integrated Accelerator for AI (Telum) and the IBM Spyre Accelerator.</p>
       </div>
 
       <div class="page-body">
 
         <!-- ── TELUM ─────────────────────────────────────────────────── -->
-        <section class="section" id="telum">
-          <h1>IBM Integrated Accelerator for AI (Telum)</h1>
+        <div class="tool-accordion" id="telum">
+          <button class="tool-accordion-trigger" aria-expanded="false">
+            <span class="tool-accordion-title">IBM Integrated Accelerator for AI (Telum)</span>
+            <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+          </button>
+          <div class="tool-accordion-body" hidden>
 
           <h2>What is the IBM Integrated Accelerator for AI?</h2>
           <p>The IBM Integrated Accelerator for AI is an on-chip AI accelerator available on the IBM Telum chip — part of IBM z16, LinuxONE 4, and now IBM z17 (Telum II) servers. It is designed to enable high throughput, low latency inference for deep learning and machine learning.</p>
@@ -99,18 +103,23 @@
           </ul>
           <p><strong>For traditional ML models</strong> (scikit-learn, XGBoost, LightGBM):</p>
           <ul>
-            <li><a href="../products-tools/ai-frameworks.html#snapml">IBM Snap ML</a> — optimized training and inference with Telum acceleration for Random Forest, Extra Trees, and Gradient Boosting</li>
+            <li><a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated SnapML</a> — optimized training and inference with Telum acceleration for Random Forest, Extra Trees, and Gradient Boosting</li>
           </ul>
           <p><strong>For framework and compiler developers</strong>:</p>
           <ul>
             <li><a href="https://github.com/IBM/zDNN" target="_blank" rel="noopener">IBM zDNN</a> — the low-level C library exposing Telum AI accelerator operations. Available in z/OS in all in-service releases, and for RHEL, Ubuntu, and SUSE.</li>
           </ul>
           <a href="https://www.ibm.com/blog/ibm-telum-processor-the-next-gen-microprocessor-for-ibm-z-and-ibm-linuxone/" class="learn-more" target="_blank" rel="noopener">IBM Telum processor announcement &#8594;</a>
-        </section>
+          </div>
+        </div>
 
         <!-- ── SPYRE ──────────────────────────────────────────────────── -->
-        <section class="section" id="spyre">
-          <h1>IBM Spyre Accelerator</h1>
+        <div class="tool-accordion" id="spyre">
+          <button class="tool-accordion-trigger" aria-expanded="false">
+            <span class="tool-accordion-title">IBM Spyre Accelerator</span>
+            <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+          </button>
+          <div class="tool-accordion-body" hidden>
           <p><strong>AI Lifecycle:</strong> <a href="../deploy-models/deploy-models.html">Deploy Models</a> · <a href="../serve-model/serve-model.html">Serve Model</a></p>
 
           <p>The IBM Spyre Accelerator is a system-on-a-chip PCIe card purpose-built to bring generative AI and large language model inferencing to IBM Z. Compatible with IBM z17, it slots directly into the IBM Z system alongside the existing Telum processor, adding dedicated AI compute optimized for the matrix and vector operations that dominate LLM and foundation model workloads. Spyre evolved from IBM Research's AIU prototype — expanding from the single on-chip accelerator core in Telum to 32 individual accelerator cores per card, with cards clusterable for up to 256 cores per system. It is designed for organizations running IBM Z who need to deploy generative AI — LLMs, RAG applications, intelligent assistants — entirely within their existing on-premises infrastructure, without shipping data to an external cloud or GPU cluster. The problem it solves is real: roughly 70% of the world's transactions by value run through IBM mainframes, and until Spyre, running LLM-class AI on that data meant moving it somewhere else. Spyre changes that.</p>
@@ -165,7 +174,8 @@
           <a href="../products-tools/inference-serving.html#rh-inference" class="learn-more">Red Hat AI Inference Server (Spyre serving runtime) &#8594;</a>
           <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI &#8594;</a>
           <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
-        </section>
+          </div>
+        </div>
 
       </div>
       <footer class="footer"><p>&copy; 2025 AI on Z</p></footer>
@@ -183,6 +193,27 @@
         { id: 'spyre', label: 'IBM Spyre Accelerator' },
       ]
     });
+
+    (function() {
+      var hash = window.location.hash.replace('#', '');
+      document.querySelectorAll('.tool-accordion').forEach(function(acc) {
+        var body = acc.querySelector('.tool-accordion-body');
+        var btn  = acc.querySelector('.tool-accordion-trigger');
+        var shouldOpen = hash && acc.id === hash;
+        if (shouldOpen) {
+          acc.classList.add('is-open');
+          body.hidden = false;
+          btn.setAttribute('aria-expanded', 'true');
+          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+        }
+        btn.addEventListener('click', function() {
+          var isOpen = acc.classList.contains('is-open');
+          acc.classList.toggle('is-open', !isOpen);
+          body.hidden = isOpen;
+          btn.setAttribute('aria-expanded', String(!isOpen));
+        });
+      });
+    })();
   </script>
 </body>
 </html>

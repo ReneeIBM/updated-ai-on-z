@@ -109,9 +109,9 @@ function renderNav(opts) {
 
   const useCasesItems = [
     { id: 'use-cases-overview',    label: 'Overview',                     href: p + 'use-cases/overview.html' },
-    { id: 'business-use-cases',    label: 'Non-Business Use Cases',       href: p + 'use-cases/business-use-cases.html' },
-    { id: 'ai-solution-patterns',  label: 'Example AI Solution Pattern',  href: p + 'use-cases/use-cases.html#ai-solution-patterns' },
+    { id: 'ai-solution-patterns',  label: 'Advanced Credit Card Fraud Detection', href: p + 'use-cases/use-cases.html#ai-solution-patterns' },
     { id: 'ai-solution-template',  label: 'Additional Patterns',          href: p + 'use-cases/ai-solution-template.html' },
+    { id: 'business-use-cases',    label: 'Non-Business Use Cases',       href: p + 'use-cases/business-use-cases.html' },
   ];
 
   /* ── Helper: simple dropdown (no flyout) ───────────────────── */
@@ -360,7 +360,7 @@ function initSearch(wrapper, root) {
     { title: 'AI Toolkit for IBM Z and LinuxONE', section: 'Products & Tools', snippet: 'A collection of open-source AI frameworks — TensorFlow, PyTorch, SnapML, ONNX — optimized for s390x.', href: root + 'products-tools/ai-frameworks.html#ai-toolkit' },
 
     /* Use Cases */
-    { title: 'Example AI Solution Pattern', section: 'Use Cases', snippet: 'Common AI solution patterns on IBM Z including real-time scoring, batch inference, and hybrid cloud.', href: root + 'use-cases/use-cases.html#ai-solution-patterns' },
+    { title: 'Advanced Credit Card Fraud Detection', section: 'Use Cases', snippet: 'Multi-model ensemble AI on IBM z17 — a complete end-to-end solution blueprint using XGBoost and BERT.', href: root + 'use-cases/use-cases.html#ai-solution-patterns' },
     { title: 'Additional Patterns', section: 'Use Cases', snippet: 'More AI solution patterns on IBM Z — generative AI, fraud detection, credit risk, health insurance, data preprocessing, and AML.', href: root + 'use-cases/ai-solution-template.html' },
     { title: 'Fraud Detection on IBM Z', section: 'Additional Patterns', snippet: 'Deploy an AI fraud detection model using open-source frameworks and Machine Learning for IBM z/OS.', href: root + 'use-cases/ai-solution-template.html#fraud-detection' },
     { title: 'Document Intelligence with Spyre', section: 'Additional Patterns · Generative AI', snippet: 'IBM Granite LLM inference on Red Hat AI Inference Server, leveraging the IBM Spyre Accelerator on IBM Z.', href: root + 'use-cases/ai-solution-template.html#generative-ai' },

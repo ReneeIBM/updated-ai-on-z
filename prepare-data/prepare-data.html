@@ -35,7 +35,7 @@
           <div class="card-grid">
             <div class="card">
               <h4>Access &amp; Connect</h4>
-              <p>Connect to enterprise data sources — Db2, IMS, VSAM, flat files — without moving data off-platform.</p>
+              <p>Connect to enterprise data sources — Db2, IMS, VSAM, flat files.</p>
             </div>
             <div class="card">
               <h4>Cleanse &amp; Validate</h4>
@@ -75,9 +75,9 @@
                 <p>Your data science team already uses cloud, data lake, or x86-based tooling to prepare historical training data, and you plan to deploy the trained model on IBM Z.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use your existing data preparation tools.</strong> There is no need to change your current workflow. Export the trained model in a portable format — such as <a href="../products-tools/model-formats.html#pmml">PMML</a> (standard for traditional ML pipelines) or <a href="../products-tools/model-formats.html#onnx">ONNX</a> (for deep learning models) — and deploy it on IBM Z.</p>
-                <p><em>Common approach:</em> Prepare historical data and train the model externally using your established tools, then export it in a portable format and deploy it on IBM Z for low-latency inference close to your enterprise transactions.</p>
-                <p><em>Note: Preparing data and building models off-platform is a practical approach. IBM Z is designed to deliver the greatest AI value when models are deployed and served on-platform, where they run close to enterprise data, business applications, and high-volume transactions.</em></p>
+                <p><strong>→ Use your existing data preparation frameworks.</strong> There is no need to change your current workflow. Export the trained model in a portable format — such as <a href="../products-tools/model-formats.html#pmml">PMML</a> (standard for traditional ML pipelines) or <a href="../products-tools/model-formats.html#onnx">ONNX</a> (for deep learning models) — and deploy it on IBM Z.</p>
+                <p><em>Common approach:</em> Prepare historical data and train the model externally using your established frameworks, then export it in a portable format and deploy it on IBM Z for low-latency inference co-located with your enterprise data, business applications, and high-volume transactions.</p>
+                <p><em>Note: Preparing data and building models off-platform is a practical approach. IBM Z is designed to deliver the greatest AI value when models are deployed and served on-platform, where they co-locate with enterprise data, business applications, and high-volume transactions.</em></p>
               </div>
             </div>
 
@@ -91,7 +91,7 @@
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>You don't have access to production data yet, or you want to move quickly without data privacy concerns.</p>
+                <p>You don't have access to production data yet, or you want to move quickly without data privacy concerns. Synthetic datasets are currently available for three use cases: <strong>banking</strong>, <strong>AML</strong>, and <strong>insurance</strong>.</p>
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Start with <a href="../products-tools/data-analytics.html#synthetic-data-sets">IBM Synthetic Data Sets</a>.</strong> Pre-built, realistic datasets help you build, test, and validate models without waiting for production data access.</p>
@@ -122,7 +122,7 @@
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Writing Python-Based Data Preparation Scripts on IBM Z</span>
                   <span class="dc-badge dc-badge--on">On-Platform</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a></span>
+                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM z/OS</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -130,7 +130,7 @@
                 <p>Your team prefers Python-based workflows and you want to run data preparation scripts directly on z/OS, close to your enterprise data.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use the <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a>.</strong> This toolkit provides a Python runtime and popular data science libraries (NumPy, pandas, scikit-learn, and more) optimized to run natively on z/OS.</p>
+                <p><strong>→ Use the <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM z/OS</a>.</strong> This toolkit provides a Python runtime and popular data science libraries (NumPy, pandas, scikit-learn, and more) optimized to run natively on z/OS.</p>
                 <p><em>Common approach:</em> Use pandas and scikit-learn pipelines to cleanse, transform, and engineer features from Db2 or VSAM data, keeping all processing on-platform without exporting data to an external environment.</p>
               </div>
             </div>
@@ -150,7 +150,7 @@
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Red Hat OpenShift AI supports the full AI lifecycle and runs anywhere OpenShift is available, including Linux on Z and z/OS Container Extensions (zCX). On IBM Z, it is most commonly used for deployment, inference, and governance.</p>
                 <p><em>Common approach:</em> Use Red Hat OpenShift AI in an existing cloud, x86, or OpenShift environment for data preparation and model development, then deploy models to IBM Z for production inference. Teams already using OpenShift AI can extend existing workflows and tooling to IBM Z.</p>
-                <p><em>Note: Data preparation can be performed with Red Hat OpenShift AI on IBM Z. Organizations focused primarily on on-platform data preparation may also consider <a href="../products-tools/data-analytics.html#apache-spark">IBM Z Platform for Apache Spark</a> or <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a>.</em></p>
+                <p><em>Note: Data preparation can be performed with Red Hat OpenShift AI on IBM Z. Organizations focused primarily on on-platform data preparation may also consider <a href="../products-tools/data-analytics.html#apache-spark">IBM Z Platform for Apache Spark</a> or <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM z/OS</a>.</em></p>
               </div>
             </div>
 
@@ -352,7 +352,7 @@
       pageNavItems: [
         { id: 'overview',       label: 'Overview' },
         { id: 'where-to-start', label: 'Where to Start' },
-        { id: 'next-step',      label: 'Next: Train Model' },
+        { id: 'next-step',      label: 'Next: Build Models' },
       ]
     });
 

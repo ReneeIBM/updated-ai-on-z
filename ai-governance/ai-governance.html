@@ -52,18 +52,18 @@
           </div>
 
           <h2>Who is this stage for?</h2>
-          <p>AI governance is primarily owned by <strong>Legal teams</strong> and <strong>ML Engineers</strong> in production, with <strong>Data Scientists</strong> and <strong>Data Engineers</strong> as key contributors. The Legal team sets compliance requirements; Data Scientists interpret monitoring results and determine when retraining is needed. On IBM Z, IT Architects are involved in ensuring governance tooling integrates with existing z/OS security and audit infrastructure.</p>
+          <p>AI governance is primarily owned by <strong>AI Governance Leads</strong> and <strong>AI Risk and Compliance Managers</strong>, with <strong>ML Engineers</strong>, <strong>Data Scientists</strong>, and <strong>Data Engineers</strong> as key contributors. AI Governance Leads set compliance requirements and oversee model accountability; Data Scientists interpret monitoring results and determine when retraining is needed. On IBM Z, IT Architects are involved in ensuring governance tooling integrates with existing z/OS security and audit infrastructure.</p>
         </section>
 
         <!-- ── THE GOVERNANCE LIFECYCLE ON IBM Z ─────────────────────── -->
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Start with the governance capabilities available on IBM Z. watsonx.governance is also available as an additional tool for organizations that want enterprise-wide model tracking, regulatory reporting, or expanded monitoring.</p>
+          <p>Start with the governance capabilities available on IBM Z. The tools below support both on-platform and off-platform governance — some run natively on IBM Z, others are available across environments including directly on IBM Z.</p>
 
-          <!-- ── ON-PREM IBM Z TOOLS FIRST ── -->
-          <h2>On-Platform IBM Z Governance Tools</h2>
-          <p>The following tools run directly on IBM Z, within your z/OS security boundary. Data never leaves the platform for monitoring, explainability, or audit.</p>
+          <!-- ── GOVERNANCE TOOLS ── -->
+          <h2 id="governance-tools">On-Platform and Off-Platform Governance Tools</h2>
+          <p>The following tools provide governance capabilities for models on IBM Z. MLz Trustworthy AI and TrustyAI run natively on-platform. watsonx.governance and TrustyAI are available both on-platform and off-platform.</p>
 
           <div class="decision-cards">
 
@@ -71,6 +71,7 @@
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Governance for models on z/OS — MLz Trustworthy AI</span>
+                  <span class="dc-badge dc-badge--on">On-Platform</span>
                   <span class="dc-pill"><a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
@@ -87,32 +88,26 @@
             <div class="decision-card">
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
-                  <span class="dc-trigger-title">Governance for containerized models on Linux on Z — TrustyAI</span>
+                  <span class="dc-trigger-title">Governance for containerized models — TrustyAI</span>
+                  <span class="dc-badge dc-badge--flex">Flexible</span>
                   <span class="dc-pill">TrustyAI · <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>Your models are deployed on Red Hat OpenShift AI on Linux on Z and you need bias detection, explainability, and fairness monitoring integrated into your containerized AI platform.</p>
+                <p>Your models are deployed on Red Hat OpenShift AI on Linux on IBM Z and you need bias detection, explainability, and fairness monitoring integrated into your containerized AI platform.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use TrustyAI for <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> TrustyAI is an open-source AI explainability and fairness toolkit integrated directly into Red Hat OpenShift AI, providing on-platform governance for containerized model workloads on Linux on Z.</p>
+                <p><strong>→ Use TrustyAI for <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> TrustyAI is an open-source AI explainability and fairness toolkit integrated directly into Red Hat OpenShift AI, providing governance for containerized model workloads on Linux on IBM Z. TrustyAI is available both on-platform and off-platform.</p>
                 <p><em>Common approach:</em> Deploy model through Red Hat OpenShift AI → Enable TrustyAI → Monitor predictions for bias and fairness → Generate explainability outputs for audit.</p>
               </div>
             </div>
-
-          </div>
-
-          <!-- ── WATSONX.GOVERNANCE ── -->
-          <h2>Off-Platform Governance with watsonx.governance</h2>
-          <p>watsonx.governance is an AI governance platform from IBM that provides model monitoring, fairness tracking, explainability, lineage documentation, and compliance reporting across the AI lifecycle.</p>
-
-          <div class="decision-cards">
 
             <div class="decision-card">
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Enterprise-wide model tracking and compliance — watsonx.governance</span>
+                  <span class="dc-badge dc-badge--flex">Flexible</span>
                   <span class="dc-pill"><a href="../products-tools/ai-platforms.html#watsonx-governance">watsonx.governance</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
@@ -121,7 +116,7 @@
                 <p>You want expanded governance capabilities such as enterprise-wide model inventory, regulatory compliance workflows, or centralized audit reporting across multiple environments.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#watsonx-governance">watsonx.governance</a></strong> as an additional governance layer. watsonx.governance is available directly on IBM Z (Linux on IBM Z and LinuxONE). On-platform capabilities include AI Factsheets for model lineage and audit documentation, OpenScale Monitoring for fairness, drift detection, and explainability, and Watson Machine Learning (WML) for model deployment lifecycle management and centralized monitoring across environments.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#watsonx-governance">watsonx.governance</a>.</strong> watsonx.governance is available both on-platform (Linux on IBM Z and LinuxONE) and off-platform. On-platform capabilities include AI Factsheets for model lineage and audit documentation, OpenScale Monitoring for fairness, drift detection, and explainability, and Watson Machine Learning (WML) for model deployment lifecycle management and centralized monitoring across environments.</p>
                 <p><em>Common approach:</em> Establish on-platform governance with <a href="../products-tools/ai-platforms.html#mlz">MLz</a> Trustworthy AI and TrustyAI → Use watsonx.governance for broader model inventory, compliance reporting, or cross-environment monitoring.</p>
               </div>
             </div>
@@ -298,6 +293,22 @@
       color: var(--ibm-text-primary);
       line-height: 1;
     }
+    /* ── Decision card badges ── */
+    .dc-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .dc-badge--off  { background: #e8e8e8; color: #393939; }
+    .dc-badge--on   { background: #defbe6; color: #044317; }
+    .dc-badge--flex { background: #edf5ff; color: #002d9c; }
   </style>
 
   <script src="../nav.js"></script>
@@ -307,9 +318,10 @@
       activeTop: 'lifecycle',
       activeSub: 'ai-governance',
       pageNavItems: [
-        { id: 'overview',             label: 'Overview' },
-        { id: 'where-to-start',       label: 'Where to Start' },
-        { id: 'next-steps',           label: 'Where to Go from Here' },
+        { id: 'overview',          label: 'Overview' },
+        { id: 'where-to-start',    label: 'Where to Start' },
+        { id: 'governance-tools',  label: 'On-Platform and Off-Platform Governance Tools' },
+        { id: 'next-steps',        label: 'Where to Go from Here' },
       ]
     });
 

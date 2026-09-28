@@ -61,8 +61,8 @@
           <p>Your starting point depends on the type of model you're building. The three paths below reflect how IBM Z typically supports the spectrum of model types.</p>
 
           <!-- ── SUBSECTION 1: Traditional ML ── -->
-          <h2>Building Traditional Machine Learning Models</h2>
-          <p>You are working with structured or tabular data and need models such as classification, regression, forecasting, or recommendation systems.</p>
+          <h2 id="traditional-ml">Building Traditional Machine Learning Models</h2>
+          <p>You are working with structured or tabular data and need models such as classification, regression, or forecasting systems.</p>
 
           <div class="decision-cards">
 
@@ -70,7 +70,7 @@
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Training traditional ML models on IBM Z — Snap ML</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated Snap ML</a></span>
+                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated SnapML</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -78,16 +78,16 @@
                 <p>You need to train classical ML models on IBM Z using a library optimized for the platform.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated Snap ML</a>.</strong> Snap ML is the primary training technology for traditional ML on IBM Z, supporting classification, regression, and recommendation models. Decision tree ensemble inference is accelerated on the Telum on-chip AI accelerator.</p>
-                <p><em>Common approach:</em> Prepare features → Train with Snap ML → Export to <a href="../products-tools/model-formats.html#pmml">PMML</a> → Deploy via <a href="../products-tools/ai-platforms.html#mlz">MLz</a> or AI Toolkit.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated SnapML</a>.</strong> Snap ML is the primary training technology for traditional ML on IBM Z, supporting classification and regression models. Decision tree ensemble inference is optimized on the Telum on-chip AI accelerator. IBM Z Accelerated SnapML is available as a container through the <a href="../products-tools/ai-frameworks.html#ai-toolkit">AI Toolkit for IBM Z and IBM LinuxONE</a> via the IBM Container Registry (ICR).</p>
+                <p><em>Common approach:</em> Prepare features → Train with Snap ML → Export to <a href="../products-tools/model-formats.html#pmml">PMML</a> → Deploy via <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a> or AI Toolkit.</p>
               </div>
             </div>
 
             <div class="decision-card">
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
-                  <span class="dc-trigger-title">Python notebooks and scikit-learn on z/OS — Python AI Toolkit</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM Z</a></span>
+                  <span class="dc-trigger-title">Python notebooks and scikit-learn on z/OS — Python AI Toolkit for IBM z/OS</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM z/OS</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -95,8 +95,8 @@
                 <p>You prefer Python and want to train models using familiar libraries such as scikit-learn, XGBoost, pandas, and NumPy, running natively on z/OS.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use the <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM z/OS</a>.</strong> Provides a curated Python runtime with data science libraries that run natively on z/OS, close to enterprise data sources.</p>
-                <p><em>Common approach:</em> Explore data in notebooks → Train with scikit-learn or XGBoost → Export to <a href="../products-tools/model-formats.html#pmml">PMML</a> → Deploy.</p>
+                <p><strong>→ Use the <a href="../products-tools/ai-frameworks.html#python-ai-toolkit">Python AI Toolkit for IBM z/OS</a>.</strong> Provides a curated Python runtime with data science libraries that run natively on z/OS, close to enterprise data sources. Available as a container through the <a href="../products-tools/ai-frameworks.html#ai-toolkit">AI Toolkit for IBM Z and IBM LinuxONE</a> via the IBM Container Registry (ICR).</p>
+                <p><em>Common approach:</em> Explore data in Jupyter Notebooks → Train with scikit-learn or XGBoost → Export to <a href="../products-tools/model-formats.html#pmml">PMML</a> → Deploy.</p>
               </div>
             </div>
 
@@ -129,15 +129,15 @@
                 <p>You want model development, training, management, and scoring integrated directly into the z/OS environment without containerization.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> MLz provides a z/OS-native environment covering the full lifecycle — from training in notebooks to deploying CICS and REST scoring endpoints.</p>
-                <p><em>Common approach:</em> Develop and train models in MLz Jupyter Notebooks → Operationalize through MLz → Expose as scoring endpoints for z/OS applications.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> MLz provides a z/OS-native environment covering the full lifecycle — from training in Jupyter Notebooks to deploying scoring endpoints. MLz also includes explainability features, such as pre- and post-processing support, to help build trustworthy AI models.</p>
+                <p><em>Common approach:</em> Develop and train models in MLz Jupyter Notebooks → Deploy using MLz → Expose as scoring endpoints (CICS, IMS, REST API, or batch) for z/OS applications.</p>
               </div>
             </div>
 
           </div>
 
           <!-- ── SUBSECTION 2: Deep Learning ── -->
-          <h2>Building Deep Learning Models</h2>
+          <h2 id="deep-learning">Building Deep Learning Models</h2>
           <p>You need to develop neural networks for computer vision, natural language processing, or other unstructured data workloads. Deep learning models are trained with TensorFlow or PyTorch and typically exported to ONNX for deployment.</p>
 
           <div class="decision-cards">
@@ -146,7 +146,7 @@
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Native TensorFlow or PyTorch on IBM Z</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow</a> · <a href="../products-tools/ai-frameworks.html#pytorch">PyTorch</a></span>
+                  <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow</a> · <a href="../products-tools/ai-frameworks.html#pytorch">IBM Z Accelerated for PyTorch</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -154,9 +154,9 @@
                 <p>You are building deep learning models using TensorFlow or PyTorch and want to train and deploy natively on IBM Z.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow</a> or <a href="../products-tools/ai-frameworks.html#pytorch">IBM Z Accelerated for PyTorch</a>.</strong> Both frameworks are optimized for IBM Z hardware and generate models that leverage the Telum on-chip AI accelerator for inference.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow</a> or <a href="../products-tools/ai-frameworks.html#pytorch">IBM Z Accelerated for PyTorch</a>.</strong> Both frameworks are optimized for IBM Z hardware and generate models that leverage the on-chip AI accelerator on Telum and Telum II for inference. Both are available as containers through the <a href="../products-tools/ai-frameworks.html#ai-toolkit">AI Toolkit for IBM Z and IBM LinuxONE</a> via the IBM Container Registry (ICR).</p>
                 <p><em>Common approach:</em> Prepare data → Train with TensorFlow or PyTorch → Deploy directly via <a href="../products-tools/inference-serving.html#triton">Triton Inference Server</a> or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</p>
-                <p><em>Note: Native TensorFlow and PyTorch models cannot be imported into <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for z/OS (MLz)</a>. Use the ONNX path below if deploying to MLz.</em></p>
+                <p><em>Note: Native TensorFlow and PyTorch models cannot be imported into <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>. Use the ONNX path below if deploying to MLz.</em></p>
               </div>
             </div>
 
@@ -164,7 +164,7 @@
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">ONNX-format deep learning models</span>
-                  <span class="dc-pill"><a href="../products-tools/model-formats.html#onnx">ONNX</a> · <a href="../products-tools/model-formats.html#zdlc">zDLC</a></span>
+                  <span class="dc-pill"><a href="../products-tools/model-formats.html#onnx">ONNX</a> · <a href="../products-tools/model-formats.html#zdlc">Z Deep Learning Compiler</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -172,7 +172,7 @@
                 <p>You are using any deep learning framework — Keras, PyTorch, TensorFlow, or others — and want to convert your model to ONNX for deployment on IBM Z.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Convert your model to <a href="../products-tools/model-formats.html#onnx">ONNX</a> format</strong> using your framework of choice, then deploy to IBM Z. To ensure the model leverages the Telum on-chip AI accelerator for inference, it must be optimized using the <a href="../products-tools/model-formats.html#zdlc">IBM Z Deep Learning Compiler (zDLC)</a>.</p>
+                <p><strong>→ Convert your model to <a href="../products-tools/model-formats.html#onnx">ONNX</a> format</strong> using your framework of choice, then deploy to IBM Z. To ensure the model leverages the on-chip AI accelerator on Telum and Telum II for inference, it must be optimized using the <a href="../products-tools/model-formats.html#zdlc">IBM Z Deep Learning Compiler (zDLC)</a>. The zDLC is available as a container through the <a href="../products-tools/ai-frameworks.html#ai-toolkit">AI Toolkit for IBM Z and IBM LinuxONE</a> via the IBM Container Registry (ICR).</p>
                 <p><em>Common approach:</em> Train with Keras, PyTorch, TensorFlow, or another framework → Export to ONNX → then:</p>
                 <ul class="dc-list">
                   <li><strong>Deploying to <a href="../products-tools/inference-serving.html#triton">Triton Inference Server</a> or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>:</strong> explicitly compile with the IBM Z Deep Learning Compiler (zDLC) before deploying.</li>
@@ -190,19 +190,19 @@
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>Multiple teams need shared workspaces, automated pipelines, and MLOps capabilities for deep learning workloads.</p>
+                <p>Multiple teams need shared workspaces, automated pipelines, and AI capabilities using deep learning models.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Provides data science workbenches, Kubeflow pipelines, and model lifecycle management on Linux on IBM Z.</p>
-                <p><em>Common approach:</em> Create shared projects → Train TensorFlow or PyTorch models → Promote through MLOps pipelines → Deploy on IBM Z.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Provides data science workbenches, Kubeflow pipelines, and model lifecycle management on Linux on IBM Z. If your organization already uses OpenShift on distributed or x86 platforms, those same skills and workflows carry over directly to IBM Z — the OpenShift experience is consistent regardless of the underlying platform.</p>
+                <p><em>Common approach:</em> Create shared projects → Train TensorFlow or PyTorch models → Promote through OpenShift pipelines → Deploy on IBM Z.</p>
               </div>
             </div>
 
           </div>
 
           <!-- ── SUBSECTION 3: LLMs ── -->
-          <h2>Using and Tuning Large Language Models</h2>
-          <p>Large language models can be sourced from IBM, open source communities, or commercial providers and then deployed directly or adapted for specific use cases. IBM Z supports serving foundation models, fine-tuning them with enterprise data, and shaping model behavior through techniques such as prompt engineering.</p>
+          <h2 id="llm">Using and Tuning Large Language Models</h2>
+          <p>Large language models can be sourced from IBM, open source communities, or commercial providers and then deployed directly or adapted for specific use cases. IBM Z supports serving foundation models, fine-tuning them with enterprise data, and shaping model behavior.</p>
 
           <div class="decision-cards">
 
@@ -219,6 +219,7 @@
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a></strong> (for Spyre-accelerated decoder LLMs) or <strong><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> (for broader model management and serving on IBM Z) to serve a pre-built LLM sourced from Hugging Face or an IBM model repository. No fine-tuning or training is required.</p>
+                <p><em>Note: Red Hat AI Inference Server runs standalone and does not require Red Hat OpenShift. Red Hat OpenShift AI is the better fit if your organization already has an OpenShift container strategy.</em></p>
                 <p><em>Common approach:</em> Select a model from Hugging Face or an IBM repository → Serve via Red Hat AI Inference Server or Red Hat OpenShift AI on IBM Z → Integrate with your application.</p>
               </div>
             </div>
@@ -235,9 +236,9 @@
                 <p>You have domain-specific documents, transaction records, or internal knowledge you want the model to learn from.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> to fine-tune a pre-existing LLM with your own unstructured text data. Red Hat OpenShift AI provides fine-tuning pipelines and shared workspaces for model customization on IBM Z. Fine-tuning adjusts model weights using your data without training from scratch.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> to fine-tune a pre-existing LLM with your own unstructured text data. Red Hat OpenShift AI provides fine-tuning pipelines and shared workspaces for model customization on IBM Z. Fine-tuning adjusts model weights using your data without training from scratch, saving significant time and resources compared to building and training a model from the ground up.</p>
+                <p><em>Note: Red Hat OpenShift AI is the better fit if your organization already has an OpenShift container strategy. The fine-tuned model can then be served via Red Hat OpenShift AI or Red Hat AI Inference Server, which runs standalone outside of OpenShift.</em></p>
                 <p><em>Common approach:</em> Source a base LLM from Hugging Face or an IBM repository → Fine-tune using Red Hat OpenShift AI → Deploy the fine-tuned model via Red Hat OpenShift AI or <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</p>
-                <p><em>Note: Fine-tuning for LLMs uses unstructured text and does not require the structured data preparation steps (feature engineering, train/test splits) used in traditional ML.</em></p>
               </div>
             </div>
 
@@ -446,9 +447,12 @@
       activeTop: 'lifecycle',
       activeSub: 'train-model',
       pageNavItems: [
-        { id: 'overview',       label: 'Overview' },
-        { id: 'where-to-start', label: 'Where to Start: Traditional ML' },
-        { id: 'next-steps',     label: 'Next Steps' },
+        { id: 'overview',          label: 'Overview' },
+        { id: 'where-to-start',    label: 'Where to Start' },
+        { id: 'traditional-ml',    label: 'Building Traditional Machine Learning Models' },
+        { id: 'deep-learning',     label: 'Building Deep Learning Models' },
+        { id: 'llm',               label: 'Using and Tuning Large Language Models' },
+        { id: 'next-steps',        label: 'Next Steps' },
       ]
     });
 

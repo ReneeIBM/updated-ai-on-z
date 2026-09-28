@@ -21,7 +21,6 @@
       <!-- ── Page Hero ──────────────────────────────────────────── -->
       <div class="page-hero">
         <h1>Use Cases &amp; AI Entry Points</h1>
-        <p>Organizations adopt AI on IBM Z and LinuxONE differently based on their business goals. Some may adopt a pre-built solution, deploy an existing model, or build their own. Understanding these entry points can help you identify the products, skills, and lifecycle stages most relevant to your AI journey.</p>
       </div>
 
       <div class="page-body">
@@ -31,7 +30,7 @@
         ═══════════════════════════════════════════ -->
         <section class="section" id="overview">
           <h1>Overview</h1>
-          <p>The sections below walk through the three AI entry points, a comparison table to help you choose, and next steps for your AI journey on IBM Z.</p>
+          <p>Organizations adopt AI on IBM Z and LinuxONE differently based on their business goals. Some may adopt a pre-built solution, deploy an existing model, or build their own. Understanding these entry points can help you identify the products, skills, and lifecycle stages most relevant to your AI journey.</p>
         </section>
 
         <!-- ══════════════════════════════════════════
@@ -41,47 +40,10 @@
           <h2 style="font-size:22px;letter-spacing:-0.3px;">The Three AI Entry Points</h2>
           <p>While AI implementations vary, many follow a similar path from identifying a business problem to delivering AI-driven outcomes. The three entry points below reflect common approaches organizations take when adopting AI on IBM Z.</p>
 
-          <!-- Flow diagram — wrapped in a container box -->
-          <div style="background:var(--ibm-gray-10);border:1px solid var(--ibm-border);border-radius:6px;padding:24px 20px;margin:20px 0 24px;overflow-x:auto;">
-          <div class="entry-flow">
-            <div class="entry-flow-row">
-              <div class="entry-flow-node entry-flow-start">
-                <span class="entry-flow-icon">&#9654;</span>
-                Define<br>Use Case
-              </div>
-              <div class="entry-flow-arrow">&#8594;</div>
-
-              <div class="entry-flow-fork">
-                <div class="entry-flow-node entry-flow-ep1">
-                  <span class="ep-badge">1</span>
-                  Turnkey<br>Solution
-                </div>
-                <div class="entry-flow-node entry-flow-ep2">
-                  <span class="ep-badge">2</span>
-                  Select a<br>Model
-                </div>
-                <div class="entry-flow-node entry-flow-ep3">
-                  <span class="ep-badge">3</span>
-                  Build Your<br>Own Model
-                </div>
-              </div>
-
-              <div class="entry-flow-arrow">&#8594;</div>
-              <div class="entry-flow-node entry-flow-mid">
-                Deploy<br>Model
-              </div>
-              <div class="entry-flow-arrow">&#8594;</div>
-              <div class="entry-flow-node entry-flow-mid">
-                Application<br>Calls AI
-              </div>
-              <div class="entry-flow-arrow">&#8594;</div>
-              <div class="entry-flow-node entry-flow-end">
-                <span class="entry-flow-icon">&#9733;</span>
-                AI<br>Insights
-              </div>
-            </div>
+          <!-- Flow diagram — inserted image -->
+          <div style="background:#ffffff;border:1px solid var(--ibm-border);border-radius:6px;padding:16px;margin:20px 0 24px;overflow-x:auto;">
+            <img src="ai-entry-points-diagram.png" alt="The Three AI Entry Points: Turnkey solution, Select model via IBM or vendor, and Build your own model" style="width:100%;max-width:960px;height:auto;display:block;margin:0 auto;" />
           </div>
-          </div><!-- /entry-flow wrapper box -->
 
           <!-- Three entry point cards -->
           <div class="ep-card-grid">
@@ -168,7 +130,7 @@
           <h1>Next Steps</h1>
           <div class="ns-tile-grid">
             <a href="use-cases.html" class="ns-tile">
-              <span class="ns-tile-label">Example AI Solution Blueprint</span>
+              <span class="ns-tile-label">Advanced Credit Card Fraud Detection</span>
               <span class="ns-tile-body">See a full end-to-end solution blueprint — Advanced Credit Card Fraud Detection using an XGBoost and BERT ensemble on IBM z17.</span>
               <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
             </a>
@@ -201,7 +163,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 0;
-      max-width: 900px;
       margin-top: 8px;
     }
     .ns-tile {
