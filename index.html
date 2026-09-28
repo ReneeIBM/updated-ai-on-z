@@ -37,7 +37,7 @@
       font-size: 16px;
       line-height: 1.7;
       color: rgba(255,255,255,0.75);
-      max-width: 640px;
+      max-width: 900px;
       margin-bottom: 36px;
     }
     .home-hero-ctas {
@@ -81,7 +81,7 @@
       font-size: 15px;
       color: var(--ibm-text-secondary);
       line-height: 1.7;
-      max-width: 720px;
+      max-width: 900px;
       margin-bottom: 10px;
     }
     .home-why-grid {
@@ -384,8 +384,9 @@
   </header>
   <nav class="lifecycle-nav" id="lifecycle-nav"></nav>
 
-  <div class="page-shell" style="flex-direction:column;min-height:calc(100vh - 64px);">
-    <div class="main-content" style="width:100%;">
+  <div class="page-shell" style="min-height:calc(100vh - 64px);">
+    <nav class="pagenav" id="pagenav"></nav>
+    <div class="main-content">
 
       <!-- ── Hero ──────────────────────────────────────────── -->
       <div class="home-hero">
@@ -401,7 +402,7 @@
       <div class="home-body">
 
         <!-- What is AI on IBM Z -->
-        <div class="home-intro">
+        <div class="home-intro" id="what-is-ai">
           <h2>What is AI and IBM Z</h2>
           <p>Artificial Intelligence (AI) is transforming how organizations create value by turning data into actionable insights, agentic workflows, and decision support. IBM Z, the industry's leading enterprise computing platform, provides the performance, security, resiliency, and scalability required to run mission-critical workloads while bringing AI directly to enterprise data and transactions, and also using AI to simplify operations of IBM Z. AI on IBM Z features state-of-the-art hardware and software capabilities designed to optimize AI at scale alongside your enterprise's most critical workloads and data. This includes hardware accelerators such as the IBM Telum on-chip inference accelerator, a broad portfolio of IBM software, open-source frameworks, and an ecosystem of ISV solutions for specific enterprise use cases.</p>
           <p>Together, AI and IBM Z enable organizations to accelerate innovation across two complementary domains: <strong>AI for Business</strong> and <strong>AI for Operations</strong>. By combining these two categories, IBM Z helps enterprises unlock the full potential of AI across both business processes and technology operations.</p>
@@ -414,25 +415,66 @@
 
           <hr class="home-section-divider" style="margin:36px 0 32px;" />
 
-          <h2>What is the purpose of this page?</h2>
+          <h2 id="purpose">What is the purpose of this page?</h2>
           <p>This site is designed to help AI practitioners and IBM Z architects get started on their journey to leveraging AI in their IBM Z environment — with guidance on the AI lifecycle, products and tools, and example use cases and solution blueprints.</p>
           <p>The scope of this AI on Z 101 Github page covers <strong>Transactional AI for business</strong>: example use case patterns, how AI on Z fits into the AI lifecycle, and products and tools that help with AI implementations on the platform. For more information on AI for Operations, visit the <a href="use-cases/business-use-cases.html" style="color:var(--ibm-blue);font-weight:600;">Non-business use cases</a> page for more details.</p>
 
           <hr class="home-section-divider" style="margin:36px 0 32px;" />
 
-          <h3 style="font-size:22px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 16px;letter-spacing:-0.3px;">What AI on IBM Z can do for your business</h3>
+          <h3 id="ai-value" style="font-size:22px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 20px;letter-spacing:-0.3px;">What AI on IBM Z can do for your business</h3>
 
-          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;">
-            <li><strong>Bring AI closer to your enterprise data</strong> — Access and analyze data where it already resides, reducing complexity and accelerating time to insight through colocation of AI and transactions.</li>
-            <li><strong>Power real-time transactional AI</strong> — Embed AI directly into business transactions — from fraud detection and anti-money laundering to personalized offerings — to support faster, more intelligent decision making.</li>
-            <li><strong>Build on security and resilience</strong> — Run AI workloads on the same trusted platform that supports many of the world's most critical business operations.</li>
-            <li><strong>Simplify the path to production</strong> — Reduce architectural complexity and streamline the journey from experimentation to deployment.</li>
-            <li><strong>Data and AI sovereignty</strong> — Keep full control over your data, your AI models, and — for generative AI use cases — even your prompts and inference data. Running AI on-prem on IBM Z means no third-party access to your assets, helping address regulatory and governance requirements.</li>
-          </ul>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;max-width:960px;">
+
+            <!-- Bring AI closer to your enterprise data -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/data--storage.svg" width="48" height="48" alt="Data storage pictogram" style="flex-shrink:0;" />
+              <div>
+                <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Bring AI closer to your enterprise data</p>
+                <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Access and analyze data where it already resides, reducing complexity and accelerating time to insight through colocation of AI and transactions.</p>
+              </div>
+            </div>
+
+            <!-- Power real-time transactional AI -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/lightning.svg" width="48" height="48" alt="Lightning pictogram" style="flex-shrink:0;" />
+              <div>
+                <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Power real-time transactional AI</p>
+                <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Embed AI directly into business transactions — from fraud detection and anti-money laundering to personalized offerings — to support faster, more intelligent decision making.</p>
+              </div>
+            </div>
+
+            <!-- Build on security and resilience -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/cybersecurity.svg" width="48" height="48" alt="Cybersecurity pictogram" style="flex-shrink:0;" />
+              <div>
+                <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Build on security and resilience</p>
+                <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Run AI workloads on the same trusted platform that supports many of the world's most critical business operations.</p>
+              </div>
+            </div>
+
+            <!-- Simplify the path to production -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/deployment.svg" width="48" height="48" alt="Deployment pictogram" style="flex-shrink:0;" />
+              <div>
+                <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Simplify the path to production</p>
+                <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Reduce architectural complexity and streamline the journey from experimentation to deployment.</p>
+              </div>
+            </div>
+
+            <!-- Data and AI sovereignty -->
+            <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/data--privacy.svg" width="48" height="48" alt="Data privacy pictogram" style="flex-shrink:0;" />
+              <div>
+                <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Data and AI sovereignty</p>
+                <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Keep full control over your data, your AI models, and — for generative AI use cases — even your prompts and inference data. Running AI on-prem on IBM Z means no third-party access to your assets, helping address regulatory and governance requirements.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <!-- Capabilities overview -->
-        <div class="home-intro" style="margin-bottom:48px;">
+        <div class="home-intro" id="what-you-can-build" style="margin-bottom:48px;">
           <h2>What you can build on IBM Z</h2>
           <p>AI on IBM Z supports a wide range of business use cases across all three AI approaches. Below are representative examples of what organizations are running today.</p>
           <div class="home-why-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); margin-top:20px;">
@@ -455,7 +497,7 @@
         <hr class="home-section-divider" />
 
         <!-- Where to start -->
-        <div style="margin-bottom:20px;">
+        <div id="where-to-start" style="margin-bottom:20px;">
           <h2 style="font-size:22px;font-weight:600;color:var(--ibm-text-primary);letter-spacing:-0.3px;margin-bottom:4px;">Where to start</h2>
           <p style="font-size:14px;color:var(--ibm-text-secondary);margin:0 0 4px;">The path to get started with AI on IBM Z today</p>
           <p style="font-size:13px;font-weight:600;color:var(--ibm-text-secondary);margin:0 0 28px;">IBM's investment in partnering with clients</p>
@@ -580,7 +622,7 @@
         <hr class="home-section-divider" />
 
         <!-- Contact us -->
-        <div class="home-contact">
+        <div id="contact" class="home-contact">
           <h3>Contact Us</h3>
           <p>Have questions about AI on IBM Z, want to request a workshop, or looking to connect with the team? Reach out to us directly.</p>
           <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 16px;background:var(--ibm-gray-10);border-radius:6px;border:1px solid var(--ibm-border);">
@@ -601,7 +643,14 @@
       root: '',
       activeTop: 'overview',
       activeSub: null,
-      pageNavItems: []
+      pageNavItems: [
+        { id: 'what-is-ai',        label: 'What is AI and IBM Z' },
+        { id: 'purpose',           label: 'Purpose of this page' },
+        { id: 'ai-value',          label: 'What AI on IBM Z can do for your business' },
+        { id: 'what-you-can-build',label: 'What you can build on IBM Z' },
+        { id: 'where-to-start',    label: 'Where to Start' },
+        { id: 'contact',           label: 'Contact Us' },
+      ]
     });
 
     // Accordion toggle
