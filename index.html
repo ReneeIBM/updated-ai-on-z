@@ -374,6 +374,10 @@
       .home-body {
         padding: 24px 16px 48px;
       }
+      /* Pictogram card grid: force single column on small phones */
+      #ai-value ~ div[style*="grid"] {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>
@@ -427,7 +431,7 @@
 
             <!-- Bring AI closer to your enterprise data -->
             <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
-              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/data--storage.svg" width="48" height="48" alt="Data storage pictogram" style="flex-shrink:0;" />
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/data--storage.svg" width="48" height="48" alt="Data storage pictogram" style="flex-shrink:0;max-width:100%;" />
               <div>
                 <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Bring AI closer to your enterprise data</p>
                 <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Access and analyze data where it already resides, reducing complexity and accelerating time to insight through colocation of AI and transactions.</p>
@@ -436,7 +440,7 @@
 
             <!-- Power real-time transactional AI -->
             <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
-              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/lightning.svg" width="48" height="48" alt="Lightning pictogram" style="flex-shrink:0;" />
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/lightning.svg" width="48" height="48" alt="Lightning pictogram" style="flex-shrink:0;max-width:100%;" />
               <div>
                 <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Power real-time transactional AI</p>
                 <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Embed AI directly into business transactions — from fraud detection and anti-money laundering to personalized offerings — to support faster, more intelligent decision making.</p>
@@ -445,7 +449,7 @@
 
             <!-- Build on security and resilience -->
             <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
-              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/cybersecurity.svg" width="48" height="48" alt="Cybersecurity pictogram" style="flex-shrink:0;" />
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/cybersecurity.svg" width="48" height="48" alt="Cybersecurity pictogram" style="flex-shrink:0;max-width:100%;" />
               <div>
                 <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Build on security and resilience</p>
                 <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Run AI workloads on the same trusted platform that supports many of the world's most critical business operations.</p>
@@ -454,7 +458,7 @@
 
             <!-- Simplify the path to production -->
             <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
-              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/deployment.svg" width="48" height="48" alt="Deployment pictogram" style="flex-shrink:0;" />
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/deployment.svg" width="48" height="48" alt="Deployment pictogram" style="flex-shrink:0;max-width:100%;" />
               <div>
                 <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Simplify the path to production</p>
                 <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Reduce architectural complexity and streamline the journey from experimentation to deployment.</p>
@@ -463,7 +467,7 @@
 
             <!-- Data and AI sovereignty -->
             <div style="border:1px solid var(--ibm-border);border-radius:8px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;background:#fff;">
-              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/data--privacy.svg" width="48" height="48" alt="Data privacy pictogram" style="flex-shrink:0;" />
+              <img src="https://raw.githubusercontent.com/carbon-design-system/carbon/main/packages/pictograms/src/svg/data--privacy.svg" width="48" height="48" alt="Data privacy pictogram" style="flex-shrink:0;max-width:100%;" />
               <div>
                 <p style="font-size:14px;font-weight:600;color:var(--ibm-text-primary);margin:0 0 6px;">Data and AI sovereignty</p>
                 <p style="font-size:13px;color:var(--ibm-text-secondary);line-height:1.65;margin:0;">Keep full control over your data, your AI models, and — for generative AI use cases — even your prompts and inference data. Running AI on-prem on IBM Z means no third-party access to your assets, helping address regulatory and governance requirements.</p>

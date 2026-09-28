@@ -23,7 +23,7 @@ function renderNav(opts) {
   const lifecycleItems = [
     { id: 'lifecycle-overview', label: 'Overview',   href: p + 'prepare-data/lifecycle-overview.html', tools: [] },
     { id: 'prepare-data',   label: 'Prepare Data',   href: p + 'prepare-data/prepare-data.html',       tools: [] },
-    { id: 'train-model',    label: 'Build Models',   href: p + 'train-model/train-model.html',         tools: [] },
+    { id: 'build-model',    label: 'Build Models',   href: p + 'build-model/build-model.html',         tools: [] },
     { id: 'deploy-models',  label: 'Deploy Models',  href: p + 'deploy-models/deploy-models.html',     tools: [] },
     { id: 'serve-model',    label: 'Serve Model',    href: p + 'serve-model/serve-model.html',         tools: [] },
     { id: 'ai-governance',  label: 'AI Governance',  href: p + 'ai-governance/ai-governance.html',     tools: [] },
@@ -320,12 +320,12 @@ function initSearch(wrapper, root) {
     { title: 'Python AI Toolkit for z/OS', section: 'Prepare Data', snippet: 'A curated set of Python AI/ML packages — NumPy, Pandas, Scikit-learn — optimized for z/OS.', href: root + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
 
     /* Build Models */
-    { title: 'Build Models', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and LLMs on IBM Z — Snap ML, TensorFlow, PyTorch, fine-tuning, and prompt engineering.', href: root + 'train-model/train-model.html' },
-    { title: 'IBM Z Accelerated SnapML', section: 'Train Model', snippet: 'Accelerated Snap ML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
-    { title: 'IBM Z Accelerated for TensorFlow', section: 'Train Model', snippet: 'TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
-    { title: 'IBM Z Accelerated for PyTorch', section: 'Train Model', snippet: 'PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
-    { title: 'Machine Learning for IBM z/OS (MLz)', section: 'Train Model', snippet: 'IBM MLz provides a full lifecycle platform for building, deploying, and scoring AI models on z/OS.', href: root + 'products-tools/ai-platforms.html#mlz' },
-    { title: 'Red Hat OpenShift AI', section: 'Train Model', snippet: 'MLOps platform on Red Hat OpenShift running on IBM Z and LinuxONE for containerized AI workloads.', href: root + 'products-tools/ai-platforms.html#rhoai' },
+    { title: 'Build Models', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and LLMs on IBM Z — Snap ML, TensorFlow, PyTorch, fine-tuning, and prompt engineering.', href: root + 'build-model/build-model.html' },
+    { title: 'IBM Z Accelerated SnapML', section: 'Build Model', snippet: 'Accelerated Snap ML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
+    { title: 'IBM Z Accelerated for TensorFlow', section: 'Build Model', snippet: 'TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
+    { title: 'IBM Z Accelerated for PyTorch', section: 'Build Model', snippet: 'PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
+    { title: 'Machine Learning for IBM z/OS (MLz)', section: 'Build Model', snippet: 'IBM MLz provides a full lifecycle platform for building, deploying, and scoring AI models on z/OS.', href: root + 'products-tools/ai-platforms.html#mlz' },
+    { title: 'Red Hat OpenShift AI', section: 'Build Model', snippet: 'MLOps platform on Red Hat OpenShift running on IBM Z and LinuxONE for containerized AI workloads.', href: root + 'products-tools/ai-platforms.html#rhoai' },
 
     /* Deploy Models (includes optimize & deploy) */
     { title: 'ONNX & IBM Z Deep Learning Compiler', section: 'Deploy Models', snippet: 'Convert and compile models to ONNX format; use zDLC to optimize neural networks for IBM Z hardware.', href: root + 'products-tools/model-formats.html#zdlc' },
