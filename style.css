@@ -24,6 +24,11 @@
   --ibm-border:         #e0e0e0;
   --ibm-green:       #24a148;
   --ibm-teal:        #007d79;
+  /* ── IBM Cool Gray (non-interactive) ── */
+  --cg-accent:       #697077;
+  --cg-accent-dark:  #393939;
+  --cg-20:           #dde1e6;
+  --cg-10:           #f2f4f8;
 
   --topbar-height:     64px;
   --lifecycle-height:  42px;
@@ -36,7 +41,7 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: var(--ibm-text-primary);
-  background: #fafafa;
+  background: #e5e7eb;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -72,12 +77,7 @@ body {
 .topbar-logo:hover { background: rgba(255,255,255,0.08); }
 
 .topbar-logo-mark {
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  background: var(--ibm-white);
-  border-radius: 4px;
-  flex-shrink: 0;
+  display: none;
 }
 
 /* ─── Top nav items container ────────────────────────────────── */
@@ -354,7 +354,7 @@ body.has-lifecycle .page-shell {
 .page-shell {
   display: flex;
   min-height: 100vh;
-  background: #fafafa;
+  background: #e5e7eb;
 }
 
 /* pagenav on the LEFT */
@@ -385,14 +385,14 @@ body.has-lifecycle .pagenav {
   font-weight: 600;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.6);
 }
 
 .pagenav-link {
   display: block;
   padding: 8px 20px 8px 16px;
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: #ffffff;
   text-decoration: none;
   border-right: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
@@ -400,7 +400,7 @@ body.has-lifecycle .pagenav {
 }
 
 .pagenav-link:hover {
-  color: rgba(255,255,255,0.78);
+  color: #a6c8ff;
 }
 
 .pagenav-link.active {
@@ -414,33 +414,30 @@ body.has-lifecycle .pagenav {
 .main-content {
   flex: 1;
   min-width: 0;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
   background: #ffffff;
+  box-shadow: 0 0 0 1px var(--ibm-border);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* ─── Page Body ──────────────────────────────────────────────── */
 .page-body {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   padding: 56px 52px 112px;
 }
 
 /* ─── Page Hero (shared across all content pages) ────────────── */
 .page-hero {
-  background: #1c1c1c;
-  color: #fff;
+  background: #edf5ff;
+  color: var(--ibm-text-primary);
   padding: 48px 52px 44px;
   position: relative;
   overflow: hidden;
-}
-.page-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(15,98,254,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15,98,254,0.07) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
+  border-bottom: 1px solid #d0e2ff;
 }
 .page-hero > * { position: relative; z-index: 1; }
 .page-hero h1 {
@@ -448,23 +445,23 @@ body.has-lifecycle .pagenav {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.4px;
-  color: #fff;
+  color: var(--ibm-text-primary);
   margin-bottom: 12px;
 }
 .page-hero p {
   font-size: 15px;
   line-height: 1.65;
-  color: rgba(255,255,255,0.72);
+  color: var(--ibm-text-secondary);
   max-width: 620px;
   margin: 0;
 }
 .page-hero p a {
-  color: #fff;
+  color: var(--ibm-blue);
   text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,0.5);
+  text-decoration-color: rgba(15,98,254,0.4);
 }
 .page-hero p a:hover {
-  text-decoration-color: #fff;
+  text-decoration-color: var(--ibm-blue);
 }
 
 /* ─── Clickable tile cards (Next Steps) ──────────────────────── */
@@ -630,14 +627,14 @@ body.has-lifecycle .section h2[id] {
   justify-content: space-between;
   gap: 12px;
   padding: 14px 20px;
-  background: var(--ibm-surface);
+  background: #edf5ff;
   border: none;
   cursor: pointer;
   text-align: left;
   transition: background 0.15s;
 }
 .tool-accordion-trigger:hover {
-  background: #e5efff;
+  background: #d0e2ff;
 }
 .tool-accordion.is-open .tool-accordion-trigger {
   background: #d0e2ff;
@@ -679,13 +676,13 @@ body.has-lifecycle .section h2[id] {
   border: 1px solid var(--ibm-border);
   border-radius: 6px;
   padding: 18px 18px 16px;
-  border-top: 3px solid var(--ibm-blue);
+  border-top: 3px solid var(--cg-accent);
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .card:hover {
-  box-shadow: 0 4px 14px rgba(15,98,254,0.12);
+  box-shadow: 0 4px 14px rgba(105,112,119,0.15);
   transform: translateY(-1px);
 }
 
@@ -714,9 +711,9 @@ body.has-lifecycle .section h2[id] {
 }
 
 .compare-card {
-  background: var(--ibm-blue-10);
-  border: 1px solid var(--ibm-blue-20);
-  border-top: 3px solid var(--ibm-blue);
+  background: var(--cg-10);
+  border: 1px solid var(--cg-20);
+  border-top: 3px solid var(--cg-accent);
   border-radius: 6px;
   padding: 18px;
 }
@@ -724,7 +721,7 @@ body.has-lifecycle .section h2[id] {
 .compare-card h4 {
   font-size: 13px;
   font-weight: 600;
-  color: var(--ibm-blue);
+  color: var(--cg-accent-dark);
   margin-bottom: 12px;
 }
 
@@ -961,9 +958,9 @@ body.has-lifecycle .section h2[id] {
 }
 
 .telum-primary {
-  background: var(--ibm-blue-10);
-  border-color: var(--ibm-blue-20);
-  border-top: 3px solid var(--ibm-blue);
+  background: var(--cg-10);
+  border-color: var(--cg-20);
+  border-top: 3px solid var(--cg-accent);
 }
 
 .telum-supporting {
@@ -1081,8 +1078,8 @@ body.has-lifecycle .section h2[id] {
 }
 
 .entry-flow-ep1 {
-  background: #edf5ff;
-  border: 1px solid var(--ibm-blue-20);
+  background: var(--cg-10);
+  border: 1px solid var(--cg-20);
   color: var(--ibm-text-primary);
 }
 
@@ -1108,7 +1105,7 @@ body.has-lifecycle .section h2[id] {
   font-size: 11px;
   font-weight: 700;
   flex-shrink: 0;
-  background: var(--ibm-blue);
+  background: var(--cg-accent);
   color: #ffffff;
 }
 
@@ -1251,7 +1248,7 @@ body.has-lifecycle .section h2[id] {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--ibm-blue);
+  background: var(--cg-accent);
   color: var(--ibm-white);
   font-size: 13px;
   font-weight: 600;
@@ -1261,12 +1258,12 @@ body.has-lifecycle .section h2[id] {
   margin-top: 1px;
 }
 
-.alv-step--1 .alv-number { background: #0f62fe; }
-.alv-step--2 .alv-number { background: #0353e9; }
-.alv-step--3 .alv-number { background: #002d9c; }
-.alv-step--4 .alv-number { background: var(--ibm-teal); }
-.alv-step--5 .alv-number { background: #6929c4; }
-.alv-step--6 .alv-number { background: var(--ibm-green); }
+.alv-step--1 .alv-number { background: var(--cg-accent-dark); }
+.alv-step--2 .alv-number { background: var(--cg-accent); }
+.alv-step--3 .alv-number { background: var(--cg-accent); }
+.alv-step--4 .alv-number { background: var(--cg-accent); }
+.alv-step--5 .alv-number { background: var(--cg-accent); }
+.alv-step--6 .alv-number { background: var(--cg-accent); }
 
 .alv-body { flex: 1; }
 
@@ -1934,6 +1931,8 @@ body.has-lifecycle .section h2[id] {
 
   .main-content {
     width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none;
   }
 
   .page-hero {
