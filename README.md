@@ -16,7 +16,7 @@ ai-on-z/
 │
 ├── overview/                   ← Overview & news
 ├── prepare-data/               ← AI Lifecycle: Prepare Data
-├── train-model/                ← AI Lifecycle: Train Model
+├── build-model/                ← AI Lifecycle: Build Models
 ├── optimize-model/             ← AI Lifecycle: Optimize Model
 ├── deploy-models/              ← AI Lifecycle: Deploy Models
 ├── serve-model/                ← AI Lifecycle: Serve Model

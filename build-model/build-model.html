@@ -218,7 +218,7 @@
                 <p>Your use case is well-served by a general-purpose LLM without any customization.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a></strong> (for Spyre-accelerated decoder LLMs) or <strong><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> (for broader model management and serving on IBM Z) to serve a pre-built LLM sourced from Hugging Face or an IBM model repository. No fine-tuning or training is required.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a></strong> (for Spyre-accelerated decoder LLMs) or <strong><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> (for broader model management and serving on IBM Z) to serve a pre-built LLM sourced from Hugging Face or an IBM model repository. No fine-tuning, training, or ONNX conversion is required — LLMs are served natively by both platforms.</p>
                 <p><em>Note: Red Hat AI Inference Server runs standalone and does not require Red Hat OpenShift. Red Hat OpenShift AI is the better fit if your organization already has an OpenShift container strategy.</em></p>
                 <p><em>Common approach:</em> Select a model from Hugging Face or an IBM repository → Serve via Red Hat AI Inference Server or Red Hat OpenShift AI on IBM Z → Integrate with your application.</p>
               </div>

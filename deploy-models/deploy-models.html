@@ -35,11 +35,11 @@
           <div class="card-grid">
             <div class="card">
               <h4>Convert to a portable format</h4>
-              <p>Export your trained model to ONNX (deep learning) or PMML (traditional ML) — standard interchange formats that work across IBM Z operating systems and deployment tools.</p>
+              <p>Export your trained model to ONNX (deep learning) or PMML (traditional ML) — standard interchange formats that work across IBM Z operating systems and deployment tools. If you are running TensorFlow or PyTorch natively, you can skip this step and deploy directly without conversion.</p>
             </div>
             <div class="card">
               <h4>Optimize for IBM Z hardware</h4>
-              <p>Compile and quantize your model using the IBM Z Deep Learning Compiler or AI Optimizer to maximize inference performance on Telum and Spyre acceleration.</p>
+              <p>For deep learning models and encoder LLMs targeting Telum, compile with the IBM Z Deep Learning Compiler (zDLC) after ONNX conversion. For LLMs served via Red Hat AI Inference Server or Red Hat OpenShift AI on Spyre, no ONNX conversion or compilation step is required — models can be served natively. Traditional ML models do not require this step.</p>
             </div>
             <div class="card">
               <h4>Move to production</h4>
@@ -52,7 +52,7 @@
           </div>
 
           <h2>Who is this stage for?</h2>
-          <p>Optimization and deployment are jointly owned by <strong>ML Engineers</strong> and <strong>IT Architects</strong>. The ML Engineer handles model conversion, compilation, and the deployment artifact. The IT Architect owns the infrastructure decisions — operating environment, serving topology, and integration with business applications. Data Scientists are stakeholders who validate that the deployed model performs as expected.</p>
+          <p>Optimization and deployment are typically owned by <strong>ML Engineers</strong> and <strong>IT Architects</strong>. The ML Engineer handles model conversion, compilation, and the deployment artifact. The IT Architect owns the infrastructure decisions — operating environment, serving topology, and integration with business applications. Data Scientists are stakeholders who validate that the deployed model performs as expected. In practice, one person may wear multiple hats depending on the organization.</p>
         </section>
 
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
@@ -62,7 +62,7 @@
 
           <!-- ── SUBSECTION 1: Traditional ML ── -->
           <h2 id="traditional-ml">Deploying Traditional Machine Learning Models</h2>
-          <p>Traditional ML models (classification, regression, recommendation, forecasting) are deployed via PMML and run on the <strong>Telum on-chip accelerator</strong>. </p>
+          <p>Traditional ML models (classification, regression, recommendation, forecasting) are deployed via PMML and will either leverage the <strong>Telum on-chip accelerator</strong> (e.g., gradient boosting and random forest models) or run on native CPU (e.g., linear regression and logistic regression). Not all traditional ML models use the on-chip accelerator.</p>
 
           <div class="decision-cards">
 
@@ -93,11 +93,11 @@
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>You want model registration, deployment, scoring endpoints, and lifecycle management fully integrated into the z/OS environment.</p>
+                <p>You want model importing, deployment, scoring endpoints, explainability, and lifecycle management fully integrated into the z/OS environment.</p>
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> MLz is the primary deployment and scoring platform for traditional ML models on z/OS, supporting PMML imports from any training tool and exposing REST and CICS/IMS native scoring endpoints.</p>
-                <p><em>Common approach:</em> Build or import model (from any tool that exports PMML) → Register in MLz → Deploy as a scoring endpoint co-located with z/OS applications.</p>
+                <p><em>Common approach:</em> Build or import model (from any tool that exports PMML) → Import into MLz → Deploy as a scoring endpoint co-located with z/OS applications.</p>
               </div>
             </div>
 
@@ -105,7 +105,7 @@
 
           <!-- ── SUBSECTION 2: Deep Learning + Encoder LLMs (Telum on-chip) ── -->
           <h2 id="deep-learning">Deploying Deep Learning Models and Encoder LLMs (Telum On-Chip Accelerator)</h2>
-          <p>Deep learning models and encoder LLMs share the same deployment path on IBM Z when targeting the <strong>Telum on-chip accelerator</strong>: convert to ONNX, compile with the IBM Z Deep Learning Compiler (zDLC), and deploy via a serving platform. Encoder LLMs can also choose the Spyre path — see the next subsection.</p>
+          <p>Deep learning models and encoder LLMs share the same deployment path on IBM Z to enable <strong>Telum on-chip acceleration</strong>: convert to ONNX, compile with the IBM Z Deep Learning Compiler (zDLC), and deploy via a serving platform. Unlike traditional ML models, these heavier-weight models should always target the Telum on-chip accelerator. Encoder LLMs can also choose the Spyre path — see the next subsection.</p>
 
           <div class="decision-cards">
 
@@ -175,7 +175,7 @@
               <div class="decision-card-body" hidden>
                 <p><strong>→ Convert the encoder LLM to <a href="../products-tools/model-formats.html#onnx">ONNX</a></strong> and follow the same deep learning path: compile with <a href="../products-tools/model-formats.html#zdlc">zDLC</a> and deploy via <a href="../products-tools/inference-serving.html#triton">Triton</a>, <a href="../products-tools/ai-platforms.html#mlz">MLz</a>, or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</p>
                 <p><em>Common approach:</em> Export encoder LLM to ONNX → Compile with zDLC → Deploy via IBM Z Accelerated for Triton Inference Server or Red Hat OpenShift AI.</p>
-                <p><em>Note: Encoder LLMs can also be served on Spyre — see the next subsection. The choice depends on your SLAs and whether you have Spyre available.</em></p>
+                <p><em>Note: Encoder LLMs can also be served on Spyre — see the next subsection. As a general guide: models with approximately 300 million parameters or fewer are a good fit for the Telum on-chip accelerator; models up to approximately 30 billion parameters can run on Spyre; models larger than that are not suited for IBM Z. The right choice also depends on your SLAs and hardware availability.</em></p>
               </div>
             </div>
 
@@ -183,7 +183,7 @@
 
           <!-- ── SUBSECTION 3: LLMs on Spyre ── -->
           <h2 id="llm-spyre">Deploying Large Language Models on Spyre</h2>
-          <p><strong>Decoder LLMs always use Spyre.</strong> Encoder LLMs may also choose Spyre over the Telum on-chip accelerator depending on SLAs and hardware availability. The tools in this subsection are specific to Spyre-accelerated LLM workloads.</p>
+          <p><strong>Decoder LLMs always use Spyre.</strong> Encoder LLMs may also choose Spyre over the Telum on-chip accelerator depending on SLAs, model size, and hardware availability. The tools in this subsection are specific to Spyre-accelerated LLM workloads.</p>
 
           <div class="decision-cards">
 
@@ -196,11 +196,11 @@
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>You are deploying a decoder LLM (e.g., Llama, Granite) or an encoder LLM that you want to accelerate on the IBM Spyre Accelerator.</p>
+                <p>You are deploying a decoder LLM (e.g., Llama, Granite) or an encoder LLM on Spyre and want a dedicated inference server without the full Red Hat OpenShift AI platform. No ONNX conversion is required — LLMs are served natively.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</strong> This is the primary serving platform for LLMs that leverage Spyre on IBM Z. It is purpose-built for large model inference and is not used for traditional ML or deep learning models on the Telum accelerator.</p>
-                <p><em>Common approach:</em> Source or fine-tune an LLM → Deploy via Red Hat AI Inference Server with Spyre acceleration on IBM Z.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</strong> This is the recommended path for customers who want LLM inference on Spyre without paying for the full Red Hat OpenShift AI platform license. It is purpose-built for large model inference — no ONNX conversion required. Not used for traditional ML or deep learning models on the Telum accelerator.</p>
+                <p><em>Common approach:</em> Source or fine-tune an LLM → Deploy natively via Red Hat AI Inference Server with Spyre acceleration on IBM Z.</p>
               </div>
             </div>
 
@@ -213,10 +213,10 @@
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>You need MLOps pipeline management, model catalogs, and monitoring around your LLM deployment, or you want a single platform that covers both Telum and Spyre workloads.</p>
+                <p>You need MLOps pipeline management, model catalogs, and monitoring around your LLM deployment, or you want a single platform that covers both Telum and Spyre workloads. No ONNX conversion is required for LLMs — they are served natively through the Red Hat AI Inference Server runtime embedded in OpenShift AI.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Unlike Red Hat AI Inference Server, OpenShift AI supports both Telum on-chip accelerator and Spyre workloads, making it the right platform when you need coverage across multiple model types or accelerators.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid paths for LLM inference on Spyre — no ONNX conversion required for either. Choose OpenShift AI when you need the broader platform: MLOps pipelines, model governance, and unified management across Telum and Spyre workloads.</p>
                 <p><em>Common approach:</em> Deploy LLMs through OpenShift AI using the <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> runtime for Spyre workloads, or <a href="../products-tools/inference-serving.html#triton">Triton</a> for Telum workloads — all managed from a single MLOps platform.</p>
               </div>
             </div>
@@ -247,7 +247,7 @@
           <div class="ns-tile-grid">
             <a href="../serve-model/serve-model.html" class="ns-tile">
               <span class="ns-tile-label">Serve Model</span>
-              <span class="ns-tile-body">Expose your deployed model as a REST or gRPC endpoint for real-time inference requests from applications, microservices, or business workflows.</span>
+              <span class="ns-tile-body">Invoke your deployed model from applications — via ALN Score or WOLA for z/OS-native calls, or REST and gRPC for containerized runtimes.</span>
               <span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span>
             </a>
           </div>
