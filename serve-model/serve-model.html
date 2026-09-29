@@ -163,7 +163,7 @@
 
           <!-- ── SUBSECTION 3: LLMs on Spyre ── -->
           <h2 id="llm-spyre">Invoking Large Language Models on Spyre</h2>
-          <p><strong>Decoder LLMs always use the IBM Spyre Accelerator.</strong> Encoder LLMs may also choose Spyre over Telum depending on Application SLAs and hardware availability. Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid serving paths — no ONNX conversion is required for either. Applications invoke Spyre-accelerated LLMs via REST or gRPC.</p>
+          <p><strong>Decoder LLMs always use the IBM Spyre Accelerator.</strong> Encoder LLMs may also choose Spyre over Telum depending on Application SLAs and hardware availability. Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid serving paths — no ONNX conversion is required for either. Applications invoke Spyre-accelerated LLMs via REST.</p>
 
           <div class="decision-cards">
 
@@ -179,8 +179,8 @@
                 <p>You want Spyre-accelerated LLM inference without the full Red Hat OpenShift AI platform. No ONNX conversion required — LLMs are served natively.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</strong> The recommended path for customers who want LLM inference on Spyre without the OpenShift AI platform license. Runs standalone, exposes an OpenAI-compatible REST/gRPC API, and serves LLMs natively without any ONNX conversion step.</p>
-                <p><em>Common approach:</em> Source or fine-tune an LLM → Deploy natively via Red Hat AI Inference Server on IBM Z Spyre → Invoke via REST or gRPC.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</strong> The recommended path for customers who want LLM inference on Spyre without the OpenShift AI platform license. Runs standalone, exposes an OpenAI-compatible REST API, and serves LLMs natively without any ONNX conversion step.</p>
+                <p><em>Common approach:</em> Source or fine-tune an LLM → Deploy natively via Red Hat AI Inference Server on IBM Z Spyre → Invoke via REST.</p>
               </div>
             </div>
 
@@ -198,6 +198,7 @@
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid paths for LLM inference on Spyre — no ONNX conversion required for either. Choose OpenShift AI when you need the broader platform: MLOps pipelines, model governance, and unified management across Telum and Spyre workloads.</p>
                 <p><em>Common approach:</em> Manage LLM serving through OpenShift AI using the <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> runtime for Spyre workloads, or <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> for Telum workloads — all from a single MLOps platform.</p>
+                <p><a href="https://docs.redhat.com/en/documentation/red_hat_ai/3/html/validated_models/ibm-z-validated-models_validated-models" target="_blank" rel="noopener">See validated LLMs for IBM Z on Red Hat OpenShift AI &#8594;</a></p>
               </div>
             </div>
 
