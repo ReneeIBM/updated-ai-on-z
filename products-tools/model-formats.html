@@ -18,7 +18,7 @@
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
       <!-- Page Hero -->
-      <div class="page-hero">
+      <div class="page-hero page-hero--wide">
         <h1>Model Formats &amp; Compilers</h1>
         <p>Before a model can run on IBM Z, it usually needs to be in the right format. ONNX and PMML are the two main interchange formats, and the IBM Z Deep Learning Compiler converts ONNX models into artifacts optimized for the Telum on-chip accelerator.</p>
       </div>
@@ -94,36 +94,56 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
-            <p>The IBM Z Deep Learning Compiler compiles ONNX models into optimized s390x binaries that automatically offload eligible operations to the Telum on-chip AI accelerator via the zDNN library — no manual mapping required. It is based on the open-source <a href="https://github.com/onnx/onnx-mlir" target="_blank" rel="noopener">ONNX-MLIR</a> project with IBM Research enhancements contributed upstream.</p>
-            <p>zDLC is available as part of the AI Toolkit for IBM Z and IBM LinuxONE, distributed through the <a href="https://ibm.github.io/ibm-z-oss-hub/containers/zdlc.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry</a>.</p>
-            <h2>Key capabilities</h2>
+            <h1 style="margin-top:0;">IBM Z Deep Learning Compiler (zDLC)</h1>
+            <p>The IBM Z Deep Learning Compiler (zDLC) is an enterprise-grade compilation framework built on open-source <a href="https://github.com/onnx/onnx-mlir" target="_blank" rel="noopener">ONNX-MLIR</a> (Multi-Level Intermediate Representation) technology. It converts open-format deep learning models (such as ONNX outputs from PyTorch or TensorFlow) into optimized C/C++ shared libraries specifically tuned for the IBM Z and LinuxONE architectures.</p>
+            <p>Rather than interpreting model graphs at runtime, zDLC compiles deep learning models into native binary representations. It applies low-level hardware optimizations, graph fusions, and quantization techniques while offloading mathematical execution directly to specialized on-chip accelerators — such as the IBM Telum Integrated Accelerator for AI (NNPA) — both in Linux and z/OS environments.</p>
+            <p>This gives business benefits of Ultra-Low Latency In-Transaction AI and Seamless Hardware Acceleration to customers.</p>
+
+            <h2>Deploying ONNX Deep Learning Models on IBM Z</h2>
+            <p>ONNX is the Open Neural Network eXchange. You can read more about it <a href="https://onnx.ai" target="_blank" rel="noopener">here</a>.</p>
+            <p>ONNX establishes a streamlined path to take a project from playground to production. With ONNX, you can start a data science project using the frameworks and libraries of your choosing, including popular frameworks such as PyTorch and TensorFlow. The model can be developed and trained leveraging these frameworks on the training platform of your choice. Once the model is trained and ready to begin the deployment journey, you would export or convert it to the ONNX format.</p>
+            <p>Tools such as Netron allow inspection and exploration of an ONNX model. When it comes to running the model, there are various back-ends that can be used to test and serve ONNX models. This includes model compilers such as the IBM Z Deep Learning Compiler (zDLC), which is based on ONNX-MLIR.</p>
+            <p>The ONNX-MLIR project provides compiler technology to transform a valid ONNX graph into code that implements the graph with minimum runtime support. It implements the ONNX standard and is based on the underlying LLVM/MLIR compiler technology.</p>
+            <p>The result of this compiler is a lightweight shared object library that has no dependencies on the framework or libraries that the model was developed and trained in. It can be used for inference from C++, Java, or Python programs.</p>
+
+            <h2>IBM Telum Integrated Accelerator for AI</h2>
+            <p>IBM Research enhanced the IBM Z Deep Learning Compiler (zDLC) to target the IBM Integrated Accelerator for AI for a variety of ONNX primitives. This support has been contributed to ONNX-MLIR, which is the foundation for the IBM Deep Learning Compiler. ONNX-MLIR has been updated to support IBM z17's new Telum II processor.</p>
+            <p>The IBM Z Deep Learning Compiler compiles ONNX models into optimized s390x binaries that automatically offload eligible operations to the Telum on-chip AI accelerator via the zDNN library — no manual mapping required. It is based on the open-source ONNX-MLIR project with IBM Research enhancements contributed upstream.</p>
+            <p>zDLC is available as part of the AI Toolkit for IBM Z and LinuxONE, distributed through the <a href="https://ibm.github.io/ibm-z-oss-hub/containers/zdlc.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry</a>.</p>
+
+            <h2>Key Capabilities</h2>
             <ul>
               <li>Produces a lightweight <code>.so</code> shared library with no framework dependencies at runtime</li>
-              <li>Supports encoder LLMs and small decoder LLMs (up to 2B parameters) on IBM z17 and LinuxONE 5</li>
+              <li>Supports encoder LLMs and small decoder LLMs (up to 2B parameters) on IBM z17</li>
               <li>INT8 quantization, Layer Normalization, and GeLU support on Telum II (IBM z17)</li>
-              <li>Embeddable in applications or serveable via Triton Inference Server</li>
+              <li>Embeddable in applications or servable via Triton Inference Server</li>
               <li>C++, Java, and Python runtime APIs</li>
             </ul>
-            <h2>Getting started — by platform</h2>
-            <p><strong>z/OS users</strong> can use MLz's built-in integration:</p>
+
+            <h2>Getting Started with the IBM Z Deep Learning Compiler</h2>
+            <p>z/OS users can either choose stand-alone Linux on Z options or leverage through Machine Learning for z/OS based approach; in either case, z/OS Container Extensions will be required to utilize the IBM Z Deep Learning Compiler.</p>
+            <p>Linux on Z, z/OS Container Extensions users can leverage the Deep Learning Compiler directly to create model programs that can be incorporated into serving environments or applications directly.</p>
             <ul>
-              <li><strong>Machine Learning for IBM z/OS (MLz)</strong> — Upload your ONNX model and compile at the push of a button. Supports server-side mini-batching for ONNX/DLC model serving and native CICS, IMS, and Java scoring services.</li>
+              <li>Available through the <a href="https://ibm.github.io/ibm-z-oss-hub/containers/zdlc.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry (ICR)</a> listed under zDLC</li>
+              <li>Command-line model compiler that produces a <code>.so</code> library with optional Java and Python wrappers</li>
+              <li>Extensive details available in the <a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">IBM DLC official product page</a></li>
             </ul>
-            <p><strong>Linux on Z, zCX, and LinuxONE users</strong> can use zDLC directly:</p>
+            <p>These model libraries can be leveraged either directly or through Triton Inference Server, which is part of the AI Toolkit for IBM Z and LinuxONE.</p>
+            <p>Additional samples:</p>
             <ul>
-              <li>Pull the container image from the <a href="https://ibm.github.io/ibm-z-oss-hub/containers/zdlc.html" target="_blank" rel="noopener">IBM Z and LinuxONE Container Registry</a> (listed as <strong>zDLC</strong>)</li>
-              <li>Run the command-line compiler to produce a <code>.so</code> library ready for application embedding or Triton serving</li>
+              <li><a href="https://github.com/IBM/zDLC" target="_blank" rel="noopener">Documentation and samples, including C++, Java, and Python clients</a></li>
+              <li><a href="https://github.com/IBM/onnxmlir-triton-backend" target="_blank" rel="noopener">Leveraging DLC with Triton Inference Server on LoZ</a></li>
+              <li>Machine Learning for z/OS — a z/OS product that manages the full model lifecycle. Enables you to upload your ONNX model then compile and deploy at the push of a button. Supports server-side mini-batching for ONNX/DLC model serving to get the best benefit out of the Integrated Accelerator for AI. Infuse AI into z/OS applications either through native CICS, IMS, and Java native scoring services or through using model server REST endpoints.</li>
             </ul>
-            <h2>Determining accelerator coverage</h2>
-            <p>When compiling with zDLC, you can inspect which model operations will run on the Telum AI accelerator vs. CPU — critical information for performance analysis:</p>
+
+            <h2>Read Our Blogs on ONNX</h2>
             <ul>
-              <li>Pass <code>--EmitLib --maccel=NNPA</code> and review the compilation output for op target assignments</li>
-              <li>Enable runtime instrumentation to measure accelerator utilization during inference</li>
-              <li>See the <a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">zDLC official documentation</a> for the full list of NNPA-supported ONNX ops and opset levels</li>
+              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry1/2020/10/05/ibm-z-and-the-open-neural-network-exchange" target="_blank" rel="noopener">IBM Z and the Open Neural Network Exchange</a></li>
+              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry2" target="_blank" rel="noopener">Leveraging ONNX models on IBM Z and LinuxONE</a></li>
+              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry3" target="_blank" rel="noopener">Announcing ONNX-MLIR/IBM Deep Learning Compiler for Linux on Z and LinuxONE</a></li>
+              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry4" target="_blank" rel="noopener">Announcing ONNX-MLIR/IBM Z Deep Learning Compiler Telum II support</a></li>
             </ul>
-            <a href="https://ibm.github.io/zDLC/" class="learn-more" target="_blank" rel="noopener">IBM Z Deep Learning Compiler official page &#8594;</a>
-            <a href="https://github.com/IBM/zDLC" class="learn-more" target="_blank" rel="noopener">IBM zDLC documentation and samples on GitHub &#8594;</a>
-            <a href="https://github.com/IBM/onnxmlir-triton-backend" class="learn-more" target="_blank" rel="noopener">Using zDLC with Triton Inference Server &#8594;</a>
+            <p>See the <a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">zDLC official documentation</a> for comprehensive details.</p>
           </div>
         </div>
 

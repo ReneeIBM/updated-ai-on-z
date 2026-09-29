@@ -68,7 +68,6 @@ function renderNav(opts) {
       id: 'inference-serving', label: 'Inference & Serving',
       href: p + 'products-tools/inference-serving.html',
       tools: [
-        { label: 'IBM Z Accelerated Serving for TensorFlow', href: p + 'products-tools/inference-serving.html#tf-serving' },
         { label: 'IBM Z Accelerated for Triton',             href: p + 'products-tools/inference-serving.html#triton' },
         { label: 'Red Hat AI Inference Server',              href: p + 'products-tools/inference-serving.html#rh-inference' },
       ]
@@ -343,7 +342,6 @@ function initSearch(wrapper, root) {
 
     /* Serve Model */
     { title: 'Serve Model', section: 'AI Lifecycle', snippet: 'Invoke deployed IBM Z models from applications via ALN Score, WOLA, REST, and gRPC endpoints.', href: root + 'serve-model/serve-model.html' },
-    { title: 'IBM Z Accelerated Serving for TensorFlow', section: 'Serve Model', snippet: 'High-performance TensorFlow Model Serving accelerated by IBM Z hardware for production inference.', href: root + 'products-tools/inference-serving.html#tf-serving' },
     { title: 'IBM Z Accelerated for Triton', section: 'Serve Model', snippet: 'NVIDIA Triton Inference Server optimized for IBM Z and LinuxONE for containerized model serving.', href: root + 'products-tools/inference-serving.html#triton' },
     { title: 'Red Hat AI Inference Server', section: 'Serve Model', snippet: 'Serve large language models and GenAI workloads on IBM Z using the Red Hat AI Inference Server with vLLM.', href: root + 'products-tools/inference-serving.html#rh-inference' },
 

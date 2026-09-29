@@ -18,9 +18,9 @@
     <nav class="pagenav" id="pagenav"></nav>
     <div class="main-content">
       <!-- Page Hero -->
-      <div class="page-hero">
+      <div class="page-hero page-hero--wide">
         <h1>Data &amp; Analytics Tools</h1>
-        <p>IBM Z Platform for Apache Spark handles large-scale data preparation and analytics directly on Z. IBM Synthetic Data Sets lets you generate realistic test data when real data is restricted or unavailable.</p>
+        <p>IBM Z Platform for Apache Spark handles large-scale data preparation and analytics directly on Z. IBM Synthetic Data Sets provides realistic artificial data for key IBM Z AI business use cases when real data is restricted or unavailable.</p>
       </div>
 
       <div class="page-body">
@@ -32,63 +32,48 @@
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
+            <h1 style="margin-top:0;">IBM Z Platform for Apache Spark (zSpark)</h1>
+            <p style="font-style:italic;color:var(--ibm-text-secondary);">In-Place Data Engineering, Machine Learning, and Analytics on z/OS</p>
             <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../build-model/build-model.html">Build Model</a></p>
 
-            <h2>What is Apache Spark?</h2>
-            <p>Apache Spark is a lightning-fast, open-source data-processing engine for machine learning and AI applications, backed by the largest open-source community in big data. It easily handles large-scale data sets and is a fast, general-purpose clustering system well-suited for PySpark. It is designed to deliver the computational speed, scalability, and programmability required for big data — specifically for streaming data, graph data, analytics, machine learning, large-scale data processing, and AI applications.</p>
-            <p>Spark's analytics engine processes data 10 to 100 times faster than alternatives like Hadoop for smaller workloads. It scales by distributing processing workflows across large clusters of computers with built-in parallelism and fault tolerance. It includes APIs for Scala, Java, Python, and R — languages popular among data analysts and data scientists.</p>
-            <p>Spark was developed in 2009 at UC Berkeley's AMPLab. Today it is maintained by the Apache Software Foundation and boasts the largest open-source community in big data, with over 1,000 contributors.</p>
+            <h2>Overview: What is zSpark and Who Is It For?</h2>
+            <p>IBM Z Platform for Apache Spark (often referred to as zSpark) is a high-performance port of the open-source Apache Spark framework optimized natively for IBM z/OS.</p>
+            <p><strong>Target Audience:</strong> Enterprise Data Engineers, Data Scientists, z/OS System Programmers, and Application Developers looking to bridge traditional mainframe systems of record with modern data science and analytics tools.</p>
+            <p><strong>The Problem It Solves:</strong> Traditionally, extracting high-volume mainframe data for analytics and machine learning required copying sensitive operational data off the platform via ETL pipelines. This introduces high network costs, data latency, compliance exposures, and data synchronization overhead. zSpark allows teams to run Spark workloads directly on z/OS, keeping data secure within its native environment.</p>
 
-            <h2>IBM Z Platform for Apache Spark</h2>
-            <p>IBM Z Platform for Apache Spark packages Spark to run natively on z/OS — bringing large-scale data processing, feature engineering, and ML pipelines directly to the platform where your enterprise data lives. Instead of extracting data to an external cluster, Spark jobs run on z/OS alongside Db2, IMS, and transactional systems. This reduces data movement, simplifies architecture, and keeps sensitive data within z/OS's security boundary.</p>
-
-            <h2>How Apache Spark Works</h2>
-            <p>Spark has a hierarchical primary/secondary architecture. The <strong>Spark Driver</strong> is the primary node that controls the cluster manager, which manages secondary nodes and delivers results to the application client. Based on application code, the Spark Driver generates the <strong>SparkContext</strong>, which works with the cluster manager to distribute and monitor execution across nodes.</p>
-
-            <h3>Resilient Distributed Datasets (RDD)</h3>
-            <p>RDDs are fault-tolerant collections of elements distributed across cluster nodes and worked on in parallel. Once data is loaded into an RDD, Spark performs transformations and actions in memory — the key to its speed. Each dataset in an RDD is divided into logical partitions computed on different nodes. Users perform two types of operations: <strong>transformations</strong> (creating a new RDD) and <strong>actions</strong> (computing a result and returning it to the driver).</p>
-
-            <h3>Directed Acyclic Graph (DAG)</h3>
-            <p>Rather than the two-stage execution process in MapReduce, Spark creates a Directed Acyclic Graph (DAG) to schedule tasks and orchestrate worker nodes. The DAG scheduler facilitates efficiency and makes fault tolerance possible by reapplying recorded operations from a previous state.</p>
-
-            <h3>DataFrames and Datasets</h3>
-            <p>DataFrames are the most common structured API, representing tabular data with rows and columns. They are now the primary API for Spark's MLlib, providing uniformity across Scala, Java, Python, and R. Datasets are an extension of DataFrames that provide a type-safe, object-oriented interface — by default, a collection of strongly typed JVM objects.</p>
-
-            <h2>Advantages of Apache Spark</h2>
+            <h2>Positioning &amp; Core Business Value</h2>
             <ul>
-              <li><strong>Process faster</strong> — Up to 100x faster than Hadoop for smaller workloads due to advanced in-memory computing</li>
-              <li><strong>Accelerate app development</strong> — Spark Streaming and SQL programming models backed by MLlib and GraphX make it easier to build ML-powered applications</li>
-              <li><strong>Manage with ease</strong> — A unified engine supports SQL queries, streaming data, ML, and graph processing in one platform</li>
-              <li><strong>Broad language support</strong> — APIs for Python, Scala, Java, and R make Spark accessible to data engineers, data scientists, and developers alike</li>
-              <li><strong>Innovate faster</strong> — APIs provide ease of use for manipulating semi-structured data and transforming datasets</li>
+              <li><strong>Zero Data Movement (In-Place Analytics)</strong> — Process data right where it lives — adjacent to core transactional engines like Db2 for z/OS, IMS, and VSAM. This eliminates costly, vulnerable off-platform data transfers.</li>
+              <li><strong>Enterprise Security &amp; Compliance</strong> — Integrates tightly with core z/OS security frameworks, including RACF (Resource Access Control Facility) and robust cryptographic services, ensuring strict compliance with financial and healthcare data governance standards.</li>
+              <li><strong>Optimized Performance</strong> — Leverages the robust scale, reliability, and cryptographic acceleration of IBM Z and LinuxONE hardware to handle large-scale data engineering and batch ML pipelines efficiently.</li>
+              <li><strong>Unified Analytics Platform</strong> — Combine data preparation, feature engineering, SQL querying, and distributed machine learning into a single, cohesive workflow using familiar languages like Python (PySpark), Scala, Java, and R.</li>
             </ul>
 
-            <h2>Apache Spark and Machine Learning</h2>
-            <p>Spark extends naturally into machine learning and AI through several built-in libraries:</p>
+            <h2>How Apache Spark Works on IBM Z</h2>
+            <p>Spark uses a distributed master-worker architecture to parallelize computational tasks:</p>
             <ul>
-              <li><strong>Spark MLlib</strong> — Provides classification, regression, collaborative filtering, clustering, distributed linear algebra, decision trees, random forests, gradient-boosted trees, frequent pattern mining, and evaluation metrics at scale</li>
-              <li><strong>Spark GraphX</strong> — A graph abstraction extending RDDs for graph-parallel computation, useful for entity resolution and network analysis problems</li>
-              <li><strong>Spark Streaming</strong> — Enables scalable, fault-tolerant processing of live data streams, delivering data to file systems, databases, and dashboards in real time</li>
+              <li><strong>Driver Program</strong> — Coordinates execution, manages the SparkContext, schedules tasks, and tracks job status across execution nodes.</li>
+              <li><strong>Executors</strong> — Worker processes spawned on z/OS environments to run individual tasks and store data cached in memory.</li>
+              <li><strong>DataFrames and Datasets</strong> — The primary APIs for structured data processing. They provide highly optimized query plans through Spark's Catalyst optimizer, making data manipulation extremely fast.</li>
             </ul>
 
-            <h2>On IBM Z: Key Capabilities</h2>
+            <h2>Core Capabilities &amp; Technical Summary</h2>
             <table class="ops-table">
-              <thead><tr><th>Capability</th><th>Details</th></tr></thead>
+              <thead><tr><th>Category</th><th>Supported Features &amp; Technology on IBM Z</th></tr></thead>
               <tbody>
                 <tr><td class="cap-label">Supported Languages</td><td>Python (PySpark), Scala, Java, R</td></tr>
-                <tr><td class="cap-label">Core Components</td><td>Spark SQL, Spark Streaming, MLlib, GraphX</td></tr>
-                <tr><td class="cap-label">Current Version</td><td>Apache Spark 3.5 with Java 17</td></tr>
-                <tr><td class="cap-label">Data Sources</td><td>Db2 for z/OS, IMS, VSAM, flat files, JDBC/ODBC</td></tr>
-                <tr><td class="cap-label">Security</td><td>Runs within z/OS security boundary; RACF integration; Secure All Ports</td></tr>
+                <tr><td class="cap-label">Core Components</td><td>Spark SQL, Spark Structured Streaming, MLlib (Machine Learning Pipelines)</td></tr>
+                <tr><td class="cap-label">Key Data Sources</td><td>Db2 for z/OS, IMS, VSAM, SMF (System Management Facility) data, flat files, JDBC/ODBC</td></tr>
+                <tr><td class="cap-label">Security Architecture</td><td>Native z/OS security context, RACF integration, audit logging</td></tr>
               </tbody>
             </table>
 
             <h2>Getting Started</h2>
             <ul>
-              <li><a href="https://www.ibm.com/support/z-content-solutions/journey-to-open-data-analytics/" target="_blank" rel="noopener">IBM Z open data analytics content solution</a></li>
-              <li><a href="https://www.ibm.com/docs/en/z-platform-apache-spark" target="_blank" rel="noopener">IBM Z Platform for Apache Spark documentation</a></li>
-              <li><a href="https://spark.apache.org/docs/latest/" target="_blank" rel="noopener">Apache Spark official documentation</a></li>
-              <li><a href="https://github.com/IBM/spark-on-z-samples" target="_blank" rel="noopener">IBM Spark on Z samples (GitHub)</a></li>
+              <li><a href="https://www.ibm.com/docs/en/z-platform-apache-spark" target="_blank" rel="noopener">Official Product Documentation: IBM Z Platform for Apache Spark</a></li>
+              <li><a href="https://www.ibm.com/support/z-content-solutions/journey-to-open-data-analytics/" target="_blank" rel="noopener">Architecture &amp; Strategy Guide: IBM Z Open Data Analytics Journey</a></li>
+              <li><a href="https://github.com/IBM/spark-on-z-samples" target="_blank" rel="noopener">Code Samples &amp; Tutorials: IBM Spark on Z GitHub Samples Repository</a></li>
+              <li><a href="https://spark.apache.org/docs/latest/" target="_blank" rel="noopener">Official Upstream Reference: Apache Spark Documentation</a></li>
             </ul>
           </div>
         </div>
@@ -145,7 +130,7 @@
       activeTop: 'products',
       activeSub: 'data-analytics',
       pageNavItems: [
-        { id: 'apache-spark',        label: 'Apache Spark on IBM Z' },
+        { id: 'apache-spark',        label: 'IBM Z Platform for Apache Spark' },
         { id: 'synthetic-data-sets', label: 'IBM Synthetic Data Sets' },
       ]
     });

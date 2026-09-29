@@ -24,11 +24,11 @@
   --ibm-border:         #e0e0e0;
   --ibm-green:       #24a148;
   --ibm-teal:        #007d79;
-  /* ── IBM Cool Gray (non-interactive) ── */
-  --cg-accent:       #697077;
-  --cg-accent-dark:  #393939;
-  --cg-20:           #dde1e6;
-  --cg-10:           #f2f4f8;
+  /* ── IBM Purple (non-interactive) ── */
+  --cg-accent:       #a56eff;
+  --cg-accent-dark:  #a56eff;
+  --cg-20:           #a56eff;
+  --cg-10:           #f6f2ff;
 
   --topbar-height:     64px;
   --lifecycle-height:  42px;
@@ -455,6 +455,10 @@ body.has-lifecycle .pagenav {
   max-width: 620px;
   margin: 0;
 }
+
+.page-hero--wide p {
+  max-width: none;
+}
 .page-hero p a {
   color: var(--ibm-blue);
   text-decoration: underline;
@@ -657,11 +661,113 @@ body.has-lifecycle .section h2[id] {
   transform: rotate(180deg);
 }
 .tool-accordion-body {
-  padding: 20px 24px 16px;
+  padding: 20px 24px 24px;
   border-top: 1px solid var(--ibm-border);
   background: #fff;
 }
 .tool-accordion-body[hidden] { display: none; }
+
+.tool-accordion-body p {
+  color: var(--ibm-text-secondary);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.tool-accordion-body p strong {
+  color: var(--ibm-text-primary);
+  font-weight: 600;
+}
+
+.tool-accordion-body h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ibm-text-primary);
+  margin-top: 0;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+
+.tool-accordion-body h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ibm-text-primary);
+  margin-top: 28px;
+  margin-bottom: 10px;
+  letter-spacing: -0.1px;
+}
+
+.tool-accordion-body h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ibm-text-primary);
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.tool-accordion-body ul,
+.tool-accordion-body ol {
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+
+.tool-accordion-body ul li,
+.tool-accordion-body ol li {
+  color: var(--ibm-text-secondary);
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin-bottom: 5px;
+}
+
+.tool-accordion-body a {
+  color: var(--ibm-blue);
+  text-decoration: none;
+}
+
+.tool-accordion-body a:hover {
+  text-decoration: underline;
+}
+
+.tool-accordion-body a.learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ibm-blue);
+  text-decoration: none;
+  transition: gap 0.15s;
+}
+
+.tool-accordion-body a.learn-more:hover {
+  text-decoration: underline;
+  gap: 7px;
+}
+
+.tool-accordion-body pre {
+  background: var(--ibm-gray-10);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  overflow-x: auto;
+  margin-bottom: 14px;
+}
+
+.tool-accordion-body code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  background: var(--ibm-gray-10);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.tool-accordion-body pre code {
+  background: none;
+  padding: 0;
+}
 
 /* ─── Cards ──────────────────────────────────────────────────── */
 .card-grid {
@@ -759,7 +865,7 @@ body.has-lifecycle .section h2[id] {
 }
 
 .ops-table thead th {
-  background: var(--ibm-blue);
+  background: var(--cg-accent-dark);
   color: var(--ibm-white);
   text-align: left;
   padding: 12px 16px;
@@ -767,7 +873,7 @@ body.has-lifecycle .section h2[id] {
   font-size: 12px;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  border-bottom: 2px solid var(--ibm-blue-80);
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .ops-table tbody td {
@@ -809,7 +915,7 @@ body.has-lifecycle .section h2[id] {
 .pattern-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 
 .pattern-table th {
-  background: var(--ibm-blue);
+  background: var(--cg-accent-dark);
   color: var(--ibm-white);
   text-align: left;
   padding: 12px 16px;
@@ -817,7 +923,7 @@ body.has-lifecycle .section h2[id] {
   font-size: 12px;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  border-bottom: 2px solid var(--ibm-blue-80);
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .pattern-table td {
@@ -829,7 +935,7 @@ body.has-lifecycle .section h2[id] {
 }
 
 .pattern-table tr:last-child td { border-bottom: none; }
-.pattern-table tr:hover td { background: var(--ibm-blue-10); }
+.pattern-table tr:hover td { background: var(--cg-10); }
 
 /* ─── General data/glossary table ────────────────────────────── */
 .data-table {
@@ -844,7 +950,7 @@ body.has-lifecycle .section h2[id] {
 }
 
 .data-table thead th {
-  background: var(--ibm-blue);
+  background: var(--cg-accent-dark);
   color: var(--ibm-white);
   text-align: left;
   padding: 12px 16px;
@@ -852,7 +958,7 @@ body.has-lifecycle .section h2[id] {
   font-size: 12px;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  border-bottom: 2px solid var(--ibm-blue-80);
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .data-table tbody td {
@@ -864,7 +970,7 @@ body.has-lifecycle .section h2[id] {
 }
 
 .data-table tbody tr:last-child td { border-bottom: none; }
-.data-table tbody tr:hover td { background: var(--ibm-blue-10); }
+.data-table tbody tr:hover td { background: var(--cg-10); }
 .data-table a { color: var(--ibm-blue); text-decoration: none; }
 .data-table a:hover { text-decoration: underline; }
 
