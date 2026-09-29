@@ -34,9 +34,9 @@
           <div class="tool-accordion-body" hidden>
             <h1 style="margin-top:0;">IBM Z Accelerated for Triton Inference Server</h1>
             <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
-            <p>Triton Inference Server is a model server open-sourced by NVIDIA. Triton Inference Server's primary business value lies in its ability to standardize enterprise AI deployment by running models from any framework — such as PyTorch, TensorFlow, or ONNX Runtime — on a single, unified platform. By maximizing hardware utilization through dynamic batching and concurrent model execution, it significantly cuts compute costs while delivering low-latency predictions. This flexibility and resource efficiency streamline MLOps workflows, allowing teams to scale high-throughput AI services in production without maintaining fragmented infrastructure.</p>
+            <p>IBM Z Accelerated for Triton Inference Server is a model server open-sourced by NVIDIA. IBM Z Accelerated for Triton Inference Server's primary business value lies in its ability to standardize enterprise AI deployment by running models from any framework — such as PyTorch, TensorFlow, or ONNX Runtime — on a single, unified platform. By maximizing hardware utilization through dynamic batching and concurrent model execution, it significantly cuts compute costs while delivering low-latency predictions. This flexibility and resource efficiency streamline MLOps workflows, allowing teams to scale high-throughput AI services in production without maintaining fragmented infrastructure.</p>
             <p>It is commonly used across a wide variety of platforms and architectures, including s390x (Linux on Z). On Linux on Z, Triton can leverage AI frameworks that take advantage of both the SIMD architecture and the IBM Integrated Accelerator for AI (Neural Network Assist — NNPA).</p>
-            <p>Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE, with container images available in the IBM Z and LinuxONE Container Image Registry.</p>
+            <p>IBM Z Accelerated for Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE, with container images available in the IBM Z and LinuxONE Container Image Registry.</p>
 
             <h2>Key Features</h2>
             <ul>
@@ -48,7 +48,7 @@
             </ul>
 
             <h2>Supported Model Paths on IBM Z</h2>
-            <p>Triton Inference Server is quite flexible and supports a wide variety of model types. It also has the ability to create custom model backends, which make it extremely flexible for a variety of scenarios. In our testing, we have focused on three primary paths which allow us to deploy models that can leverage the Integrated Accelerator for AI when deployed on Telum I and Telum II processors:</p>
+            <p>IBM Z Accelerated for Triton Inference Server is quite flexible and supports a wide variety of model types. It also has the ability to create custom model backends, which make it extremely flexible for a variety of scenarios. In our testing, we have focused on three primary paths which allow us to deploy models that can leverage the Integrated Accelerator for AI when deployed on Telum I and Telum II processors:</p>
             <ul>
               <li>Traditional ML models in PMML, ONNX, or JSON format, run using an IBM Snap ML C++ runtime</li>
               <li>Deep learning models in ONNX format compiled with the IBM Z Deep Learning Compiler (zDLC)</li>
@@ -56,13 +56,13 @@
             </ul>
 
             <h2>Getting Started</h2>
-            <p>Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE. The AI Toolkit for IBM Z and LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE. These components of AI Toolkit for IBM Z and LinuxONE are freely available.</p>
-            <p>Two channels are provided for customers to download and deploy Triton Inference Server for LinuxONE:</p>
+            <p>IBM Z Accelerated for Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE. The AI Toolkit for IBM Z and LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE. These components of AI Toolkit for IBM Z and LinuxONE are freely available.</p>
+            <p>Two channels are provided for customers to download and deploy IBM Z Accelerated for Triton Inference Server for LinuxONE:</p>
             <ul>
               <li><a href="https://catalog.redhat.com/software/container-stacks/detail/63f7e50e4e6dcf278fce9770" target="_blank" rel="noopener">IBM Z Accelerated for Triton™ Inference Server in Red Hat Ecosystem Catalog</a></li>
               <li><a href="https://github.com/IBM/ibmz-accelerated-for-nvidia-triton-inference-server" target="_blank" rel="noopener">IBM Z and LinuxONE Container Image Registry</a> — instructions for downloading IBM Z Accelerated for Triton Inference Server from ICR</li>
             </ul>
-            <p>IBM has made detailed examples available that can be used to try the Snap ML backend on Triton Inference Server:</p>
+            <p>IBM has made detailed examples available that can be used to try the Snap ML backend on IBM Z Accelerated for Triton Inference Server:</p>
             <ul>
               <li><a href="https://github.com/IBM/ai-on-z-triton-is-examples/tree/main/snapml-examples" target="_blank" rel="noopener">Snap ML backend examples on GitHub</a></li>
               <li><a href="https://github.com/IBM/onnxmlir-triton-backend" target="_blank" rel="noopener">Triton Deep Learning Compiler backend (ONNX + zDLC)</a></li>
@@ -118,18 +118,33 @@
       ]
     });
 
+    var SESSION_KEY = 'open-accordions:' + location.pathname;
+
+    function saveState() {
+      var open = [];
+      document.querySelectorAll('.tool-accordion.is-open').forEach(function(acc) { open.push(acc.id); });
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(open));
+    }
+
+    function openAccordion(acc, scroll) {
+      var body = acc.querySelector('.tool-accordion-body');
+      var btn  = acc.querySelector('.tool-accordion-trigger');
+      acc.classList.add('is-open');
+      body.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      if (scroll) {
+        setTimeout(function() {
+          var top = acc.getBoundingClientRect().top + window.pageYOffset - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-height')) + 16);
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }, 150);
+      }
+    }
+
     function openAccordionForHash() {
       var hash = window.location.hash.replace('#', '');
       if (!hash) return;
       document.querySelectorAll('.tool-accordion').forEach(function(acc) {
-        if (acc.id === hash) {
-          var body = acc.querySelector('.tool-accordion-body');
-          var btn  = acc.querySelector('.tool-accordion-trigger');
-          acc.classList.add('is-open');
-          body.hidden = false;
-          btn.setAttribute('aria-expanded', 'true');
-          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
-        }
+        if (acc.id === hash) { openAccordion(acc, true); saveState(); }
       });
     }
 
@@ -142,8 +157,16 @@
           acc.classList.toggle('is-open', !isOpen);
           body.hidden = isOpen;
           btn.setAttribute('aria-expanded', String(!isOpen));
+          saveState();
         });
       });
+      // Restore previously open accordions (e.g. after hitting Back)
+      var saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+      saved.forEach(function(id) {
+        var acc = document.getElementById(id);
+        if (acc) openAccordion(acc, false);
+      });
+      // Hash takes priority — open + scroll to it
       openAccordionForHash();
     });
 

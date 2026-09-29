@@ -353,22 +353,48 @@
       ]
     });
 
-    document.querySelectorAll('.decision-card-trigger').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var card = btn.closest('.decision-card');
-        var body = card.querySelector('.decision-card-body');
-        var isOpen = card.classList.contains('open');
-        if (isOpen) {
-          card.classList.remove('open');
-          body.hidden = true;
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
+    (function() {
+      var SESSION_KEY = 'open-cards:' + location.pathname;
+      var allCards = Array.from(document.querySelectorAll('.decision-card'));
+
+      function saveState() {
+        var open = allCards.map(function(c, i) { return c.classList.contains('open') ? i : -1; }).filter(function(i) { return i >= 0; });
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(open));
+      }
+
+      function restoreState() {
+        var saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+        saved.forEach(function(i) {
+          var card = allCards[i];
+          if (!card) return;
+          var body = card.querySelector('.decision-card-body');
+          var btn  = card.querySelector('.decision-card-trigger');
           card.classList.add('open');
           body.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
-        }
+        });
+      }
+
+      allCards.forEach(function(card) {
+        var btn  = card.querySelector('.decision-card-trigger');
+        var body = card.querySelector('.decision-card-body');
+        btn.addEventListener('click', function() {
+          var isOpen = card.classList.contains('open');
+          if (isOpen) {
+            card.classList.remove('open');
+            body.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            card.classList.add('open');
+            body.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+          }
+          saveState();
+        });
       });
-    });
+
+      restoreState();
+    })();
   </script>
 </body>
 </html>

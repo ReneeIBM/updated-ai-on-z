@@ -136,18 +136,33 @@
       ]
     });
 
+    var SESSION_KEY = 'open-accordions:' + location.pathname;
+
+    function saveState() {
+      var open = [];
+      document.querySelectorAll('.tool-accordion.is-open').forEach(function(acc) { open.push(acc.id); });
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(open));
+    }
+
+    function openAccordion(acc, scroll) {
+      var body = acc.querySelector('.tool-accordion-body');
+      var btn  = acc.querySelector('.tool-accordion-trigger');
+      acc.classList.add('is-open');
+      body.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      if (scroll) {
+        setTimeout(function() {
+          var top = acc.getBoundingClientRect().top + window.pageYOffset - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-height')) + 16);
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }, 150);
+      }
+    }
+
     function openAccordionForHash() {
       var hash = window.location.hash.replace('#', '');
       if (!hash) return;
       document.querySelectorAll('.tool-accordion').forEach(function(acc) {
-        if (acc.id === hash) {
-          var body = acc.querySelector('.tool-accordion-body');
-          var btn  = acc.querySelector('.tool-accordion-trigger');
-          acc.classList.add('is-open');
-          body.hidden = false;
-          btn.setAttribute('aria-expanded', 'true');
-          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
-        }
+        if (acc.id === hash) { openAccordion(acc, true); saveState(); }
       });
     }
 
@@ -160,8 +175,16 @@
           acc.classList.toggle('is-open', !isOpen);
           body.hidden = isOpen;
           btn.setAttribute('aria-expanded', String(!isOpen));
+          saveState();
         });
       });
+      // Restore previously open accordions (e.g. after hitting Back)
+      var saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+      saved.forEach(function(id) {
+        var acc = document.getElementById(id);
+        if (acc) openAccordion(acc, false);
+      });
+      // Hash takes priority — open + scroll to it
       openAccordionForHash();
     });
 

@@ -116,7 +116,7 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
               <li>Produces a lightweight <code>.so</code> shared library with no framework dependencies at runtime</li>
               <li>Supports encoder LLMs and small decoder LLMs (up to 2B parameters) on IBM z17</li>
               <li>INT8 quantization, Layer Normalization, and GeLU support on Telum II (IBM z17)</li>
-              <li>Embeddable in applications or servable via Triton Inference Server</li>
+              <li>Embeddable in applications or servable via IBM Z Accelerated for Triton Inference Server</li>
               <li>C++, Java, and Python runtime APIs</li>
             </ul>
 
@@ -128,11 +128,11 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
               <li>Command-line model compiler that produces a <code>.so</code> library with optional Java and Python wrappers</li>
               <li>Extensive details available in the <a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">IBM DLC official product page</a></li>
             </ul>
-            <p>These model libraries can be leveraged either directly or through Triton Inference Server, which is part of the AI Toolkit for IBM Z and LinuxONE.</p>
+            <p>These model libraries can be leveraged either directly or through IBM Z Accelerated for Triton Inference Server, which is part of the AI Toolkit for IBM Z and LinuxONE.</p>
             <p>Additional samples:</p>
             <ul>
               <li><a href="https://github.com/IBM/zDLC" target="_blank" rel="noopener">Documentation and samples, including C++, Java, and Python clients</a></li>
-              <li><a href="https://github.com/IBM/onnxmlir-triton-backend" target="_blank" rel="noopener">Leveraging DLC with Triton Inference Server on LoZ</a></li>
+              <li><a href="https://github.com/IBM/onnxmlir-triton-backend" target="_blank" rel="noopener">Leveraging DLC with IBM Z Accelerated for Triton Inference Server on LoZ</a></li>
               <li><a href="../products-tools/ai-platforms.html#mlz">Machine Learning for z/OS</a> — a z/OS product that manages the full model lifecycle. Enables you to upload your ONNX model then compile and deploy at the push of a button. Supports server-side mini-batching for ONNX/DLC model serving to get the best benefit out of the Integrated Accelerator for AI. Infuse AI into z/OS applications either through native CICS, IMS, and Java native scoring services or through using model server REST endpoints.</li>
             </ul>
 
@@ -165,18 +165,33 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
       ]
     });
 
+    var SESSION_KEY = 'open-accordions:' + location.pathname;
+
+    function saveState() {
+      var open = [];
+      document.querySelectorAll('.tool-accordion.is-open').forEach(function(acc) { open.push(acc.id); });
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(open));
+    }
+
+    function openAccordion(acc, scroll) {
+      var body = acc.querySelector('.tool-accordion-body');
+      var btn  = acc.querySelector('.tool-accordion-trigger');
+      acc.classList.add('is-open');
+      body.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      if (scroll) {
+        setTimeout(function() {
+          var top = acc.getBoundingClientRect().top + window.pageYOffset - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-height')) + 16);
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }, 150);
+      }
+    }
+
     function openAccordionForHash() {
       var hash = window.location.hash.replace('#', '');
       if (!hash) return;
       document.querySelectorAll('.tool-accordion').forEach(function(acc) {
-        if (acc.id === hash) {
-          var body = acc.querySelector('.tool-accordion-body');
-          var btn  = acc.querySelector('.tool-accordion-trigger');
-          acc.classList.add('is-open');
-          body.hidden = false;
-          btn.setAttribute('aria-expanded', 'true');
-          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
-        }
+        if (acc.id === hash) { openAccordion(acc, true); saveState(); }
       });
     }
 
@@ -189,8 +204,16 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
           acc.classList.toggle('is-open', !isOpen);
           body.hidden = isOpen;
           btn.setAttribute('aria-expanded', String(!isOpen));
+          saveState();
         });
       });
+      // Restore previously open accordions (e.g. after hitting Back)
+      var saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+      saved.forEach(function(id) {
+        var acc = document.getElementById(id);
+        if (acc) openAccordion(acc, false);
+      });
+      // Hash takes priority — open + scroll to it
       openAccordionForHash();
     });
 

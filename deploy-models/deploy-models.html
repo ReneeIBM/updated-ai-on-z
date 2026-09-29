@@ -139,7 +139,7 @@
               <div class="decision-card-body" hidden>
                 <p><strong>→ Export as a TensorFlow SavedModel</strong> and deploy with <a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated Serving for TensorFlow</a>. This avoids the ONNX conversion step while still leveraging Telum hardware acceleration.</p>
                 <p><em>Common approach:</em> Train with TensorFlow → Export SavedModel → Deploy to IBM Z Accelerated Serving for TensorFlow.</p>
-                <p><em>Note: The ONNX → zDLC path is also valid for TensorFlow models and gives access to <a href="../products-tools/inference-serving.html#triton">Triton</a> or <a href="../products-tools/ai-platforms.html#rhoai">RHOAI</a> as serving platforms.</em></p>
+                <p><em>Note: The ONNX → zDLC path is also valid for TensorFlow models and gives access to <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a> as serving platforms.</em></p>
               </div>
             </div>
 
@@ -147,7 +147,7 @@
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Multi-framework or containerized serving — IBM Z Accelerated for Triton Inference Server and Red Hat OpenShift AI</span>
-                  <span class="dc-pill"><a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for NVIDIA Triton Inference Server</a> · <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></span>
+                  <span class="dc-pill"><a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> · <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -155,7 +155,7 @@
                 <p>You need to serve multiple model types from a shared inference platform, or your team works in a containerized OpenShift environment.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for NVIDIA Triton Inference Server</a></strong>, optionally managed through <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>. Triton supports TensorFlow, PyTorch, ONNX, and zDLC-compiled models from a single serving runtime.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a></strong>, optionally managed through <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>. IBM Z Accelerated for Triton Inference Server supports TensorFlow, PyTorch, ONNX, and zDLC-compiled models from a single serving runtime.</p>
                 <p><em>Common approach:</em> Convert model to ONNX and compile with zDLC → Deploy to IBM Z Accelerated for Triton Inference Server → Optionally manage deployment pipelines and monitoring through Red Hat OpenShift AI.</p>
               </div>
             </div>
@@ -164,7 +164,7 @@
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Encoder LLMs on Telum — ONNX conversion path</span>
-                  <span class="dc-pill"><a href="../products-tools/model-formats.html#onnx">ONNX</a> · <a href="../products-tools/model-formats.html#zdlc">zDLC</a> · <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for NVIDIA Triton Inference Server</a></span>
+                  <span class="dc-pill"><a href="../products-tools/model-formats.html#onnx">ONNX</a> · <a href="../products-tools/model-formats.html#zdlc">zDLC</a> · <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a></span>
                 </span>
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
@@ -172,7 +172,7 @@
                 <p>You have an encoder large language model (e.g., BERT-style) and want to run it on the Telum on-chip accelerator rather than Spyre.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Convert the encoder LLM to <a href="../products-tools/model-formats.html#onnx">ONNX</a></strong> and follow the same deep learning path: compile with <a href="../products-tools/model-formats.html#zdlc">zDLC</a> and deploy via <a href="../products-tools/inference-serving.html#triton">Triton</a>, <a href="../products-tools/ai-platforms.html#mlz">MLz</a>, or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</p>
+                <p><strong>→ Convert the encoder LLM to <a href="../products-tools/model-formats.html#onnx">ONNX</a></strong> and follow the same deep learning path: compile with <a href="../products-tools/model-formats.html#zdlc">zDLC</a> and deploy via <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a>, <a href="../products-tools/ai-platforms.html#mlz">MLz</a>, or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</p>
                 <p><em>Common approach:</em> Export encoder LLM to ONNX → Compile with zDLC → Deploy via IBM Z Accelerated for Triton Inference Server or Red Hat OpenShift AI.</p>
                 <p><em>Note: Encoder LLMs can also be served on Spyre — see the next subsection. As a general guide: models with approximately 300 million parameters or fewer are a good fit for the Telum on-chip accelerator; models up to approximately 30 billion parameters can run on Spyre; models larger than that are not suited for IBM Z. The right choice also depends on your SLAs and hardware availability.</em></p>
               </div>
@@ -216,7 +216,7 @@
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid paths for LLM inference on Spyre — no ONNX conversion required for either. Choose OpenShift AI when you need the broader platform: MLOps pipelines, model governance, and unified management across Telum and Spyre workloads.</p>
-                <p><em>Common approach:</em> Deploy LLMs through OpenShift AI using the <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> runtime for Spyre workloads, or <a href="../products-tools/inference-serving.html#triton">Triton</a> for Telum workloads — all managed from a single MLOps platform.</p>
+                <p><em>Common approach:</em> Deploy LLMs through OpenShift AI using the <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> runtime for Spyre workloads, or <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> for Telum workloads — all managed from a single MLOps platform.</p>
               </div>
             </div>
 
@@ -418,22 +418,48 @@
       ]
     });
 
-    document.querySelectorAll('.decision-card-trigger').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var card = btn.closest('.decision-card');
-        var body = card.querySelector('.decision-card-body');
-        var isOpen = card.classList.contains('open');
-        if (isOpen) {
-          card.classList.remove('open');
-          body.hidden = true;
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
+    (function() {
+      var SESSION_KEY = 'open-cards:' + location.pathname;
+      var allCards = Array.from(document.querySelectorAll('.decision-card'));
+
+      function saveState() {
+        var open = allCards.map(function(c, i) { return c.classList.contains('open') ? i : -1; }).filter(function(i) { return i >= 0; });
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(open));
+      }
+
+      function restoreState() {
+        var saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+        saved.forEach(function(i) {
+          var card = allCards[i];
+          if (!card) return;
+          var body = card.querySelector('.decision-card-body');
+          var btn  = card.querySelector('.decision-card-trigger');
           card.classList.add('open');
           body.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
-        }
+        });
+      }
+
+      allCards.forEach(function(card) {
+        var btn  = card.querySelector('.decision-card-trigger');
+        var body = card.querySelector('.decision-card-body');
+        btn.addEventListener('click', function() {
+          var isOpen = card.classList.contains('open');
+          if (isOpen) {
+            card.classList.remove('open');
+            body.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            card.classList.add('open');
+            body.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+          }
+          saveState();
+        });
       });
-    });
+
+      restoreState();
+    })();
   </script>
 </body>
 </html>

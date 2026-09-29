@@ -28,7 +28,7 @@
         <section class="section" id="overview">
           <h1>Serve Model</h1>
           <p>Serving is the stage where a deployed model is made available for production use. On IBM Z, as soon as a model is deployed a scoring endpoint is created — serving and deploying are effectively the same step. This stage focuses on invoking that endpoint from your applications and managing the model in production over time.</p>
-          <p>The invocation method depends on your runtime: models deployed in Machine Learning for IBM z/OS (MLz) are called via ALN Score, ALN Serve Score, WOLA, Java, or REST; models deployed in Triton Inference Server or Red Hat AI Inference Server are called via REST or gRPC. On IBM Z, invocation happens close to enterprise data, reducing latency and enabling AI to be embedded directly into transactional workflows.</p>
+          <p>The invocation method depends on your runtime: models deployed in Machine Learning for IBM z/OS (MLz) are called via ALN Score, ALN Serve Score, WOLA, Java, or REST; models deployed in IBM Z Accelerated for Triton Inference Server or Red Hat AI Inference Server are called via REST or gRPC. On IBM Z, invocation happens close to enterprise data, reducing latency and enabling AI to be embedded directly into transactional workflows.</p>
 
           <h2>What happens at this stage?</h2>
           <div class="card-grid">
@@ -51,13 +51,13 @@
           </div>
 
           <h2>Who is this stage for?</h2>
-          <p>Serving is primarily owned by <strong>ML Engineers</strong> and <strong>Application Architects</strong>, with Data Scientists as stakeholders validating that the serving layer produces correct outputs. Line of Business and IT Architects set the SLA and throughput requirements the serving layer should meet.</p>
+          <p>Serving is typically owned by <strong>ML Engineers</strong> and <strong>Application Architects</strong>, with Data Scientists as stakeholders validating that the serving layer produces correct outputs. Line of Business and IT Architects set the SLA and throughput requirements the serving layer should meet.</p>
         </section>
 
         <!-- ── WHERE TO START ────────────────────────────────────────── -->
         <section class="section" id="where-to-start">
           <h1>Where to Start</h1>
-          <p>Your invocation method and runtime platform are determined by your model type and where it was deployed. The three subsections below map to those two dimensions.</p>
+          <p>Your serving method and runtime platform are determined by your model type and where it was deployed. The three subsections below map to those two dimensions.</p>
 
           <!-- ── SUBSECTION 1: Traditional ML ── -->
           <h2 id="traditional-ml">Invoking Traditional Machine Learning Models</h2>
@@ -102,8 +102,8 @@
                 <p>You need a single inference server that handles ONNX, TensorFlow, PyTorch, and zDLC-compiled models, running in containers on Linux on Z or z/OS Container Extensions.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a>.</strong> Triton provides a unified, high-performance runtime for deep learning, encoder LLM, and traditional ML models on IBM Z. Applications invoke Triton models via <strong>REST</strong> or <strong>gRPC</strong> endpoints.</p>
-                <p><em>Common approach:</em> Deploy <a href="../products-tools/model-formats.html#zdlc">zDLC</a>-compiled <a href="../products-tools/model-formats.html#onnx">ONNX</a> model to Triton → Invoke via gRPC or REST from application code.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a>.</strong> IBM Z Accelerated for Triton Inference Server provides a unified, high-performance runtime for deep learning, encoder LLM, and traditional ML models on IBM Z. Applications invoke models via <strong>REST</strong> or <strong>gRPC</strong> endpoints.</p>
+                <p><em>Common approach:</em> Deploy <a href="../products-tools/model-formats.html#zdlc">zDLC</a>-compiled <a href="../products-tools/model-formats.html#onnx">ONNX</a> model to IBM Z Accelerated for Triton Inference Server → Invoke via gRPC or REST from application code.</p>
               </div>
             </div>
 
@@ -116,7 +116,7 @@
                 <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
               </button>
               <div class="dc-card-intro">
-                <p>Your model is a TensorFlow SavedModel and you want a dedicated TensorFlow runtime without Triton.</p>
+                <p>Your model is a TensorFlow SavedModel and you want a dedicated TensorFlow runtime without IBM Z Accelerated for Triton Inference Server.</p>
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated Serving for TensorFlow</a>.</strong> Provides a production TensorFlow Serving runtime optimized for IBM Z hardware, leveraging Telum AI acceleration.</p>
@@ -137,7 +137,7 @@
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> OpenShift AI manages serving infrastructure for both Telum and Spyre workloads, making it the right platform when you need coverage across multiple accelerators or model types.</p>
-                <p><em>Common approach:</em> Deploy model servers (<a href="../products-tools/inference-serving.html#triton">Triton</a> or <a href="../products-tools/ai-frameworks.html#tensorflow">TensorFlow Serving</a>) through OpenShift AI → Monitor performance and scale inference workloads from a unified MLOps platform.</p>
+                <p><em>Common approach:</em> Deploy model servers (<a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> or <a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow Serving</a>) through OpenShift AI → Monitor performance and scale inference workloads from a unified MLOps platform.</p>
               </div>
             </div>
 
@@ -153,7 +153,7 @@
                 <p>You have an encoder LLM (e.g., BERT-style) and want to serve it on the Telum on-chip accelerator.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Encoder LLMs targeting Telum follow the ONNX → zDLC compilation path: export the model to <a href="../products-tools/model-formats.html#onnx">ONNX</a>, compile with <a href="../products-tools/model-formats.html#zdlc">IBM Z Deep Learning Compiler (zDLC)</a>, and serve via Triton or through OpenShift AI.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> or <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Encoder LLMs targeting Telum follow the ONNX → zDLC compilation path: export the model to <a href="../products-tools/model-formats.html#onnx">ONNX</a>, compile with <a href="../products-tools/model-formats.html#zdlc">IBM Z Deep Learning Compiler (zDLC)</a>, and serve via IBM Z Accelerated for Triton Inference Server or through OpenShift AI.</p>
                 <p><em>Common approach:</em> Export encoder LLM to ONNX → Compile with zDLC → Deploy to IBM Z Accelerated for Triton Inference Server → Serve via gRPC or REST endpoint.</p>
                 <p><em>Note: Encoder LLMs can also be served on Spyre — see the next subsection. The choice depends on your SLOs and whether you have Spyre available.</em></p>
               </div>
@@ -197,7 +197,7 @@
               </div>
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a>.</strong> Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid paths for LLM inference on Spyre — no ONNX conversion required for either. Choose OpenShift AI when you need the broader platform: MLOps pipelines, model governance, and unified management across Telum and Spyre workloads.</p>
-                <p><em>Common approach:</em> Manage LLM serving through OpenShift AI using the <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> runtime for Spyre workloads, or <a href="../products-tools/inference-serving.html#triton">Triton</a> for Telum workloads — all from a single MLOps platform.</p>
+                <p><em>Common approach:</em> Manage LLM serving through OpenShift AI using the <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a> runtime for Spyre workloads, or <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a> for Telum workloads — all from a single MLOps platform.</p>
               </div>
             </div>
 
@@ -398,22 +398,48 @@
       ]
     });
 
-    document.querySelectorAll('.decision-card-trigger').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var card = btn.closest('.decision-card');
-        var body = card.querySelector('.decision-card-body');
-        var isOpen = card.classList.contains('open');
-        if (isOpen) {
-          card.classList.remove('open');
-          body.hidden = true;
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
+    (function() {
+      var SESSION_KEY = 'open-cards:' + location.pathname;
+      var allCards = Array.from(document.querySelectorAll('.decision-card'));
+
+      function saveState() {
+        var open = allCards.map(function(c, i) { return c.classList.contains('open') ? i : -1; }).filter(function(i) { return i >= 0; });
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(open));
+      }
+
+      function restoreState() {
+        var saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+        saved.forEach(function(i) {
+          var card = allCards[i];
+          if (!card) return;
+          var body = card.querySelector('.decision-card-body');
+          var btn  = card.querySelector('.decision-card-trigger');
           card.classList.add('open');
           body.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
-        }
+        });
+      }
+
+      allCards.forEach(function(card) {
+        var btn  = card.querySelector('.decision-card-trigger');
+        var body = card.querySelector('.decision-card-body');
+        btn.addEventListener('click', function() {
+          var isOpen = card.classList.contains('open');
+          if (isOpen) {
+            card.classList.remove('open');
+            body.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            card.classList.add('open');
+            body.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+          }
+          saveState();
+        });
       });
-    });
+
+      restoreState();
+    })();
   </script>
 </body>
 </html>

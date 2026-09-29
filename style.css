@@ -623,6 +623,7 @@ body.has-lifecycle .section h2[id] {
   border-radius: 6px;
   overflow: hidden;
   margin-bottom: 12px;
+  scroll-margin-top: calc(var(--topbar-height) + 16px);
 }
 .tool-accordion-trigger {
   width: 100%;
