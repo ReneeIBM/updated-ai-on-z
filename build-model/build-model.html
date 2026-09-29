@@ -223,40 +223,6 @@
               </div>
             </div>
 
-            <div class="decision-card">
-              <button class="decision-card-trigger" aria-expanded="false">
-                <span class="dc-trigger-left">
-                  <span class="dc-trigger-title">Adapt an LLM to your domain — fine-tuning</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></span>
-                </span>
-                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
-              </button>
-              <div class="dc-card-intro">
-                <p>You have domain-specific documents, transaction records, or internal knowledge you want the model to learn from.</p>
-              </div>
-              <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> to fine-tune a pre-existing LLM with your own unstructured text data. Red Hat OpenShift AI provides fine-tuning pipelines and shared workspaces for model customization on IBM Z. Fine-tuning adjusts model weights using your data without training from scratch, saving significant time and resources compared to building and training a model from the ground up.</p>
-                <p><em>Note: Red Hat OpenShift AI is the better fit if your organization already has an OpenShift container strategy. The fine-tuned model can then be served via Red Hat OpenShift AI or Red Hat AI Inference Server, which runs standalone outside of OpenShift.</em></p>
-                <p><em>Common approach:</em> Source a base LLM from Hugging Face or an IBM repository → Fine-tune using Red Hat OpenShift AI → Deploy the fine-tuned model via Red Hat OpenShift AI or <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <button class="decision-card-trigger" aria-expanded="false">
-                <span class="dc-trigger-left">
-                  <span class="dc-trigger-title">Guide an LLM with instructions — prompt engineering</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#watsonx-ai">watsonx.ai</a></span>
-                </span>
-                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
-              </button>
-              <div class="dc-card-intro">
-                <p>You want to shape how the LLM responds to specific questions or tasks without modifying model weights.</p>
-              </div>
-              <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#watsonx-ai">watsonx.ai</a></strong> to design and test prompts using techniques such as few-shot prompting, chain-of-thought, or retrieval-augmented generation (RAG). The watsonx.ai prompt lab can be used in combination with models deployed on IBM Z via <a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a> or <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a>.</p>
-                <p><em>Common approach:</em> Design and test prompts in the watsonx.ai prompt lab → Connect to a model deployed on IBM Z → Iterate based on output quality.</p>
-              </div>
-            </div>
 
           </div>
         </section>
