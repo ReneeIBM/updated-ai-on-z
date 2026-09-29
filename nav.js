@@ -88,7 +88,7 @@ function renderNav(opts) {
       id: 'hardware-solutions', label: 'Hardware',
       href: p + 'products-tools/hardware-solutions.html',
       tools: [
-        { label: 'IBM Integrated Accelerator for AI', href: p + 'products-tools/hardware-solutions.html#telum' },
+        { label: 'Telum and the IBM Integrated Accelerator for AI', href: p + 'products-tools/hardware-solutions.html#telum' },
         { label: 'IBM Spyre Accelerator',                     href: p + 'products-tools/hardware-solutions.html#spyre' },
       ]
     },
