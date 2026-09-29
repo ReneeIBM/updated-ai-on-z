@@ -88,7 +88,7 @@ function renderNav(opts) {
       id: 'hardware-solutions', label: 'Hardware',
       href: p + 'products-tools/hardware-solutions.html',
       tools: [
-        { label: 'IBM Integrated Accelerator for AI (Telum)', href: p + 'products-tools/hardware-solutions.html#telum' },
+        { label: 'IBM Integrated Accelerator for AI', href: p + 'products-tools/hardware-solutions.html#telum' },
         { label: 'IBM Spyre Accelerator',                     href: p + 'products-tools/hardware-solutions.html#spyre' },
       ]
     },
@@ -353,7 +353,7 @@ function initSearch(wrapper, root) {
 
     /* Hardware */
     { title: 'Hardware Solutions', section: 'Products & Tools', snippet: 'IBM Z hardware for AI: Telum on-chip accelerator and IBM Spyre Accelerator for generative AI.', href: root + 'products-tools/hardware-solutions.html' },
-    { title: 'IBM Integrated Accelerator for AI (Telum)', section: 'Hardware', snippet: 'Telum is an on-chip AI accelerator built into IBM z16 and z17 processors for low-latency transactional AI inference.', href: root + 'products-tools/hardware-solutions.html#telum' },
+    { title: 'IBM Integrated Accelerator for AI', section: 'Hardware', snippet: 'Telum is an on-chip AI accelerator built into IBM z16 and z17 processors for low-latency transactional AI inference.', href: root + 'products-tools/hardware-solutions.html#telum' },
     { title: 'IBM Spyre Accelerator', section: 'Hardware', snippet: 'The IBM Spyre Accelerator on IBM z17 enables high-throughput generative AI and large model inference.', href: root + 'products-tools/hardware-solutions.html#spyre' },
 
     /* AI Frameworks */
