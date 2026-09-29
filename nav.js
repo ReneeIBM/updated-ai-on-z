@@ -50,7 +50,7 @@ function renderNav(opts) {
       tools: [
         { label: 'AI Toolkit for IBM Z and LinuxONE',   href: p + 'products-tools/ai-frameworks.html#ai-toolkit' },
         { label: 'IBM Z Accelerated SnapML',            href: p + 'products-tools/ai-frameworks.html#snapml' },
-        { label: 'IBM Z Accelerated for TensorFlow',    href: p + 'products-tools/ai-frameworks.html#tensorflow' },
+        { label: 'IBM Z Accelerated for TensorFlow and TensorFlow Serving',   href: p + 'products-tools/ai-frameworks.html#tensorflow' },
         { label: 'IBM Z Accelerated for PyTorch',       href: p + 'products-tools/ai-frameworks.html#pytorch' },
         { label: 'Python AI Toolkit for z/OS',          href: p + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
       ]
@@ -321,7 +321,7 @@ function initSearch(wrapper, root) {
     /* Build Models */
     { title: 'Build Models', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and LLMs on IBM Z — Snap ML, TensorFlow, PyTorch, fine-tuning, and prompt engineering.', href: root + 'build-model/build-model.html' },
     { title: 'IBM Z Accelerated SnapML', section: 'Build Model', snippet: 'Accelerated Snap ML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
-    { title: 'IBM Z Accelerated for TensorFlow', section: 'Build Model', snippet: 'TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
+    { title: 'IBM Z Accelerated for TensorFlow and TensorFlow Serving', section: 'AI Frameworks & Dev Tools', snippet: 'IBM Z Accelerated for TensorFlow and TensorFlow Serving optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
     { title: 'IBM Z Accelerated for PyTorch', section: 'Build Model', snippet: 'PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
     { title: 'Machine Learning for IBM z/OS (MLz)', section: 'Build Model', snippet: 'IBM MLz provides a full lifecycle platform for building, deploying, and scoring AI models on z/OS.', href: root + 'products-tools/ai-platforms.html#mlz' },
     { title: 'Red Hat OpenShift AI', section: 'Build Model', snippet: 'MLOps platform on Red Hat OpenShift running on IBM Z and LinuxONE for containerized AI workloads.', href: root + 'products-tools/ai-platforms.html#rhoai' },

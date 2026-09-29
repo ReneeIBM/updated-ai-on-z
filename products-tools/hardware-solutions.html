@@ -28,22 +28,22 @@
         <!-- ── TELUM ─────────────────────────────────────────────────── -->
         <div class="tool-accordion" id="telum">
           <button class="tool-accordion-trigger" aria-expanded="false">
-            <span class="tool-accordion-title">IBM Integrated Accelerator for AI (Telum)</span>
+            <span class="tool-accordion-title">Telum and the IBM Integrated Accelerator for AI</span>
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
 
           <h2>What is the IBM Integrated Accelerator for AI?</h2>
-          <p>The IBM Integrated Accelerator for AI is an on-chip AI accelerator available on the IBM Telum chip — part of IBM z16, LinuxONE 4, and now IBM z17 (Telum II) servers. It is designed to enable high throughput, low latency inference for deep learning and machine learning.</p>
-          <p>You can build and train your models on any platform, including IBM Z. When you are ready to deploy, your models receive transparent acceleration and optimization on-chip, leveraging the best available acceleration for the model type.</p>
+          <p>The IBM Integrated Accelerator for AI is an on-chip AI accelerator available on the <a href="https://www.ibm.com/products/z/telum" target="_blank" rel="noopener">IBM Telum chip</a> — part of IBM z16, LinuxONE 4, and now IBM z17 and LinuxONE 5 servers (Telum II). It is designed to enable high throughput, low latency inference for deep learning and machine learning. It also supports small encoder language models.</p>
+          <p>You can build and train your models on any platform, including IBM Z. When you are ready to deploy, your models can take advantage of the Telum on-chip accelerator, bringing the model inferencing directly to transactions processed in the core for real-time decisions.</p>
           <p>The IBM Integrated Accelerator for AI is more than just a matrix multiply accelerator — it provides optimization and acceleration for a wide set of complex functions commonly found in deep learning and machine learning models, enabling a broader set of operations to run on-chip.</p>
 
           <h2>Why the Integrated Accelerator?</h2>
           <ul>
             <li><strong>On-chip, no GPU required</strong> — AI inference runs directly on the Telum processor alongside your business transactions, with no external hardware needed.</li>
             <li><strong>High throughput, low latency</strong> — Designed for real-time scoring at enterprise scale, enabling AI decisions within transaction flows.</li>
-            <li><strong>Transparent acceleration</strong> — Supported frameworks automatically offload eligible operations to the accelerator — no model rewriting required.</li>
-            <li><strong>Security and compliance</strong> — Data never leaves the IBM Z platform, preserving the security and governance properties of your enterprise environment.</li>
+            <li><strong>Supported frameworks</strong> — Secured, supported open-source frameworks have been optimized to exploit the on-chip accelerator in Telum.</li>
+            <li><strong>Security and compliance</strong> — Data doesn't need to leave the IBM Z platform, preserving the security and governance properties of your enterprise environment.</li>
           </ul>
 
           <h2>Example Use Cases</h2>
@@ -64,7 +64,7 @@
             <div class="expand-card-body">
               <table class="ops-table">
                 <thead>
-                  <tr><th>Operation</th><th>z16 / LinuxONE 4 (Telum I)</th><th>z17 (Telum II)</th></tr>
+                  <tr><th>Operation</th><th>z16 / LinuxONE 4 (Telum)</th><th>z17 / LinuxONE 5 (Telum II)</th></tr>
                 </thead>
                 <tbody>
                   <tr><td class="cap-label">LSTM Activation</td><td>✓</td><td>✓</td></tr>
@@ -99,17 +99,22 @@
           <ul>
             <li><a href="../products-tools/ai-frameworks.html#onnx-zdlc">ONNX models compiled with the IBM Z Deep Learning Compiler (zDLC)</a></li>
             <li><a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated for TensorFlow</a> — transparent zDNN offload</li>
-            <li><a href="../products-tools/ai-frameworks.html#pytorch">IBM Z Accelerated for PyTorch</a> — Telum I and II acceleration</li>
+            <li><a href="../products-tools/ai-frameworks.html#pytorch">IBM Z Accelerated for PyTorch</a> — Telum and Telum II acceleration</li>
           </ul>
           <p><strong>For traditional ML models</strong> (scikit-learn, XGBoost, LightGBM):</p>
           <ul>
             <li><a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated SnapML</a> — optimized training and inference with Telum acceleration for Random Forest, Extra Trees, and Gradient Boosting</li>
           </ul>
+          <p><strong>For model serving</strong>:</p>
+          <ul>
+            <li><a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for NVIDIA Triton Inference Server</a></li>
+            <li><a href="../products-tools/ai-frameworks.html#tensorflow">IBM Z Accelerated Serving for TensorFlow</a></li>
+          </ul>
           <p><strong>For framework and compiler developers</strong>:</p>
           <ul>
             <li><a href="https://github.com/IBM/zDNN" target="_blank" rel="noopener">IBM zDNN</a> — the low-level C library exposing Telum AI accelerator operations. Available in z/OS in all in-service releases, and for RHEL, Ubuntu, and SUSE.</li>
           </ul>
-          <a href="https://www.ibm.com/blog/ibm-telum-processor-the-next-gen-microprocessor-for-ibm-z-and-ibm-linuxone/" class="learn-more" target="_blank" rel="noopener">IBM Telum processor announcement &#8594;</a>
+          <a href="https://www.ibm.com/products/z/telum" class="learn-more" target="_blank" rel="noopener">IBM Telum processor website &#8594;</a>
           </div>
         </div>
 
@@ -188,18 +193,25 @@
       ]
     });
 
-    (function() {
+    function openAccordionForHash() {
       var hash = window.location.hash.replace('#', '');
+      if (!hash) return;
       document.querySelectorAll('.tool-accordion').forEach(function(acc) {
-        var body = acc.querySelector('.tool-accordion-body');
-        var btn  = acc.querySelector('.tool-accordion-trigger');
-        var shouldOpen = hash && acc.id === hash;
-        if (shouldOpen) {
+        if (acc.id === hash) {
+          var body = acc.querySelector('.tool-accordion-body');
+          var btn  = acc.querySelector('.tool-accordion-trigger');
           acc.classList.add('is-open');
           body.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
-          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
         }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.tool-accordion').forEach(function(acc) {
+        var body = acc.querySelector('.tool-accordion-body');
+        var btn  = acc.querySelector('.tool-accordion-trigger');
         btn.addEventListener('click', function() {
           var isOpen = acc.classList.contains('is-open');
           acc.classList.toggle('is-open', !isOpen);
@@ -207,7 +219,10 @@
           btn.setAttribute('aria-expanded', String(!isOpen));
         });
       });
-    })();
+      openAccordionForHash();
+    });
+
+    window.addEventListener('hashchange', openAccordionForHash);
   </script>
 </body>
 </html>

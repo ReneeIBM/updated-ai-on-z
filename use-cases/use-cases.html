@@ -51,17 +51,10 @@
               <div class="bp-hero-left">
                 <div class="st-card-tag st-tag--zos" style="margin-bottom:0">z/OS</div>
                 <h2 class="bp-title">Solution Blueprint — Advanced Credit Card Fraud Detection</h2>
-                <p class="bp-subtitle">Multi-model Ensemble AI on IBM z17</p>
-                <p class="bp-intro">Financial institutions must detect fraudulent transactions in real time while maintaining the throughput and low latency required for high-volume payment processing. This solution demonstrates an ensemble AI approach for credit card fraud detection that combines machine learning and transformer-based models to improve detection accuracy while optimizing performance.</p>
-                <p class="bp-intro" style="margin-top:10px">Using IBM Synthetic Data Sets, organizations can train, evaluate, and compare models such as XGBoost and BERT to identify fraud patterns across transactional data, including purchase amounts, merchant information, locations, and transaction timing. Transactions are first analyzed by a high-performance XGBoost model, while lower-confidence predictions can be routed to a BERT model for additional analysis. This layered approach enables more accurate fraud detection while minimizing the impact on processing performance.</p>
-                <p class="bp-intro" style="margin-top:10px">The trained models are deployed on Machine Learning for IBM z/OS (MLz), enabling seamless integration with business applications and transaction processing systems. By combining scalable machine learning with advanced AI models, organizations can reduce fraud risk, improve operational efficiency, and support real-time fraud prevention at enterprise scale.</p>
-                <div class="bp-tags">
-                  <span class="st-badge">XGBoost · PMML</span>
-                  <span class="st-badge">BERT · ONNX</span>
-                  <span class="st-badge">MLz</span>
-                  <span class="st-badge">IBM z17</span>
-                  <span class="st-badge">Telum II / Spyre*</span>
-                </div>
+                <p class="bp-subtitle">Multi-Model Ensemble AI on IBM z17</p>
+                <p class="bp-intro">Financial institutions need to detect fraudulent transactions quickly and accurately while maintaining the throughput and low latency required for high-volume payment processing. This use case demonstrates an Ensemble AI approach on IBM z17, combining XGBoost and BERT models to enhance credit card fraud detection while optimizing how AI models are applied during transaction processing.</p>
+                <p class="bp-intro" style="margin-top:10px">Using IBM Synthetic Data Sets, organizations can train and evaluate models against transactional data such as transaction amount, merchant information, location, time, and transaction type. The solution uses XGBoost as the primary model for analyzing transactions, while the BERT model provides additional analysis when the XGBoost prediction falls below a pre-set probability score threshold. This multi-model approach helps improve prediction results while avoiding the need to run the more advanced model against every transaction.</p>
+                <p class="bp-intro" style="margin-top:10px">The trained models are deployed with Machine Learning for IBM z/OS (MLz), where scoring endpoints enable the models to be integrated into an ensemble inference pipeline and enterprise applications. The end-to-end use case covers AI Model Training, AI Model Deployment, and AI Model Analysis, demonstrating how organizations can operationalize multiple AI models on IBM z17 to identify potential fraud and support decisions to approve, flag, or block transactions.</p>
               </div>
             </div>
 

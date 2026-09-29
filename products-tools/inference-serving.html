@@ -56,7 +56,7 @@
             </ul>
 
             <h2>Getting Started</h2>
-            <p>Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE. The AI Toolkit for IBM Z and IBM LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE. These components of AI Toolkit for IBM Z and LinuxONE are freely available.</p>
+            <p>Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE. The AI Toolkit for IBM Z and LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE. These components of AI Toolkit for IBM Z and LinuxONE are freely available.</p>
             <p>Two channels are provided for customers to download and deploy Triton Inference Server for LinuxONE:</p>
             <ul>
               <li><a href="https://catalog.redhat.com/software/container-stacks/detail/63f7e50e4e6dcf278fce9770" target="_blank" rel="noopener">IBM Z Accelerated for Triton™ Inference Server in Red Hat Ecosystem Catalog</a></li>
@@ -78,25 +78,26 @@
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
+            <h1 style="margin-top:0;">Red Hat AI Inference Server</h1>
             <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
-            <p>Red Hat AI Inference Server is Red Hat's enterprise-supported model serving platform for large language models and foundation models, built on vLLM and designed to run on Red Hat OpenShift. It exposes an OpenAI-compatible API, making it a drop-in serving layer for applications already built against OpenAI's interfaces. It is aimed at platform teams and ML engineers who need to run LLM inference in production on OpenShift — with enterprise support, a defined release lifecycle, and operational tooling — rather than managing a raw vLLM deployment themselves. On IBM Z and LinuxONE, Red Hat AI Inference Server brings production GenAI serving to mission-critical on-premises infrastructure, including Spyre-accelerated workloads on IBM z17.</p>
+            <p>Red Hat AI Inference Server is Red Hat's enterprise supported model serving platform for large language models and foundation models. It is built on vLLM and designed to run standalone or on top of Red Hat OpenShift. The platform provides an OpenAI compatible API, allowing applications built for OpenAI interfaces to connect with minimal changes. It is intended for platform teams and machine learning engineers who need to run LLM inference in production using a supported runtime with a defined release lifecycle and operational tooling. On IBM Z and LinuxONE, Red Hat AI Inference Server enables production deployment of generative AI workloads, including support for Spyre accelerated workloads on IBM z17.</p>
+
             <h2>Key Capabilities</h2>
             <ul>
-              <li>OpenAI-compatible Chat Completions and Completions API — no client-side re-engineering required</li>
-              <li>Enterprise support, CVE patching, and defined release lifecycle from Red Hat</li>
-              <li>Deploys through the Red Hat OpenShift AI operator with built-in health probes, scaling, and service mesh integration</li>
-              <li>Spyre Accelerator support on IBM z17 for hardware-accelerated LLM inference on the mainframe</li>
-              <li>Supports IBM Granite, Llama, Mistral, and other open-weight models compatible with vLLM</li>
-              <li>Consistent runtime across on-premises OpenShift on IBM Z and cloud OpenShift environments</li>
+              <li>OpenAI compatible APIs, reducing the need to modify existing client applications</li>
+              <li>Enterprise support, security updates, and a defined release lifecycle from Red Hat</li>
+              <li>Support for the IBM Spyre Accelerator on IBM z17 for accelerated LLM inference</li>
+              <li>Support for a curated set of IBM Granite, Llama, Mistral, and other vLLM compatible open weight models</li>
+              <li>Consistent runtime across on premises OpenShift deployments on IBM Z and cloud based OpenShift environments</li>
             </ul>
+
             <h2>On IBM Z</h2>
-            <p>Red Hat AI Inference Server is a <strong>Serve Model</strong> tool. Within the Red Hat OpenShift AI stack on IBM Z and LinuxONE, it is the default serving runtime for LLM and foundation model workloads — the component that actually handles inference requests once a model is deployed. Organizations building generative AI capabilities on IBM Z should consider it when they need a production-grade, operator-managed LLM serving layer that integrates with OpenShift's existing observability, scaling, and security tooling. For traditional ML model serving on OpenShift on Z alongside LLM workloads, pair it with <a href="./inference-serving.html#triton">IBM Z Accelerated for Triton</a>.</p>
+            <p>Within the Red Hat OpenShift AI stack on IBM Z and LinuxONE, it serves as the runtime responsible for handling inference requests after a model has been deployed. Organizations building generative AI applications on IBM Z may consider Red Hat AI Inference Server when they need a supported LLM serving platform.</p>
+
             <h2>Getting Started</h2>
-            <a href="https://www.redhat.com/en/products/ai/inference" class="learn-more" target="_blank" rel="noopener">Red Hat AI Inference Server product page &#8594;</a>
-            <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/" class="learn-more" target="_blank" rel="noopener">Red Hat OpenShift AI documentation &#8594;</a>
-            <a href="../products-tools/ai-platforms.html#rhoai" class="learn-more">Red Hat OpenShift AI on AI on Z &#8594;</a>
-            <a href="../products-tools/hardware-solutions.html#spyre" class="learn-more">IBM Spyre Accelerator &#8594;</a>
-            <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
+            <ul>
+              <li><a href="https://www.redhat.com/en/products/ai/inference" target="_blank" rel="noopener">Red Hat AI Inference Server product page</a></li>
+            </ul>
           </div>
         </div>
 
@@ -117,18 +118,25 @@
       ]
     });
 
-    (function() {
+    function openAccordionForHash() {
       var hash = window.location.hash.replace('#', '');
+      if (!hash) return;
       document.querySelectorAll('.tool-accordion').forEach(function(acc) {
-        var body = acc.querySelector('.tool-accordion-body');
-        var btn  = acc.querySelector('.tool-accordion-trigger');
-        var shouldOpen = hash && acc.id === hash;
-        if (shouldOpen) {
+        if (acc.id === hash) {
+          var body = acc.querySelector('.tool-accordion-body');
+          var btn  = acc.querySelector('.tool-accordion-trigger');
           acc.classList.add('is-open');
           body.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
-          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
         }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.tool-accordion').forEach(function(acc) {
+        var body = acc.querySelector('.tool-accordion-body');
+        var btn  = acc.querySelector('.tool-accordion-trigger');
         btn.addEventListener('click', function() {
           var isOpen = acc.classList.contains('is-open');
           acc.classList.toggle('is-open', !isOpen);
@@ -136,7 +144,10 @@
           btn.setAttribute('aria-expanded', String(!isOpen));
         });
       });
-    })();
+      openAccordionForHash();
+    });
+
+    window.addEventListener('hashchange', openAccordionForHash);
   </script>
 </body>
 </html>

@@ -85,7 +85,8 @@
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
-            <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../build-model/build-model.html">Build Model</a> · <a href="../ai-governance/ai-governance.html">AI Governance</a></p>
+            <h1 style="margin-top:0;">IBM Synthetic Data Sets</h1>
+            <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a></p>
 
             <h2>What are IBM Synthetic Data Sets?</h2>
             <p>IBM Synthetic Data Sets are enterprise-grade, artificially generated datasets designed for AI model development in financial services. They look and behave like real transaction data — with no real customer information — making them safe to use for building, testing, and demonstrating AI models without requiring access to production data.</p>
@@ -96,7 +97,7 @@
               <li><strong>Removes the data access blocker</strong> — No need to request, anonymize, or wait for production data. Start building immediately.</li>
               <li><strong>Realistic financial services data</strong> — Datasets reflect the statistical properties and patterns of real financial transactions, not random noise.</li>
               <li><strong>No seed data required</strong> — IBM generates the data entirely. Clients don't need to provide any real data to get started.</li>
-              <li><strong>Privacy and compliance safe</strong> — No real customer data means no GDPR, PCI-DSS, or privacy concerns during development and demos.</li>
+              <li><strong>Privacy and compliance safe</strong> — No real customer data means GDPR, PCI-DSS, or privacy concerns are addressed during development and demos.</li>
               <li><strong>Covers three lifecycle stages</strong> — Use the same datasets to build a model, validate it, and demonstrate results.</li>
             </ul>
 
@@ -135,18 +136,25 @@
       ]
     });
 
-    (function() {
+    function openAccordionForHash() {
       var hash = window.location.hash.replace('#', '');
+      if (!hash) return;
       document.querySelectorAll('.tool-accordion').forEach(function(acc) {
-        var body = acc.querySelector('.tool-accordion-body');
-        var btn  = acc.querySelector('.tool-accordion-trigger');
-        var shouldOpen = hash && acc.id === hash;
-        if (shouldOpen) {
+        if (acc.id === hash) {
+          var body = acc.querySelector('.tool-accordion-body');
+          var btn  = acc.querySelector('.tool-accordion-trigger');
           acc.classList.add('is-open');
           body.hidden = false;
           btn.setAttribute('aria-expanded', 'true');
-          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+          setTimeout(function() { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
         }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.tool-accordion').forEach(function(acc) {
+        var body = acc.querySelector('.tool-accordion-body');
+        var btn  = acc.querySelector('.tool-accordion-trigger');
         btn.addEventListener('click', function() {
           var isOpen = acc.classList.contains('is-open');
           acc.classList.toggle('is-open', !isOpen);
@@ -154,7 +162,10 @@
           btn.setAttribute('aria-expanded', String(!isOpen));
         });
       });
-    })();
+      openAccordionForHash();
+    });
+
+    window.addEventListener('hashchange', openAccordionForHash);
   </script>
 </body>
 </html>
