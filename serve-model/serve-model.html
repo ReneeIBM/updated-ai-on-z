@@ -77,7 +77,7 @@
                 <p>Your core applications run on z/OS and you need inference integrated directly with CICS transactions, IMS workflows, or REST calls — without containerization.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> MLz is the primary invocation platform for traditional ML on z/OS. Once the model is imported and deployed in MLz, your application calls it using one of MLz's supported invocation methods: <strong>ALN Score</strong>, <strong>ALN Serve Score</strong>, <strong>WOLA</strong>, <strong>Java</strong>, or <strong>REST</strong>. MLz also supports <a href="../products-tools/model-formats.html#onnx">ONNX</a> models in addition to PMML.</p>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> MLz is the primary invocation platform for traditional ML on z/OS. Once the model is imported and deployed in MLz, your application calls it using one of MLz's supported invocation methods: ALN Score, ALN Serve Score, WOLA, Java, or REST. MLz also supports <a href="../products-tools/model-formats.html#onnx">ONNX</a> models in addition to PMML.</p>
                 <p><em>Common approach:</em> Import <a href="../products-tools/model-formats.html#pmml">PMML</a> or <a href="../products-tools/model-formats.html#onnx">ONNX</a> model into MLz → Deploy as a scoring endpoint → Invoke from CICS transactions, IMS workflows, or REST-based application integrations.</p>
               </div>
             </div>
@@ -86,7 +86,7 @@
 
           <!-- ── SUBSECTION 2: Deep Learning + Encoder LLMs (Telum) ── -->
           <h2 id="deep-learning">Invoking Deep Learning Models and Encoder LLMs (Telum On-Chip Accelerator)</h2>
-          <p>Deep learning models and encoder LLMs targeting the Telum on-chip accelerator are invoked through containerized inference runtimes on Linux on Z or z/OS Container Extensions. Applications call these models via <strong>REST</strong> or <strong>gRPC</strong> endpoints. If you are on z/OS and prefer a native (non-containerized) runtime, <a href="#traditional-ml">Machine Learning for IBM z/OS (MLz)</a> (covered in the previous subsection) also supports ONNX models. Encoder LLMs may also choose the Spyre path — see the next subsection.</p>
+          <p>Deep learning models and encoder LLMs targeting the Telum on-chip accelerator are invoked through containerized inference runtimes on Linux on Z or z/OS Container Extensions. Applications call these models via REST or gRPC endpoints. If you are on z/OS and prefer a native (non-containerized) runtime, <a href="#traditional-ml">Machine Learning for IBM z/OS (MLz)</a> (covered in the previous subsection) also supports ONNX models. Encoder LLMs may also choose the Spyre path — see the next subsection.</p>
 
           <div class="decision-cards">
 
@@ -102,7 +102,7 @@
                 <p>You need a single inference server that handles ONNX, TensorFlow, PyTorch, and zDLC-compiled models, running in containers on Linux on Z or z/OS Container Extensions.</p>
               </div>
               <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a>.</strong> IBM Z Accelerated for Triton Inference Server provides a unified, high-performance runtime for deep learning, encoder LLM, and traditional ML models on IBM Z. Applications invoke models via <strong>REST</strong> or <strong>gRPC</strong> endpoints.</p>
+                <p><strong>→ Use <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a>.</strong> IBM Z Accelerated for Triton Inference Server provides a unified, high-performance runtime for deep learning, encoder LLM, and traditional ML models on IBM Z. Applications invoke models via REST or gRPC endpoints.</p>
                 <p><em>Common approach:</em> Deploy <a href="../products-tools/model-formats.html#zdlc">zDLC</a>-compiled <a href="../products-tools/model-formats.html#onnx">ONNX</a> model to IBM Z Accelerated for Triton Inference Server → Invoke via gRPC or REST from application code.</p>
               </div>
             </div>
@@ -163,7 +163,7 @@
 
           <!-- ── SUBSECTION 3: LLMs on Spyre ── -->
           <h2 id="llm-spyre">Invoking Large Language Models on Spyre</h2>
-          <p><strong>Decoder LLMs always use the IBM Spyre Accelerator.</strong> Encoder LLMs may also choose Spyre over Telum depending on SLOs and hardware availability. Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid serving paths — no ONNX conversion is required for either. Applications invoke Spyre-accelerated LLMs via <strong>REST</strong> or <strong>gRPC</strong>.</p>
+          <p><strong>Decoder LLMs always use the IBM Spyre Accelerator.</strong> Encoder LLMs may also choose Spyre over Telum depending on SLOs and hardware availability. Both Red Hat AI Inference Server and Red Hat OpenShift AI are valid serving paths — no ONNX conversion is required for either. Applications invoke Spyre-accelerated LLMs via REST or gRPC.</p>
 
           <div class="decision-cards">
 
