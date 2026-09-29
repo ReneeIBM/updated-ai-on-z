@@ -393,6 +393,9 @@
         });
       });
 
+      // On reload, clear saved state so all cards start closed
+      var navType = (performance.getEntriesByType('navigation')[0] || {}).type;
+      if (navType === 'reload') sessionStorage.removeItem(SESSION_KEY);
       restoreState();
     })();
   </script>
