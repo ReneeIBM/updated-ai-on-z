@@ -27,7 +27,7 @@
         <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
         <section class="section" id="overview">
           <h1>Build Models</h1>
-          <p>This stage focuses on developing the models that power AI applications. Activities may include building traditional machine learning or deep learning models, selecting a foundation model, or fine-tuning a large language model. IBM Z supports many of the tools and frameworks commonly used by AI practitioners, with hardware acceleration available through the Telum on-chip AI accelerator for supported workloads.</p>
+          <p>This stage focuses on developing the models that power AI applications. Activities may include building traditional machine learning or deep learning models, or selecting and serving a pre-built foundation model. IBM Z supports many of the tools and frameworks commonly used by AI practitioners, with hardware acceleration available through the Telum on-chip AI accelerator for supported workloads.</p>
           <p>Model development does not need to occur on IBM Z. Many organizations develop and train models in cloud or hybrid environments before deploying them to IBM Z for production inference. IBM Z can also serve as a model development platform, allowing organizations to keep data, model development, deployment, and inference within the same environment.</p>
 
           <h2>What happens at this stage?</h2>
@@ -41,8 +41,8 @@
               <p>Develop neural networks for computer vision, NLP, or other unstructured data workloads using IBM Z Accelerated for TensorFlow or IBM Z Accelerated for PyTorch, optimized for IBM Z hardware.</p>
             </div>
             <div class="card">
-              <h4>Use and tune large language models</h4>
-              <p>Source a pre-existing LLM from a provider like Hugging Face, then use it as-is, fine-tune it with your own documents, or apply prompt engineering — without training from scratch.</p>
+              <h4>Use pre-built large language models</h4>
+              <p>Source a pre-existing LLM from a provider like Hugging Face and serve it directly on IBM Z — no training or customization required.</p>
             </div>
             <div class="card">
               <h4>Export for deployment</h4>
@@ -200,8 +200,8 @@
           </div>
 
           <!-- ── SUBSECTION 3: LLMs ── -->
-          <h2 id="llm">Using and Tuning Large Language Models</h2>
-          <p>Large language models can be sourced from IBM, open source communities, or commercial providers and then deployed directly or adapted for specific use cases. IBM Z supports serving foundation models, fine-tuning them with enterprise data, and shaping model behavior.</p>
+          <h2 id="llm">Using Pre-built Large Language Models</h2>
+          <p>Large language models can be sourced from IBM, open source communities, or commercial providers and served directly on IBM Z without customization or training from scratch.</p>
 
           <div class="decision-cards">
 
@@ -220,23 +220,6 @@
                 <p><strong>→ Use <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a></strong> (for Spyre-accelerated decoder LLMs) or <strong><a href="../products-tools/ai-platforms.html#rhoai">Red Hat OpenShift AI</a></strong> (for broader model management and serving on IBM Z) to serve a pre-built LLM sourced from Hugging Face or an IBM model repository. No fine-tuning, training, or ONNX conversion is required — LLMs are served natively by both platforms.</p>
                 <p><em>Note: Red Hat AI Inference Server runs standalone and does not require Red Hat OpenShift. Red Hat OpenShift AI is the better fit if your organization already has an OpenShift container strategy.</em></p>
                 <p><em>Common approach:</em> Select a model from Hugging Face or an IBM repository → Serve via Red Hat AI Inference Server or Red Hat OpenShift AI on IBM Z → Integrate with your application.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <button class="decision-card-trigger" aria-expanded="false">
-                <span class="dc-trigger-left">
-                  <span class="dc-trigger-title">Guide an LLM with instructions — prompt engineering</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#watsonx-ai">watsonx.ai</a></span>
-                </span>
-                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
-              </button>
-              <div class="dc-card-intro">
-                <p>You want to shape how the LLM responds to specific questions or tasks without modifying model weights.</p>
-              </div>
-              <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#watsonx-ai">watsonx.ai</a></strong> to design and test prompts using techniques such as few-shot prompting, chain-of-thought, or retrieval-augmented generation (RAG). The watsonx.ai Prompt Lab runs as a cloud service.</p>
-                <p><em>Common approach:</em> Design and test prompts in the watsonx.ai Prompt Lab → Iterate based on output quality.</p>
               </div>
             </div>
 
@@ -430,7 +413,7 @@
         { id: 'where-to-start',    label: 'Where to Start' },
         { id: 'traditional-ml',    label: 'Building Traditional Machine Learning Models' },
         { id: 'deep-learning',     label: 'Building Deep Learning Models' },
-        { id: 'llm',               label: 'Using and Tuning Large Language Models' },
+        { id: 'llm',               label: 'Using Pre-built Large Language Models' },
         { id: 'next-steps',        label: 'Next Steps' },
       ]
     });
