@@ -95,6 +95,7 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
           </button>
           <div class="tool-accordion-body" hidden>
             <h1 style="margin-top:0;">IBM Z Deep Learning Compiler (zDLC)</h1>
+            <p><strong>AI Lifecycle:</strong> <a href="../deploy-models/deploy-models.html">Deploy Model</a></p>
             <p>The IBM Z Deep Learning Compiler (zDLC) is an enterprise-grade compilation framework built on open-source <a href="https://github.com/onnx/onnx-mlir" target="_blank" rel="noopener">ONNX-MLIR</a> (Multi-Level Intermediate Representation) technology. It converts open-format deep learning models (such as ONNX outputs from PyTorch or TensorFlow) into optimized C/C++ shared libraries specifically tuned for the IBM Z and LinuxONE architectures.</p>
             <p>Rather than interpreting model graphs at runtime, zDLC compiles deep learning models into native binary representations. It applies low-level hardware optimizations, graph fusions, and quantization techniques while offloading mathematical execution directly to specialized on-chip accelerators — such as the IBM Telum Integrated Accelerator for AI (NNPA) — both in Linux and z/OS environments.</p>
             <p>This gives business benefits of Ultra-Low Latency In-Transaction AI and Seamless Hardware Acceleration to customers.</p>
@@ -136,13 +137,6 @@ sklearn2pmml(pipeline, "model.pmml", with_repr=True)</code></pre>
               <li><a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS</a> — a z/OS product that manages the full model lifecycle. Enables you to upload your ONNX model then compile and deploy at the push of a button. Supports server-side mini-batching for ONNX/DLC model serving to get the best benefit out of the Integrated Accelerator for AI. Infuse AI into z/OS applications either through native CICS, IMS, and Java native scoring services or through using model server REST endpoints.</li>
             </ul>
 
-            <h2>Read Our Blogs on ONNX</h2>
-            <ul>
-              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry1/2020/10/05/ibm-z-and-the-open-neural-network-exchange" target="_blank" rel="noopener">IBM Z and the Open Neural Network Exchange</a></li>
-              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry2" target="_blank" rel="noopener">Leveraging ONNX models on IBM Z and LinuxONE</a></li>
-              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry3" target="_blank" rel="noopener">Announcing ONNX-MLIR/IBM Z Deep Learning Compiler for Linux on Z and LinuxONE</a></li>
-              <li><a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blog-entry4" target="_blank" rel="noopener">Announcing ONNX-MLIR/IBM Z Deep Learning Compiler Telum II support</a></li>
-            </ul>
             <p>See the <a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">zDLC official documentation</a> for comprehensive details.</p>
           </div>
         </div>

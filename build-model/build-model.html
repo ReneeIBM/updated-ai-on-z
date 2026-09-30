@@ -68,6 +68,23 @@
             <div class="decision-card">
               <button class="decision-card-trigger" aria-expanded="false">
                 <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Full lifecycle management on z/OS</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
+                <p>You want model development, training, management, and scoring integrated directly into the z/OS environment without containerization.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> Machine Learning for IBM z/OS provides a z/OS-native environment covering the full lifecycle — from training in Jupyter Notebooks to deploying scoring endpoints. Machine Learning for IBM z/OS also includes explainability features, such as pre- and post-processing support, to help build trustworthy AI models.</p>
+                <p><em>Common approach:</em> Develop and train models in Machine Learning for IBM z/OS Jupyter Notebooks → Deploy using Machine Learning for IBM z/OS → Expose as scoring endpoints (CICS, IMS, REST API, or batch) for z/OS applications.</p>
+              </div>
+            </div>
+
+            <div class="decision-card">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
                   <span class="dc-trigger-title">Training traditional ML models on IBM Z</span>
                   <span class="dc-pill"><a href="../products-tools/ai-frameworks.html#snapml">IBM Z Accelerated SnapML</a></span>
                 </span>
@@ -113,23 +130,6 @@
               <div class="decision-card-body" hidden>
                 <p><strong>→ Use IBM Z Platform for Apache Spark MLlib</strong> via the <a href="../products-tools/data-analytics.html#apache-spark">IBM Z Platform for Apache Spark</a>. MLlib provides scalable ML capabilities that operate within Spark pipelines on IBM Z.</p>
                 <p><em>Common approach:</em> Process data in Spark → Engineer features → Train with MLlib → Export and deploy the trained model.</p>
-              </div>
-            </div>
-
-            <div class="decision-card">
-              <button class="decision-card-trigger" aria-expanded="false">
-                <span class="dc-trigger-left">
-                  <span class="dc-trigger-title">Full lifecycle management on z/OS</span>
-                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS</a></span>
-                </span>
-                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
-              </button>
-              <div class="dc-card-intro">
-                <p>You want model development, training, management, and scoring integrated directly into the z/OS environment without containerization.</p>
-              </div>
-              <div class="decision-card-body" hidden>
-                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#mlz">Machine Learning for IBM z/OS (MLz)</a>.</strong> Machine Learning for IBM z/OS provides a z/OS-native environment covering the full lifecycle — from training in Jupyter Notebooks to deploying scoring endpoints. Machine Learning for IBM z/OS also includes explainability features, such as pre- and post-processing support, to help build trustworthy AI models.</p>
-                <p><em>Common approach:</em> Develop and train models in Machine Learning for IBM z/OS Jupyter Notebooks → Deploy using Machine Learning for IBM z/OS → Expose as scoring endpoints (CICS, IMS, REST API, or batch) for z/OS applications.</p>
               </div>
             </div>
 
@@ -223,6 +223,22 @@
               </div>
             </div>
 
+            <div class="decision-card">
+              <button class="decision-card-trigger" aria-expanded="false">
+                <span class="dc-trigger-left">
+                  <span class="dc-trigger-title">Guide an LLM with instructions — prompt engineering</span>
+                  <span class="dc-pill"><a href="../products-tools/ai-platforms.html#watsonx-ai">watsonx.ai</a></span>
+                </span>
+                <svg class="dc-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
+              </button>
+              <div class="dc-card-intro">
+                <p>You want to shape how the LLM responds to specific questions or tasks without modifying model weights.</p>
+              </div>
+              <div class="decision-card-body" hidden>
+                <p><strong>→ Use <a href="../products-tools/ai-platforms.html#watsonx-ai">watsonx.ai</a></strong> to design and test prompts using techniques such as few-shot prompting, chain-of-thought, or retrieval-augmented generation (RAG). The watsonx.ai Prompt Lab runs as a cloud service.</p>
+                <p><em>Common approach:</em> Design and test prompts in the watsonx.ai Prompt Lab → Iterate based on output quality.</p>
+              </div>
+            </div>
 
           </div>
         </section>
