@@ -178,8 +178,35 @@
           </button>
           <div class="tool-accordion-body" hidden>
             <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../build-model/build-model.html">Build Model</a> · <a href="../deploy-models/deploy-models.html">Deploy Models</a></p>
-            <p>For supported watsonx.ai capabilities on IBM Z and LinuxONE (s390x), see the official IBM Software Hub documentation.</p>
-            <a href="https://www.ibm.com/docs/en/software-hub/5.4.x?topic=requirements-planning-software-hub-z-linuxone" class="learn-more" target="_blank" rel="noopener">watsonx.ai on IBM Z and LinuxONE — supported capabilities &#8594;</a>
+            <p>IBM watsonx.ai is IBM's AI studio for building, training, tuning, evaluating, and deploying AI models. It supports both traditional machine learning and generative AI workloads in a single environment.</p>
+            <p>The platform is designed for data scientists, ML engineers, and application developers who want one place to manage AI projects from experimentation through deployment. Instead of moving between separate tools for notebooks, model training, prompt engineering, deployment, and model management, teams can work within a single platform.</p>
+            <p>For Linux on IBM Z environments, watsonx.ai is commonly used to build and evaluate models before deploying them to Linux on IBM Z based inference platforms such as Red Hat OpenShift AI, vLLM, or other supported serving environments.</p>
+            <p>For IBM Z environments, watsonx.ai is commonly used to build and evaluate models before deploying them through platforms such as Watson Machine Learning (in watsonx.ai) on Linux on IBM Z or Machine Learning for IBM z/OS (MLz) on z/OS.</p>
+
+            <h2>Key Capabilities</h2>
+            <ul>
+              <li>Access to IBM Granite models, Mistral, and other supported foundation models</li>
+              <li>Prompt Lab for creating, testing, and comparing prompts across foundation models</li>
+              <li>AutoAI for automated model selection, feature engineering, and hyperparameter optimization</li>
+              <li>Tools for building retrieval-augmented generation (RAG) applications and agent-based workflows</li>
+              <li>REST APIs and the ibm-watsonx-ai Python SDK for inference, deployment management, and application integration</li>
+              <li>Integration with watsonx.governance for model tracking, governance, and compliance workflows using AI Factsheets and OpenScale</li>
+            </ul>
+
+            <h2>On IBM Z</h2>
+            <p>watsonx.ai supports the Prepare Data, Build Model, and Deploy Models stages of the AI lifecycle. Teams can use watsonx.ai to prepare data, build models, fine-tune foundation models, test prompts, and evaluate model performance. Once a model is ready, it can be deployed in Watson Machine Learning (in watsonx.ai) on Linux on IBM Z or Machine Learning for IBM z/OS (MLz) on z/OS.</p>
+            <p>For generative AI applications, the ibm-watsonx-ai Python SDK is a common integration option. Developers can generate text, build chat-based experiences, work with prompt templates, and integrate models into applications and workflows.</p>
+            <p>watsonx.ai is a good fit for organizations that want a single platform for developing both machine learning and generative AI solutions while maintaining a path to deployment on IBM Z.</p>
+
+            <h2>Getting Started</h2>
+            <ul>
+              <li><a href="https://www.ibm.com/products/watsonx-ai" target="_blank" rel="noopener">IBM watsonx.ai product page</a></li>
+              <li><a href="https://www.ibm.com/docs/en/watsonx/saas" target="_blank" rel="noopener">IBM watsonx.ai documentation</a></li>
+              <li><a href="https://www.ibm.com/docs/en/watsonx/saas?topic=getting-started" target="_blank" rel="noopener">watsonx.ai getting started tutorials</a></li>
+              <li><a href="https://cloud.ibm.com/apidocs/watsonx-ai" target="_blank" rel="noopener">watsonx.ai REST API reference</a></li>
+              <li><a href="https://ibm.github.io/watsonx-ai-python-sdk/" target="_blank" rel="noopener">watsonx.ai Python SDK documentation (v1.7.1)</a></li>
+              <li><a href="https://github.com/IBM/watsonx-ai-python-sdk" target="_blank" rel="noopener">watsonx.ai Python SDK GitHub repository</a></li>
+            </ul>
           </div>
         </div>
 
