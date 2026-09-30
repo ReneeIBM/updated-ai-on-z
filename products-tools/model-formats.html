@@ -42,13 +42,13 @@
               <li>Information on exporting models from other frameworks can be found on the <a href="https://onnx.ai/get-started.html" target="_blank" rel="noopener">ONNX community page</a>.</li>
             </ul>
             <h2>Best practices</h2>
-            <p>To avoid endian issues, we strongly recommend converting models to the ONNX format on the platform on which they were trained. (e.g., if a model was trained on an x86 environment, convert the model to ONNX on an x86 environment before transmitting to IBM Z or LinuxONE).</p>
+            <p>To avoid endian issues, we strongly recommend converting models to the ONNX format on the platform on which they were trained. (e.g., if a model was trained on an x86 environment, convert the model to ONNX on an x86 environment before transmitting to IBM Z).</p>
             <p>For IBM Z Deep Learning Compiler usage: to determine which ONNX opset to specify for model conversion, see the following references:</p>
             <ul>
               <li><a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">NNPA supported opset level</a></li>
               <li><a href="https://ibm.github.io/zDLC/" target="_blank" rel="noopener">CPU supported opset level</a></li>
             </ul>
-            <p>On z16 or LinuxONE 4 machines (or later), we recommend using the highest opset level as specified under NNPA operator support. This will generally be the first statement in the NNPA supported opset level file linked above.</p>
+            <p>On z16 or later, we recommend using the highest opset level as specified under NNPA operator support. This will generally be the first statement in the NNPA supported opset level file linked above.</p>
             <h2>Determining whether model operations will target the on-chip AI accelerator featured on IBM Telum I and Telum II processors</h2>
             <p>When compiling with the IBM Z Deep Learning Compiler, you can get information and insights into various model operations and whether they will run on the accelerator. This can be critical information to help explore model performance.</p>
             <ul>
