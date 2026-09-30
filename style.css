@@ -603,6 +603,40 @@ body.has-lifecycle .section h2[id] {
   padding-bottom: 56px;
 }
 
+/* ── Section group labels (e.g. "IBM Turnkey Solutions" / "ISV Solutions") ── */
+.section-group-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  margin-bottom: 0;
+  scroll-margin-top: calc(var(--topbar-height) + 32px);
+}
+.section-group-label::before,
+.section-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ibm-border);
+}
+.section-group-label span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ibm-text-secondary, #57606a);
+  white-space: nowrap;
+}
+/* suppress the normal section top border when a section follows a group label */
+.section-group-label + .section {
+  border-top: none;
+  padding-top: 32px;
+  margin-top: 0;
+}
+.section:has(+ .section-group-label) {
+  padding-bottom: 0;
+}
+
 .section h1 {
   font-size: 26px;
   font-weight: 600;

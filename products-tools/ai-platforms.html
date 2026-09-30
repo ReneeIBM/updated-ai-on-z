@@ -45,12 +45,12 @@
               <li>All model lifecycle events logged and auditable within z/OS security frameworks — data never leaves the boundary</li>
             </ul>
             <h2>On IBM Z</h2>
-            <p>MLz is the most comprehensive single product for AI on z/OS, spanning <strong>Build Model</strong>, <strong>Deploy Models</strong>, <strong>Serve Model</strong>, and <strong>AI Governance</strong>. Data scientists can train models in notebooks directly on z/OS via the z/OS Container Extension, using Python, Scikit-learn, XGBoost, or PyTorch against native z/OS data sources. Models trained externally — in <a href="#watsonx-ai">watsonx.ai</a>, on a Linux cluster, or in any tool that exports PMML or ONNX — can be imported and deployed on z/OS, making MLz the on-Z deployment and serving target for the broader IBM Z AI ecosystem. Organizations that need real-time AI scoring co-located with their highest-value enterprise data, with full lifecycle governance and without moving data off-platform, should evaluate MLz as their primary AI platform on z/OS.</p>
+            <p>Machine Learning for IBM z/OS is the most comprehensive single product for AI on z/OS, spanning <strong>Build Model</strong>, <strong>Deploy Models</strong>, <strong>Serve Model</strong>, and <strong>AI Governance</strong>. Data scientists can train models in notebooks directly on z/OS via the z/OS Container Extension, using Python, Scikit-learn, XGBoost, or IBM Z Accelerated for PyTorch against native z/OS data sources. Models trained externally — in <a href="#watsonx-ai">watsonx.ai</a>, on a Linux cluster, or in any tool that exports PMML or ONNX — can be imported and deployed on z/OS, making Machine Learning for IBM z/OS the on-Z deployment and serving target for the broader IBM Z AI ecosystem. Organizations that need real-time AI scoring co-located with their highest-value enterprise data, with full lifecycle governance and without moving data off-platform, should evaluate Machine Learning for IBM z/OS as their primary AI platform on z/OS.</p>
             <h2>Getting Started</h2>
             <a href="https://www.ibm.com/products/machine-learning-for-zos" class="learn-more" target="_blank" rel="noopener">Machine Learning for IBM z/OS product page &#8594;</a>
-            <a href="https://www.ibm.com/support/z-content-solutions/machine-learning-zos/" class="learn-more" target="_blank" rel="noopener">MLz content solution hub — documentation, tutorials, support &#8594;</a>
-            <a href="https://www.ibm.com/docs/en/machine-learning-for-zos" class="learn-more" target="_blank" rel="noopener">MLz product documentation &#8594;</a>
-            <a href="../use-cases/ai-solution-template.html#fraud-detection-tis" class="learn-more">Advanced CC Fraud Detection solution blueprint (uses MLz) &#8594;</a>
+            <a href="https://www.ibm.com/support/z-content-solutions/machine-learning-zos/" class="learn-more" target="_blank" rel="noopener">Machine Learning for IBM z/OS content solution hub — documentation, tutorials, support &#8594;</a>
+            <a href="https://www.ibm.com/docs/en/machine-learning-for-zos" class="learn-more" target="_blank" rel="noopener">Machine Learning for IBM z/OS product documentation &#8594;</a>
+            <a href="../use-cases/ai-solution-template.html#fraud-detection-tis" class="learn-more">Advanced CC Fraud Detection solution blueprint (uses Machine Learning for IBM z/OS) &#8594;</a>
             <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
           </div>
         </div>
@@ -62,7 +62,7 @@
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
-            <h1 style="margin-top:0;">AI Optimizer for IBM Z and IBM LinuxONE</h1>
+            <h1 style="margin-top:0;">AI Optimizer for IBM Z and LinuxONE</h1>
             <p><strong>AI Lifecycle:</strong> <a href="../deploy-models/deploy-models.html">Deploy Model</a> · <a href="../serve-model/serve-model.html">Serve Model</a></p>
             <p>AI Optimizer for IBM Z and LinuxONE is an all-in-one inferencing stack designed to simplify the deployment, management, routing, and monitoring of AI workloads on IBM Z. Delivered as a single software appliance, the solution combines the operating system, curated AI models, container runtime, observability tooling, and management interfaces into a single pre-configured environment.</p>
             <p>The product serves as the inferencing layer for IBM Spyre Accelerator and helps organizations operationalize enterprise AI workloads closer to mission-critical data and applications. AI Optimizer provides centralized routing, monitoring, model management, and observability capabilities that reduce deployment complexity and accelerate time to value.</p>
@@ -100,14 +100,14 @@
           <div class="tool-accordion-body" hidden>
             <h1 style="margin-top:0;">Red Hat OpenShift AI</h1>
             <p><strong>AI Lifecycle:</strong> <a href="../deploy-models/deploy-models.html">Deploy Models</a> · <a href="../ai-governance/ai-governance.html">AI Governance</a></p>
-            <p>Red Hat OpenShift AI (RHOAI) is an AI and machine learning platform built on Red Hat OpenShift. It provides the tools needed to develop, deploy, and manage AI models in a single environment. Teams can use workbenches for development, automate workflows with pipelines, deploy models, track model versions, and apply governance controls across the AI lifecycle.</p>
-            <p>RHOAI runs natively on IBM Z and LinuxONE through OpenShift. It is a good fit for organizations that already use OpenShift and want a consistent platform for AI workloads across their infrastructure. Instead of assembling separate tools for development, deployment, monitoring, and governance, teams can manage these capabilities within a single Kubernetes based platform.</p>
+            <p>Red Hat OpenShift AI is an AI and machine learning platform built on Red Hat OpenShift. It provides the tools needed to develop, deploy, and manage AI models in a single environment. Teams can use workbenches for development, automate workflows with pipelines, deploy models, track model versions, and apply governance controls across the AI lifecycle.</p>
+            <p>Red Hat OpenShift AI runs natively on IBM Z and LinuxONE through OpenShift. It is a good fit for organizations that already use OpenShift and want a consistent platform for AI workloads across their infrastructure. Instead of assembling separate tools for development, deployment, monitoring, and governance, teams can manage these capabilities within a single Kubernetes based platform.</p>
 
             <h2>Key Capabilities</h2>
             <ul>
               <li>JupyterHub based data science workbenches for model development and experimentation</li>
               <li>Kubeflow Pipelines for building, scheduling, and monitoring machine learning workflows</li>
-              <li>Integrated model serving through KServe, <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton</a>, and <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a></li>
+              <li>Integrated model serving through KServe, <a href="../products-tools/inference-serving.html#triton">IBM Z Accelerated for Triton Inference Server</a>, and <a href="../products-tools/inference-serving.html#rh-inference">Red Hat AI Inference Server</a></li>
               <li>Centralized model registry for tracking model versions and deployment history</li>
               <li>TrustyAI for fairness monitoring and model drift detection</li>
               <li>Support for Spyre Accelerator enabled inference through Red Hat AI Inference Server on IBM z17</li>
@@ -116,7 +116,7 @@
 
             <h2>On IBM Z</h2>
             <p>Data scientists can develop and train models in OpenShift based workbenches. Machine learning pipelines help automate tasks such as data preparation and deployment. Once deployed, organizations can use TrustyAI and integrations with <a href="./ai-platforms.html#watsonx-governance">watsonx.governance</a> to support governance and monitoring requirements.</p>
-            <p>RHOAI is well suited for organizations that run OpenShift on IBM Z and want a cloud native AI platform based on open technologies. It provides a consistent experience across on premises and cloud environments, making it easier to manage containerized AI workloads across different deployment locations.</p>
+            <p>Red Hat OpenShift AI is well suited for organizations that run OpenShift on IBM Z and want a cloud native AI platform based on open technologies. It provides a consistent experience across on premises and cloud environments, making it easier to manage containerized AI workloads across different deployment locations.</p>
 
             <h2>Getting Started</h2>
             <ul>
@@ -135,26 +135,8 @@
           </button>
           <div class="tool-accordion-body" hidden>
             <p><strong>AI Lifecycle:</strong> <a href="../prepare-data/prepare-data.html">Prepare Data</a> · <a href="../build-model/build-model.html">Build Model</a> · <a href="../deploy-models/deploy-models.html">Deploy Models</a></p>
-            <p>IBM watsonx.ai is IBM's enterprise AI studio — a single platform for building, training, fine-tuning, evaluating, and deploying traditional machine learning models and generative AI applications. It is designed for data scientists, ML engineers, and application developers who need a comprehensive environment that handles both the experimentation and production sides of AI development. The problem it solves is fragmentation: building production-quality AI typically requires stitching together too many separate tools — notebooks, training infrastructure, model registries, prompt engineering environments, fine-tuning pipelines, and deployment targets. watsonx.ai consolidates these into one governed, traceable platform, with deployment paths that include IBM Z via <a href="#mlz">Machine Learning for IBM z/OS</a>.</p>
-            <h2>Key Capabilities</h2>
-            <ul>
-              <li>Curated foundation model library: IBM Granite (text, code, time series), Meta Llama, Mistral, and other open-weight models with enterprise licensing clarity</li>
-              <li>Prompt Lab — interactive prompt engineering, testing, and comparison across supported foundation models</li>
-              <li>Foundation model fine-tuning via LoRA and other parameter-efficient methods on your own labeled data</li>
-              <li>AutoAI — automated model selection, feature engineering, and hyperparameter optimization for traditional ML</li>
-              <li>RAG pipeline construction and tool-calling / agentic workflow development</li>
-              <li>REST API and Python SDK (<code>ibm-watsonx-ai</code>) for programmatic inference, deployment management, and CI/CD integration</li>
-              <li>Built-in connection to <a href="#watsonx-governance">watsonx.governance</a> for model lifecycle tracking and compliance metadata</li>
-            </ul>
-            <h2>On IBM Z</h2>
-            <p>watsonx.ai covers the <strong>Prepare Data</strong>, <strong>Build Model</strong>, and <strong>Deploy Models</strong> stages. In the IBM Z AI architecture, watsonx.ai is typically where models are built, fine-tuned, and evaluated — and then exported in PMML or ONNX format for deployment on IBM Z via <a href="#mlz">MLz</a>, connecting the cloud AI studio to on-premises Z inference. For developers building generative AI applications that will ultimately score against Z-resident data, the Python SDK (<code>ibm-watsonx-ai</code>) is the primary integration point — supporting <code>ModelInference.generate()</code>, <code>ModelInference.chat()</code>, prompt templates, and agentic tool-calling patterns. Teams evaluating watsonx.ai for IBM Z use cases should start with the tutorials and API reference below.</p>
-            <h2>Getting Started</h2>
-            <a href="https://www.ibm.com/products/watsonx-ai" class="learn-more" target="_blank" rel="noopener">IBM watsonx.ai product page &#8594;</a>
-            <a href="https://www.ibm.com/docs/en/watsonx/saas?topic=started-tutorials" class="learn-more" target="_blank" rel="noopener">watsonx.ai getting started tutorials &#8594;</a>
-            <a href="https://cloud.ibm.com/apidocs/watsonx-ai" class="learn-more" target="_blank" rel="noopener">watsonx.ai REST API reference &#8594;</a>
-            <a href="https://ibm.github.io/watsonx-ai-python-sdk/v1.7.1/index.html" class="learn-more" target="_blank" rel="noopener">watsonx.ai Python SDK documentation (v1.7.1) &#8594;</a>
-            <a href="https://github.com/IBM/watsonx-ai-python-sdk" class="learn-more" target="_blank" rel="noopener">watsonx.ai Python SDK — GitHub &#8594;</a>
-            <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
+            <p>For supported watsonx.ai capabilities on IBM Z and LinuxONE (s390x), see the official IBM Software Hub documentation.</p>
+            <a href="https://www.ibm.com/docs/en/software-hub/5.4.x?topic=requirements-planning-software-hub-z-linuxone" class="learn-more" target="_blank" rel="noopener">watsonx.ai on IBM Z and LinuxONE — supported capabilities &#8594;</a>
           </div>
         </div>
 
@@ -166,26 +148,8 @@
           </button>
           <div class="tool-accordion-body" hidden>
             <p><strong>AI Lifecycle:</strong> <a href="../ai-governance/ai-governance.html">AI Governance</a></p>
-            <p>IBM watsonx.governance is IBM's AI governance platform, built to give organizations visibility, control, and accountability over their AI assets — from traditional ML models to generative AI applications and agentic workflows. It is aimed at AI governance teams, model risk officers, compliance teams, and data scientists who need to ensure their models are fair, explainable, and operating within defined policy boundaries. The core problem it addresses is that as AI expands in the enterprise, deploying a model that works is no longer sufficient — you need to demonstrate that it's working fairly, transparently, and in compliance with internal policy and external regulation. watsonx.governance provides the tooling to do that continuously, not just at deployment time, and extends that discipline to generative AI and agents — not just predictive models.</p>
-            <h2>Key Capabilities</h2>
-            <ul>
-              <li>AI inventory: centralized register of all use cases, models, prompts, and agents regardless of where they were built or deployed</li>
-              <li>AI Factsheets: automated capture of model metadata, training lineage, evaluation results, deployment history, and operational metrics — assembled into an auditable record throughout the lifecycle</li>
-              <li>Continuous bias and fairness monitoring for production models, with threshold-based alerting</li>
-              <li>SHAP-based model explainability for individual predictions</li>
-              <li>Data drift and performance degradation detection with proactive alerting before model quality degrades</li>
-              <li>GenAI evaluation and guardrails: evaluate prompts and outputs for quality, toxicity, PII, and relevance; gate inputs and outputs in real time</li>
-              <li>Governed agentic catalog for registering, evaluating, and reusing AI agents and tools</li>
-              <li>IBM OpenPages integration for organizations with existing operational risk and compliance workflows</li>
-            </ul>
-            <h2>On IBM Z</h2>
-            <p>watsonx.governance is the <strong>AI Governance</strong> platform for the IBM Z AI stack. Its primary work happens after models are deployed — monitoring, documenting, and enforcing policies on what is running in production. Models deployed on IBM Z via <a href="#mlz">MLz</a> or served through <a href="#rhoai">Red Hat OpenShift AI</a> can be registered in watsonx.governance, giving organizations a single pane of glass for AI risk management across on-premises Z and cloud environments. Factsheet capture begins during model development and accumulates through every lifecycle phase, so the governance record is complete before a model reaches production review. Organizations in regulated industries — financial services, healthcare, insurance — where AI governance requirements are rapidly evolving should consider watsonx.governance as the accountability layer across their entire IBM Z AI portfolio.</p>
-            <h2>Getting Started</h2>
-            <a href="https://www.ibm.com/products/watsonx-governance" class="learn-more" target="_blank" rel="noopener">IBM watsonx.governance product page &#8594;</a>
-            <a href="https://www.ibm.com/docs/en/watsonx/saas?topic=governing-ai" class="learn-more" target="_blank" rel="noopener">Governing AI with watsonx — documentation &#8594;</a>
-            <a href="https://www.ibm.com/docs/en/watsonx/saas?topic=governance-overview" class="learn-more" target="_blank" rel="noopener">watsonx.governance overview &#8594;</a>
-            <a href="https://www.ibm.com/docs/en/watsonx/saas?topic=evaluating-ai-assets" class="learn-more" target="_blank" rel="noopener">Evaluating AI assets in watsonx.governance &#8594;</a>
-            <p style="font-size:13px;color:var(--ibm-text-helper);margin-top:8px;">Questions? Contact <a href="mailto:aionz@us.ibm.com">aionz@us.ibm.com</a></p>
+            <p>For supported watsonx.governance capabilities on IBM Z and LinuxONE (s390x), see the official IBM Software Hub documentation.</p>
+            <a href="https://www.ibm.com/docs/en/software-hub/5.4.x?topic=requirements-s390x-hardware" class="learn-more" target="_blank" rel="noopener">watsonx.governance on IBM Z and LinuxONE — supported capabilities &#8594;</a>
           </div>
         </div>
 
@@ -194,9 +158,9 @@
         <div class="ns-subnav-label">Explore other Products &amp; Tools</div>
         <div class="ns-tile-grid">
           <a href="data-analytics.html" class="ns-tile"><span class="ns-tile-label">Data &amp; Analytics</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM Z Platform for Apache Spark</li><li>IBM Synthetic Data Sets</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
-          <a href="ai-frameworks.html" class="ns-tile"><span class="ns-tile-label">AI Frameworks &amp; Dev Tools</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>AI Toolkit for IBM Z and LinuxONE</li><li>IBM Z Accelerated SnapML</li><li>IBM Z Accelerated for TensorFlow</li><li>IBM Z Accelerated for PyTorch</li><li>Python AI Toolkit for IBM z/OS</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
+          <a href="ai-frameworks.html" class="ns-tile"><span class="ns-tile-label">AI Frameworks &amp; Dev Tools</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>AI Toolkit for IBM Z and IBM LinuxONE</li><li>IBM Z Accelerated SnapML</li><li>IBM Z Accelerated for TensorFlow</li><li>IBM Z Accelerated for PyTorch</li><li>Python AI Toolkit for IBM z/OS</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
           <a href="model-formats.html" class="ns-tile"><span class="ns-tile-label">Model Formats &amp; Compilers</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>ONNX</li><li>PMML</li><li>IBM Z Deep Learning Compiler (zDLC)</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
-          <a href="inference-serving.html" class="ns-tile"><span class="ns-tile-label">Inference &amp; Serving</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM Z Accelerated for Triton Inference Server</li><li>IBM Z Accelerated for TensorFlow Serving</li><li>Red Hat AI Inference Server on IBM Z</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
+          <a href="inference-serving.html" class="ns-tile"><span class="ns-tile-label">Inference &amp; Serving</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM Z Accelerated for Triton Inference Server</li><li>IBM Z Accelerated Serving for TensorFlow</li><li>Red Hat AI Inference Server on IBM Z</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
           <a href="hardware-solutions.html" class="ns-tile"><span class="ns-tile-label">Hardware</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM Integrated Accelerator for AI (Telum)</li><li>IBM Spyre Accelerator</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
           <a href="turnkey-solutions.html" class="ns-tile"><span class="ns-tile-label">Turnkey &amp; ISV Solutions</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM SQL Data Insights Pro</li><li>Embedded AI Core Banking &amp; Payment Solutions</li><li>ISV Packaged AI Solutions</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
         </div>

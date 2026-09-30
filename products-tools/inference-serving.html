@@ -20,7 +20,7 @@
       <!-- Page Hero -->
       <div class="page-hero page-hero--wide">
         <h1>Inference &amp; Serving</h1>
-        <p>Once a model is deployed, these are the runtimes that handle inference requests. IBM Z Accelerated for Triton Inference Server and IBM Z Accelerated for TensorFlow Serving target deep learning workloads on Telum, while Red Hat AI Inference Server is built for LLMs on Spyre.</p>
+        <p>Once a model is deployed, these are the runtimes that handle inference requests. IBM Z Accelerated for Triton Inference Server and IBM Z Accelerated Serving for TensorFlow target deep learning workloads on Telum, while Red Hat AI Inference Server is built for LLMs on Spyre.</p>
       </div>
 
       <div class="page-body">
@@ -34,9 +34,9 @@
           <div class="tool-accordion-body" hidden>
             <h1 style="margin-top:0;">IBM Z Accelerated for Triton Inference Server</h1>
             <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
-            <p>IBM Z Accelerated for Triton Inference Server is a model server open-sourced by NVIDIA. IBM Z Accelerated for Triton Inference Server's primary business value lies in its ability to standardize enterprise AI deployment by running models from any framework — such as PyTorch, TensorFlow, or ONNX Runtime — on a single, unified platform. By maximizing hardware utilization through dynamic batching and concurrent model execution, it significantly cuts compute costs while delivering low-latency predictions. This flexibility and resource efficiency streamline MLOps workflows, allowing teams to scale high-throughput AI services in production without maintaining fragmented infrastructure.</p>
-            <p>It is commonly used across a wide variety of platforms and architectures, including s390x (Linux on Z). On Linux on Z, Triton can leverage AI frameworks that take advantage of both the SIMD architecture and the IBM Integrated Accelerator for AI (Neural Network Assist — NNPA).</p>
-            <p>IBM Z Accelerated for Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE, with container images available in the IBM Z and LinuxONE Container Image Registry.</p>
+            <p>IBM Z Accelerated for Triton Inference Server is a model server open-sourced by NVIDIA. IBM Z Accelerated for Triton Inference Server's primary business value lies in its ability to standardize enterprise AI deployment by running models from any framework — such as IBM Z Accelerated for PyTorch, IBM Z Accelerated for TensorFlow, or ONNX Runtime — on a single, unified platform. By maximizing hardware utilization through dynamic batching and concurrent model execution, it significantly cuts compute costs while delivering low-latency predictions. This flexibility and resource efficiency streamline MLOps workflows, allowing teams to scale high-throughput AI services in production without maintaining fragmented infrastructure.</p>
+            <p>It is commonly used across a wide variety of platforms and architectures, including s390x (Linux on Z). On Linux on Z, IBM Z Accelerated for Triton Inference Server can leverage AI frameworks that take advantage of both the SIMD architecture and the IBM Integrated Accelerator for AI (Neural Network Assist — NNPA).</p>
+            <p>IBM Z Accelerated for Triton Inference Server is a component of the AI Toolkit for IBM Z and IBM LinuxONE, with container images available in the IBM Z and LinuxONE Container Image Registry.</p>
 
             <h2>Key Features</h2>
             <ul>
@@ -50,42 +50,42 @@
             <h2>Supported Model Paths on IBM Z</h2>
             <p>IBM Z Accelerated for Triton Inference Server is quite flexible and supports a wide variety of model types. It also has the ability to create custom model backends, which make it extremely flexible for a variety of scenarios. In our testing, we have focused on three primary paths which allow us to deploy models that can leverage the Integrated Accelerator for AI when deployed on Telum I and Telum II processors:</p>
             <ul>
-              <li>Traditional ML models in PMML, ONNX, or JSON format, run using an IBM Snap ML C++ runtime</li>
+              <li>Traditional ML models in PMML, ONNX, or JSON format, run using an IBM Z Accelerated SnapML C++ runtime</li>
               <li>Deep learning models in ONNX format compiled with the IBM Z Deep Learning Compiler (zDLC)</li>
-              <li>PyTorch backend with Telum II support — enables real-world multi-model AI use cases on Telum II</li>
+              <li>IBM Z Accelerated for PyTorch backend with Telum II support — enables real-world multi-model AI use cases on Telum II</li>
             </ul>
 
             <h2>Getting Started</h2>
-            <p>IBM Z Accelerated for Triton Inference Server is a component of the AI Toolkit for IBM Z and LinuxONE. The AI Toolkit for IBM Z and LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE. These components of AI Toolkit for IBM Z and LinuxONE are freely available.</p>
+            <p>IBM Z Accelerated for Triton Inference Server is a component of the AI Toolkit for IBM Z and IBM LinuxONE. The AI Toolkit for IBM Z and IBM LinuxONE is designed to enable our clients to deploy and accelerate the adoption of popular open source AI frameworks on their z/OS® and IBM® LinuxONE platforms. The AI Toolkit for IBM Z and IBM LinuxONE follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and IBM LinuxONE. These components of AI Toolkit for IBM Z and IBM LinuxONE are freely available.</p>
             <p>Two channels are provided for customers to download and deploy IBM Z Accelerated for Triton Inference Server for LinuxONE:</p>
             <ul>
               <li><a href="https://catalog.redhat.com/software/container-stacks/detail/63f7e50e4e6dcf278fce9770" target="_blank" rel="noopener">IBM Z Accelerated for Triton™ Inference Server in Red Hat Ecosystem Catalog</a></li>
               <li><a href="https://github.com/IBM/ibmz-accelerated-for-nvidia-triton-inference-server" target="_blank" rel="noopener">IBM Z and LinuxONE Container Image Registry</a> — instructions for downloading IBM Z Accelerated for Triton Inference Server from ICR</li>
             </ul>
-            <p>IBM has made detailed examples available that can be used to try the Snap ML backend on IBM Z Accelerated for Triton Inference Server:</p>
+            <p>IBM has made detailed examples available that can be used to try the IBM Z Accelerated SnapML backend on IBM Z Accelerated for Triton Inference Server:</p>
             <ul>
-              <li><a href="https://github.com/IBM/ai-on-z-triton-is-examples/tree/main/snapml-examples" target="_blank" rel="noopener">Snap ML backend examples on GitHub</a></li>
-              <li><a href="https://github.com/IBM/onnxmlir-triton-backend" target="_blank" rel="noopener">Triton Deep Learning Compiler backend (ONNX + zDLC)</a></li>
+              <li><a href="https://github.com/IBM/ai-on-z-triton-is-examples/tree/main/snapml-examples" target="_blank" rel="noopener">IBM Z Accelerated SnapML backend examples on GitHub</a></li>
+              <li><a href="https://github.com/IBM/onnxmlir-triton-backend" target="_blank" rel="noopener">IBM Z Accelerated for Triton Inference Server Deep Learning Compiler backend (ONNX + zDLC)</a></li>
             </ul>
-            <p>Note that IBM Snap ML is available for install via PyPI, while the IBM Deep Learning Compiler is available via the IBM Z and LinuxONE Container Repository. Both are no-charge sources.</p>
+            <p>Note that IBM Z Accelerated SnapML is available for install via PyPI, while the IBM Z Deep Learning Compiler is available via the IBM Z and LinuxONE Container Repository. Both are no-charge sources.</p>
           </div>
         </div>
 
-        <!-- ── IBM Z Accelerated for TensorFlow Serving ─────────────── -->
+        <!-- ── IBM Z Accelerated Serving for TensorFlow ─────────────── -->
         <div class="tool-accordion" id="tf-serving">
           <button class="tool-accordion-trigger" aria-expanded="false">
-            <span class="tool-accordion-title">IBM Z Accelerated for TensorFlow Serving</span>
+            <span class="tool-accordion-title">IBM Z Accelerated Serving for TensorFlow</span>
             <svg class="tool-accordion-chevron" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z"/></svg>
           </button>
           <div class="tool-accordion-body" hidden>
-            <h1 style="margin-top:0;">IBM Z Accelerated for TensorFlow Serving</h1>
+            <h1 style="margin-top:0;">IBM Z Accelerated Serving for TensorFlow</h1>
             <p><strong>AI Lifecycle:</strong> <a href="../serve-model/serve-model.html">Serve Model</a></p>
-            <p>With TensorFlow Serving, you can expose REST and gRPC endpoints for model inference requests, supporting high-throughput, low-latency inference serving on IBM Z for TensorFlow models.</p>
+            <p>With IBM Z Accelerated Serving for TensorFlow, you can expose REST and gRPC endpoints for model inference requests, supporting high-throughput, low-latency inference serving on IBM Z for IBM Z Accelerated for TensorFlow models.</p>
 
             <h2>Getting Started</h2>
-            <p>The recommended way to obtain IBM Z Accelerated for TensorFlow Serving is to download prebuilt container images from the AI Toolkit for IBM Z and LinuxONE. The AI Toolkit follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and LinuxONE. These components are freely available in the IBM Z and LinuxONE Container Image Registry (ICR).</p>
+            <p>The recommended way to obtain IBM Z Accelerated Serving for TensorFlow is to download prebuilt container images from the AI Toolkit for IBM Z and IBM LinuxONE. The AI Toolkit for IBM Z and IBM LinuxONE follows a rigorous IBM Secure Engineering process that vets and scans open source AI-serving frameworks and IBM-certified containers for security vulnerabilities and validates compliance with industry regulations. Clients can also purchase IBM Elite Support for AI Toolkit for IBM Z and IBM LinuxONE. These components are freely available in the IBM Z and LinuxONE Container Image Registry (ICR).</p>
             <ul>
-              <li><a href="https://github.com/IBM/ibmz-accelerated-serving-for-tensorflow" target="_blank" rel="noopener">IBM Z Accelerated for TensorFlow Serving on GitHub</a></li>
+              <li><a href="https://github.com/IBM/ibmz-accelerated-serving-for-tensorflow" target="_blank" rel="noopener">IBM Z Accelerated Serving for TensorFlow on GitHub</a></li>
             </ul>
           </div>
         </div>
@@ -125,9 +125,9 @@
         <div class="ns-subnav-label">Explore other Products &amp; Tools</div>
         <div class="ns-tile-grid">
           <a href="data-analytics.html" class="ns-tile"><span class="ns-tile-label">Data &amp; Analytics</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM Z Platform for Apache Spark</li><li>IBM Synthetic Data Sets</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
-          <a href="ai-frameworks.html" class="ns-tile"><span class="ns-tile-label">AI Frameworks &amp; Dev Tools</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>AI Toolkit for IBM Z and LinuxONE</li><li>IBM Z Accelerated SnapML</li><li>IBM Z Accelerated for TensorFlow</li><li>IBM Z Accelerated for PyTorch</li><li>Python AI Toolkit for IBM z/OS</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
+          <a href="ai-frameworks.html" class="ns-tile"><span class="ns-tile-label">AI Frameworks &amp; Dev Tools</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>AI Toolkit for IBM Z and IBM LinuxONE</li><li>IBM Z Accelerated SnapML</li><li>IBM Z Accelerated for TensorFlow</li><li>IBM Z Accelerated for PyTorch</li><li>Python AI Toolkit for IBM z/OS</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
           <a href="model-formats.html" class="ns-tile"><span class="ns-tile-label">Model Formats &amp; Compilers</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>ONNX</li><li>PMML</li><li>IBM Z Deep Learning Compiler (zDLC)</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
-          <a href="ai-platforms.html" class="ns-tile"><span class="ns-tile-label">AI Platforms</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>Machine Learning for IBM z/OS (MLz)</li><li>AI Optimizer for IBM Z and IBM LinuxONE</li><li>Red Hat OpenShift AI</li><li>watsonx.ai</li><li>watsonx.governance</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
+          <a href="ai-platforms.html" class="ns-tile"><span class="ns-tile-label">AI Platforms</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>Machine Learning for IBM z/OS (MLz)</li><li>AI Optimizer for IBM Z and LinuxONE</li><li>Red Hat OpenShift AI</li><li>watsonx.ai</li><li>watsonx.governance</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
           <a href="hardware-solutions.html" class="ns-tile"><span class="ns-tile-label">Hardware</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM Integrated Accelerator for AI (Telum)</li><li>IBM Spyre Accelerator</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
           <a href="turnkey-solutions.html" class="ns-tile"><span class="ns-tile-label">Turnkey &amp; ISV Solutions</span><span class="ns-tile-body"><ul class="ns-tile-list"><li>IBM SQL Data Insights Pro</li><li>Embedded AI Core Banking &amp; Payment Solutions</li><li>ISV Packaged AI Solutions</li></ul></span><span class="ns-tile-footer"><span class="ns-tile-arrow">&#8594;</span></span></a>
         </div>
@@ -144,7 +144,7 @@
       activeSub: 'inference-serving',
       pageNavItems: [
         { id: 'triton',       label: 'IBM Z Accelerated for Triton Inference Server' },
-        { id: 'tf-serving',   label: 'IBM Z Accelerated for TensorFlow Serving' },
+        { id: 'tf-serving',   label: 'IBM Z Accelerated Serving for TensorFlow' },
         { id: 'rh-inference', label: 'Red Hat AI Inference Server' },
       ]
     });

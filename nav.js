@@ -48,11 +48,11 @@ function renderNav(opts) {
       id: 'ai-frameworks', label: 'AI Frameworks & Dev Tools',
       href: p + 'products-tools/ai-frameworks.html',
       tools: [
-        { label: 'AI Toolkit for IBM Z and LinuxONE',   href: p + 'products-tools/ai-frameworks.html#ai-toolkit' },
+        { label: 'AI Toolkit for IBM Z and IBM LinuxONE',   href: p + 'products-tools/ai-frameworks.html#ai-toolkit' },
         { label: 'IBM Z Accelerated SnapML',            href: p + 'products-tools/ai-frameworks.html#snapml' },
         { label: 'IBM Z Accelerated for TensorFlow',    href: p + 'products-tools/ai-frameworks.html#tensorflow' },
         { label: 'IBM Z Accelerated for PyTorch',       href: p + 'products-tools/ai-frameworks.html#pytorch' },
-        { label: 'Python AI Toolkit for z/OS',          href: p + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
+        { label: 'Python AI Toolkit for IBM z/OS',      href: p + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
       ]
     },
     {
@@ -68,8 +68,8 @@ function renderNav(opts) {
       id: 'inference-serving', label: 'Inference & Serving',
       href: p + 'products-tools/inference-serving.html',
       tools: [
-        { label: 'IBM Z Accelerated for Triton',             href: p + 'products-tools/inference-serving.html#triton' },
-        { label: 'IBM Z Accelerated for TensorFlow Serving', href: p + 'products-tools/inference-serving.html#tf-serving' },
+        { label: 'IBM Z Accelerated for Triton Inference Server', href: p + 'products-tools/inference-serving.html#triton' },
+        { label: 'IBM Z Accelerated Serving for TensorFlow', href: p + 'products-tools/inference-serving.html#tf-serving' },
         { label: 'Red Hat AI Inference Server',              href: p + 'products-tools/inference-serving.html#rh-inference' },
       ]
     },
@@ -314,17 +314,17 @@ function initSearch(wrapper, root) {
   /* ── Static index: { title, section, snippet, href } ── */
   const INDEX = [
     /* Prepare Data */
-    { title: 'Prepare Data', section: 'AI Lifecycle', snippet: 'Synthetic data generation, feature engineering, and Apache Spark on IBM Z for data preparation.', href: root + 'prepare-data/prepare-data.html' },
+    { title: 'Prepare Data', section: 'AI Lifecycle', snippet: 'Synthetic data generation, feature engineering, and IBM Z Platform for Apache Spark on IBM Z for data preparation.', href: root + 'prepare-data/prepare-data.html' },
     { title: 'IBM Synthetic Data Sets', section: 'Prepare Data', snippet: 'Generate realistic, privacy-safe labeled datasets for training AI models on IBM Z.', href: root + 'products-tools/data-analytics.html#synthetic-data-sets' },
     { title: 'IBM Z Platform for Apache Spark', section: 'Prepare Data', snippet: 'Run Apache Spark workloads natively on IBM Z for scalable data processing and feature engineering.', href: root + 'products-tools/data-analytics.html#apache-spark' },
-    { title: 'Python AI Toolkit for z/OS', section: 'Prepare Data', snippet: 'A curated set of Python AI/ML packages — NumPy, Pandas, Scikit-learn — optimized for z/OS.', href: root + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
+    { title: 'Python AI Toolkit for IBM z/OS', section: 'Prepare Data', snippet: 'A curated set of Python AI/ML packages — NumPy, Pandas, Scikit-learn — optimized for z/OS.', href: root + 'products-tools/ai-frameworks.html#python-ai-toolkit' },
 
     /* Build Models */
-    { title: 'Build Models', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and LLMs on IBM Z — Snap ML, TensorFlow, PyTorch, fine-tuning, and prompt engineering.', href: root + 'build-model/build-model.html' },
-    { title: 'IBM Z Accelerated SnapML', section: 'Build Model', snippet: 'Accelerated Snap ML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
-    { title: 'IBM Z Accelerated for TensorFlow', section: 'AI Frameworks & Dev Tools', snippet: 'TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
-    { title: 'IBM Z Accelerated for TensorFlow Serving', section: 'Inference & Serving', snippet: 'TensorFlow Serving on IBM Z — expose REST and gRPC endpoints for high-throughput, low-latency TensorFlow model inference.', href: root + 'products-tools/inference-serving.html#tf-serving' },
-    { title: 'IBM Z Accelerated for PyTorch', section: 'Build Model', snippet: 'PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
+    { title: 'Build Models', section: 'AI Lifecycle', snippet: 'Traditional ML, deep learning, and LLMs on IBM Z — IBM Z Accelerated SnapML, IBM Z Accelerated for TensorFlow, IBM Z Accelerated for PyTorch, fine-tuning, and prompt engineering.', href: root + 'build-model/build-model.html' },
+    { title: 'IBM Z Accelerated SnapML', section: 'Build Model', snippet: 'IBM Z Accelerated SnapML leverages the Telum on-chip AI accelerator for fast classical ML training on IBM Z.', href: root + 'products-tools/ai-frameworks.html#snapml' },
+    { title: 'IBM Z Accelerated for TensorFlow', section: 'AI Frameworks & Dev Tools', snippet: 'IBM Z Accelerated for TensorFlow optimized for IBM Z with hardware acceleration via the Telum AI accelerator.', href: root + 'products-tools/ai-frameworks.html#tensorflow' },
+    { title: 'IBM Z Accelerated Serving for TensorFlow', section: 'Inference & Serving', snippet: 'IBM Z Accelerated Serving for TensorFlow on IBM Z — expose REST and gRPC endpoints for high-throughput, low-latency IBM Z Accelerated for TensorFlow model inference.', href: root + 'products-tools/inference-serving.html#tf-serving' },
+    { title: 'IBM Z Accelerated for PyTorch', section: 'Build Model', snippet: 'IBM Z Accelerated for PyTorch optimized for s390x, enabling deep learning model training on IBM Z and LinuxONE.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
     { title: 'Machine Learning for IBM z/OS (MLz)', section: 'Build Model', snippet: 'IBM MLz provides a full lifecycle platform for building, deploying, and scoring AI models on z/OS.', href: root + 'products-tools/ai-platforms.html#mlz' },
     { title: 'Red Hat OpenShift AI', section: 'Build Model', snippet: 'MLOps platform on Red Hat OpenShift running on IBM Z and LinuxONE for containerized AI workloads.', href: root + 'products-tools/ai-platforms.html#rhoai' },
 
@@ -334,21 +334,21 @@ function initSearch(wrapper, root) {
 
     /* Model Formats & Compilers */
     { title: 'Model Formats & Compilers', section: 'Products & Tools', snippet: 'ONNX and PMML model interchange formats plus the IBM Z Deep Learning Compiler for Telum-accelerated inference.', href: root + 'products-tools/model-formats.html' },
-    { title: 'ONNX Model Format', section: 'Model Formats & Compilers', snippet: 'Export TensorFlow, PyTorch, or scikit-learn models to ONNX for portable deployment on IBM Z and LinuxONE.', href: root + 'products-tools/model-formats.html#onnx' },
-    { title: 'PMML Model Format', section: 'Model Formats & Compilers', snippet: 'Convert scikit-learn, XGBoost, or LightGBM models to PMML for deployment via MLz and IBM Snap ML on IBM Z.', href: root + 'products-tools/model-formats.html#pmml' },
+    { title: 'ONNX Model Format', section: 'Model Formats & Compilers', snippet: 'Export IBM Z Accelerated for TensorFlow, IBM Z Accelerated for PyTorch, or scikit-learn models to ONNX for portable deployment on IBM Z and LinuxONE.', href: root + 'products-tools/model-formats.html#onnx' },
+    { title: 'PMML Model Format', section: 'Model Formats & Compilers', snippet: 'Convert scikit-learn, XGBoost, or LightGBM models to PMML for deployment via Machine Learning for IBM z/OS and IBM Z Accelerated SnapML on IBM Z.', href: root + 'products-tools/model-formats.html#pmml' },
     { title: 'IBM Z Deep Learning Compiler (zDLC)', section: 'Model Formats & Compilers', snippet: 'Compile ONNX models to optimized s390x binaries with automatic Telum AI accelerator offloading via zDNN.', href: root + 'products-tools/model-formats.html#zdlc' },
 
     /* Deploy Models */
-    { title: 'Deploy Models', section: 'AI Lifecycle', snippet: 'Deploy AI models on z/OS with MLz, on OpenShift with RHOAI, or to watsonx.ai on IBM Z.', href: root + 'deploy-models/deploy-models.html' },
+    { title: 'Deploy Models', section: 'AI Lifecycle', snippet: 'Deploy AI models on z/OS with Machine Learning for IBM z/OS, on OpenShift with RHOAI, or to watsonx.ai on IBM Z.', href: root + 'deploy-models/deploy-models.html' },
     { title: 'watsonx.ai on IBM Z', section: 'Deploy Models', snippet: 'Run IBM watsonx.ai workloads on IBM Z infrastructure for enterprise-grade AI deployment.', href: root + 'products-tools/ai-platforms.html#watsonx-ai' },
 
     /* Serve Model */
     { title: 'Serve Model', section: 'AI Lifecycle', snippet: 'Invoke deployed IBM Z models from applications via ALN Score, WOLA, REST, and gRPC endpoints.', href: root + 'serve-model/serve-model.html' },
-    { title: 'IBM Z Accelerated for Triton', section: 'Serve Model', snippet: 'IBM Z Accelerated for Triton Inference Server — multi-framework model serving optimized for IBM Z and LinuxONE.', href: root + 'products-tools/inference-serving.html#triton' },
+    { title: 'IBM Z Accelerated for Triton Inference Server', section: 'Serve Model', snippet: 'IBM Z Accelerated for Triton Inference Server — multi-framework model serving optimized for IBM Z and LinuxONE.', href: root + 'products-tools/inference-serving.html#triton' },
     { title: 'Red Hat AI Inference Server', section: 'Serve Model', snippet: 'Serve large language models and GenAI workloads on IBM Z using the Red Hat AI Inference Server with vLLM.', href: root + 'products-tools/inference-serving.html#rh-inference' },
 
     /* AI Governance */
-    { title: 'AI Governance', section: 'AI Lifecycle', snippet: 'Monitor, explain, and govern AI models with watsonx.governance and MLz on IBM Z.', href: root + 'ai-governance/ai-governance.html' },
+    { title: 'AI Governance', section: 'AI Lifecycle', snippet: 'Monitor, explain, and govern AI models with watsonx.governance and Machine Learning for IBM z/OS on IBM Z.', href: root + 'ai-governance/ai-governance.html' },
     { title: 'watsonx.governance', section: 'AI Governance', snippet: 'Track model risk, detect drift, and ensure regulatory compliance with IBM watsonx.governance on Z.', href: root + 'products-tools/ai-platforms.html#watsonx-governance' },
 
     /* Hardware */
@@ -357,17 +357,17 @@ function initSearch(wrapper, root) {
     { title: 'IBM Spyre Accelerator', section: 'Hardware', snippet: 'The IBM Spyre Accelerator on IBM z17 enables high-throughput generative AI and large model inference.', href: root + 'products-tools/hardware-solutions.html#spyre' },
 
     /* AI Frameworks */
-    { title: 'AI Toolkit for IBM Z and LinuxONE', section: 'Products & Tools', snippet: 'A collection of open-source AI frameworks — TensorFlow, PyTorch, SnapML, ONNX — optimized for s390x.', href: root + 'products-tools/ai-frameworks.html#ai-toolkit' },
+    { title: 'AI Toolkit for IBM Z and IBM LinuxONE', section: 'Products & Tools', snippet: 'A collection of open-source AI frameworks — IBM Z Accelerated for TensorFlow, IBM Z Accelerated for PyTorch, IBM Z Accelerated SnapML, ONNX — optimized for s390x.', href: root + 'products-tools/ai-frameworks.html#ai-toolkit' },
 
     /* Use Cases */
     { title: 'Advanced Credit Card Fraud Detection', section: 'Use Cases', snippet: 'Multi-model ensemble AI on IBM z17 — a complete end-to-end solution blueprint using XGBoost and BERT.', href: root + 'use-cases/use-cases.html#ai-solution-patterns' },
     { title: 'Additional Patterns', section: 'Use Cases', snippet: 'More AI solution patterns on IBM Z — generative AI, fraud detection, credit risk, health insurance, data preprocessing, and AML.', href: root + 'use-cases/ai-solution-template.html' },
     { title: 'Fraud Detection on IBM Z', section: 'Additional Patterns', snippet: 'Deploy an AI fraud detection model using open-source frameworks and Machine Learning for IBM z/OS.', href: root + 'use-cases/ai-solution-template.html#fraud-detection' },
     { title: 'Document Intelligence with Spyre', section: 'Additional Patterns · Generative AI', snippet: 'IBM Granite LLM inference on Red Hat AI Inference Server, leveraging the IBM Spyre Accelerator on IBM Z.', href: root + 'use-cases/ai-solution-template.html#generative-ai' },
-    { title: 'Credit Risk Assessment on IBM Z', section: 'Additional Patterns', snippet: 'Build and deploy a credit risk scoring model using open-source frameworks and MLz with real-time scoring.', href: root + 'use-cases/ai-solution-template.html#credit-risk' },
-    { title: 'Health Insurance Claims on IBM Z', section: 'Additional Patterns', snippet: 'AI model for health insurance claims processing using MLz, deployed for real-time scoring on z/OS.', href: root + 'use-cases/ai-solution-template.html#health-insurance' },
-    { title: 'Data Preprocessing on IBM Z', section: 'Additional Patterns', snippet: 'Build an AI solution with a preprocessing pipeline using open-source frameworks and MLz on IBM Z.', href: root + 'use-cases/ai-solution-template.html#data-preprocessing' },
-    { title: 'Anti-Money Laundering on IBM Z', section: 'Additional Patterns', snippet: 'AML detection model using open-source frameworks and MLz for real-time transaction monitoring.', href: root + 'use-cases/ai-solution-template.html#anti-money-laundering' },
+    { title: 'Credit Risk Assessment on IBM Z', section: 'Additional Patterns', snippet: 'Build and deploy a credit risk scoring model using open-source frameworks and Machine Learning for IBM z/OS with real-time scoring.', href: root + 'use-cases/ai-solution-template.html#credit-risk' },
+    { title: 'Health Insurance Claims on IBM Z', section: 'Additional Patterns', snippet: 'AI model for health insurance claims processing using Machine Learning for IBM z/OS, deployed for real-time scoring on z/OS.', href: root + 'use-cases/ai-solution-template.html#health-insurance' },
+    { title: 'Data Preprocessing on IBM Z', section: 'Additional Patterns', snippet: 'Build an AI solution with a preprocessing pipeline using open-source frameworks and Machine Learning for IBM z/OS on IBM Z.', href: root + 'use-cases/ai-solution-template.html#data-preprocessing' },
+    { title: 'Anti-Money Laundering on IBM Z', section: 'Additional Patterns', snippet: 'AML detection model using open-source frameworks and Machine Learning for IBM z/OS for real-time transaction monitoring.', href: root + 'use-cases/ai-solution-template.html#anti-money-laundering' },
 
     /* Turnkey & ISV Solutions */
     { title: 'Turnkey & ISV Solutions', section: 'Products & Tools', snippet: 'Pre-built AI solutions from IBM and ecosystem partners — SQL Data Insights Pro, Featurespace, Quantexa, Clari5, OvationCXM, Exponential AI, ACI, DXC, Worldline.', href: root + 'products-tools/turnkey-solutions.html' },
@@ -385,13 +385,13 @@ function initSearch(wrapper, root) {
     { title: 'Resources & Contacts', section: 'Getting Help', snippet: 'Links to documentation, GitHub repos, community contacts, and how to reach the AI on Z team.', href: root + 'getting-help/terminology.html#resources-contacts' },
 
     /* XGBoost / BERT / MLz specific terms */
-    { title: 'XGBoost on IBM Z', section: 'AI Frameworks', snippet: 'XGBoost is supported via the Python AI Toolkit and MLz — export models as PMML for z/OS deployment.', href: root + 'products-tools/ai-frameworks.html' },
-    { title: 'BERT / Transformer Models on IBM Z', section: 'AI Frameworks', snippet: 'Fine-tune BERT-base with PyTorch on IBM Z, export as ONNX, and deploy via MLz scoring endpoints.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
+    { title: 'XGBoost on IBM Z', section: 'AI Frameworks', snippet: 'XGBoost is supported via the Python AI Toolkit for IBM z/OS and Machine Learning for IBM z/OS — export models as PMML for z/OS deployment.', href: root + 'products-tools/ai-frameworks.html' },
+    { title: 'BERT / Transformer Models on IBM Z', section: 'AI Frameworks', snippet: 'Fine-tune BERT-base with IBM Z Accelerated for PyTorch on IBM Z, export as ONNX, and deploy via Machine Learning for IBM z/OS scoring endpoints.', href: root + 'products-tools/ai-frameworks.html#pytorch' },
     { title: 'PMML Deployment with MLz', section: 'Deploy Models', snippet: 'Export scikit-learn or XGBoost models as PMML and deploy to Machine Learning for IBM z/OS.', href: root + 'deploy-models/deploy-models.html' },
-    { title: 'CICS Scoring Endpoint', section: 'Deploy Models', snippet: 'Expose MLz-deployed models as CICS or REST scoring endpoints for z/OS transaction applications.', href: root + 'deploy-models/deploy-models.html' },
+    { title: 'CICS Scoring Endpoint', section: 'Deploy Models', snippet: 'Expose Machine Learning for IBM z/OS deployed models as CICS or REST scoring endpoints for z/OS transaction applications.', href: root + 'deploy-models/deploy-models.html' },
     { title: 'IBM z17', section: 'Hardware', snippet: 'IBM z17 is the latest IBM Z mainframe featuring Telum II AI accelerator and IBM Spyre Accelerator support.', href: root + 'products-tools/hardware-solutions.html' },
     { title: 'Telum II AI Accelerator', section: 'Hardware', snippet: 'Telum II is the second-generation on-chip AI accelerator in IBM z17, with improved inference throughput.', href: root + 'products-tools/hardware-solutions.html#telum' },
-    { title: 'Real-Time AI Inference on z/OS', section: 'AI Lifecycle', snippet: 'Run AI inference co-located with transactional data on z/OS using MLz CICS or REST scoring.', href: root + 'serve-model/serve-model.html' },
+    { title: 'Real-Time AI Inference on z/OS', section: 'AI Lifecycle', snippet: 'Run AI inference co-located with transactional data on z/OS using Machine Learning for IBM z/OS CICS or REST scoring.', href: root + 'serve-model/serve-model.html' },
   ];
 
   const input   = wrapper.querySelector('.topbar-search-input');
