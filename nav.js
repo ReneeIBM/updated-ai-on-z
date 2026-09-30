@@ -110,7 +110,7 @@ function renderNav(opts) {
   const useCasesItems = [
     { id: 'use-cases-overview',    label: 'Overview',                     href: p + 'use-cases/overview.html' },
     { id: 'ai-solution-patterns',  label: 'Advanced Credit Card Fraud Detection', href: p + 'use-cases/use-cases.html#ai-solution-patterns' },
-    { id: 'ai-solution-template',  label: 'Additional Patterns',          href: p + 'use-cases/ai-solution-template.html' },
+    { id: 'ai-solution-template',  label: 'Solution Blueprints',          href: p + 'use-cases/ai-solution-template.html' },
     { id: 'business-use-cases',    label: 'Non-Business Use Cases',       href: p + 'use-cases/business-use-cases.html' },
   ];
 
@@ -361,13 +361,13 @@ function initSearch(wrapper, root) {
 
     /* Use Cases */
     { title: 'Advanced Credit Card Fraud Detection', section: 'Use Cases', snippet: 'Multi-model ensemble AI on IBM z17 — a complete end-to-end solution blueprint using XGBoost and BERT.', href: root + 'use-cases/use-cases.html#ai-solution-patterns' },
-    { title: 'Additional Patterns', section: 'Use Cases', snippet: 'More AI solution patterns on IBM Z — generative AI, fraud detection, credit risk, health insurance, data preprocessing, and AML.', href: root + 'use-cases/ai-solution-template.html' },
-    { title: 'Fraud Detection on IBM Z', section: 'Additional Patterns', snippet: 'Deploy an AI fraud detection model using open-source frameworks and Machine Learning for IBM z/OS.', href: root + 'use-cases/ai-solution-template.html#fraud-detection' },
-    { title: 'Document Intelligence with Spyre', section: 'Additional Patterns · Generative AI', snippet: 'IBM Granite LLM inference on Red Hat AI Inference Server, leveraging the IBM Spyre Accelerator on IBM Z.', href: root + 'use-cases/ai-solution-template.html#generative-ai' },
-    { title: 'Credit Risk Assessment on IBM Z', section: 'Additional Patterns', snippet: 'Build and deploy a credit risk scoring model using open-source frameworks and Machine Learning for IBM z/OS with real-time scoring.', href: root + 'use-cases/ai-solution-template.html#credit-risk' },
-    { title: 'Health Insurance Claims on IBM Z', section: 'Additional Patterns', snippet: 'AI model for health insurance claims processing using Machine Learning for IBM z/OS, deployed for real-time scoring on z/OS.', href: root + 'use-cases/ai-solution-template.html#health-insurance' },
-    { title: 'Data Preprocessing on IBM Z', section: 'Additional Patterns', snippet: 'Build an AI solution with a preprocessing pipeline using open-source frameworks and Machine Learning for IBM z/OS on IBM Z.', href: root + 'use-cases/ai-solution-template.html#data-preprocessing' },
-    { title: 'Anti-Money Laundering on IBM Z', section: 'Additional Patterns', snippet: 'AML detection model using open-source frameworks and Machine Learning for IBM z/OS for real-time transaction monitoring.', href: root + 'use-cases/ai-solution-template.html#anti-money-laundering' },
+    { title: 'Solution Blueprints', section: 'Use Cases', snippet: 'More AI solution patterns on IBM Z — generative AI, fraud detection, credit risk, health insurance, data preprocessing, and AML.', href: root + 'use-cases/ai-solution-template.html' },
+    { title: 'Fraud Detection on IBM Z', section: 'Solution Blueprints', snippet: 'Deploy an AI fraud detection model using open-source frameworks and Machine Learning for IBM z/OS.', href: root + 'use-cases/ai-solution-template.html#fraud-detection' },
+    { title: 'Document Intelligence with Spyre', section: 'Solution Blueprints · Generative AI', snippet: 'IBM Granite LLM inference on Red Hat AI Inference Server, leveraging the IBM Spyre Accelerator on IBM Z.', href: root + 'use-cases/ai-solution-template.html#generative-ai' },
+    { title: 'Credit Risk Assessment on IBM Z', section: 'Solution Blueprints', snippet: 'Build and deploy a credit risk scoring model using open-source frameworks and Machine Learning for IBM z/OS with real-time scoring.', href: root + 'use-cases/ai-solution-template.html#credit-risk' },
+    { title: 'Health Insurance Claims on IBM Z', section: 'Solution Blueprints', snippet: 'AI model for health insurance claims processing using Machine Learning for IBM z/OS, deployed for real-time scoring on z/OS.', href: root + 'use-cases/ai-solution-template.html#health-insurance' },
+    { title: 'Data Preprocessing on IBM Z', section: 'Solution Blueprints', snippet: 'Build an AI solution with a preprocessing pipeline using open-source frameworks and Machine Learning for IBM z/OS on IBM Z.', href: root + 'use-cases/ai-solution-template.html#data-preprocessing' },
+    { title: 'Anti-Money Laundering on IBM Z', section: 'Solution Blueprints', snippet: 'AML detection model using open-source frameworks and Machine Learning for IBM z/OS for real-time transaction monitoring.', href: root + 'use-cases/ai-solution-template.html#anti-money-laundering' },
 
     /* Turnkey & ISV Solutions */
     { title: 'Turnkey & ISV Solutions', section: 'Products & Tools', snippet: 'Pre-built AI solutions from IBM and ecosystem partners — SQL Data Insights Pro, Featurespace, Quantexa, Clari5, OvationCXM, Exponential AI, ACI, DXC, Worldline.', href: root + 'products-tools/turnkey-solutions.html' },
